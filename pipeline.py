@@ -1,3 +1,4 @@
+import os
 import csv
 import yaml
 import sqlite3
@@ -57,19 +58,18 @@ def getMetadata(dbpath):
         res = cur.fetchall()
     return res
 
-def countOccurrences(file, term, level):
-    p = Popen(['xan', 'search', term, file], stdout=PIPE)
-    q = Popen(["xan", "count"], stdin=p.stdout, stdout=PIPE)
-    output = q.communicate()[0].decode()
-    nb_occurrence = int(output)
-    # print(f"Found {nb_occurrence} times the term {term} in level {level}")
-    return level, term, nb_occurrence
-
 def writeMetadata(file, metadata):
     with open(file, 'w') as f:
         w = csv.writer(f)
         w.writerow(fields)
         w.writerows(metadata)
+
+def countOccurrences(file, term, level):
+    p = Popen(['xan', 'search', term, file], stdout=PIPE)
+    q = Popen(["xan", "count"], stdin=p.stdout, stdout=PIPE)
+    output = q.communicate()[0].decode()
+    nb_occurrence = int(output)
+    return level, term, nb_occurrence
 
 def pipeline(country, year):
     counts = {level: {} for level in NUTSLEVELS}
@@ -77,10 +77,10 @@ def pipeline(country, year):
     dbpath = getLastRelease(db, country, year)
     metadata = getMetadata(dbpath)
     with tempfile.NamedTemporaryFile() as tmp:
-        # write metada to tmp file
+        # write metadata to tmp file
         writeMetadata(file=tmp.name, metadata=metadata)
         with concurrent.futures.ThreadPoolExecutor() as executor:
-            # launch multiple threads
+            # launch multiple threads searching locations terms with xan
             futures = [
                 executor.submit(countOccurrences, tmp.name, loc, level)
                 for level in locations
@@ -91,11 +91,23 @@ def pipeline(country, year):
         counts[result[0]][result[1]] = result[2]
     return counts
 
+def flatten(counts):
+    return [
+        (level, term, count)
+        for level in NUTSLEVELS
+        for term, count in counts[level].items()
+    ]
+
 if __name__ == "__main__":
 
     for year in country_years:
         for country in country_years[year]:
             counts = pipeline(country, year)
-            counts = yaml.dump(counts)
-            with open(f'nutsCounts/{country}_{year}.yaml', 'w') as f:
-                yaml.dump(counts, f)
+            filename = f'nutsCounts/{country}_{year}'
+            with open(f'{filename}.yml', 'w') as file:
+                yaml.dump(counts, file)
+            with open(f'{filename}.csv', 'w') as file:
+                writer =  csv.writer(file)
+                writer.writerow(['field', 'value','count'])
+                writer.writerows(flatten(counts))
+            os.system(f"xan hist {filename}.csv")
