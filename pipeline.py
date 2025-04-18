@@ -19,8 +19,8 @@ with open('epo_country_years_in_nuts.yml', "r") as fh:
 # print(country_years)
 
 db = "pseudonymized_alldata"
-# pathPattern = "/mnt/hdd2/epodata/stage/*/${db}/${country}_${year}_${db}.db"
-pathPattern = "${country}_${year}_${db}.db"
+pathPattern = "/mnt/hdd2/epodata/stage/*/${db}/${country}_${year}_${db}.db"
+# pathPattern = "${country}_${year}_${db}.db"
 
 fields = ['screen_name', 'name', 'description', 'location']
 table = "metadata"
@@ -93,11 +93,9 @@ def pipeline(country, year):
 
 if __name__ == "__main__":
 
-    print(yaml.dump(pipeline('belgium', '2020')))
-
-    # for year in country_years:
-    #     for country in country_years[year]:
-    #         counts = pipeline(country, year)
-    #         print(yaml.dump(counts))
-    #         break
-    #     break
+    for year in country_years:
+        for country in country_years[year]:
+            counts = pipeline(country, year)
+            counts = yaml.dump(counts)
+            with open(f'nutsCounts/{country}_{year}.yaml', 'w') as f:
+                yaml.dump(counts, f)
