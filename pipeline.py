@@ -71,6 +71,12 @@ def countOccurrences(file, term, level):
     nb_occurrence = int(output)
     return level, term, nb_occurrence
 
+def countTotal(file):
+    q = Popen(["xan", "count", file], stdout=PIPE)
+    output = q.communicate()[0].decode()
+    nb_occurrence = int(output)
+    return nb_occurrence
+
 def pipeline(country, year):
     counts = {level: {} for level in NUTSLEVELS}
     locations = getLocations(country)
@@ -79,16 +85,25 @@ def pipeline(country, year):
     with tempfile.NamedTemporaryFile() as tmp:
         # write metadata to tmp file
         writeMetadata(file=tmp.name, metadata=metadata)
+        # get total count
+        total_count = countTotal(file=tmp.name)
+        # launch multiple threads searching locations terms with xan
         with concurrent.futures.ThreadPoolExecutor() as executor:
-            # launch multiple threads searching locations terms with xan
             futures = [
                 executor.submit(countOccurrences, tmp.name, loc, level)
                 for level in locations
                     for loc in locations[level]]
             # and collect results
             results = [f.result() for f in futures]
+
     for result in results:
         counts[result[0]][result[1]] = result[2]
+
+    # add total number of no matches
+    for level in NUTSLEVELS:
+        total_level = sum([r[2] for r in results if r[0] == level])
+        counts[level]["NO LOCATION"] = total_count - total_level
+
     return counts
 
 def flatten(counts):
