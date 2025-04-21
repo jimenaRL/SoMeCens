@@ -17,13 +17,12 @@ with open('nuts_codes_country.yml', "r") as fh:
     codes_country = yaml.load(fh, Loader=yaml.SafeLoader)
 country_codes = {v: k for k,v in codes_country.items()}
 
-db = "pseudonymized_alldata"
-# pathPattern = "/mnt/hdd2/epodata/stage/*/${db}/${country}_${year}_${db}.db"
-pathPattern = "${country}_${year}_${db}.db"
+DEFAULTDB = "pseudonymized_alldata"
+DEFAULTPATTERN = "/mnt/hdd2/epodata/stage/*/${db}/${country}_${year}_${db}.db"
 
-fields = ['screen_name', 'name', 'description', 'location']
-table = "metadata"
-QUERY = f"SELECT {','.join(fields)} FROM {table}"
+FIELDS = ['screen_name', 'name', 'description', 'location']
+TABLE = "metadata"
+QUERY = f"SELECT {','.join(FIELDS)} FROM {TABLE}"
 
 NUTSLEVELS = [1, 2, 3]
 
@@ -41,7 +40,7 @@ def getLocationsLevel(country, level):
 def getLocations(country):
     return {level: getLocationsLevel(country, level) for level in NUTSLEVELS}
 
-def getLastRelease(db, country, year):
+def getLastRelease(pathPattern, db, country, year):
     path = Template(pathPattern).substitute(db=db, country=country, year=year)
     canditates_paths = glob(path)
     canditates_paths.sort()
@@ -59,7 +58,7 @@ def getMetadata(dbpath):
 def writeMetadata(file, metadata):
     with open(file, 'w') as f:
         w = csv.writer(f)
-        w.writerow(fields)
+        w.writerow(FIELDS)
         w.writerows(metadata)
 
 def countOccurrences(file, term, level):
@@ -75,10 +74,9 @@ def countTotal(file):
     nb_occurrence = int(output)
     return nb_occurrence
 
-def pipeline(country, year):
+def pipeline(dbpath):
     counts = {level: {} for level in NUTSLEVELS}
     locations = getLocations(country)
-    dbpath = getLastRelease(db, country, year)
     metadata = getMetadata(dbpath)
     with tempfile.NamedTemporaryFile() as tmp:
         # write metadata to tmp file
@@ -100,7 +98,7 @@ def pipeline(country, year):
     # add total number of no matches
     for level in NUTSLEVELS:
         total_level = sum([r[2] for r in results if r[0] == level])
-        counts[level]["NO LOCATION"] = total_count - total_level
+        counts[level]["NO FOUND LOCATION"] = total_count - total_level
 
     return counts
 
@@ -116,11 +114,15 @@ if __name__ == "__main__":
     ap = ArgumentParser()
     ap.add_argument('--country', type=str, default=None, required=False)
     ap.add_argument('--year', type=str, default=None, required=False)
+    ap.add_argument('--db', type=str, default=DEFAULTDB, required=False)
+    ap.add_argument('--pattern', type=str, default=DEFAULTPATTERN, required=False)
     ap.add_argument('--output', type=str, default='nutsCounts', required=False)
 
     args = ap.parse_args()
     country = args.country
     year = args.year
+    db = args.db
+    pattern = args.pattern
     output = args.output
 
     if not country and year:
@@ -131,7 +133,8 @@ if __name__ == "__main__":
 
     for year in country_years:
         for country in country_years[year]:
-            counts = pipeline(country, year)
+            dbpath = getLastRelease(pattern, db, country, year)
+            counts = pipeline(dbpath)
             filename = f'{output}/{country}_{year}'
             with open(f'{filename}.yml', 'w') as file:
                 yaml.dump(counts, file)
