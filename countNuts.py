@@ -10,7 +10,6 @@ from string import Template
 from subprocess import Popen, PIPE
 from argparse import ArgumentParser
 
-
 COUNTRYEARSFILE = 'epo_country_years_in_nuts.yml'
 
 with open('nuts_codes_country.yml', "r") as fh:
@@ -125,7 +124,7 @@ if __name__ == "__main__":
     pattern = args.pattern
     output = args.output
 
-    if not country and year:
+    if not (country and year):
         with open(COUNTRYEARSFILE, "r") as fh:
             country_years = yaml.load(fh, Loader=yaml.SafeLoader)
     else:
