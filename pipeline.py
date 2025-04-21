@@ -8,20 +8,18 @@ from glob import glob
 import concurrent.futures
 from string import Template
 from subprocess import Popen, PIPE
+from argparse import ArgumentParser
+
+
+COUNTRYEARSFILE = 'epo_country_years_in_nuts.yml'
 
 with open('nuts_codes_country.yml', "r") as fh:
     codes_country = yaml.load(fh, Loader=yaml.SafeLoader)
 country_codes = {v: k for k,v in codes_country.items()}
 
-with open('epo_country_years_in_nuts.yml', "r") as fh:
-    country_years = yaml.load(fh, Loader=yaml.SafeLoader)
-
-# print(codes)
-# print(country_years)
-
 db = "pseudonymized_alldata"
-pathPattern = "/mnt/hdd2/epodata/stage/*/${db}/${country}_${year}_${db}.db"
-# pathPattern = "${country}_${year}_${db}.db"
+# pathPattern = "/mnt/hdd2/epodata/stage/*/${db}/${country}_${year}_${db}.db"
+pathPattern = "${country}_${year}_${db}.db"
 
 fields = ['screen_name', 'name', 'description', 'location']
 table = "metadata"
@@ -115,14 +113,31 @@ def flatten(counts):
 
 if __name__ == "__main__":
 
+    ap = ArgumentParser()
+    ap.add_argument('--country', type=str, default=None, required=False)
+    ap.add_argument('--year', type=str, default=None, required=False)
+    ap.add_argument('--output', type=str, default='nutsCounts', required=False)
+
+    args = ap.parse_args()
+    country = args.country
+    year = args.year
+    output = args.output
+
+    if not country and year:
+        with open(COUNTRYEARSFILE, "r") as fh:
+            country_years = yaml.load(fh, Loader=yaml.SafeLoader)
+    else:
+        country_years = {year: [country]}
+
     for year in country_years:
         for country in country_years[year]:
             counts = pipeline(country, year)
-            filename = f'nutsCounts/{country}_{year}'
+            filename = f'{output}/{country}_{year}'
             with open(f'{filename}.yml', 'w') as file:
                 yaml.dump(counts, file)
             with open(f'{filename}.csv', 'w') as file:
                 writer =  csv.writer(file)
                 writer.writerow(['field', 'value','count'])
                 writer.writerows(flatten(counts))
+            os.system(f"cat {filename}.yml")
             os.system(f"xan hist {filename}.csv")
