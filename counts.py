@@ -5,8 +5,8 @@ import concurrent.futures
 from subprocess import Popen, PIPE
 from argparse import ArgumentParser
 
-from conf import DEFAULTDB, DEFAULTDBPATTERN, METADATAFIELDS, NUTSLEVELS, COUNTRYEARS
-from tools import getLastRelease, getLocations, getMetadata, writeCsv
+from somecens.conf import DEFAULTDB, DEFAULTDBPATTERN, METADATAFIELDS, NUTSLEVELS, COUNTRYEARS
+from somecens.tools import getLastRelease, getLocations, getMetadata, writeCsv
 
 def countOccurrences(file, term, level):
     p = Popen(['xan', 'search', term, file], stdout=PIPE)
