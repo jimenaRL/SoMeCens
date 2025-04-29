@@ -1,7 +1,6 @@
-from .inout import InOut
-from .dbcreator import DbCreator
-from .sqlite import SQLite
-from .enrichment import DataEnrichment
-from .__version__ import __version__
+# from conf import COUNTRYCODES, NUTSLEVELS, METADATAFIELDS, METADATATABLE
+# from tools import getLastRelease, getLocations, getMetadata, writeCsv
+from tools import getMetadata
 
-__all__ = ['__version__', 'InOut', 'DbCreator', 'SQLite', 'DataEnrichment']
+
+__all__ = ['__version__', getMetadata]
