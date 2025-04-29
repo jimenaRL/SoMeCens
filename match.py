@@ -4,8 +4,8 @@ import yaml
 import tempfile
 from argparse import ArgumentParser
 
-from conf import COUNTRYEARS, DEFAULTDB, DEFAULTDBPATTERN, METADATAFIELDS, NUTSLEVELS
-from tools import getLastRelease, getLocations, getMetadata, writeCsv
+from somecens.conf import COUNTRYEARS, DEFAULTDB, DEFAULTDBPATTERN, METADATAFIELDS, NUTSLEVELS
+from somecens.tools import getLastRelease, getLocations, getMetadata, writeCsv
 
 def matchs(dbpath, outputpath):
     counts = {level: {} for level in NUTSLEVELS}
