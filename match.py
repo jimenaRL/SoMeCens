@@ -5,11 +5,11 @@ import tempfile
 from argparse import ArgumentParser
 
 from somecens.conf import COUNTRYEARS, DEFAULTDB, DEFAULTDBPATTERN, METADATAFIELDS, NUTSLEVELS
-from somecens.tools import getLastRelease, getLocations, getMetadata, writeCsv
+from somecens.tools import getLastRelease, getNutsLocations, getMetadata, writeCsv
 
 def matchs(dbpath, outputpath):
     counts = {level: {} for level in NUTSLEVELS}
-    locations = getLocations(country, format='flatten')
+    locations = getNutsLocations(country, format='flatten')
     metadata = getMetadata(dbpath)
     # write metadata and locations to tmp files
     with tempfile.NamedTemporaryFile() as tmpMeta:

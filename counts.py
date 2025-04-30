@@ -6,7 +6,7 @@ from subprocess import Popen, PIPE
 from argparse import ArgumentParser
 
 from somecens.conf import DEFAULTDB, DEFAULTDBPATTERN, METADATAFIELDS, NUTSLEVELS, COUNTRYEARS
-from somecens.tools import getLastRelease, getLocations, getMetadata, writeCsv
+from somecens.tools import getLastRelease, getNutsLocations, getMetadata, writeCsv
 
 def countOccurrences(file, term, level):
     p = Popen(['xan', 'search', term, file], stdout=PIPE)
@@ -23,7 +23,7 @@ def countTotal(file):
 
 def pipeline(dbpath):
     counts = {level: {} for level in NUTSLEVELS}
-    locations = getLocations(country)
+    locations = getNutsLocations(country)
     metadata = getMetadata(dbpath)
     with tempfile.NamedTemporaryFile() as tmp:
         # write metadata to tmp file

@@ -4,7 +4,12 @@ from glob import glob
 from string import Template
 from subprocess import Popen, PIPE
 
-from conf import COUNTRYCODES, NUTSLEVELS, METADATAFIELDS, METADATATABLE
+from conf import \
+    COUNTRYCODES, \
+    NUTSLEVELS, \
+    METADATAFIELDS, \
+    METADATATABLE, \
+    NUTSPATH
 
 QUERY = f"SELECT {','.join(METADATAFIELDS)} FROM {METADATATABLE}"
 
@@ -17,19 +22,19 @@ def writeCsv(file, rows, headers=None, verbose=False):
     if verbose:
         print(f"Csv file saved at {file}.")
 
-def getLocationsLevel(country, level):
+def getNutsLocationsLevel(country, level):
     code = COUNTRYCODES[country]
     f1 = f"col('Country Code') eq '{code}'"
     f2 = f"col('NUTS level') eq {level}"
     s = f"NUTS level {level}"
-    p1 = Popen(["xan", "filter", f1, "nuts.csv"], stdout=PIPE)
+    p1 = Popen(["xan", "filter", f1, NUTSPATH], stdout=PIPE)
     p2 = Popen(["xan", "filter", f2], stdin=p1.stdout, stdout=PIPE)
     p3 = Popen(["xan", "select", s], stdin=p2.stdout, stdout=PIPE)
     output = p3.communicate()[0].decode().split('\n')[1:-1]
     return output
 
-def getLocations(country, format='dict'):
-    locsDict = {level: getLocationsLevel(country, level) for level in NUTSLEVELS}
+def getNutsLocations(country, format='dict'):
+    locsDict = {level: getNutsLocationsLevel(country, level) for level in NUTSLEVELS}
     if format == 'dict':
         return locsDict
     elif format == 'flatten':
