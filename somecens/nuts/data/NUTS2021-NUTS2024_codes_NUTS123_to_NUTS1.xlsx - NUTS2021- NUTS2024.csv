@@ -1,0 +1,1648 @@
+#,Country Code,Code 2021,Code 2024,"NUTS level 1","NUTS level 2","NUTS level 3",Change,NUTS level,Country order,Region order (NUTS 2021),Region order (NUTS 2024)
+1,BE,BE,BE,,,,,0,1,1,1
+2,BE,BE1,BE1,Région de Bruxelles-Capitale/Brussels Hoofdstedelijk Gewest,,,,1,1,2,2
+3,BE,BE10,BE10,,Région de Bruxelles-Capitale/Brussels Hoofdstedelijk Gewest,,,2,1,3,3
+4,BE,BE100,BE100,,,Arr. de Bruxelles-Capitale/Arr. Brussel-Hoofdstad,,3,1,4,4
+5,BE,BE2,BE2,Vlaams Gewest,,,,1,1,5,5
+6,BE,BE21,BE21,,Prov. Antwerpen,,,2,1,6,6
+7,BE,BE211,BE211,,,Arr. Antwerpen,,3,1,7,7
+8,BE,BE212,BE212,,,Arr. Mechelen,,3,1,8,8
+9,BE,BE213,BE213,,,Arr. Turnhout,,3,1,9,9
+10,BE,BE22,BE22,,Prov. Limburg (BE),,,2,1,10,10
+11,BE,BE223,BE223,,,Arr. Tongeren,,3,1,11,11
+12,BE,BE224,BE224,,,Arr. Hasselt,,3,1,12,12
+13,BE,BE225,BE225,,,Arr. Maaseik,,3,1,13,13
+14,BE,BE23,BE23,,Prov. Oost-Vlaanderen,,,2,1,14,14
+15,BE,BE231,BE231,,,Arr. Aalst,,3,1,15,15
+16,BE,BE232,BE232,,,Arr. Dendermonde,,3,1,16,16
+17,BE,BE233,BE233,,,Arr. Eeklo,,3,1,17,17
+18,BE,BE234,BE234,,,Arr. Gent,,3,1,18,18
+19,BE,BE235,BE235,,,Arr. Oudenaarde,,3,1,19,19
+20,BE,BE236,BE236,,,Arr. Sint-Niklaas,,3,1,20,20
+21,BE,BE24,BE24,,Prov. Vlaams-Brabant,,,2,1,21,21
+22,BE,BE241,BE241,,,Arr. Halle-Vilvoorde,,3,1,22,22
+23,BE,BE242,BE242,,,Arr. Leuven,,3,1,23,23
+24,BE,BE25,BE25,,Prov. West-Vlaanderen,,,2,1,24,24
+25,BE,BE251,BE251,,,Arr. Brugge,,3,1,25,25
+26,BE,BE252,BE252,,,Arr. Diksmuide,,3,1,26,26
+27,BE,BE253,BE253,,,Arr. Ieper,,3,1,27,27
+28,BE,BE254,BE254,,,Arr. Kortrijk,,3,1,28,28
+29,BE,BE255,BE255,,,Arr. Oostende,,3,1,29,29
+30,BE,BE256,BE256,,,Arr. Roeselare,,3,1,30,30
+31,BE,BE257,BE257,,,Arr. Tielt,,3,1,31,31
+32,BE,BE258,BE258,,,Arr. Veurne,,3,1,32,32
+33,BE,BE3,BE3,Région wallonne,,,,1,1,33,33
+34,BE,BE31,BE31,,Prov. Brabant wallon,,Name change,2,1,34,34
+35,BE,BE310,BE310,,,Arr. Nivelles,,3,1,35,35
+36,BE,BE32,BE32,,Prov. Hainaut,,,2,1,36,36
+37,BE,BE323,BE323,,,Arr. Mons,,3,1,37,37
+38,BE,BE328,BE328,,,Arr. Tournai-Mouscron,,3,1,38,38
+39,BE,BE329,BE329,,,Arr. La Louvière,,3,1,39,39
+40,BE,BE32A,BE32A,,,Arr. Ath,,3,1,40,40
+41,BE,BE32B,BE32B,,,Arr. Charleroi,,3,1,41,41
+42,BE,BE32C,BE32C,,,Arr. Soignies,,3,1,42,42
+43,BE,BE32D,BE32D,,,Arr. Thuin,,3,1,43,43
+44,BE,BE33,BE33,,Prov. Liège,,,2,1,44,44
+45,BE,BE331,BE331,,,Arr. Huy,,3,1,45,45
+46,BE,BE332,BE332,,,Arr. Liège,,3,1,46,46
+47,BE,BE334,BE334,,,Arr. Waremme,,3,1,47,47
+48,BE,BE335,BE335,,,Arr. Verviers — communes francophones,,3,1,48,48
+49,BE,BE336,BE336,,,Bezirk Verviers — Deutschsprachige Gemeinschaft,,3,1,49,49
+50,BE,BE34,BE34,,Prov. Luxembourg (BE),,,2,1,50,50
+51,BE,BE341,BE341,,,Arr. Arlon,,3,1,51,51
+52,BE,BE342,BE342,,,Arr. Bastogne,,3,1,52,52
+53,BE,BE343,BE343,,,Arr. Marche-en-Famenne,,3,1,53,53
+54,BE,BE344,BE344,,,Arr. Neufchâteau,,3,1,54,54
+55,BE,BE345,BE345,,,Arr. Virton,,3,1,55,55
+56,BE,BE35,BE35,,Prov. Namur,,,2,1,56,56
+57,BE,BE351,BE351,,,Arr. Dinant,,3,1,57,57
+58,BE,BE352,BE352,,,Arr. Namur,,3,1,58,58
+59,BE,BE353,BE353,,,Arr. Philippeville,,3,1,59,59
+60,BE,BEZ,BEZ,Extra-Regio NUTS 1,,,,1,1,60,60
+61,BE,BEZZ,BEZZ,,Extra-Regio NUTS 2,,,2,1,61,61
+62,BE,BEZZZ,BEZZZ,,,Extra-Regio NUTS 3,,3,1,62,62
+63,BG,BG,BG,,,,,0,2,63,63
+64,BG,BG3,BG3,Северна и Югоизточна България,,,,1,2,64,64
+65,BG,BG31,BG31,,Северозападен,,,2,2,65,65
+66,BG,BG311,BG311,,,Видин,,3,2,66,66
+67,BG,BG312,BG312,,,Монтана,,3,2,67,67
+68,BG,BG313,BG313,,,Враца,,3,2,68,68
+69,BG,BG314,BG314,,,Плевен,,3,2,69,69
+70,BG,BG315,BG315,,,Ловеч,,3,2,70,70
+71,BG,BG32,BG32,,Северен централен,,,2,2,71,71
+72,BG,BG321,BG321,,,Велико Търново,,3,2,72,72
+73,BG,BG322,BG322,,,Габрово,,3,2,73,73
+74,BG,BG323,BG323,,,Русе,,3,2,74,74
+75,BG,BG324,BG324,,,Разград,,3,2,75,75
+76,BG,BG325,BG325,,,Силистра,,3,2,76,76
+77,BG,BG33,BG33,,Североизточен,,,2,2,77,77
+78,BG,BG331,BG331,,,Варна,,3,2,78,78
+79,BG,BG332,BG332,,,Добрич,,3,2,79,79
+80,BG,BG333,BG333,,,Шумен,,3,2,80,80
+81,BG,BG334,BG334,,,Търговище,,3,2,81,81
+82,BG,BG34,BG34,,Югоизточен,,,2,2,82,82
+83,BG,BG341,BG341,,,Бургас,,3,2,83,83
+84,BG,BG342,BG342,,,Сливен,,3,2,84,84
+85,BG,BG343,BG343,,,Ямбол,,3,2,85,85
+86,BG,BG344,BG344,,,Стара Загора,,3,2,86,86
+87,BG,BG4,BG4,Югозападна и Южна централна България,,,,1,2,87,87
+88,BG,BG41,BG41,,Югозападен,,,2,2,88,88
+89,BG,BG411,BG411,,,София (столица),,3,2,89,89
+90,BG,BG412,BG412,,,София,,3,2,90,90
+91,BG,BG413,BG413,,,Благоевград,,3,2,91,91
+92,BG,BG414,BG414,,,Перник,,3,2,92,92
+93,BG,BG415,BG415,,,Кюстендил,,3,2,93,93
+94,BG,BG42,BG42,,Южен централен,,,2,2,94,94
+95,BG,BG421,BG421,,,Пловдив,,3,2,95,95
+96,BG,BG422,BG422,,,Хасково,,3,2,96,96
+97,BG,BG423,BG423,,,Пазарджик,,3,2,97,97
+98,BG,BG424,BG424,,,Смолян,,3,2,98,98
+99,BG,BG425,BG425,,,Кърджали,,3,2,99,99
+100,BG,BGZ,BGZ,Extra-Regio NUTS 1,,,,1,2,100,100
+101,BG,BGZZ,BGZZ,,Extra-Regio NUTS 2,,,2,2,101,101
+102,BG,BGZZZ,BGZZZ,,,Extra-Regio NUTS 3,,3,2,102,102
+103,CZ,CZ,CZ,,,,,0,3,103,103
+104,CZ,CZ0,CZ0,Česko,,,,1,3,104,104
+105,CZ,CZ01,CZ01,,Praha,,,2,3,105,105
+106,CZ,CZ010,CZ010,,,Hlavní město Praha,,3,3,106,106
+107,CZ,CZ02,CZ02,,Střední Čechy,,,2,3,107,107
+108,CZ,CZ020,CZ020,,,Středočeský kraj,,3,3,108,108
+109,CZ,CZ03,CZ03,,Jihozápad,,,2,3,109,109
+110,CZ,CZ031,CZ031,,,Jihočeský kraj,,3,3,110,110
+111,CZ,CZ032,CZ032,,,Plzeňský kraj,,3,3,111,111
+112,CZ,CZ04,CZ04,,Severozápad,,,2,3,112,112
+113,CZ,CZ041,CZ041,,,Karlovarský kraj,,3,3,113,113
+114,CZ,CZ042,CZ042,,,Ústecký kraj,,3,3,114,114
+115,CZ,CZ05,CZ05,,Severovýchod,,,2,3,115,115
+116,CZ,CZ051,CZ051,,,Liberecký kraj,,3,3,116,116
+117,CZ,CZ052,CZ052,,,Královéhradecký kraj,,3,3,117,117
+118,CZ,CZ053,CZ053,,,Pardubický kraj,,3,3,118,118
+119,CZ,CZ06,CZ06,,Jihovýchod,,,2,3,119,119
+120,CZ,CZ063,CZ063,,,Kraj Vysočina,,3,3,120,120
+121,CZ,CZ064,CZ064,,,Jihomoravský kraj,,3,3,121,121
+122,CZ,CZ07,CZ07,,Střední Morava,,,2,3,122,122
+123,CZ,CZ071,CZ071,,,Olomoucký kraj,,3,3,123,123
+124,CZ,CZ072,CZ072,,,Zlínský kraj,,3,3,124,124
+125,CZ,CZ08,CZ08,,Moravskoslezsko,,,2,3,125,125
+126,CZ,CZ080,CZ080,,,Moravskoslezský kraj,,3,3,126,126
+127,CZ,CZZ,CZZ,Extra-Regio NUTS 1,,,,1,3,127,127
+128,CZ,CZZZ,CZZZ,,Extra-Regio NUTS 2,,,2,3,128,128
+129,CZ,CZZZZ,CZZZZ,,,Extra-Regio NUTS 3,,3,3,129,129
+130,DK,DK,DK,,,,,0,4,130,130
+131,DK,DK0,DK0,Danmark,,,,1,4,131,131
+132,DK,DK01,DK01,,Hovedstaden,,,2,4,132,132
+133,DK,DK011,DK011,,,Byen København,,3,4,133,133
+134,DK,DK012,DK012,,,Københavns omegn,,3,4,134,134
+135,DK,DK013,DK013,,,Nordsjælland,,3,4,135,135
+136,DK,DK014,DK014,,,Bornholm,,3,4,136,136
+137,DK,DK02,DK02,,Sjælland,,,2,4,137,137
+138,DK,DK021,DK021,,,Østsjælland,,3,4,138,138
+139,DK,DK022,DK022,,,Vest- og Sydsjælland,,3,4,139,139
+140,DK,DK03,DK03,,Syddanmark,,,2,4,140,140
+141,DK,DK031,DK031,,,Fyn,,3,4,141,141
+142,DK,DK032,DK032,,,Sydjylland,,3,4,142,142
+143,DK,DK04,DK04,,Midtjylland,,,2,4,143,143
+144,DK,DK041,DK041,,,Vestjylland,,3,4,144,144
+145,DK,DK042,DK042,,,Østjylland,,3,4,145,145
+146,DK,DK05,DK05,,Nordjylland,,,2,4,146,146
+147,DK,DK050,DK050,,,Nordjylland,,3,4,147,147
+148,DK,DKZ,DKZ,Extra-Regio NUTS 1,,,,1,4,148,148
+149,DK,DKZZ,DKZZ,,Extra-Regio NUTS 2,,,2,4,149,149
+150,DK,DKZZZ,DKZZZ,,,Extra-Regio NUTS 3,,3,4,150,150
+151,DE,DE,DE,,,,,0,5,158,158
+152,DE,DE1,DE1,Baden-Württemberg,,,,1,5,159,159
+153,DE,DE11,DE11,,Stuttgart,,,2,5,160,160
+154,DE,DE111,DE111,,,"Stuttgart, Stadtkreis",,3,5,161,161
+155,DE,DE112,DE112,,,Böblingen,,3,5,162,162
+156,DE,DE113,DE113,,,Esslingen,,3,5,163,163
+157,DE,DE114,DE114,,,Göppingen,,3,5,164,164
+158,DE,DE115,DE115,,,Ludwigsburg,,3,5,165,165
+159,DE,DE116,DE116,,,Rems-Murr-Kreis,,3,5,166,166
+160,DE,DE117,DE117,,,"Heilbronn, Stadtkreis",,3,5,167,167
+161,DE,DE118,DE118,,,"Heilbronn, Landkreis",,3,5,168,168
+162,DE,DE119,DE119,,,Hohenlohekreis,,3,5,169,169
+163,DE,DE11A,DE11A,,,Schwäbisch Hall,,3,5,170,170
+164,DE,DE11B,DE11B,,,Main-Tauber-Kreis,,3,5,171,171
+165,DE,DE11C,DE11C,,,Heidenheim,,3,5,172,172
+166,DE,DE11D,DE11D,,,Ostalbkreis,,3,5,173,173
+167,DE,DE12,DE12,,Karlsruhe,,,2,5,174,174
+168,DE,DE121,DE121,,,"Baden-Baden, Stadtkreis",,3,5,175,175
+169,DE,DE122,DE122,,,"Karlsruhe, Stadtkreis",,3,5,176,176
+170,DE,DE123,DE123,,,"Karlsruhe, Landkreis",,3,5,177,177
+171,DE,DE124,DE124,,,Rastatt,,3,5,178,178
+172,DE,DE125,DE125,,,"Heidelberg, Stadtkreis",,3,5,179,179
+173,DE,DE126,DE126,,,"Mannheim, Stadtkreis",,3,5,180,180
+174,DE,DE127,DE127,,,Neckar-Odenwald-Kreis,,3,5,181,181
+175,DE,DE128,DE128,,,Rhein-Neckar-Kreis,,3,5,182,182
+176,DE,DE129,DE129,,,"Pforzheim, Stadtkreis",,3,5,183,183
+177,DE,DE12A,DE12A,,,Calw,,3,5,184,184
+178,DE,DE12B,DE12B,,,Enzkreis,,3,5,185,185
+179,DE,DE12C,DE12C,,,Freudenstadt,,3,5,186,186
+180,DE,DE13,DE13,,Freiburg,,,2,5,187,187
+181,DE,DE131,DE131,,,"Freiburg im Breisgau, Stadtkreis",,3,5,188,188
+182,DE,DE132,DE132,,,Breisgau-Hochschwarzwald,,3,5,189,189
+183,DE,DE133,DE133,,,Emmendingen,,3,5,190,190
+184,DE,DE134,DE134,,,Ortenaukreis,,3,5,191,191
+185,DE,DE135,DE135,,,Rottweil,,3,5,192,192
+186,DE,DE136,DE136,,,Schwarzwald-Baar-Kreis,,3,5,193,193
+187,DE,DE137,DE137,,,Tuttlingen,,3,5,194,194
+188,DE,DE138,DE138,,,Konstanz,,3,5,195,195
+189,DE,DE139,DE139,,,Lörrach,,3,5,196,196
+190,DE,DE13A,DE13A,,,Waldshut,,3,5,197,197
+191,DE,DE14,DE14,,Tübingen,,,2,5,198,198
+192,DE,DE141,DE141,,,Reutlingen,,3,5,199,199
+193,DE,DE142,DE142,,,"Tübingen, Landkreis",,3,5,200,200
+194,DE,DE143,DE143,,,Zollernalbkreis,,3,5,201,201
+195,DE,DE144,DE144,,,"Ulm, Stadtkreis",,3,5,202,202
+196,DE,DE145,DE145,,,Alb-Donau-Kreis,,3,5,203,203
+197,DE,DE146,DE146,,,Biberach,,3,5,204,204
+198,DE,DE147,DE147,,,Bodenseekreis,,3,5,205,205
+199,DE,DE148,DE148,,,Ravensburg,,3,5,206,206
+200,DE,DE149,DE149,,,Sigmaringen,,3,5,207,207
+201,DE,DE2,DE2,Bayern,,,,1,5,208,208
+202,DE,DE21,DE21,,Oberbayern,,,2,5,209,209
+203,DE,DE211,DE211,,,"Ingolstadt, Kreisfreie Stadt",,3,5,210,210
+204,DE,DE212,DE212,,,"München, Kreisfreie Stadt",,3,5,211,211
+205,DE,DE213,DE213,,,"Rosenheim, Kreisfreie Stadt",,3,5,212,212
+206,DE,DE214,DE214,,,Altötting,,3,5,213,213
+207,DE,DE215,DE215,,,Berchtesgadener Land,,3,5,214,214
+208,DE,DE216,DE216,,,Bad Tölz-Wolfratshausen,,3,5,215,215
+209,DE,DE217,DE217,,,Dachau,,3,5,216,216
+210,DE,DE218,DE218,,,Ebersberg,,3,5,217,217
+211,DE,DE219,DE219,,,Eichstätt,,3,5,218,218
+212,DE,DE21A,DE21A,,,Erding,,3,5,219,219
+213,DE,DE21B,DE21B,,,Freising,,3,5,220,220
+214,DE,DE21C,DE21C,,,Fürstenfeldbruck,,3,5,221,221
+215,DE,DE21D,DE21D,,,Garmisch-Partenkirchen,,3,5,222,222
+216,DE,DE21E,DE21E,,,Landsberg am Lech,,3,5,223,223
+217,DE,DE21F,DE21F,,,Miesbach,,3,5,224,224
+218,DE,DE21G,DE21G,,,Mühldorf a. Inn,,3,5,225,225
+219,DE,DE21H,DE21H,,,"München, Landkreis",,3,5,226,226
+220,DE,DE21I,DE21I,,,Neuburg-Schrobenhausen,,3,5,227,227
+221,DE,DE21J,DE21J,,,Pfaffenhofen a. d. Ilm,,3,5,228,228
+222,DE,DE21K,DE21K,,,"Rosenheim, Landkreis",,3,5,229,229
+223,DE,DE21L,DE21L,,,Starnberg,,3,5,230,230
+224,DE,DE21M,DE21M,,,Traunstein,,3,5,231,231
+225,DE,DE21N,DE21N,,,Weilheim-Schongau,,3,5,232,232
+226,DE,DE22,DE22,,Niederbayern,,,2,5,233,233
+227,DE,DE221,DE221,,,"Landshut, Kreisfreie Stadt",,3,5,234,234
+228,DE,DE222,DE222,,,"Passau, Kreisfreie Stadt",,3,5,235,235
+229,DE,DE223,DE223,,,"Straubing, Kreisfreie Stadt",,3,5,236,236
+230,DE,DE224,DE224,,,Deggendorf,,3,5,237,237
+231,DE,DE225,DE225,,,Freyung-Grafenau,,3,5,238,238
+232,DE,DE226,DE226,,,Kelheim,,3,5,239,239
+233,DE,DE227,DE227,,,"Landshut, Landkreis",,3,5,240,240
+234,DE,DE228,DE228,,,"Passau, Landkreis",,3,5,241,241
+235,DE,DE229,DE229,,,Regen,,3,5,242,242
+236,DE,DE22A,DE22A,,,Rottal-Inn,,3,5,243,243
+237,DE,DE22B,DE22B,,,Straubing-Bogen,,3,5,244,244
+238,DE,DE22C,DE22C,,,Dingolfing-Landau,,3,5,245,245
+239,DE,DE23,DE23,,Oberpfalz,,,2,5,246,246
+240,DE,DE231,DE231,,,"Amberg, Kreisfreie Stadt",,3,5,247,247
+241,DE,DE232,DE232,,,"Regensburg, Kreisfreie Stadt",,3,5,248,248
+242,DE,DE233,DE233,,,"Weiden i. d. Opf, Kreisfreie Stadt",,3,5,249,249
+243,DE,DE234,DE234,,,Amberg-Sulzbach,,3,5,250,250
+244,DE,DE235,DE235,,,Cham,,3,5,251,251
+245,DE,DE236,DE236,,,Neumarkt i. d. OPf.,,3,5,252,252
+246,DE,DE237,DE237,,,Neustadt a. d. Waldnaab,,3,5,253,253
+247,DE,DE238,DE238,,,"Regensburg, Landkreis",,3,5,254,254
+248,DE,DE239,DE239,,,Schwandorf,,3,5,255,255
+249,DE,DE23A,DE23A,,,Tirschenreuth,,3,5,256,256
+250,DE,DE24,DE24,,Oberfranken,,,2,5,257,257
+251,DE,DE241,DE241,,,"Bamberg, Kreisfreie Stadt",,3,5,258,258
+252,DE,DE242,DE242,,,"Bayreuth, Kreisfreie Stadt",,3,5,259,259
+253,DE,DE243,DE243,,,"Coburg, Kreisfreie Stadt",,3,5,260,260
+254,DE,DE244,DE244,,,"Hof, Kreisfreie Stadt",,3,5,261,261
+255,DE,DE245,DE245,,,"Bamberg, Landkreis",,3,5,262,262
+256,DE,DE246,DE246,,,"Bayreuth, Landkreis",,3,5,263,263
+257,DE,DE247,DE247,,,"Coburg, Landkreis",,3,5,264,264
+258,DE,DE248,DE248,,,Forchheim,,3,5,265,265
+259,DE,DE249,DE249,,,"Hof, Landkreis",,3,5,266,266
+260,DE,DE24A,DE24A,,,Kronach,,3,5,267,267
+261,DE,DE24B,DE24B,,,Kulmbach,,3,5,268,268
+262,DE,DE24C,DE24C,,,Lichtenfels,,3,5,269,269
+263,DE,DE24D,DE24D,,,Wunsiedel i. Fichtelgebirge,,3,5,270,270
+264,DE,DE25,DE25,,Mittelfranken,,,2,5,271,271
+265,DE,DE251,DE251,,,"Ansbach, Kreisfreie Stadt",,3,5,272,272
+266,DE,DE252,DE252,,,"Erlangen, Kreisfreie Stadt",,3,5,273,273
+267,DE,DE253,DE253,,,"Fürth, Kreisfreie Stadt",,3,5,274,274
+268,DE,DE254,DE254,,,"Nürnberg, Kreisfreie Stadt",,3,5,275,275
+269,DE,DE255,DE255,,,"Schwabach, Kreisfreie Stadt",,3,5,276,276
+270,DE,DE256,DE256,,,"Ansbach, Landkreis",,3,5,277,277
+271,DE,DE257,DE257,,,Erlangen-Höchstadt,,3,5,278,278
+272,DE,DE258,DE258,,,"Fürth, Landkreis",,3,5,279,279
+273,DE,DE259,DE259,,,Nürnberger Land,,3,5,280,280
+274,DE,DE25A,DE25A,,,Neustadt a. d. Aisch-Bad Windsheim,,3,5,281,281
+275,DE,DE25B,DE25B,,,Roth,,3,5,282,282
+276,DE,DE25C,DE25C,,,Weißenburg-Gunzenhausen,,3,5,283,283
+277,DE,DE26,DE26,,Unterfranken,,,2,5,284,284
+278,DE,DE261,DE261,,,"Aschaffenburg, Kreisfreie Stadt",,3,5,285,285
+279,DE,DE262,DE262,,,"Schweinfurt, Kreisfreie Stadt",,3,5,286,286
+280,DE,DE263,DE263,,,"Würzburg, Kreisfreie Stadt",,3,5,287,287
+281,DE,DE264,DE264,,,"Aschaffenburg, Landkreis",,3,5,288,288
+282,DE,DE265,DE265,,,Bad Kissingen,,3,5,289,289
+283,DE,DE266,DE266,,,Rhön-Grabfeld,,3,5,290,290
+284,DE,DE267,DE267,,,Haßberge,,3,5,291,291
+285,DE,DE268,DE268,,,Kitzingen,,3,5,292,292
+286,DE,DE269,DE269,,,Miltenberg,,3,5,293,293
+287,DE,DE26A,DE26A,,,Main-Spessart,,3,5,294,294
+288,DE,DE26B,DE26B,,,"Schweinfurt, Landkreis",,3,5,295,295
+289,DE,DE26C,DE26C,,,"Würzburg, Landkreis",,3,5,296,296
+290,DE,DE27,DE27,,Schwaben,,,2,5,297,297
+291,DE,DE271,DE271,,,"Augsburg, Kreisfreie Stadt",,3,5,298,298
+292,DE,DE272,DE272,,,"Kaufbeuren, Kreisfreie Stadt",,3,5,299,299
+293,DE,DE273,DE273,,,"Kempten (Allgäu), Kreisfreie Stadt",,3,5,300,300
+294,DE,DE274,DE274,,,"Memmingen, Kreisfreie Stadt",,3,5,301,301
+295,DE,DE275,DE275,,,Aichach-Friedberg,,3,5,302,302
+296,DE,DE276,DE276,,,"Augsburg, Landkreis",,3,5,303,303
+297,DE,DE277,DE277,,,Dillingen a.d. Donau,,3,5,304,304
+298,DE,DE278,DE278,,,Günzburg,,3,5,305,305
+299,DE,DE279,DE279,,,Neu-Ulm,,3,5,306,306
+300,DE,DE27A,DE27A,,,Lindau (Bodensee),,3,5,307,307
+301,DE,DE27B,DE27B,,,Ostallgäu,,3,5,308,308
+302,DE,DE27C,DE27C,,,Unterallgäu,,3,5,309,309
+303,DE,DE27D,DE27D,,,Donau-Ries,,3,5,310,310
+304,DE,DE27E,DE27E,,,Oberallgäu,,3,5,311,311
+305,DE,DE3,DE3,Berlin,,,,1,5,312,312
+306,DE,DE30,DE30,,Berlin,,,2,5,313,313
+307,DE,DE300,DE300,,,Berlin,,3,5,314,314
+308,DE,DE4,DE4,Brandenburg,,,,1,5,315,315
+309,DE,DE40,DE40,,Brandenburg,,,2,5,316,316
+310,DE,DE401,DE401,,,"Brandenburg an der Havel, Kreisfreie Stadt",,3,5,317,317
+311,DE,DE402,DE402,,,"Cottbus, Kreisfreie Stadt",,3,5,318,318
+312,DE,DE403,DE403,,,"Frankfurt (Oder), Kreisfreie Stadt",,3,5,319,319
+313,DE,DE404,DE404,,,"Potsdam, Kreisfreie Stadt",,3,5,320,320
+314,DE,DE405,DE405,,,Barnim,,3,5,321,321
+315,DE,DE406,DE406,,,Dahme-Spreewald,,3,5,322,322
+316,DE,DE407,DE407,,,Elbe-Elster,,3,5,323,323
+317,DE,DE408,DE408,,,Havelland,,3,5,324,324
+318,DE,DE409,DE409,,,Märkisch-Oderland,,3,5,325,325
+319,DE,DE40A,DE40A,,,Oberhavel,,3,5,326,326
+320,DE,DE40B,DE40B,,,Oberspreewald-Lausitz,,3,5,327,327
+321,DE,DE40C,DE40C,,,Oder-Spree,,3,5,328,328
+322,DE,DE40D,DE40D,,,Ostprignitz-Ruppin,,3,5,329,329
+323,DE,DE40E,DE40E,,,Potsdam-Mittelmark,,3,5,330,330
+324,DE,DE40F,DE40F,,,Prignitz,,3,5,331,331
+325,DE,DE40G,DE40G,,,Spree-Neiße,,3,5,332,332
+326,DE,DE40H,DE40H,,,Teltow-Fläming,,3,5,333,333
+327,DE,DE40I,DE40I,,,Uckermark,,3,5,334,334
+328,DE,DE5,DE5,Bremen,,,,1,5,335,335
+329,DE,DE50,DE50,,Bremen,,,2,5,336,336
+330,DE,DE501,DE501,,,"Bremen, Kreisfreie Stadt",,3,5,337,337
+331,DE,DE502,DE502,,,"Bremerhaven, Kreisfreie Stadt",,3,5,338,338
+332,DE,DE6,DE6,Hamburg,,,,1,5,339,339
+333,DE,DE60,DE60,,Hamburg,,,2,5,340,340
+334,DE,DE600,DE600,,,Hamburg,,3,5,341,341
+335,DE,DE7,DE7,Hessen,,,,1,5,342,342
+336,DE,DE71,DE71,,Darmstadt,,,2,5,343,343
+337,DE,DE711,DE711,,,"Darmstadt, Kreisfreie Stadt",,3,5,344,344
+338,DE,DE712,DE712,,,"Frankfurt am Main, Kreisfreie Stadt",,3,5,345,345
+339,DE,DE713,DE713,,,"Offenbach am Main, Kreisfreie Stadt",,3,5,346,346
+340,DE,DE714,DE714,,,"Wiesbaden, Kreisfreie Stadt",,3,5,347,347
+341,DE,DE715,DE715,,,Bergstraße,,3,5,348,348
+342,DE,DE716,DE716,,,Darmstadt-Dieburg,,3,5,349,349
+343,DE,DE717,DE717,,,Groß-Gerau,,3,5,350,350
+344,DE,DE718,DE718,,,Hochtaunuskreis,,3,5,351,351
+345,DE,DE719,DE719,,,Main-Kinzig-Kreis,,3,5,352,352
+346,DE,DE71A,DE71A,,,Main-Taunus-Kreis,,3,5,353,353
+347,DE,DE71B,DE71B,,,Odenwaldkreis,,3,5,354,354
+348,DE,DE71C,DE71C,,,"Offenbach, Landkreis",,3,5,355,355
+349,DE,DE71D,DE71D,,,Rheingau-Taunus-Kreis,,3,5,356,356
+350,DE,DE71E,DE71E,,,Wetteraukreis,,3,5,357,357
+351,DE,DE72,DE72,,Gießen,,,2,5,358,358
+352,DE,DE721,DE721,,,"Gießen, Landkreis",,3,5,359,359
+353,DE,DE722,DE722,,,Lahn-Dill-Kreis,,3,5,360,360
+354,DE,DE723,DE723,,,Limburg-Weilburg,,3,5,361,361
+355,DE,DE724,DE724,,,Marburg-Biedenkopf,,3,5,362,362
+356,DE,DE725,DE725,,,Vogelsbergkreis,,3,5,363,363
+357,DE,DE73,DE73,,Kassel,,,2,5,364,364
+358,DE,DE731,DE731,,,"Kassel, Kreisfreie Stadt",,3,5,365,365
+359,DE,DE732,DE732,,,Fulda,,3,5,366,366
+360,DE,DE733,DE733,,,Hersfeld-Rotenburg,,3,5,367,367
+361,DE,DE734,DE734,,,"Kassel, Landkreis",,3,5,368,368
+362,DE,DE735,DE735,,,Schwalm-Eder-Kreis,,3,5,369,369
+363,DE,DE736,DE736,,,Waldeck-Frankenberg,,3,5,370,370
+364,DE,DE737,DE737,,,Werra-Meißner-Kreis,,3,5,371,371
+365,DE,DE8,DE8,Mecklenburg-Vorpommern,,,,1,5,372,372
+366,DE,DE80,DE80,,Mecklenburg-Vorpommern,,,2,5,373,373
+367,DE,DE803,DE803,,,"Rostock, Kreisfreie Stadt",,3,5,374,374
+368,DE,DE804,DE804,,,"Schwerin, Kreisfreie Stadt",,3,5,375,375
+369,DE,DE80J,DE80J,,,Mecklenburgische Seenplatte,,3,5,376,376
+370,DE,DE80K,DE80K,,,Landkreis Rostock,,3,5,377,377
+371,DE,DE80L,DE80L,,,Vorpommern-Rügen,,3,5,378,378
+372,DE,DE80M,DE80M,,,Nordwestmecklenburg,,3,5,379,379
+373,DE,DE80N,DE80N,,,Vorpommern-Greifswald,,3,5,380,380
+374,DE,DE80O,DE80O,,,Ludwigslust-Parchim,,3,5,381,381
+375,DE,DE9,DE9,Niedersachsen,,,,1,5,382,382
+376,DE,DE91,DE91,,Braunschweig,,,2,5,383,383
+377,DE,DE911,DE911,,,"Braunschweig, Kreisfreie Stadt",,3,5,384,384
+378,DE,DE912,DE912,,,"Salzgitter, Kreisfreie Stadt",,3,5,385,385
+379,DE,DE913,DE913,,,"Wolfsburg, Kreisfreie Stadt",,3,5,386,386
+380,DE,DE914,DE914,,,Gifhorn,,3,5,387,387
+381,DE,DE916,DE916,,,Goslar,,3,5,388,388
+382,DE,DE917,DE917,,,Helmstedt,,3,5,389,389
+383,DE,DE918,DE918,,,Northeim,,3,5,390,390
+384,DE,DE91A,DE91A,,,Peine,,3,5,391,391
+385,DE,DE91B,DE91B,,,Wolfenbüttel,,3,5,392,392
+386,DE,DE91C,DE91C,,,Göttingen,,3,5,393,393
+387,DE,DE92,DE92,,Hannover,,,2,5,394,394
+388,DE,DE922,DE922,,,Diepholz,,3,5,395,395
+389,DE,DE923,DE923,,,Hameln-Pyrmont,,3,5,396,396
+390,DE,DE925,DE925,,,Hildesheim,,3,5,397,397
+391,DE,DE926,DE926,,,Holzminden,,3,5,398,398
+392,DE,DE927,DE927,,,Nienburg (Weser),,3,5,399,399
+393,DE,DE928,DE928,,,Schaumburg,,3,5,400,400
+394,DE,DE929,DE929,,,Region Hannover,,3,5,401,401
+395,DE,DE93,DE93,,Lüneburg,,,2,5,402,402
+396,DE,DE931,DE931,,,Celle,,3,5,403,403
+397,DE,DE932,DE932,,,Cuxhaven,,3,5,404,404
+398,DE,DE933,DE933,,,Harburg,,3,5,405,405
+399,DE,DE934,DE934,,,Lüchow-Dannenberg,,3,5,406,406
+400,DE,DE935,DE935,,,"Lüneburg, Landkreis",,3,5,407,407
+401,DE,DE936,DE936,,,Osterholz,,3,5,408,408
+402,DE,DE937,DE937,,,Rotenburg (Wümme),,3,5,409,409
+403,DE,DE938,DE938,,,Heidekreis,,3,5,410,410
+404,DE,DE939,DE939,,,Stade,,3,5,411,411
+405,DE,DE93A,DE93A,,,Uelzen,,3,5,412,412
+406,DE,DE93B,DE93B,,,Verden,,3,5,413,413
+407,DE,DE94,DE94,,Weser-Ems,,,2,5,414,414
+408,DE,DE941,DE941,,,"Delmenhorst, Kreisfreie Stadt",,3,5,415,415
+409,DE,DE942,DE942,,,"Emden, Kreisfreie Stadt",,3,5,416,416
+410,DE,DE943,DE943,,,"Oldenburg (Oldenburg), Kreisfreie Stadt",,3,5,417,417
+411,DE,DE944,DE944,,,"Osnabrück, Kreisfreie Stadt",,3,5,418,418
+412,DE,DE945,DE945,,,"Wilhelmshaven, Kreisfreie Stadt",,3,5,419,419
+413,DE,DE946,DE946,,,Ammerland,,3,5,420,420
+414,DE,DE947,DE947,,,Aurich,,3,5,421,421
+415,DE,DE948,DE948,,,Cloppenburg,,3,5,422,422
+416,DE,DE949,DE949,,,Emsland,,3,5,423,423
+417,DE,DE94A,DE94A,,,Friesland (DE),,3,5,424,424
+418,DE,DE94B,DE94B,,,Grafschaft Bentheim,,3,5,425,425
+419,DE,DE94C,DE94C,,,Leer,,3,5,426,426
+420,DE,DE94D,DE94D,,,"Oldenburg, Landkreis",,3,5,427,427
+421,DE,DE94E,DE94E,,,"Osnabrück, Landkreis",,3,5,428,428
+422,DE,DE94F,DE94F,,,Vechta,,3,5,429,429
+423,DE,DE94G,DE94G,,,Wesermarsch,,3,5,430,430
+424,DE,DE94H,DE94H,,,Wittmund,,3,5,431,431
+425,DE,DEA,DEA,Nordrhein-Westfalen,,,,1,5,432,432
+426,DE,DEA1,DEA1,,Düsseldorf,,,2,5,433,433
+427,DE,DEA11,DEA11,,,"Düsseldorf, Kreisfreie Stadt",,3,5,434,434
+428,DE,DEA12,DEA12,,,"Duisburg, Kreisfreie Stadt",,3,5,435,435
+429,DE,DEA13,DEA13,,,"Essen, Kreisfreie Stadt",,3,5,436,436
+430,DE,DEA14,DEA14,,,"Krefeld, Kreisfreie Stadt",,3,5,437,437
+431,DE,DEA15,DEA15,,,"Mönchengladbach, Kreisfreie Stadt",,3,5,438,438
+432,DE,DEA16,DEA16,,,"Mülheim an der Ruhr, Kreisfreie Stadt",,3,5,439,439
+433,DE,DEA17,DEA17,,,"Oberhausen, Kreisfreie Stadt",,3,5,440,440
+434,DE,DEA18,DEA18,,,"Remscheid, Kreisfreie Stadt",,3,5,441,441
+435,DE,DEA19,DEA19,,,"Solingen, Kreisfreie Stadt",,3,5,442,442
+436,DE,DEA1A,DEA1A,,,"Wuppertal, Kreisfreie Stadt",,3,5,443,443
+437,DE,DEA1B,DEA1B,,,Kleve,,3,5,444,444
+438,DE,DEA1C,DEA1C,,,Mettmann,,3,5,445,445
+439,DE,DEA1D,DEA1D,,,Rhein-Kreis Neuss,,3,5,446,446
+440,DE,DEA1E,DEA1E,,,Viersen,,3,5,447,447
+441,DE,DEA1F,DEA1F,,,Wesel,,3,5,448,448
+442,DE,DEA2,DEA2,,Köln,,,2,5,449,449
+443,DE,DEA22,DEA22,,,"Bonn, Kreisfreie Stadt",,3,5,450,450
+444,DE,DEA23,DEA23,,,"Köln, Kreisfreie Stadt",,3,5,451,451
+445,DE,DEA24,DEA24,,,"Leverkusen, Kreisfreie Stadt",,3,5,452,452
+446,DE,DEA26,DEA26,,,Düren,,3,5,453,453
+447,DE,DEA27,DEA27,,,Rhein-Erft-Kreis,,3,5,454,454
+448,DE,DEA28,DEA28,,,Euskirchen,,3,5,455,455
+449,DE,DEA29,DEA29,,,Heinsberg,,3,5,456,456
+450,DE,DEA2A,DEA2A,,,Oberbergischer Kreis,,3,5,457,457
+451,DE,DEA2B,DEA2B,,,Rheinisch-Bergischer Kreis,,3,5,458,458
+452,DE,DEA2C,DEA2C,,,Rhein-Sieg-Kreis,,3,5,459,459
+453,DE,DEA2D,DEA2D,,,Städteregion Aachen,,3,5,460,460
+454,DE,DEA3,DEA3,,Münster,,,2,5,461,461
+455,DE,DEA31,DEA31,,,"Bottrop, Kreisfreie Stadt",,3,5,462,462
+456,DE,DEA32,DEA32,,,"Gelsenkirchen, Kreisfreie Stadt",,3,5,463,463
+457,DE,DEA33,DEA33,,,"Münster, Kreisfreie Stadt",,3,5,464,464
+458,DE,DEA34,DEA34,,,Borken,,3,5,465,465
+459,DE,DEA35,DEA35,,,Coesfeld,,3,5,466,466
+460,DE,DEA36,DEA36,,,Recklinghausen,,3,5,467,467
+461,DE,DEA37,DEA37,,,Steinfurt,,3,5,468,468
+462,DE,DEA38,DEA38,,,Warendorf,,3,5,469,469
+463,DE,DEA4,DEA4,,Detmold,,,2,5,470,470
+464,DE,DEA41,DEA41,,,"Bielefeld, Kreisfreie Stadt",,3,5,471,471
+465,DE,DEA42,DEA42,,,Gütersloh,,3,5,472,472
+466,DE,DEA43,DEA43,,,Herford,,3,5,473,473
+467,DE,DEA44,DEA44,,,Höxter,,3,5,474,474
+468,DE,DEA45,DEA45,,,Lippe,,3,5,475,475
+469,DE,DEA46,DEA46,,,Minden-Lübbecke,,3,5,476,476
+470,DE,DEA47,DEA47,,,Paderborn,,3,5,477,477
+471,DE,DEA5,DEA5,,Arnsberg,,,2,5,478,478
+472,DE,DEA51,DEA51,,,"Bochum, Kreisfreie Stadt",,3,5,479,479
+473,DE,DEA52,DEA52,,,"Dortmund, Kreisfreie Stadt",,3,5,480,480
+474,DE,DEA53,DEA53,,,"Hagen, Kreisfreie Stadt",,3,5,481,481
+475,DE,DEA54,DEA54,,,"Hamm, Kreisfreie Stadt",,3,5,482,482
+476,DE,DEA55,DEA55,,,"Herne, Kreisfreie Stadt",,3,5,483,483
+477,DE,DEA56,DEA56,,,Ennepe-Ruhr-Kreis,,3,5,484,484
+478,DE,DEA57,DEA57,,,Hochsauerlandkreis,,3,5,485,485
+479,DE,DEA58,DEA58,,,Märkischer Kreis,,3,5,486,486
+480,DE,DEA59,DEA59,,,Olpe,,3,5,487,487
+481,DE,DEA5A,DEA5A,,,Siegen-Wittgenstein,,3,5,488,488
+482,DE,DEA5B,DEA5B,,,Soest,,3,5,489,489
+483,DE,DEA5C,DEA5C,,,Unna,,3,5,490,490
+484,DE,DEB,DEB,Rheinland-Pfalz,,,,1,5,491,491
+485,DE,DEB1,DEB1,,Koblenz,,,2,5,492,492
+486,DE,DEB11,DEB11,,,"Koblenz, Kreisfreie Stadt",,3,5,493,493
+487,DE,DEB12,DEB12,,,Ahrweiler,,3,5,494,494
+488,DE,DEB13,DEB13,,,Altenkirchen (Westerwald),,3,5,495,495
+489,DE,DEB14,DEB14,,,Bad Kreuznach,,3,5,496,496
+490,DE,DEB15,DEB15,,,Birkenfeld,,3,5,497,497
+491,DE,DEB17,DEB17,,,Mayen-Koblenz,,3,5,498,498
+492,DE,DEB18,DEB18,,,Neuwied,,3,5,499,499
+493,DE,DEB1A,DEB1A,,,Rhein-Lahn-Kreis,,3,5,500,500
+494,DE,DEB1B,DEB1B,,,Westerwaldkreis,,3,5,501,501
+495,DE,DEB1C,DEB1C,,,Cochem-Zell,,3,5,502,502
+496,DE,DEB1D,DEB1D,,,Rhein-Hunsrück-Kreis,,3,5,503,503
+497,DE,DEB2,DEB2,,Trier,,,2,5,504,504
+498,DE,DEB21,DEB21,,,"Trier, Kreisfreie Stadt",,3,5,505,505
+499,DE,DEB22,DEB22,,,Bernkastel-Wittlich,,3,5,506,506
+500,DE,DEB23,DEB23,,,Eifelkreis Bitburg-Prüm,,3,5,507,507
+501,DE,DEB24,DEB24,,,Vulkaneifel,,3,5,508,508
+502,DE,DEB25,DEB25,,,Trier-Saarburg,,3,5,509,509
+503,DE,DEB3,DEB3,,Rheinhessen-Pfalz,,,2,5,510,510
+504,DE,DEB31,DEB31,,,"Frankenthal (Pfalz), Kreisfreie Stadt",,3,5,511,511
+505,DE,DEB32,DEB32,,,"Kaiserslautern, Kreisfreie Stadt",,3,5,512,512
+506,DE,DEB33,DEB33,,,"Landau in der Pfalz, Kreisfreie Stadt",,3,5,513,513
+507,DE,DEB34,DEB34,,,"Ludwigshafen am Rhein, Kreisfreie Stadt",,3,5,514,514
+508,DE,DEB35,DEB35,,,"Mainz, Kreisfreie Stadt",,3,5,515,515
+509,DE,DEB36,DEB36,,,"Neustadt an der Weinstraße, Kreisfreie Stadt",,3,5,516,516
+510,DE,DEB37,DEB37,,,"Pirmasens, Kreisfreie Stadt",,3,5,517,517
+511,DE,DEB38,DEB38,,,"Speyer, Kreisfreie Stadt",,3,5,518,518
+512,DE,DEB39,DEB39,,,"Worms, Kreisfreie Stadt",,3,5,519,519
+513,DE,DEB3A,DEB3A,,,"Zweibrücken, Kreisfreie Stadt",,3,5,520,520
+514,DE,DEB3B,DEB3B,,,Alzey-Worms,,3,5,521,521
+515,DE,DEB3C,DEB3C,,,Bad Dürkheim,,3,5,522,522
+516,DE,DEB3D,DEB3D,,,Donnersbergkreis,,3,5,523,523
+517,DE,DEB3E,DEB3E,,,Germersheim,,3,5,524,524
+518,DE,DEB3F,DEB3F,,,"Kaiserslautern, Landkreis",,3,5,525,525
+519,DE,DEB3G,DEB3G,,,Kusel,,3,5,526,526
+520,DE,DEB3H,DEB3H,,,Südliche Weinstraße,,3,5,527,527
+521,DE,DEB3I,DEB3I,,,Rhein-Pfalz-Kreis,,3,5,528,528
+522,DE,DEB3J,DEB3J,,,Mainz-Bingen,,3,5,529,529
+523,DE,DEB3K,DEB3K,,,Südwestpfalz,,3,5,530,530
+524,DE,DEC,DEC,Saarland,,,,1,5,531,531
+525,DE,DEC0,DEC0,,Saarland,,,2,5,151,151
+526,DE,DEC01,DEC01,,,Regionalverband Saarbrücken,,3,5,152,152
+527,DE,DEC02,DEC02,,,Merzig-Wadern,,3,5,153,153
+528,DE,DEC03,DEC03,,,Neunkirchen,,3,5,154,154
+529,DE,DEC04,DEC04,,,Saarlouis,,3,5,155,155
+530,DE,DEC05,DEC05,,,Saarpfalz-Kreis,,3,5,156,156
+531,DE,DEC06,DEC06,,,St. Wendel,,3,5,157,157
+532,DE,DED,DED,Sachsen,,,,1,5,532,532
+533,DE,DED2,DED2,,Dresden,,,2,5,533,533
+534,DE,DED21,DED21,,,"Dresden, Kreisfreie Stadt",,3,5,534,534
+535,DE,DED2C,DED2C,,,Bautzen,,3,5,535,535
+536,DE,DED2D,DED2D,,,Görlitz,,3,5,536,536
+537,DE,DED2E,DED2E,,,Meißen,,3,5,537,537
+538,DE,DED2F,DED2F,,,Sächsische Schweiz-Osterzgebirge,,3,5,538,538
+539,DE,DED4,DED4,,Chemnitz,,,2,5,539,539
+540,DE,DED41,DED41,,,"Chemnitz, Kreisfreie Stadt",,3,5,540,540
+541,DE,DED42,DED42,,,Erzgebirgskreis,,3,5,541,541
+542,DE,DED43,DED43,,,Mittelsachsen,,3,5,542,542
+543,DE,DED44,DED44,,,Vogtlandkreis,,3,5,543,543
+544,DE,DED45,DED45,,,Zwickau,,3,5,544,544
+545,DE,DED5,DED5,,Leipzig,,,2,5,545,545
+546,DE,DED51,DED51,,,"Leipzig, Kreisfreie Stadt",,3,5,546,546
+547,DE,DED52,DED52,,,Leipzig,,3,5,547,547
+548,DE,DED53,DED53,,,Nordsachsen,,3,5,548,548
+549,DE,DEE,DEE,Sachsen-Anhalt,,,,1,5,549,549
+550,DE,DEE0,DEE0,,Sachsen-Anhalt,,,2,5,550,550
+551,DE,DEE01,DEE01,,,"Dessau-Roßlau, Kreisfreie Stadt",,3,5,551,551
+552,DE,DEE02,DEE02,,,"Halle (Saale), Kreisfreie Stadt",,3,5,552,552
+553,DE,DEE03,DEE03,,,"Magdeburg, Kreisfreie Stadt",,3,5,553,553
+554,DE,DEE04,DEE04,,,Altmarkkreis Salzwedel,,3,5,554,554
+555,DE,DEE05,DEE05,,,Anhalt-Bitterfeld,,3,5,555,555
+556,DE,DEE06,DEE06,,,Jerichower Land,,3,5,556,556
+557,DE,DEE07,DEE07,,,Börde,,3,5,557,557
+558,DE,DEE08,DEE08,,,Burgenlandkreis,,3,5,558,558
+559,DE,DEE09,DEE09,,,Harz,,3,5,559,559
+560,DE,DEE0A,DEE0A,,,Mansfeld-Südharz,,3,5,560,560
+561,DE,DEE0B,DEE0B,,,Saalekreis,,3,5,561,561
+562,DE,DEE0C,DEE0C,,,Salzlandkreis,,3,5,562,562
+563,DE,DEE0D,DEE0D,,,Stendal,,3,5,563,563
+564,DE,DEE0E,DEE0E,,,Wittenberg,,3,5,564,564
+565,DE,DEF,DEF,Schleswig-Holstein,,,,1,5,565,565
+566,DE,DEF0,DEF0,,Schleswig-Holstein,,,2,5,566,566
+567,DE,DEF01,DEF01,,,"Flensburg, Kreisfreie Stadt",,3,5,567,567
+568,DE,DEF02,DEF02,,,"Kiel, Kreisfreie Stadt",,3,5,568,568
+569,DE,DEF03,DEF03,,,"Lübeck, Kreisfreie Stadt",,3,5,569,569
+570,DE,DEF04,DEF04,,,"Neumünster, Kreisfreie Stadt",,3,5,570,570
+571,DE,DEF05,DEF05,,,Dithmarschen,,3,5,571,571
+572,DE,DEF06,DEF06,,,Herzogtum Lauenburg,,3,5,572,572
+573,DE,DEF07,DEF07,,,Nordfriesland,,3,5,573,573
+574,DE,DEF08,DEF08,,,Ostholstein,,3,5,574,574
+575,DE,DEF09,DEF09,,,Pinneberg,,3,5,575,575
+576,DE,DEF0A,DEF0A,,,Plön,,3,5,576,576
+577,DE,DEF0B,DEF0B,,,Rendsburg-Eckernförde,,3,5,577,577
+578,DE,DEF0C,DEF0C,,,Schleswig-Flensburg,,3,5,578,578
+579,DE,DEF0D,DEF0D,,,Segeberg,,3,5,579,579
+580,DE,DEF0E,DEF0E,,,Steinburg,,3,5,580,580
+581,DE,DEF0F,DEF0F,,,Stormarn,,3,5,581,581
+582,DE,DEG,DEG,Thüringen,,,,1,5,582,582
+583,DE,DEG0,DEG0,,Thüringen,,,2,5,583,583
+584,DE,DEG01,DEG01,,,"Erfurt, Kreisfreie Stadt",,3,5,584,584
+585,DE,DEG02,DEG02,,,"Gera, Kreisfreie Stadt",,3,5,585,585
+586,DE,DEG03,DEG03,,,"Jena, Kreisfreie Stadt",,3,5,586,586
+587,DE,DEG04,,,,"Suhl, Kreisfreie Stadt",Boundary shift,3,5,587,
+588,DE,,DEG0S,,,"Suhl, Kreisfreie Stadt",New region,3,5,,602
+589,DE,DEG0F,,,,Ilm-Kreis,Boundary shift,3,5,597,
+590,DE,,DEG0T,,,Ilm-Kreis,New region,3,5,,603
+591,DE,DEG05,DEG05,,,"Weimar, Kreisfreie Stadt",,3,5,588,587
+592,DE,DEG06,DEG06,,,Eichsfeld,,3,5,589,588
+593,DE,DEG07,DEG07,,,Nordhausen,,3,5,590,589
+594,DE,DEG09,DEG09,,,Unstrut-Hainich-Kreis,,3,5,591,590
+595,DE,DEG0A,DEG0A,,,Kyffhäuserkreis,,3,5,592,591
+596,DE,DEG0B,,,,Schmalkalden-Meiningen,Boundary shift,3,5,593,
+597,DE,,DEG0Q,,,Schmalkalden-Meiningen,New region,3,5,,600
+598,DE,DEG0N,,,,"Eisenach, Kreisfreie Stadt",Merged,3,5,605,
+599,DE,DEG0P,,,,Wartburgkreis,Boundary shift,3,5,606,
+600,DE,,DEG0R,,,Wartburgkreis,New region,3,5,,601
+601,DE,DEG0C,DEG0C,,,Gotha,,3,5,594,592
+602,DE,DEG0D,DEG0D,,,Sömmerda,,3,5,595,593
+603,DE,DEG0E,DEG0E,,,Hildburghausen,,3,5,596,594
+604,DE,DEG0G,DEG0G,,,Weimarer Land,,3,5,598,595
+605,DE,DEG0H,,,,Sonneberg,Boundary shift,3,5,599,
+606,DE,,DEG0V,,,Sonneberg,New region,3,5,,605
+607,DE,DEG0I,,,,Saalfeld-Rudolstadt,Boundary shift,3,5,600,
+608,DE,,DEG0U,,,Saalfeld-Rudolstadt,New region,3,5,,604
+609,DE,DEG0J,DEG0J,,,Saale-Holzland-Kreis,,3,5,601,596
+610,DE,DEG0K,DEG0K,,,Saale-Orla-Kreis,,3,5,602,597
+611,DE,DEG0L,DEG0L,,,Greiz,,3,5,603,598
+612,DE,DEG0M,DEG0M,,,Altenburger Land,,3,5,604,599
+613,DE,DEZ,DEZ,Extra-Regio NUTS 1,,,,1,5,607,606
+614,DE,DEZZ,DEZZ,,Extra-Regio NUTS 2,,,2,5,608,607
+615,DE,DEZZZ,DEZZZ,,,Extra-Regio NUTS 3,,3,5,609,608
+616,EE,EE,EE,,,,,0,6,610,609
+617,EE,EE0,EE0,Eesti,,,,1,6,611,610
+618,EE,EE00,EE00,,Eesti,,,2,6,612,611
+619,EE,EE001,EE001,,,Põhja-Eesti,,3,6,613,612
+620,EE,EE004,EE004,,,Lääne-Eesti,,3,6,614,613
+621,EE,EE008,EE008,,,Lõuna-Eesti,,3,6,615,614
+622,EE,EE009,EE009,,,Kesk-Eesti,,3,6,616,615
+623,EE,EE00A,EE00A,,,Kirde-Eesti,,3,6,617,616
+624,EE,EEZ,EEZ,Extra-Regio NUTS 1,,,,1,6,618,617
+625,EE,EEZZ,EEZZ,,Extra-Regio NUTS 2,,,2,6,619,618
+626,EE,EEZZZ,EEZZZ,,,Extra-Regio NUTS 3,,3,6,620,619
+627,IE,IE,IE,,,,,0,7,621,620
+628,IE,IE0,IE0,Ireland,,,,1,7,622,621
+629,IE,IE04,IE04,,Northern and Western,,,2,7,623,622
+630,IE,IE041,IE041,,,Border,,3,7,624,623
+631,IE,IE042,IE042,,,West,,3,7,625,624
+632,IE,IE05,IE05,,Southern,,,2,7,626,625
+633,IE,IE051,IE051,,,Mid-West ,,3,7,627,626
+634,IE,IE052,IE052,,,South-East ,,3,7,628,627
+635,IE,IE053,IE053,,,South-West ,,3,7,629,628
+636,IE,IE06,IE06,,Eastern and Midland,,,2,7,630,629
+637,IE,IE061,IE061,,,Dublin,,3,7,631,630
+638,IE,IE062,IE062,,,Mid-East,,3,7,632,631
+639,IE,IE063,IE063,,,Midland,,3,7,633,632
+640,IE,IEZ,IEZ,Extra-Regio NUTS 1,,,,1,7,634,633
+641,IE,IEZZ,IEZZ,,Extra-Regio NUTS 2,,,2,7,635,634
+642,IE,IEZZZ,IEZZZ,,,Extra-Regio NUTS 3,,3,7,636,635
+643,EL,EL,EL,,,,,0,8,637,636
+644,EL,EL3,EL3,Αττική ,,,,1,8,638,637
+645,EL,EL30,EL30,,Aττική,,,2,8,639,638
+646,EL,EL301,EL301,,,Βόρειος Τομέας Αθηνών,,3,8,640,639
+647,EL,EL302,EL302,,,Δυτικός Τομέας Αθηνών,,3,8,641,640
+648,EL,EL303,EL303,,,Κεντρικός Τομέας Αθηνών,,3,8,642,641
+649,EL,EL304,EL304,,,Νότιος Τομέας Αθηνών,,3,8,643,642
+650,EL,EL305,EL305,,,Ανατολική Αττική,,3,8,644,643
+651,EL,EL306,EL306,,,Δυτική Αττική,,3,8,645,644
+652,EL,EL307,EL307,,,"Πειραιάς, Νήσοι",,3,8,646,645
+653,EL,EL4,EL4,"Νησιά Αιγαίου, Κρήτη",,,,1,8,647,646
+654,EL,EL41,EL41,,Βόρειο Αιγαίο,,,2,8,648,647
+655,EL,EL411,EL411,,,"Λέσβος, Λήμνος",,3,8,649,648
+656,EL,EL412,EL412,,,"Ικαρία, Σάμος",,3,8,650,649
+657,EL,EL413,EL413,,,Χίος,,3,8,651,650
+658,EL,EL42,EL42,,Νότιο Αιγαίο,,,2,8,652,651
+659,EL,EL421,EL421,,,"Κάλυμνος, Κάρπαθος – Ηρωική Νήσος Κάσος, Κως, Ρόδος",,3,8,653,652
+660,EL,EL422,EL422,,,"Άνδρος, Θήρα, Κέα, Μήλος, Μύκονος, Νάξος, Πάρος, Σύρος, Τήνος",,3,8,654,653
+661,EL,EL43,EL43,,Κρήτη,,,2,8,655,654
+662,EL,EL431,EL431,,,Ηράκλειο,,3,8,656,655
+663,EL,EL432,EL432,,,Λασίθι,,3,8,657,656
+664,EL,EL433,EL433,,,Ρέθυμνο,,3,8,658,657
+665,EL,EL434,EL434,,,Χανιά,,3,8,659,658
+666,EL,EL5,EL5,Βόρεια Ελλάδα,,,,1,8,660,659
+667,EL,EL51,EL51,,"Aνατολική Μακεδονία, Θράκη",,,2,8,661,660
+668,EL,EL511,EL511,,,Έβρος,,3,8,662,661
+669,EL,EL512,EL512,,,Ξάνθη,,3,8,663,662
+670,EL,EL513,EL513,,,Ροδόπη,,3,8,664,663
+671,EL,EL514,EL514,,,Δράμα,,3,8,665,664
+672,EL,EL515,EL515,,,"Θάσος, Καβάλα",,3,8,666,665
+673,EL,EL52,EL52,,Κεντρική Μακεδονία,,,2,8,667,666
+674,EL,EL521,EL521,,,Ημαθία,,3,8,668,667
+675,EL,EL522,EL522,,,Θεσσαλονίκη,,3,8,669,668
+676,EL,EL523,EL523,,,Κιλκίς,,3,8,670,669
+677,EL,EL524,EL524,,,Πέλλα,,3,8,671,670
+678,EL,EL525,EL525,,,Πιερία,,3,8,672,671
+679,EL,EL526,EL526,,,Σέρρες,,3,8,673,672
+680,EL,EL527,EL527,,,Χαλκιδική,,3,8,674,673
+681,EL,EL53,EL53,,Δυτική Μακεδονία,,,2,8,675,674
+682,EL,EL531,EL531,,,"Γρεβενά, Κοζάνη",,3,8,676,675
+683,EL,EL532,EL532,,,Καστοριά,,3,8,677,676
+684,EL,EL533,EL533,,,Φλώρινα,,3,8,678,677
+685,EL,EL54,EL54,,Ήπειρος,,,2,8,679,678
+686,EL,EL541,EL541,,,"Άρτα, Πρέβεζα",,3,8,680,679
+687,EL,EL542,EL542,,,Θεσπρωτία,,3,8,681,680
+688,EL,EL543,EL543,,,Ιωάννινα,,3,8,682,681
+689,EL,EL6,EL6,Κεντρική Ελλάδα,,,,1,8,683,682
+690,EL,EL61,EL61,,Θεσσαλία,,,2,8,684,683
+691,EL,EL611,EL611,,,"Καρδίτσα, Τρίκαλα",,3,8,685,684
+692,EL,EL612,EL612,,,Λάρισα,,3,8,686,685
+693,EL,EL613,EL613,,,"Μαγνησία, Σποράδες",,3,8,687,686
+694,EL,EL62,EL62,,Ιόνια Νησιά,,,2,8,688,687
+695,EL,EL621,EL621,,,Ζάκυνθος,,3,8,689,688
+696,EL,EL622,EL622,,,Κέρκυρα,,3,8,690,689
+697,EL,EL623,EL623,,,"Ιθάκη, Κεφαλληνία",,3,8,691,690
+698,EL,EL624,EL624,,,Λευκάδα,,3,8,692,691
+699,EL,EL63,EL63,,Δυτική Ελλάδα,,,2,8,693,692
+700,EL,EL631,EL631,,,Αιτωλοακαρνανία,,3,8,694,693
+701,EL,EL632,EL632,,,Αχαΐα,,3,8,695,694
+702,EL,EL633,EL633,,,Ηλεία,,3,8,696,695
+703,EL,EL64,EL64,,Στερεά Ελλάδα,,,2,8,697,696
+704,EL,EL641,EL641,,,Βοιωτία,,3,8,698,697
+705,EL,EL642,EL642,,,Εύβοια,,3,8,699,698
+706,EL,EL643,EL643,,,Ευρυτανία,,3,8,700,699
+707,EL,EL644,EL644,,,Φθιώτιδα,,3,8,701,700
+708,EL,EL645,EL645,,,Φωκίδα,,3,8,702,701
+709,EL,EL65,EL65,,Πελοπόννησος,,,2,8,703,702
+710,EL,EL651,EL651,,,"Αργολίδα, Αρκαδία",,3,8,704,703
+711,EL,EL652,EL652,,,Κορινθία,,3,8,705,704
+712,EL,EL653,EL653,,,"Λακωνία, Μεσσηνία",,3,8,706,705
+713,EL,ELZ,ELZ,Extra-Regio NUTS 1,,,,1,8,707,706
+714,EL,ELZZ,ELZZ,,Extra-Regio NUTS 2,,,2,8,708,707
+715,EL,ELZZZ,ELZZZ,,,Extra-Regio NUTS 3,,3,8,709,708
+716,ES,ES,ES,,,,,0,9,710,709
+717,ES,ES1,ES1,Noroeste,,,,1,9,711,710
+718,ES,ES11,ES11,,Galicia,,,2,9,712,711
+719,ES,ES111,ES111,,,A Coruña,,3,9,713,712
+720,ES,ES112,ES112,,,Lugo,,3,9,714,713
+721,ES,ES113,ES113,,,Ourense,,3,9,715,714
+722,ES,ES114,ES114,,,Pontevedra,,3,9,716,715
+723,ES,ES12,ES12,,Principado de Asturias,,,2,9,717,716
+724,ES,ES120,ES120,,,Asturias,,3,9,718,717
+725,ES,ES13,ES13,,Cantabria,,,2,9,719,718
+726,ES,ES130,ES130,,,Cantabria,,3,9,720,719
+727,ES,ES2,ES2,Noreste,,,,1,9,721,720
+728,ES,ES21,ES21,,País Vasco,,,2,9,722,721
+729,ES,ES211,ES211,,,Araba/Álava,,3,9,723,722
+730,ES,ES212,ES212,,,Gipuzkoa,,3,9,724,723
+731,ES,ES213,ES213,,,Bizkaia,,3,9,725,724
+732,ES,ES22,ES22,,Comunidad Foral de Navarra,,,2,9,726,725
+733,ES,ES220,ES220,,,Navarra,,3,9,727,726
+734,ES,ES23,ES23,,La Rioja,,,2,9,728,727
+735,ES,ES230,ES230,,,La Rioja,,3,9,729,728
+736,ES,ES24,ES24,,Aragón,,,2,9,730,729
+737,ES,ES241,ES241,,,Huesca,,3,9,731,730
+738,ES,ES242,ES242,,,Teruel,,3,9,732,731
+739,ES,ES243,ES243,,,Zaragoza,,3,9,733,732
+740,ES,ES3,ES3,Comunidad de Madrid,,,,1,9,734,733
+741,ES,ES30,ES30,,Comunidad de Madrid,,,2,9,735,734
+742,ES,ES300,ES300,,,Madrid,,3,9,736,735
+743,ES,ES4,ES4,Centro (ES),,,,1,9,737,736
+744,ES,ES41,ES41,,Castilla y León,,,2,9,738,737
+745,ES,ES411,ES411,,,Ávila,,3,9,739,738
+746,ES,ES412,ES412,,,Burgos,,3,9,740,739
+747,ES,ES413,ES413,,,León,,3,9,741,740
+748,ES,ES414,ES414,,,Palencia,,3,9,742,741
+749,ES,ES415,ES415,,,Salamanca,,3,9,743,742
+750,ES,ES416,ES416,,,Segovia,,3,9,744,743
+751,ES,ES417,ES417,,,Soria,,3,9,745,744
+752,ES,ES418,ES418,,,Valladolid,,3,9,746,745
+753,ES,ES419,ES419,,,Zamora,,3,9,747,746
+754,ES,ES42,ES42,,Castilla-La Mancha,,,2,9,748,747
+755,ES,ES421,ES421,,,Albacete,,3,9,749,748
+756,ES,ES422,ES422,,,Ciudad Real,,3,9,750,749
+757,ES,ES423,ES423,,,Cuenca,,3,9,751,750
+758,ES,ES424,ES424,,,Guadalajara,,3,9,752,751
+759,ES,ES425,ES425,,,Toledo,,3,9,753,752
+760,ES,ES43,ES43,,Extremadura,,,2,9,754,753
+761,ES,ES431,ES431,,,Badajoz,,3,9,755,754
+762,ES,ES432,ES432,,,Cáceres,,3,9,756,755
+763,ES,ES5,ES5,Este,,,,1,9,757,756
+764,ES,ES51,ES51,,Cataluña,,,2,9,758,757
+765,ES,ES511,ES511,,,Barcelona,,3,9,759,758
+766,ES,ES512,ES512,,,Girona,,3,9,760,759
+767,ES,ES513,ES513,,,Lleida,,3,9,761,760
+768,ES,ES514,ES514,,,Tarragona,,3,9,762,761
+769,ES,ES52,ES52,,Comunitat Valenciana ,,,2,9,763,762
+770,ES,ES521,ES521,,,Alicante/Alacant,,3,9,764,763
+771,ES,ES522,ES522,,,Castellón/Castelló,,3,9,765,764
+772,ES,ES523,ES523,,,Valencia/València,,3,9,766,765
+773,ES,ES53,ES53,,Illes Balears,,,2,9,767,766
+774,ES,ES531,ES531,,,Eivissa y Formentera,,3,9,768,767
+775,ES,ES532,ES532,,,Mallorca,,3,9,769,768
+776,ES,ES533,ES533,,,Menorca,,3,9,770,769
+777,ES,ES6,ES6,Sur,,,,1,9,771,770
+778,ES,ES61,ES61,,Andalucía,,,2,9,772,771
+779,ES,ES611,ES611,,,Almería,,3,9,773,772
+780,ES,ES612,ES612,,,Cádiz,,3,9,774,773
+781,ES,ES613,ES613,,,Córdoba,,3,9,775,774
+782,ES,ES614,ES614,,,Granada,,3,9,776,775
+783,ES,ES615,ES615,,,Huelva,,3,9,777,776
+784,ES,ES616,ES616,,,Jaén,,3,9,778,777
+785,ES,ES617,ES617,,,Málaga,,3,9,779,778
+786,ES,ES618,ES618,,,Sevilla,,3,9,780,779
+787,ES,ES62,ES62,,Región de Murcia,,,2,9,781,780
+788,ES,ES620,ES620,,,Murcia,,3,9,782,781
+789,ES,ES63,ES63,,Ciudad de Ceuta,,,2,9,783,782
+790,ES,ES630,ES630,,,Ceuta,,3,9,784,783
+791,ES,ES64,ES64,,Ciudad de Melilla,,,2,9,785,784
+792,ES,ES640,ES640,,,Melilla,,3,9,786,785
+793,ES,ES7,ES7,Canarias,,,,1,9,787,786
+794,ES,ES70,ES70,,Canarias,,,2,9,788,787
+795,ES,ES703,ES703,,,El Hierro,,3,9,789,788
+796,ES,ES704,ES704,,,Fuerteventura,,3,9,790,789
+797,ES,ES705,ES705,,,Gran Canaria,,3,9,791,790
+798,ES,ES706,ES706,,,La Gomera,,3,9,792,791
+799,ES,ES707,ES707,,,La Palma,,3,9,793,792
+800,ES,ES708,ES708,,,Lanzarote,,3,9,794,793
+801,ES,ES709,ES709,,,Tenerife,,3,9,795,794
+802,ES,ESZ,ESZ,Extra-Regio NUTS 1,,,,1,9,796,795
+803,ES,ESZZ,ESZZ,,Extra-Regio NUTS 2,,,2,9,797,796
+804,ES,ESZZZ,ESZZZ,,,Extra-Regio NUTS 3,,3,9,798,797
+805,FR,FR,FR,,,,,0,10,799,798
+806,FR,FR1,FR1,Ile-de-France,,,,1,10,800,799
+807,FR,FR10,FR10,,Ile-de-France,,,2,10,801,800
+808,FR,FR101,FR101,,,Paris,,3,10,802,801
+809,FR,FR102,FR102,,,Seine-et-Marne ,,3,10,803,802
+810,FR,FR103,FR103,,,Yvelines ,,3,10,804,803
+811,FR,FR104,FR104,,,Essonne,,3,10,805,804
+812,FR,FR105,FR105,,,Hauts-de-Seine ,,3,10,806,805
+813,FR,FR106,FR106,,,Seine-Saint-Denis ,,3,10,807,806
+814,FR,FR107,FR107,,,Val-de-Marne,,3,10,808,807
+815,FR,FR108,FR108,,,Val-d’Oise,,3,10,809,808
+816,FR,FRB,FRB,Centre — Val de Loire,,,,1,10,810,809
+817,FR,FRB0,FRB0,,Centre — Val de Loire,,,2,10,811,810
+818,FR,FRB01,FRB01,,,Cher,,3,10,812,811
+819,FR,FRB02,FRB02,,,Eure-et-Loir,,3,10,813,812
+820,FR,FRB03,FRB03,,,Indre,,3,10,814,813
+821,FR,FRB04,FRB04,,,Indre-et-Loire,,3,10,815,814
+822,FR,FRB05,FRB05,,,Loir-et-Cher,,3,10,816,815
+823,FR,FRB06,FRB06,,,Loiret,,3,10,817,816
+824,FR,FRC,FRC,Bourgogne-Franche-Comté,,,,1,10,818,817
+825,FR,FRC1,FRC1,,Bourgogne,,,2,10,819,818
+826,FR,FRC11,FRC11,,,Côte-d’Or,,3,10,820,819
+827,FR,FRC12,FRC12,,,Nièvre,,3,10,821,820
+828,FR,FRC13,FRC13,,,Saône-et-Loire,,3,10,822,821
+829,FR,FRC14,FRC14,,,Yonne,,3,10,823,822
+830,FR,FRC2,FRC2,,Franche-Comté,,,2,10,824,823
+831,FR,FRC21,FRC21,,,Doubs,,3,10,825,824
+832,FR,FRC22,FRC22,,,Jura,,3,10,826,825
+833,FR,FRC23,FRC23,,,Haute-Saône,,3,10,827,826
+834,FR,FRC24,FRC24,,,Territoire de Belfort,,3,10,828,827
+835,FR,FRD,FRD,Normandie,,,,1,10,829,828
+836,FR,FRD1,FRD1,,Basse-Normandie ,,,2,10,830,829
+837,FR,FRD11,FRD11,,,Calvados ,,3,10,831,830
+838,FR,FRD12,FRD12,,,Manche ,,3,10,832,831
+839,FR,FRD13,FRD13,,,Orne,,3,10,833,832
+840,FR,FRD2,FRD2,,Haute-Normandie ,,,2,10,834,833
+841,FR,FRD21,FRD21,,,Eure,,3,10,835,834
+842,FR,FRD22,FRD22,,,Seine-Maritime,,3,10,836,835
+843,FR,FRE,FRE,Hauts-de-France,,,,1,10,837,836
+844,FR,FRE1,FRE1,,Nord-Pas de Calais,,,2,10,838,837
+845,FR,FRE11,FRE11,,,Nord,,3,10,839,838
+846,FR,FRE12,FRE12,,,Pas-de-Calais,,3,10,840,839
+847,FR,FRE2,FRE2,,Picardie,,,2,10,841,840
+848,FR,FRE21,FRE21,,,Aisne,,3,10,842,841
+849,FR,FRE22,FRE22,,,Oise,,3,10,843,842
+850,FR,FRE23,FRE23,,,Somme,,3,10,844,843
+851,FR,FRF,FRF,Grand Est,,,,1,10,845,844
+852,FR,FRF1,FRF1,,Alsace,,,2,10,846,845
+853,FR,FRF11,FRF11,,,Bas-Rhin,,3,10,847,846
+854,FR,FRF12,FRF12,,,Haut-Rhin,,3,10,848,847
+855,FR,FRF2,FRF2,,Champagne-Ardenne,,,2,10,849,848
+856,FR,FRF21,FRF21,,,Ardennes,,3,10,850,849
+857,FR,FRF22,FRF22,,,Aube,,3,10,851,850
+858,FR,FRF23,FRF23,,,Marne,,3,10,852,851
+859,FR,FRF24,FRF24,,,Haute-Marne,,3,10,853,852
+860,FR,FRF3,FRF3,,Lorraine,,,2,10,854,853
+861,FR,FRF31,FRF31,,,Meurthe-et-Moselle ,,3,10,855,854
+862,FR,FRF32,FRF32,,,Meuse ,,3,10,856,855
+863,FR,FRF33,FRF33,,,Moselle,,3,10,857,856
+864,FR,FRF34,FRF34,,,Vosges,,3,10,858,857
+865,FR,FRG,FRG,Pays de la Loire,,,,1,10,859,858
+866,FR,FRG0,FRG0,,Pays de la Loire,,,2,10,860,859
+867,FR,FRG01,FRG01,,,Loire-Atlantique,,3,10,861,860
+868,FR,FRG02,FRG02,,,Maine-et-Loire,,3,10,862,861
+869,FR,FRG03,FRG03,,,Mayenne,,3,10,863,862
+870,FR,FRG04,FRG04,,,Sarthe,,3,10,864,863
+871,FR,FRG05,FRG05,,,Vendée,,3,10,865,864
+872,FR,FRH,FRH,Bretagne,,,,1,10,866,865
+873,FR,FRH0,FRH0,,Bretagne,,,2,10,867,866
+874,FR,FRH01,FRH01,,,Côtes-d’Armor,,3,10,868,867
+875,FR,FRH02,FRH02,,,Finistère,,3,10,869,868
+876,FR,FRH03,FRH03,,,Ille-et-Vilaine,,3,10,870,869
+877,FR,FRH04,FRH04,,,Morbihan,,3,10,871,870
+878,FR,FRI,FRI,Nouvelle-Aquitaine,,,,1,10,872,871
+879,FR,FRI1,FRI1,,Aquitaine,,,2,10,873,872
+880,FR,FRI11,FRI11,,,Dordogne,,3,10,874,873
+881,FR,FRI12,FRI12,,,Gironde,,3,10,875,874
+882,FR,FRI13,FRI13,,,Landes,,3,10,876,875
+883,FR,FRI14,FRI14,,,Lot-et-Garonne,,3,10,877,876
+884,FR,FRI15,FRI15,,,Pyrénées-Atlantiques,,3,10,878,877
+885,FR,FRI2,FRI2,,Limousin,,,2,10,879,878
+886,FR,FRI21,FRI21,,,Corrèze,,3,10,880,879
+887,FR,FRI22,FRI22,,,Creuse,,3,10,881,880
+888,FR,FRI23,FRI23,,,Haute-Vienne,,3,10,882,881
+889,FR,FRI3,FRI3,,Poitou-Charentes,,,2,10,883,882
+890,FR,FRI31,FRI31,,,Charente,,3,10,884,883
+891,FR,FRI32,FRI32,,,Charente-Maritime,,3,10,885,884
+892,FR,FRI33,FRI33,,,Deux-Sèvres,,3,10,886,885
+893,FR,FRI34,FRI34,,,Vienne,,3,10,887,886
+894,FR,FRJ,FRJ,Occitanie,,,,1,10,888,887
+895,FR,FRJ1,FRJ1,,Languedoc-Roussillon,,,2,10,889,888
+896,FR,FRJ11,FRJ11,,,Aude,,3,10,890,889
+897,FR,FRJ12,FRJ12,,,Gard,,3,10,891,890
+898,FR,FRJ13,FRJ13,,,Hérault,,3,10,892,891
+899,FR,FRJ14,FRJ14,,,Lozère,,3,10,893,892
+900,FR,FRJ15,FRJ15,,,Pyrénées-Orientales,,3,10,894,893
+901,FR,FRJ2,FRJ2,,Midi-Pyrénées,,,2,10,895,894
+902,FR,FRJ21,FRJ21,,,Ariège,,3,10,896,895
+903,FR,FRJ22,FRJ22,,,Aveyron,,3,10,897,896
+904,FR,FRJ23,FRJ23,,,Haute-Garonne,,3,10,898,897
+905,FR,FRJ24,FRJ24,,,Gers,,3,10,899,898
+906,FR,FRJ25,FRJ25,,,Lot,,3,10,900,899
+907,FR,FRJ26,FRJ26,,,Hautes-Pyrénées ,,3,10,901,900
+908,FR,FRJ27,FRJ27,,,Tarn,,3,10,902,901
+909,FR,FRJ28,FRJ28,,,Tarn-et-Garonne,,3,10,903,902
+910,FR,FRK,FRK,Auvergne-Rhône-Alpes,,,,1,10,904,903
+911,FR,FRK1,FRK1,,Auvergne,,,2,10,905,904
+912,FR,FRK11,FRK11,,,Allier,,3,10,906,905
+913,FR,FRK12,FRK12,,,Cantal,,3,10,907,906
+914,FR,FRK13,FRK13,,,Haute-Loire,,3,10,908,907
+915,FR,FRK14,FRK14,,,Puy-de-Dôme,,3,10,909,908
+916,FR,FRK2,FRK2,,Rhône-Alpes,,,2,10,910,909
+917,FR,FRK21,FRK21,,,Ain,,3,10,911,910
+918,FR,FRK22,FRK22,,,Ardèche,,3,10,912,911
+919,FR,FRK23,FRK23,,,Drôme,,3,10,913,912
+920,FR,FRK24,FRK24,,,Isère,,3,10,914,913
+921,FR,FRK25,FRK25,,,Loire,,3,10,915,914
+922,FR,FRK26,FRK26,,,Rhône,,3,10,916,915
+923,FR,FRK27,FRK27,,,Savoie,,3,10,917,916
+924,FR,FRK28,FRK28,,,Haute-Savoie,,3,10,918,917
+925,FR,FRL,FRL,Provence-Alpes-Côte d’Azur,,,,1,10,919,918
+926,FR,FRL0,FRL0,,Provence-Alpes-Côte d’Azur,,,2,10,920,919
+927,FR,FRL01,FRL01,,,Alpes-de-Haute-Provence,,3,10,921,920
+928,FR,FRL02,FRL02,,,Hautes-Alpes ,,3,10,922,921
+929,FR,FRL03,FRL03,,,Alpes-Maritimes,,3,10,923,922
+930,FR,FRL04,FRL04,,,Bouches-du-Rhône,,3,10,924,923
+931,FR,FRL05,FRL05,,,Var,,3,10,925,924
+932,FR,FRL06,FRL06,,,Vaucluse,,3,10,926,925
+933,FR,FRM,FRM,Corse,,,,1,10,927,926
+934,FR,FRM0,FRM0,,Corse,,,2,10,928,927
+935,FR,FRM01,FRM01,,,Corse-du-Sud,,3,10,929,928
+936,FR,FRM02,FRM02,,,Haute-Corse,,3,10,930,929
+937,FR,FRY,FRY,RUP FR — Régions Ultrapériphériques Françaises,,,,1,10,931,930
+938,FR,FRY1,FRY1,,Guadeloupe,,,2,10,932,931
+939,FR,FRY10,FRY10,,,Guadeloupe,,3,10,933,932
+940,FR,FRY2,FRY2,,Martinique ,,,2,10,934,933
+941,FR,FRY20,FRY20,,,Martinique ,,3,10,935,934
+942,FR,FRY3,FRY3,,Guyane,,,2,10,936,935
+943,FR,FRY30,FRY30,,,Guyane,,3,10,937,936
+944,FR,FRY4,FRY4,,La Réunion ,,,2,10,938,937
+945,FR,FRY40,FRY40,,,La Réunion,,3,10,939,938
+946,FR,FRY5,FRY5,,Mayotte,,,2,10,940,939
+947,FR,FRY50,FRY50,,,Mayotte ,,3,10,941,940
+948,FR,FRZ,FRZ,Extra-Regio NUTS 1,,,,1,10,942,941
+949,FR,FRZZ,FRZZ,,Extra-Regio NUTS 2,,,2,10,943,942
+950,FR,FRZZZ,FRZZZ,,,Extra-Regio NUTS 3,,3,10,944,943
+951,HR,HR,HR,,,,,0,11,945,944
+952,HR,HR0,HR0,Hrvatska,,,,1,11,946,945
+953,HR,HR02,HR02,,Panonska Hrvatska,,,2,11,947,946
+954,HR,HR021,HR021,,,Bjelovarsko-bilogorska županija,,3,11,948,947
+955,HR,HR022,HR022,,,Virovitičko-podravska županija,,3,11,949,948
+956,HR,HR023,HR023,,,Požeško-slavonska županija,,3,11,950,949
+957,HR,HR024,HR024,,,Brodsko-posavska županija,,3,11,951,950
+958,HR,HR025,HR025,,,Osječko-baranjska županija,,3,11,952,951
+959,HR,HR026,HR026,,,Vukovarsko-srijemska županija,,3,11,953,952
+960,HR,HR027,HR027,,,Karlovačka županija,,3,11,954,953
+961,HR,HR028,HR028,,,Sisačko-moslavačka županija,,3,11,955,954
+962,HR,HR03,HR03,,Jadranska Hrvatska,,,2,11,956,955
+963,HR,HR031,HR031,,,Primorsko-goranska županija,,3,11,957,956
+964,HR,HR032,HR032,,,Ličko-senjska županija,,3,11,958,957
+965,HR,HR033,HR033,,,Zadarska županija,,3,11,959,958
+966,HR,HR034,HR034,,,Šibensko-kninska županija,,3,11,960,959
+967,HR,HR035,HR035,,,Splitsko-dalmatinska županija,,3,11,961,960
+968,HR,HR036,HR036,,,Istarska županija,,3,11,962,961
+969,HR,HR037,HR037,,,Dubrovačko-neretvanska županija,,3,11,963,962
+970,HR,HR05,HR05,,Grad Zagreb,,,2,11,964,963
+971,HR,HR050,HR050,,,Grad Zagreb,,3,11,965,964
+972,HR,HR06,HR06,,Sjeverna Hrvatska,,,2,11,966,965
+973,HR,HR061,HR061,,,Međimurska županija,,3,11,967,966
+974,HR,HR062,HR062,,,Varaždinska županija,,3,11,968,967
+975,HR,HR063,HR063,,,Koprivničko-križevačka županija,,3,11,969,968
+976,HR,HR064,HR064,,,Krapinsko-zagorska županija,,3,11,970,969
+977,HR,HR065,HR065,,,Zagrebačka županija,,3,11,971,970
+978,HR,HRZ,HRZ,Extra-Regio NUTS 1,,,,1,11,972,971
+979,HR,HRZZ,HRZZ,,Extra-Regio NUTS 2,,,2,11,973,972
+980,HR,HRZZZ,HRZZZ,,,Extra-Regio NUTS 3,,3,11,974,973
+981,IT,IT,IT,,,,,0,12,975,974
+982,IT,ITC,ITC,Nord-Ovest,,,,1,12,976,975
+983,IT,ITC1,ITC1,,Piemonte,,,2,12,977,976
+984,IT,ITC11,ITC11,,,Torino,,3,12,978,977
+985,IT,ITC12,ITC12,,,Vercelli,,3,12,979,978
+986,IT,ITC13,ITC13,,,Biella,,3,12,980,979
+987,IT,ITC14,ITC14,,,Verbano-Cusio-Ossola,,3,12,981,980
+988,IT,ITC15,ITC15,,,Novara,,3,12,982,981
+989,IT,ITC16,ITC16,,,Cuneo,,3,12,983,982
+990,IT,ITC17,ITC17,,,Asti,,3,12,984,983
+991,IT,ITC18,ITC18,,,Alessandria,,3,12,985,984
+992,IT,ITC2,ITC2,,Valle d’Aosta/Vallée d’Aoste,,,2,12,986,985
+993,IT,ITC20,ITC20,,,Valle d’Aosta/Vallée d’Aoste,,3,12,987,986
+994,IT,ITC3,ITC3,,Liguria,,,2,12,988,987
+995,IT,ITC31,ITC31,,,Imperia,,3,12,989,988
+996,IT,ITC32,ITC32,,,Savona,,3,12,990,989
+997,IT,ITC33,ITC33,,,Genova,,3,12,991,990
+998,IT,ITC34,ITC34,,,La Spezia,,3,12,992,991
+999,IT,ITC4,ITC4,,Lombardia,,,2,12,993,992
+1000,IT,ITC41,ITC41,,,Varese,,3,12,994,993
+1001,IT,ITC42,ITC42,,,Como,,3,12,995,994
+1002,IT,ITC43,ITC43,,,Lecco,,3,12,996,995
+1003,IT,ITC44,ITC44,,,Sondrio,,3,12,997,996
+1004,IT,ITC46,ITC46,,,Bergamo,,3,12,998,997
+1005,IT,ITC47,ITC47,,,Brescia,,3,12,999,998
+1006,IT,ITC48,ITC48,,,Pavia,,3,12,1000,999
+1007,IT,ITC49,ITC49,,,Lodi,,3,12,1001,1000
+1008,IT,ITC4A,ITC4A,,,Cremona,,3,12,1002,1001
+1009,IT,ITC4B,ITC4B,,,Mantova,,3,12,1003,1002
+1010,IT,ITC4C,ITC4C,,,Milano,,3,12,1004,1003
+1011,IT,ITC4D,ITC4D,,,Monza e della Brianza,,3,12,1005,1004
+1012,IT,ITF,ITF,Sud,,,,1,12,1006,1005
+1013,IT,ITF1,ITF1,,Abruzzo,,,2,12,1007,1006
+1014,IT,ITF11,ITF11,,,L’Aquila,,3,12,1008,1007
+1015,IT,ITF12,ITF12,,,Teramo,,3,12,1009,1008
+1016,IT,ITF13,ITF13,,,Pescara,,3,12,1010,1009
+1017,IT,ITF14,ITF14,,,Chieti,,3,12,1011,1010
+1018,IT,ITF2,ITF2,,Molise,,,2,12,1012,1011
+1019,IT,ITF21,ITF21,,,Isernia,,3,12,1013,1012
+1020,IT,ITF22,ITF22,,,Campobasso,,3,12,1014,1013
+1021,IT,ITF3,ITF3,,Campania,,,2,12,1015,1014
+1022,IT,ITF31,ITF31,,,Caserta,,3,12,1016,1015
+1023,IT,ITF32,ITF32,,,Benevento,,3,12,1017,1016
+1024,IT,ITF33,ITF33,,,Napoli,,3,12,1018,1017
+1025,IT,ITF34,ITF34,,,Avellino,,3,12,1019,1018
+1026,IT,ITF35,ITF35,,,Salerno,,3,12,1020,1019
+1027,IT,ITF4,ITF4,,Puglia,,,2,12,1021,1020
+1028,IT,ITF43,ITF43,,,Taranto,,3,12,1022,1021
+1029,IT,ITF44,ITF44,,,Brindisi,,3,12,1023,1022
+1030,IT,ITF45,ITF45,,,Lecce,,3,12,1024,1023
+1031,IT,ITF46,ITF46,,,Foggia,,3,12,1025,1024
+1032,IT,ITF47,ITF47,,,Bari,,3,12,1026,1025
+1033,IT,ITF48,ITF48,,,Barletta-Andria-Trani,,3,12,1027,1026
+1034,IT,ITF5,ITF5,,Basilicata,,,2,12,1028,1027
+1035,IT,ITF51,ITF51,,,Potenza,,3,12,1029,1028
+1036,IT,ITF52,ITF52,,,Matera,,3,12,1030,1029
+1037,IT,ITF6,ITF6,,Calabria,,,2,12,1031,1030
+1038,IT,ITF61,ITF61,,,Cosenza,,3,12,1032,1031
+1039,IT,ITF62,ITF62,,,Crotone,,3,12,1033,1032
+1040,IT,ITF63,ITF63,,,Catanzaro,,3,12,1034,1033
+1041,IT,ITF64,ITF64,,,Vibo Valentia,,3,12,1035,1034
+1042,IT,ITF65,ITF65,,,Reggio Calabria,Name change,3,12,1036,1035
+1043,IT,ITG,ITG,Isole,,,,1,12,1037,1036
+1044,IT,ITG1,ITG1,,Sicilia,,,2,12,1038,1037
+1045,IT,ITG11,ITG11,,,Trapani,,3,12,1039,1038
+1046,IT,ITG12,ITG12,,,Palermo,,3,12,1040,1039
+1047,IT,ITG13,ITG13,,,Messina,,3,12,1041,1040
+1048,IT,ITG14,ITG14,,,Agrigento,,3,12,1042,1041
+1049,IT,ITG15,ITG15,,,Caltanissetta,,3,12,1043,1042
+1050,IT,ITG16,ITG16,,,Enna,,3,12,1044,1043
+1051,IT,ITG17,ITG17,,,Catania,,3,12,1045,1044
+1052,IT,ITG18,ITG18,,,Ragusa,,3,12,1046,1045
+1053,IT,ITG19,ITG19,,,Siracusa,,3,12,1047,1046
+1054,IT,ITG2,ITG2,,Sardegna,,,2,12,1048,1047
+1055,IT,ITG2D,ITG2D,,,Sassari,,3,12,1049,1048
+1056,IT,ITG2E,ITG2E,,,Nuoro,,3,12,1050,1049
+1057,IT,ITG2F,ITG2F,,,Cagliari,,3,12,1051,1050
+1058,IT,ITG2G,ITG2G,,,Oristano,,3,12,1052,1051
+1059,IT,ITG2H,ITG2H,,,Sud Sardegna,,3,12,1053,1052
+1060,IT,ITH,ITH,Nord-Est,,,,1,12,1054,1053
+1061,IT,ITH1,ITH1,,Provincia Autonoma di Bolzano/Bozen,,,2,12,1055,1054
+1062,IT,ITH10,ITH10,,,Bolzano-Bozen,,3,12,1056,1055
+1063,IT,ITH2,ITH2,,Provincia Autonoma di Trento,,,2,12,1057,1056
+1064,IT,ITH20,ITH20,,,Trento,,3,12,1058,1057
+1065,IT,ITH3,ITH3,,Veneto,,,2,12,1059,1058
+1066,IT,ITH31,ITH31,,,Verona,,3,12,1060,1059
+1067,IT,ITH32,ITH32,,,Vicenza,,3,12,1061,1060
+1068,IT,ITH33,ITH33,,,Belluno,,3,12,1062,1061
+1069,IT,ITH34,ITH34,,,Treviso,,3,12,1063,1062
+1070,IT,ITH35,ITH35,,,Venezia,,3,12,1064,1063
+1071,IT,ITH36,ITH36,,,Padova,,3,12,1065,1064
+1072,IT,ITH37,ITH37,,,Rovigo,,3,12,1066,1065
+1073,IT,ITH4,ITH4,,Friuli-Venezia Giulia,,,2,12,1067,1066
+1074,IT,ITH41,ITH41,,,Pordenone,,3,12,1068,1067
+1075,IT,ITH42,ITH42,,,Udine,,3,12,1069,1068
+1076,IT,ITH43,ITH43,,,Gorizia,,3,12,1070,1069
+1077,IT,ITH44,ITH44,,,Trieste,,3,12,1071,1070
+1078,IT,ITH5,ITH5,,Emilia-Romagna,,art. 5(2a),2,12,1072,1071
+1079,IT,ITH51,ITH51,,,Piacenza,,3,12,1073,1072
+1080,IT,ITH52,ITH52,,,Parma,,3,12,1074,1073
+1081,IT,ITH53,ITH53,,,Reggio nell’Emilia,,3,12,1075,1074
+1082,IT,ITH54,ITH54,,,Modena,,3,12,1076,1075
+1083,IT,ITH55,ITH55,,,Bologna,,3,12,1077,1076
+1084,IT,ITH56,ITH56,,,Ferrara,,3,12,1078,1077
+1085,IT,ITH57,ITH57,,,Ravenna,,3,12,1079,1078
+1086,IT,ITH58,ITH58,,,Forlì-Cesena,,3,12,1080,1079
+1087,IT,ITH59,ITH59,,,Rimini,art. 5(2a),3,12,1081,1080
+1088,IT,ITI,ITI,Centro (IT),,,,1,12,1082,1081
+1089,IT,ITI1,ITI1,,Toscana,,,2,12,1083,1082
+1090,IT,ITI11,ITI11,,,Massa-Carrara,,3,12,1084,1083
+1091,IT,ITI12,ITI12,,,Lucca,,3,12,1085,1084
+1092,IT,ITI13,ITI13,,,Pistoia,,3,12,1086,1085
+1093,IT,ITI14,ITI14,,,Firenze,,3,12,1087,1086
+1094,IT,ITI15,ITI15,,,Prato,,3,12,1088,1087
+1095,IT,ITI16,ITI16,,,Livorno,,3,12,1089,1088
+1096,IT,ITI17,ITI17,,,Pisa,,3,12,1090,1089
+1097,IT,ITI18,ITI18,,,Arezzo,,3,12,1091,1090
+1098,IT,ITI19,ITI19,,,Siena,,3,12,1092,1091
+1099,IT,ITI1A,ITI1A,,,Grosseto,,3,12,1093,1092
+1100,IT,ITI2,ITI2,,Umbria,,,2,12,1094,1093
+1101,IT,ITI21,ITI21,,,Perugia,,3,12,1095,1094
+1102,IT,ITI22,ITI22,,,Terni,,3,12,1096,1095
+1103,IT,ITI3,ITI3,,Marche,,art. 5(2a),2,12,1097,1096
+1104,IT,ITI31,ITI31,,,Pesaro e Urbino,art. 5(2a),3,12,1098,1097
+1105,IT,ITI32,ITI32,,,Ancona,,3,12,1099,1098
+1106,IT,ITI33,ITI33,,,Macerata,,3,12,1100,1099
+1107,IT,ITI34,ITI34,,,Ascoli Piceno,,3,12,1101,1100
+1108,IT,ITI35,ITI35,,,Fermo,,3,12,1102,1101
+1109,IT,ITI4,ITI4,,Lazio,,,2,12,1103,1102
+1110,IT,ITI41,ITI41,,,Viterbo,,3,12,1104,1103
+1111,IT,ITI42,ITI42,,,Rieti,,3,12,1105,1104
+1112,IT,ITI43,ITI43,,,Roma,,3,12,1106,1105
+1113,IT,ITI44,ITI44,,,Latina,,3,12,1107,1106
+1114,IT,ITI45,ITI45,,,Frosinone,,3,12,1108,1107
+1115,IT,ITZ,ITZ,Extra-Regio NUTS 1,,,,1,12,1109,1108
+1116,IT,ITZZ,ITZZ,,Extra-Regio NUTS 2,,,2,12,1110,1109
+1117,IT,ITZZZ,ITZZZ,,,Extra-Regio NUTS 3,,3,12,1111,1110
+1118,CY,CY,CY,,,,,0,13,1112,1111
+1119,CY,CY0,CY0,Κύπρος,,,,1,13,1113,1112
+1120,CY,CY00,CY00,,Κύπρος,,,2,13,1114,1113
+1121,CY,CY000,CY000,,,Κύπρος,,3,13,1115,1114
+1122,CY,CYZ,CYZ,Extra-Regio NUTS 1,,,,1,13,1116,1115
+1123,CY,CYZZ,CYZZ,,Extra-Regio NUTS 2,,,2,13,1117,1116
+1124,CY,CYZZZ,CYZZZ,,,Extra-Regio NUTS 3,,3,13,1118,1117
+1125,LV,LV,LV,,,,,0,14,1119,1118
+1126,LV,LV0,LV0,Latvija,,,,1,14,1120,1119
+1127,LV,LV00,LV00,,Latvija,,,2,14,1121,1120
+1128,LV,LV003,,,,Kurzeme,Boundary shift,3,14,1122,
+1129,LV,,LV00B,,,Kurzeme,New region,3,14,,1124
+1130,LV,LV006,,,,Rīga,Boundary shift,3,14,1124,
+1131,LV,,LV00A,,,Rīga,New region,3,14,,1123
+1132,LV,LV007,,,,Pierīga,Merged,3,14,1125,
+1133,LV,LV008,,,,Vidzeme,Boundary shift,3,14,1126,
+1134,LV,,LV00C,,,Vidzeme,New region,3,14,,1125
+1135,LV,LV005,LV005,,,Latgale,,3,14,1123,1121
+1136,LV,LV009,LV009,,,Zemgale,,3,14,1127,1122
+1137,LV,LVZ,LVZ,Extra-Regio NUTS 1,,,,1,14,1128,1126
+1138,LV,LVZZ,LVZZ,,Extra-Regio NUTS 2,,,2,14,1129,1127
+1139,LV,LVZZZ,LVZZZ,,,Extra-Regio NUTS 3,,3,14,1130,1128
+1140,LT,LT,LT,,,,,0,15,1131,1129
+1141,LT,LT0,LT0,Lietuva,,,,1,15,1132,1130
+1142,LT,LT01,LT01,,Sostinės regionas,,,2,15,1133,1131
+1143,LT,LT011,LT011,,,Vilniaus apskritis,,3,15,1134,1132
+1144,LT,LT02,LT02,,Vidurio ir vakarų Lietuvos regionas ,,,2,15,1135,1133
+1145,LT,LT021,LT021,,,Alytaus apskritis,,3,15,1136,1134
+1146,LT,LT022,LT022,,,Kauno apskritis,,3,15,1137,1135
+1147,LT,LT023,LT023,,,Klaipėdos apskritis,,3,15,1138,1136
+1148,LT,LT024,LT024,,,Marijampolės apskritis,,3,15,1139,1137
+1149,LT,LT025,LT025,,,Panevėžio apskritis,,3,15,1140,1138
+1150,LT,LT026,LT026,,,Šiaulių apskritis,,3,15,1141,1139
+1151,LT,LT027,LT027,,,Tauragės apskritis,,3,15,1142,1140
+1152,LT,LT028,LT028,,,Telšių apskritis,,3,15,1143,1141
+1153,LT,LT029,LT029,,,Utenos apskritis,,3,15,1144,1142
+1154,LT,LTZ,LTZ,Extra-Regio NUTS 1,,,,1,15,1145,1143
+1155,LT,LTZZ,LTZZ,,Extra-Regio NUTS 2,,,2,15,1146,1144
+1156,LT,LTZZZ,LTZZZ,,,Extra-Regio NUTS 3,,3,15,1147,1145
+1157,LU,LU,LU,,,,,0,16,1148,1146
+1158,LU,LU0,LU0,Luxembourg,,,,1,16,1149,1147
+1159,LU,LU00,LU00,,Luxembourg,,,2,16,1150,1148
+1160,LU,LU000,LU000,,,Luxembourg,,3,16,1151,1149
+1161,LU,LUZ,LUZ,Extra-Regio NUTS 1,,,,1,16,1152,1150
+1162,LU,LUZZ,LUZZ,,Extra-Regio NUTS 2,,,2,16,1153,1151
+1163,LU,LUZZZ,LUZZZ,,,Extra-Regio NUTS 3,,3,16,1154,1152
+1164,HU,HU,HU,,,,,0,17,1155,1153
+1165,HU,HU1,HU1,Közép-Magyarország,,,,1,17,1156,1154
+1166,HU,HU11,HU11,,Budapest,,,2,17,1157,1155
+1167,HU,HU110,HU110,,,Budapest,,3,17,1158,1156
+1168,HU,HU12,HU12,,Pest,,,2,17,1159,1157
+1169,HU,HU120,HU120,,,Pest,,3,17,1160,1158
+1170,HU,HU2,HU2,Dunántúl,,,,1,17,1161,1159
+1171,HU,HU21,HU21,,Közép-Dunántúl,,,2,17,1162,1160
+1172,HU,HU211,HU211,,,Fejér,,3,17,1163,1161
+1173,HU,HU212,HU212,,,Komárom-Esztergom,,3,17,1164,1162
+1174,HU,HU213,HU213,,,Veszprém,,3,17,1165,1163
+1175,HU,HU22,HU22,,Nyugat-Dunántúl,,,2,17,1166,1164
+1176,HU,HU221,HU221,,,Győr-Moson-Sopron,,3,17,1167,1165
+1177,HU,HU222,HU222,,,Vas,,3,17,1168,1166
+1178,HU,HU223,HU223,,,Zala,,3,17,1169,1167
+1179,HU,HU23,HU23,,Dél-Dunántúl,,,2,17,1170,1168
+1180,HU,HU231,HU231,,,Baranya,,3,17,1171,1169
+1181,HU,HU232,HU232,,,Somogy,,3,17,1172,1170
+1182,HU,HU233,HU233,,,Tolna,,3,17,1173,1171
+1183,HU,HU3,HU3,Alföld és Észak,,,,1,17,1174,1172
+1184,HU,HU31,HU31,,Észak-Magyarország,,,2,17,1175,1173
+1185,HU,HU311,HU311,,,Borsod-Abaúj-Zemplén,,3,17,1176,1174
+1186,HU,HU312,HU312,,,Heves,,3,17,1177,1175
+1187,HU,HU313,HU313,,,Nógrád,,3,17,1178,1176
+1188,HU,HU32,HU32,,Észak-Alföld,,,2,17,1179,1177
+1189,HU,HU321,HU321,,,Hajdú-Bihar,,3,17,1180,1178
+1190,HU,HU322,HU322,,,Jász-Nagykun-Szolnok,,3,17,1181,1179
+1191,HU,HU323,HU323,,,Szabolcs-Szatmár-Bereg,,3,17,1182,1180
+1192,HU,HU33,HU33,,Dél-Alföld,,,2,17,1183,1181
+1193,HU,HU331,HU331,,,Bács-Kiskun,,3,17,1184,1182
+1194,HU,HU332,HU332,,,Békés,,3,17,1185,1183
+1195,HU,HU333,HU333,,,Csongrád-Csanád,Name change,3,17,1186,1184
+1196,HU,HUZ,HUZ,Extra-Regio NUTS 1,,,,1,17,1187,1185
+1197,HU,HUZZ,HUZZ,,Extra-Regio NUTS 2,,,2,17,1188,1186
+1198,HU,HUZZZ,HUZZZ,,,Extra-Regio NUTS 3,,3,17,1189,1187
+1199,MT,MT,MT,,,,,0,18,1190,1188
+1200,MT,MT0,MT0,Malta,,,,1,18,1191,1189
+1201,MT,MT00,MT00,,Malta,,,2,18,1192,1190
+1202,MT,MT001,MT001,,,Malta,,3,18,1193,1191
+1203,MT,MT002,MT002,,,Gozo and Comino/Għawdex u Kemmuna,,3,18,1194,1192
+1204,MT,MTZ,MTZ,Extra-Regio NUTS 1,,,,1,18,1195,1193
+1205,MT,MTZZ,MTZZ,,Extra-Regio NUTS 2,,,2,18,1196,1194
+1206,MT,MTZZZ,MTZZZ,,,Extra-Regio NUTS 3,,3,18,1197,1195
+1207,NL,NL,NL,,,,,0,19,1198,1196
+1208,NL,NL1,NL1,Noord-Nederland,,,,1,19,1199,1197
+1209,NL,NL11,NL11,,Groningen,,,2,19,1200,1198
+1210,NL,NL111,,,,Oost-Groningen,Boundary shift,3,19,1201,
+1211,NL,,NL114,,,Oost-Groningen,New region,3,19,,1200
+1212,NL,NL113,,,,Overig Groningen,Boundary shift,3,19,1203,
+1213,NL,,NL115,,,Overig Groningen,New region,3,19,,1201
+1214,NL,NL112,NL112,,,Delfzijl en omgeving,,3,19,1202,1199
+1215,NL,NL12,NL12,,Friesland (NL),,,2,19,1204,1202
+1216,NL,NL124,,,,Noord-Friesland,Boundary shift,3,19,1205,
+1217,NL,,NL127,,,Noord-Friesland,New region,3,19,,1204
+1218,NL,NL125,,,,Zuidwest-Friesland,Boundary shift,3,19,1206,
+1219,NL,,NL128,,,Zuidwest-Friesland,New region,3,19,,1205
+1220,NL,NL126,NL126,,,Zuidoost-Friesland,,3,19,1207,1203
+1221,NL,NL13,NL13,,Drenthe,,,2,19,1208,1206
+1222,NL,NL131,NL131,,,Noord-Drenthe,,3,19,1209,1207
+1223,NL,NL132,NL132,,,Zuidoost-Drenthe,,3,19,1210,1208
+1224,NL,NL133,NL133,,,Zuidwest-Drenthe,,3,19,1211,1209
+1225,NL,NL2,NL2,Oost-Nederland,,,,1,19,1212,1210
+1226,NL,NL21,NL21,,Overijssel,,,2,19,1213,1211
+1227,NL,NL211,NL211,,,Noord-Overijssel,,3,19,1214,1212
+1228,NL,NL212,NL212,,,Zuidwest-Overijssel,,3,19,1215,1213
+1229,NL,NL213,NL213,,,Twente,,3,19,1216,1214
+1230,NL,NL22,NL22,,Gelderland,,,2,19,1217,1215
+1231,NL,NL221,NL221,,,Veluwe,,3,19,1218,1216
+1232,NL,NL224,NL224,,,Zuidwest-Gelderland,,3,19,1219,1217
+1233,NL,NL225,NL225,,,Achterhoek,,3,19,1220,1218
+1234,NL,NL226,NL226,,,Arnhem/Nijmegen,,3,19,1221,1219
+1235,NL,NL23,NL23,,Flevoland,,,2,19,1222,1220
+1236,NL,NL230,NL230,,,Flevoland,,3,19,1223,1221
+1237,NL,NL3,NL3,West-Nederland,,,,1,19,1224,1222
+1238,NL,NL31,,,Utrecht,,Boundary shift,2,19,1225,
+1239,NL,,NL35,,Utrecht,,New region,2,19,,1234
+1240,NL,NL310,,,,Utrecht,Boundary shift,3,19,1226,
+1241,NL,,NL350,,,Utrecht,New region,3,19,,1235
+1242,NL,NL33,,,Zuid-Holland,,Boundary shift,2,19,1235,
+1243,NL,,NL36,,Zuid-Holland,,New region,2,19,,1236
+1244,NL,NL33A,,,,Zuidoost-Zuid-Holland,Boundary shift,3,19,1239,
+1245,NL,,NL364,,,Zuidoost-Zuid-Holland,New region,3,19,,1240
+1246,NL,NL332,NL361,,,Agglomeratie ’s-Gravenhage,Code change,3,19,1236,1237
+1247,NL,NL333,NL362,,,Delft en Westland,Code change,3,19,1237,1238
+1248,NL,NL337,NL363,,,Agglomeratie Leiden en Bollenstreek,Code change,3,19,1238,1239
+1249,NL,NL33B,NL365,,,Oost-Zuid-Holland,Code change,3,19,1240,1241
+1250,NL,NL33C,NL366,,,Groot-Rijnmond,Code change,3,19,1241,1242
+1251,NL,NL32,NL32,,Noord-Holland,,,2,19,1227,1223
+1252,NL,NL321,NL321,,,Kop van Noord-Holland,,3,19,1228,1224
+1253,NL,NL323,NL323,,,IJmond,,3,19,1229,1225
+1254,NL,NL324,,,,Agglomeratie Haarlem,Boundary shift,3,19,1230,
+1255,NL,,NL32A,,,Agglomeratie Haarlem,New region,3,19,,1229
+1256,NL,NL329,,,,Groot-Amsterdam,Boundary shift,3,19,1234,
+1257,NL,,NL32B,,,Groot-Amsterdam,New region,3,19,,1230
+1258,NL,NL325,NL325,,,Zaanstreek,,3,19,1231,1226
+1259,NL,NL327,NL327,,,Het Gooi en Vechtstreek,,3,19,1232,1227
+1260,NL,NL328,NL328,,,Alkmaar en omgeving,,3,19,1233,1228
+1261,NL,NL34,NL34,,Zeeland,,,2,19,1242,1231
+1262,NL,NL341,NL341,,,Zeeuwsch-Vlaanderen,,3,19,1243,1232
+1263,NL,NL342,NL342,,,Overig Zeeland,,3,19,1244,1233
+1264,NL,NL4,NL4,Zuid-Nederland,,,,1,19,1245,1243
+1265,NL,NL41,NL41,,Noord-Brabant,,,2,19,1246,1244
+1266,NL,NL411,NL411,,,West-Noord-Brabant,,3,19,1247,1245
+1267,NL,NL412,,,,Midden-Noord-Brabant,Boundary shift,3,19,1248,
+1268,NL,,NL415,,,Midden-Noord-Brabant,New region,3,19,,1247
+1269,NL,NL413,,,,Noordoost-Noord-Brabant,Boundary shift,3,19,1249,
+1270,NL,,NL416,,,Noordoost-Noord-Brabant,New region,3,19,,1248
+1271,NL,NL414,NL414,,,Zuidoost-Noord-Brabant,,3,19,1250,1246
+1272,NL,NL42,NL42,,Limburg (NL),,,2,19,1251,1249
+1273,NL,NL421,NL421,,,Noord-Limburg,,3,19,1252,1250
+1274,NL,NL422,NL422,,,Midden-Limburg,,3,19,1253,1251
+1275,NL,NL423,NL423,,,Zuid-Limburg,,3,19,1254,1252
+1276,NL,NLZ,NLZ,Extra-Regio NUTS 1,,,,1,19,1255,1253
+1277,NL,NLZZ,NLZZ,,Extra-Regio NUTS 2,,,2,19,1256,1254
+1278,NL,NLZZZ,NLZZZ,,,Extra-Regio NUTS 3,,3,19,1257,1255
+1279,AT,AT,AT,,,,,0,20,1258,1256
+1280,AT,AT1,AT1,Ostösterreich,,,,1,20,1259,1257
+1281,AT,AT11,AT11,,Burgenland,,,2,20,1260,1258
+1282,AT,AT111,AT111,,,Mittelburgenland,,3,20,1261,1259
+1283,AT,AT112,AT112,,,Nordburgenland,,3,20,1262,1260
+1284,AT,AT113,AT113,,,Südburgenland,,3,20,1263,1261
+1285,AT,AT12,AT12,,Niederösterreich,,,2,20,1264,1262
+1286,AT,AT121,AT121,,,Mostviertel-Eisenwurzen,,3,20,1265,1263
+1287,AT,AT122,AT122,,,Niederösterreich-Süd,,3,20,1266,1264
+1288,AT,AT123,AT123,,,Sankt Pölten,,3,20,1267,1265
+1289,AT,AT124,AT124,,,Waldviertel,,3,20,1268,1266
+1290,AT,AT125,AT125,,,Weinviertel,,3,20,1269,1267
+1291,AT,AT126,AT126,,,Wiener Umland/Nordteil,,3,20,1270,1268
+1292,AT,AT127,AT127,,,Wiener Umland/Südteil,,3,20,1271,1269
+1293,AT,AT13,AT13,,Wien,,,2,20,1272,1270
+1294,AT,AT130,AT130,,,Wien,,3,20,1273,1271
+1295,AT,AT2,AT2,Südösterreich,,,,1,20,1274,1272
+1296,AT,AT21,AT21,,Kärnten,,,2,20,1275,1273
+1297,AT,AT211,AT211,,,Klagenfurt-Villach,,3,20,1276,1274
+1298,AT,AT212,AT212,,,Oberkärnten,,3,20,1277,1275
+1299,AT,AT213,AT213,,,Unterkärnten,,3,20,1278,1276
+1300,AT,AT22,AT22,,Steiermark,,,2,20,1279,1277
+1301,AT,AT221,AT221,,,Graz,,3,20,1280,1278
+1302,AT,AT222,AT222,,,Liezen,,3,20,1281,1279
+1303,AT,AT223,AT223,,,Östliche Obersteiermark,,3,20,1282,1280
+1304,AT,AT224,AT224,,,Oststeiermark,art. 5(2a),3,20,1283,1281
+1305,AT,AT225,AT225,,,West- und Südsteiermark,art. 5(2a),3,20,1284,1282
+1306,AT,AT226,AT226,,,Westliche Obersteiermark,,3,20,1285,1283
+1307,AT,AT3,AT3,Westösterreich,,,,1,20,1286,1284
+1308,AT,AT31,AT31,,Oberösterreich,,,2,20,1287,1285
+1309,AT,AT311,AT311,,,Innviertel,,3,20,1288,1286
+1310,AT,AT312,AT312,,,Linz-Wels,,3,20,1289,1287
+1311,AT,AT313,AT313,,,Mühlviertel,,3,20,1290,1288
+1312,AT,AT314,AT314,,,Steyr-Kirchdorf,,3,20,1291,1289
+1313,AT,AT315,AT315,,,Traunviertel,,3,20,1292,1290
+1314,AT,AT32,AT32,,Salzburg,,,2,20,1293,1291
+1315,AT,AT321,AT321,,,Lungau,,3,20,1294,1292
+1316,AT,AT322,AT322,,,Pinzgau-Pongau,,3,20,1295,1293
+1317,AT,AT323,AT323,,,Salzburg und Umgebung,,3,20,1296,1294
+1318,AT,AT33,AT33,,Tirol,,,2,20,1297,1295
+1319,AT,AT331,AT331,,,Außerfern,,3,20,1298,1296
+1320,AT,AT332,AT332,,,Innsbruck,,3,20,1299,1297
+1321,AT,AT333,AT333,,,Osttirol,,3,20,1300,1298
+1322,AT,AT334,AT334,,,Tiroler Oberland,,3,20,1301,1299
+1323,AT,AT335,AT335,,,Tiroler Unterland,,3,20,1302,1300
+1324,AT,AT34,AT34,,Vorarlberg,,,2,20,1303,1301
+1325,AT,AT341,AT341,,,Bludenz-Bregenzer Wald,,3,20,1304,1302
+1326,AT,AT342,AT342,,,Rheintal-Bodenseegebiet,,3,20,1305,1303
+1327,AT,ATZ,ATZ,Extra-Regio NUTS 1,,,,1,20,1306,1304
+1328,AT,ATZZ,ATZZ,,Extra-Regio NUTS 2,,,2,20,1307,1305
+1329,AT,ATZZZ,ATZZZ,,,Extra-Regio NUTS 3,,3,20,1308,1306
+1330,PL,PL,PL,,,,,0,21,1309,1307
+1331,PL,PL2,PL2,Makroregion południowy,,,,1,21,1310,1308
+1332,PL,PL21,PL21,,Małopolskie,,,2,21,1311,1309
+1333,PL,PL213,PL213,,,Miasto Kraków,,3,21,1312,1310
+1334,PL,PL214,PL214,,,Krakowski,,3,21,1313,1311
+1335,PL,PL217,PL217,,,Tarnowski,,3,21,1314,1312
+1336,PL,PL218,PL218,,,Nowosądecki,,3,21,1315,1313
+1337,PL,PL219,PL219,,,Nowotarski,,3,21,1316,1314
+1338,PL,PL21A,PL21A,,,Oświęcimski,,3,21,1317,1315
+1339,PL,PL22,PL22,,Śląskie,,,2,21,1318,1316
+1340,PL,PL224,PL224,,,Częstochowski,,3,21,1319,1317
+1341,PL,PL225,PL225,,,Bielski,,3,21,1320,1318
+1342,PL,PL227,PL227,,,Rybnicki,,3,21,1321,1319
+1343,PL,PL228,PL228,,,Bytomski,,3,21,1322,1320
+1344,PL,PL229,PL229,,,Gliwicki,,3,21,1323,1321
+1345,PL,PL22A,PL22A,,,Katowicki,,3,21,1324,1322
+1346,PL,PL22B,PL22B,,,Sosnowiecki,,3,21,1325,1323
+1347,PL,PL22C,PL22C,,,Tyski,,3,21,1326,1324
+1348,PL,PL4,PL4,Makroregion północno-zachodni,,,,1,21,1327,1325
+1349,PL,PL41,PL41,,Wielkopolskie,,,2,21,1328,1326
+1350,PL,PL411,PL411,,,Pilski,,3,21,1329,1327
+1351,PL,PL414,PL414,,,Koniński,,3,21,1330,1328
+1352,PL,PL415,PL415,,,Miasto Poznań,,3,21,1331,1329
+1353,PL,PL416,PL416,,,Kaliski,,3,21,1332,1330
+1354,PL,PL417,PL417,,,Leszczyński,,3,21,1333,1331
+1355,PL,PL418,PL418,,,Poznański,,3,21,1334,1332
+1356,PL,PL42,PL42,,Zachodniopomorskie,,,2,21,1335,1333
+1357,PL,PL424,PL424,,,Miasto Szczecin,,3,21,1336,1334
+1358,PL,PL426,PL426,,,Koszaliński,,3,21,1337,1335
+1359,PL,PL427,PL427,,,Szczecinecko-pyrzycki,,3,21,1338,1336
+1360,PL,PL428,PL428,,,Szczeciński,,3,21,1339,1337
+1361,PL,PL43,PL43,,Lubuskie,,,2,21,1340,1338
+1362,PL,PL431,PL431,,,Gorzowski,,3,21,1341,1339
+1363,PL,PL432,PL432,,,Zielonogórski,,3,21,1342,1340
+1364,PL,PL5,PL5,Makroregion południowo-zachodni,,,,1,21,1343,1341
+1365,PL,PL51,PL51,,Dolnośląskie,,,2,21,1344,1342
+1366,PL,PL514,PL514,,,Miasto Wrocław,,3,21,1345,1343
+1367,PL,PL515,PL515,,,Jeleniogórski,,3,21,1346,1344
+1368,PL,PL516,PL516,,,Legnicko-głogowski,,3,21,1347,1345
+1369,PL,PL517,PL517,,,Wałbrzyski,,3,21,1348,1346
+1370,PL,PL518,PL518,,,Wrocławski,,3,21,1349,1347
+1371,PL,PL52,PL52,,Opolskie,,,2,21,1350,1348
+1372,PL,PL523,PL523,,,Nyski,,3,21,1351,1349
+1373,PL,PL524,PL524,,,Opolski,,3,21,1352,1350
+1374,PL,PL6,PL6,Makroregion północny,,,,1,21,1353,1351
+1375,PL,PL61,PL61,,Kujawsko-pomorskie,,,2,21,1354,1352
+1376,PL,PL613,PL613,,,Bydgosko-toruński,,3,21,1355,1353
+1377,PL,PL616,PL616,,,Grudziądzki,,3,21,1356,1354
+1378,PL,PL617,PL617,,,Inowrocławski,,3,21,1357,1355
+1379,PL,PL618,PL618,,,Świecki,,3,21,1358,1356
+1380,PL,PL619,PL619,,,Włocławski,,3,21,1359,1357
+1381,PL,PL62,PL62,,Warmińsko-mazurskie,,,2,21,1360,1358
+1382,PL,PL621,PL621,,,Elbląski,,3,21,1361,1359
+1383,PL,PL622,PL622,,,Olsztyński,,3,21,1362,1360
+1384,PL,PL623,PL623,,,Ełcki,,3,21,1363,1361
+1385,PL,PL63,PL63,,Pomorskie,,,2,21,1364,1362
+1386,PL,PL633,PL633,,,Trójmiejski,,3,21,1365,1363
+1387,PL,PL634,PL634,,,Gdański,,3,21,1366,1364
+1388,PL,PL636,PL636,,,Słupski,,3,21,1367,1365
+1389,PL,PL637,PL637,,,Chojnicki,,3,21,1368,1366
+1390,PL,PL638,PL638,,,Starogardzki,,3,21,1369,1367
+1391,PL,PL7,PL7,Makroregion centralny,,,,1,21,1370,1368
+1392,PL,PL71,PL71,,Łódzkie,,,2,21,1371,1369
+1393,PL,PL711,PL711,,,Miasto Łódź,,3,21,1372,1370
+1394,PL,PL712,PL712,,,Łódzki,,3,21,1373,1371
+1395,PL,PL713,PL713,,,Piotrkowski,,3,21,1374,1372
+1396,PL,PL714,PL714,,,Sieradzki,,3,21,1375,1373
+1397,PL,PL715,PL715,,,Skierniewicki,,3,21,1376,1374
+1398,PL,PL72,PL72,,Świętokrzyskie,,,2,21,1377,1375
+1399,PL,PL721,PL721,,,Kielecki,,3,21,1378,1376
+1400,PL,PL722,PL722,,,Sandomiersko-jędrzejowski,,3,21,1379,1377
+1401,PL,PL8,PL8,Makroregion wschodni,,,,1,21,1380,1378
+1402,PL,PL81,PL81,,Lubelskie,,,2,21,1381,1379
+1403,PL,PL811,PL811,,,Bialski,,3,21,1382,1380
+1404,PL,PL812,PL812,,,Chełmsko-zamojski,,3,21,1383,1381
+1405,PL,PL814,PL814,,,Lubelski,,3,21,1384,1382
+1406,PL,PL815,PL815,,,Puławski,,3,21,1385,1383
+1407,PL,PL82,PL82,,Podkarpackie,,,2,21,1386,1384
+1408,PL,PL821,PL821,,,Krośnieński,,3,21,1387,1385
+1409,PL,PL822,PL822,,,Przemyski,,3,21,1388,1386
+1410,PL,PL823,PL823,,,Rzeszowski,,3,21,1389,1387
+1411,PL,PL824,PL824,,,Tarnobrzeski,,3,21,1390,1388
+1412,PL,PL84,PL84,,Podlaskie,,,2,21,1391,1389
+1413,PL,PL841,PL841,,,Białostocki,,3,21,1392,1390
+1414,PL,PL842,PL842,,,Łomżyński,,3,21,1393,1391
+1415,PL,PL843,PL843,,,Suwalski,,3,21,1394,1392
+1416,PL,PL9,PL9,Makroregion województwo mazowieckie,,,,1,21,1395,1393
+1417,PL,PL91,PL91,,Warszawski stołeczny,,,2,21,1396,1394
+1418,PL,PL911,PL911,,,Miasto Warszawa,,3,21,1397,1395
+1419,PL,PL912,PL912,,,Warszawski wschodni,,3,21,1398,1396
+1420,PL,PL913,PL913,,,Warszawski zachodni,,3,21,1399,1397
+1421,PL,PL92,PL92,,Mazowiecki regionalny,,,2,21,1400,1398
+1422,PL,PL921,PL921,,,Radomski,,3,21,1401,1399
+1423,PL,PL922,PL922,,,Ciechanowski,,3,21,1402,1400
+1424,PL,PL923,PL923,,,Płocki,,3,21,1403,1401
+1425,PL,PL924,PL924,,,Ostrołęcki,,3,21,1404,1402
+1426,PL,PL925,PL925,,,Siedlecki,,3,21,1405,1403
+1427,PL,PL926,PL926,,,Żyrardowski,,3,21,1406,1404
+1428,PL,PLZ,PLZ,Extra-Regio NUTS 1,,,,1,21,1407,1405
+1429,PL,PLZZ,PLZZ,,Extra-Regio NUTS 2,,,2,21,1408,1406
+1430,PL,PLZZZ,PLZZZ,,,Extra-Regio NUTS 3,,3,21,1409,1407
+1431,PT,PT,PT,,,,,0,22,1410,1408
+1432,PT,PT1,PT1,Continente,,,,1,22,1411,1409
+1433,PT,PT11,PT11,,Norte,,,2,22,1412,1410
+1434,PT,PT111,PT111,,,Alto Minho,,3,22,1413,1411
+1435,PT,PT112,PT112,,,Cávado,,3,22,1414,1412
+1436,PT,PT119,PT119,,,Ave,,3,22,1415,1413
+1437,PT,PT11A,PT11A,,,Área Metropolitana do Porto,,3,22,1416,1414
+1438,PT,PT11B,PT11B,,,Alto Tâmega e Barroso,Name change,3,22,1417,1415
+1439,PT,PT11C,PT11C,,,Tâmega e Sousa,,3,22,1418,1416
+1440,PT,PT11D,PT11D,,,Douro,,3,22,1419,1417
+1441,PT,PT11E,PT11E,,,Terras de Trás-os-Montes,,3,22,1420,1418
+1442,PT,PT15,PT15,,Algarve,,,2,22,1421,1419
+1443,PT,PT150,PT150,,,Algarve,,3,22,1422,1420
+1444,PT,PT16,,,Centro (PT),,Boundary shift,2,22,1423,
+1445,PT,,PT19,,Centro (PT),,New region,2,22,,1421
+1446,PT,PT18,,,Alentejo,,Boundary shift,2,22,1434,
+1447,PT,,PT1C,,Alentejo,,New region,2,22,,1432
+1448,PT,,PT1D,,Oeste e Vale do Tejo,,New region,2,22,,1437
+1449,PT,PT16H,,,,Beira Baixa,Boundary shift,3,22,1429,
+1450,PT,,PT195,,,Beira Baixa,New region,3,22,,1426
+1451,PT,PT16I,,,,Médio Tejo,Boundary shift,3,22,1430,
+1452,PT,,PT1D2,,,Médio Tejo,New region,3,22,,1439
+1453,PT,PT16B,PT1D1,,,Oeste,Code change,3,22,1424,1438
+1454,PT,PT16D,PT191,,,Região de Aveiro,Code change,3,22,1425,1422
+1455,PT,PT16E,PT192,,,Região de Coimbra,Code change,3,22,1426,1423
+1456,PT,PT16F,PT193,,,Região de Leiria,Code change,3,22,1427,1424
+1457,PT,PT16G,PT194,,,Viseu Dão Lafões,Code change,3,22,1428,1425
+1458,PT,PT181,PT1C1,,,Alentejo Litoral,Code change,3,22,1435,1433
+1459,PT,PT184,PT1C2,,,Baixo Alentejo,Code change,3,22,1436,1434
+1460,PT,PT185,PT1D3,,,Lezíria do Tejo,Code change,3,22,1437,1440
+1461,PT,PT186,PT1C3,,,Alto Alentejo,Code change,3,22,1438,1435
+1462,PT,PT187,PT1C4,,,Alentejo Central,Code change,3,22,1439,1436
+1463,PT,PT16J,PT196,,,Beiras e Serra da Estrela,Code change,3,22,1431,1427
+1464,PT,PT17,,,Área Metropolitana de Lisboa,,Split,2,22,1432,
+1465,PT,,PT1A,,Grande Lisboa,,New region,2,22,,1428
+1466,PT,,PT1B,,Península de Setúbal,,New region,2,22,,1430
+1467,PT,PT170,,,,Área Metropolitana de Lisboa,Split,3,22,1433,
+1468,PT,,PT1A0,,,Grande Lisboa,New region,3,22,,1429
+1469,PT,,PT1B0,,,Península de Setúbal,New region,3,22,,1431
+1470,PT,PT2,PT2,Região Autónoma dos Açores,,,,1,22,1440,1441
+1471,PT,PT20,PT20,,Região Autónoma dos Açores,,,2,22,1441,1442
+1472,PT,PT200,PT200,,,Região Autónoma dos Açores,,3,22,1442,1443
+1473,PT,PT3,PT3,Região Autónoma da Madeira,,,,1,22,1443,1444
+1474,PT,PT30,PT30,,Região Autónoma da Madeira,,,2,22,1444,1445
+1475,PT,PT300,PT300,,,Região Autónoma da Madeira,,3,22,1445,1446
+1476,PT,PTZ,PTZ,Extra-Regio NUTS 1,,,,1,22,1446,1447
+1477,PT,PTZZ,PTZZ,,Extra-Regio NUTS 2,,,2,22,1447,1448
+1478,PT,PTZZZ,PTZZZ,,,Extra-Regio NUTS 3,,3,22,1448,1449
+1479,RO,RO,RO,,,,,0,23,1449,1450
+1480,RO,RO1,RO1,Macroregiunea Unu,,,,1,23,1450,1451
+1481,RO,RO11,RO11,,Nord-Vest,,,2,23,1451,1452
+1482,RO,RO111,RO111,,,Bihor,,3,23,1452,1453
+1483,RO,RO112,RO112,,,Bistriţa-Năsăud,,3,23,1453,1454
+1484,RO,RO113,RO113,,,Cluj,,3,23,1454,1455
+1485,RO,RO114,RO114,,,Maramureş,,3,23,1455,1456
+1486,RO,RO115,RO115,,,Satu Mare,,3,23,1456,1457
+1487,RO,RO116,RO116,,,Sălaj,,3,23,1457,1458
+1488,RO,RO12,RO12,,Centru,,,2,23,1458,1459
+1489,RO,RO121,RO121,,,Alba,,3,23,1459,1460
+1490,RO,RO122,RO122,,,Braşov,,3,23,1460,1461
+1491,RO,RO123,RO123,,,Covasna,,3,23,1461,1462
+1492,RO,RO124,RO124,,,Harghita,,3,23,1462,1463
+1493,RO,RO125,RO125,,,Mureş,,3,23,1463,1464
+1494,RO,RO126,RO126,,,Sibiu,,3,23,1464,1465
+1495,RO,RO2,RO2,Macroregiunea Doi,,,,1,23,1465,1466
+1496,RO,RO21,RO21,,Nord-Est,,,2,23,1466,1467
+1497,RO,RO211,RO211,,,Bacău,,3,23,1467,1468
+1498,RO,RO212,RO212,,,Botoşani,,3,23,1468,1469
+1499,RO,RO213,RO213,,,Iaşi,,3,23,1469,1470
+1500,RO,RO214,RO214,,,Neamţ,,3,23,1470,1471
+1501,RO,RO215,RO215,,,Suceava,,3,23,1471,1472
+1502,RO,RO216,RO216,,,Vaslui,,3,23,1472,1473
+1503,RO,RO22,RO22,,Sud-Est,,,2,23,1473,1474
+1504,RO,RO221,RO221,,,Brăila,,3,23,1474,1475
+1505,RO,RO222,RO222,,,Buzău,,3,23,1475,1476
+1506,RO,RO223,RO223,,,Constanţa,,3,23,1476,1477
+1507,RO,RO224,RO224,,,Galaţi,,3,23,1477,1478
+1508,RO,RO225,RO225,,,Tulcea,,3,23,1478,1479
+1509,RO,RO226,RO226,,,Vrancea,,3,23,1479,1480
+1510,RO,RO3,RO3,Macroregiunea Trei,,,,1,23,1480,1481
+1511,RO,RO31,RO31,,Sud-Muntenia,,,2,23,1481,1482
+1512,RO,RO311,RO311,,,Argeş,,3,23,1482,1483
+1513,RO,RO312,RO312,,,Călăraşi,,3,23,1483,1484
+1514,RO,RO313,RO313,,,Dâmboviţa,,3,23,1484,1485
+1515,RO,RO314,RO314,,,Giurgiu,,3,23,1485,1486
+1516,RO,RO315,RO315,,,Ialomiţa,,3,23,1486,1487
+1517,RO,RO316,RO316,,,Prahova,,3,23,1487,1488
+1518,RO,RO317,RO317,,,Teleorman,,3,23,1488,1489
+1519,RO,RO32,RO32,,Bucureşti-Ilfov,,,2,23,1489,1490
+1520,RO,RO321,RO321,,,Bucureşti,,3,23,1490,1491
+1521,RO,RO322,RO322, ,,Ilfov,,3,23,1491,1492
+1522,RO,RO4,RO4,Macroregiunea Patru,,,,1,23,1492,1493
+1523,RO,RO41,RO41,,Sud-Vest Oltenia,,,2,23,1493,1494
+1524,RO,RO411,RO411,,,Dolj,,3,23,1494,1495
+1525,RO,RO412,RO412,,,Gorj,,3,23,1495,1496
+1526,RO,RO413,RO413,,,Mehedinţi,,3,23,1496,1497
+1527,RO,RO414,RO414,,,Olt,,3,23,1497,1498
+1528,RO,RO415,RO415,,,Vâlcea,,3,23,1498,1499
+1529,RO,RO42,RO42,,Vest,,,2,23,1499,1500
+1530,RO,RO421,RO421,,,Arad,,3,23,1500,1501
+1531,RO,RO422,RO422,,,Caraş-Severin,,3,23,1501,1502
+1532,RO,RO423,RO423,,,Hunedoara,,3,23,1502,1503
+1533,RO,RO424,RO424,,,Timiş,,3,23,1503,1504
+1534,RO,ROZ,ROZ,Extra-Regio NUTS 1,,,,1,23,1504,1505
+1535,RO,ROZZ,ROZZ,,Extra-Regio NUTS 2,,,2,23,1505,1506
+1536,RO,ROZZZ,ROZZZ,,,Extra-Regio NUTS 3,,3,23,1506,1507
+1537,SI,SI,SI,,,,,0,24,1507,1508
+1538,SI,SI0,SI0,Slovenija,,,,1,24,1508,1509
+1539,SI,SI03,SI03,,Vzhodna Slovenija,,,2,24,1509,1510
+1540,SI,SI031,SI031,,,Pomurska,,3,24,1510,1511
+1541,SI,SI032,SI032,,,Podravska,,3,24,1511,1512
+1542,SI,SI033,SI033,,,Koroška,,3,24,1512,1513
+1543,SI,SI034,SI034,,,Savinjska,,3,24,1513,1514
+1544,SI,SI035,SI035,,,Zasavska,,3,24,1514,1515
+1545,SI,SI036,SI036,,,Posavska,,3,24,1515,1516
+1546,SI,SI037,SI037,,,Jugovzhodna Slovenija,,3,24,1516,1517
+1547,SI,SI038,SI038,,,Primorsko-notranjska,,3,24,1517,1518
+1548,SI,SI04,SI04,,Zahodna Slovenija,,,2,24,1518,1519
+1549,SI,SI041,SI041,,,Osrednjeslovenska,,3,24,1519,1520
+1550,SI,SI042,SI042,,,Gorenjska,,3,24,1520,1521
+1551,SI,SI043,SI043,,,Goriška,,3,24,1521,1522
+1552,SI,SI044,SI044,,,Obalno-kraška,,3,24,1522,1523
+1553,SI,SIZ,SIZ,Extra-Regio NUTS 1,,,,1,24,1523,1524
+1554,SI,SIZZ,SIZZ,,Extra-Regio NUTS 2,,,2,24,1524,1525
+1555,SI,SIZZZ,SIZZZ,,,Extra-Regio NUTS 3,,3,24,1525,1526
+1556,SK,SK,SK,,,,,0,25,1526,1527
+1557,SK,SK0,SK0,Slovensko,,,,1,25,1527,1528
+1558,SK,SK01,SK01,,Bratislavský kraj,,,2,25,1528,1529
+1559,SK,SK010,SK010,,,Bratislavský kraj,,3,25,1529,1530
+1560,SK,SK02,SK02,,Západné Slovensko,,,2,25,1530,1531
+1561,SK,SK021,SK021,,,Trnavský kraj,,3,25,1531,1532
+1562,SK,SK022,SK022,,,Trenčiansky kraj,,3,25,1532,1533
+1563,SK,SK023,SK023,,,Nitriansky kraj,,3,25,1533,1534
+1564,SK,SK03,SK03,,Stredné Slovensko,,,2,25,1534,1535
+1565,SK,SK031,SK031,,,Žilinský kraj,,3,25,1535,1536
+1566,SK,SK032,SK032,,,Banskobystrický kraj,,3,25,1536,1537
+1567,SK,SK04,SK04,,Východné Slovensko,,,2,25,1537,1538
+1568,SK,SK041,SK041,,,Prešovský kraj,,3,25,1538,1539
+1569,SK,SK042,SK042,,,Košický kraj,,3,25,1539,1540
+1570,SK,SKZ,SKZ,Extra-Regio NUTS 1,,,,1,25,1540,1541
+1571,SK,SKZZ,SKZZ,,Extra-Regio NUTS 2,,,2,25,1541,1542
+1572,SK,SKZZZ,SKZZZ,,,Extra-Regio NUTS 3,,3,25,1542,1543
+1573,FI,FI,FI,,,,,0,26,1543,1544
+1574,FI,FI1,FI1,Manner-Suomi,,,,1,26,1544,1545
+1575,FI,FI19,FI19,,Länsi-Suomi,,,2,26,1545,1546
+1576,FI,FI193,,,,Keski-Suomi,Boundary shift,3,26,1546,
+1577,FI,,FI198,,,Keski-Suomi,New region,3,26,,1548
+1578,FI,FI197,,,,Pirkanmaa,Boundary shift,3,26,1550,
+1579,FI,,FI19B,,,Pirkanmaa,New region,3,26,,1551
+1580,FI,FI196,FI196,,,Satakunta,,3,26,1549,1547
+1581,FI,FI194,,,,Etelä-Pohjanmaa,Boundary shift,3,26,1547,
+1582,FI,,FI199,,,Etelä-Pohjanmaa,New region,3,26,,1549
+1583,FI,FI195,,,,Pohjanmaa,Boundary shift,3,26,1548,
+1584,FI,,FI19A,,,Pohjanmaa,New region,3,26,,1550
+1585,FI,FI1B,FI1B,,Helsinki-Uusimaa,,,2,26,1551,1552
+1586,FI,FI1B1,FI1B1,,,Helsinki-Uusimaa,,3,26,1552,1553
+1587,FI,FI1C,FI1C,,Etelä-Suomi,,,2,26,1553,1554
+1588,FI,FI1C1,FI1C1,,,Varsinais-Suomi,,3,26,1554,1555
+1589,FI,FI1C2,FI1C2,,,Kanta-Häme,,3,26,1555,1556
+1590,FI,FI1C3,,,,Päijät-Häme,Boundary shift,3,26,1556,
+1591,FI,,FI1C6,,,Päijät-Häme,New region,3,26,,1558
+1592,FI,FI1C4,,,,Kymenlaakso,Boundary shift,3,26,1557,
+1593,FI,,FI1C7,,,Kymenlaakso,New region,3,26,,1559
+1594,FI,FI1C5,FI1C5,,,Etelä-Karjala,,3,26,1558,1557
+1595,FI,FI1D,FI1D,,Pohjois- ja Itä-Suomi,,,2,26,1559,1560
+1596,FI,FI1D1,,,,Etelä-Savo,Boundary shift,3,26,1560,
+1597,FI,,FI1DA,,,Etelä-Savo,New region,3,26,,1565
+1598,FI,FI1D2,,,,Pohjois-Savo,Boundary shift,3,26,1561,
+1599,FI,,FI1DB,,,Pohjois-Savo,New region,3,26,,1566
+1600,FI,FI1D3,,,,Pohjois-Karjala,Boundary shift,3,26,1562,
+1601,FI,,FI1DC,,,Pohjois-Karjala,New region,3,26,,1567
+1602,FI,FI1D5,FI1D5,,,Keski-Pohjanmaa,,3,26,1563,1561
+1603,FI,FI1D7,FI1D7,,,Lappi,,3,26,1564,1562
+1604,FI,FI1D8,FI1D8,,,Kainuu,,3,26,1565,1563
+1605,FI,FI1D9,FI1D9,,,Pohjois-Pohjanmaa,,3,26,1566,1564
+1606,FI,FI2,FI2,Åland,,,,1,26,1567,1568
+1607,FI,FI20,FI20,,Åland,,,2,26,1568,1569
+1608,FI,FI200,FI200,,,Åland,,3,26,1569,1570
+1609,FI,FIZ,FIZ,Extra-Regio NUTS 1,,,,1,26,1570,1571
+1610,FI,FIZZ,FIZZ,,Extra-Regio NUTS 2,,,2,26,1571,1572
+1611,FI,FIZZZ,FIZZZ,,,Extra-Regio NUTS 3,,3,26,1572,1573
+1612,SE,SE,SE,,,,,0,27,1573,1574
+1613,SE,SE1,SE1,Östra Sverige,,,,1,27,1574,1575
+1614,SE,SE11,SE11,,Stockholm,,,2,27,1575,1576
+1615,SE,SE110,SE110,,,Stockholms län,,3,27,1576,1577
+1616,SE,SE12,SE12,,Östra Mellansverige,,,2,27,1577,1578
+1617,SE,SE121,SE121,,,Uppsala län,,3,27,1578,1579
+1618,SE,SE122,SE122,,,Södermanlands län,,3,27,1579,1580
+1619,SE,SE123,SE123,,,Östergötlands län,,3,27,1580,1581
+1620,SE,SE124,SE124,,,Örebro län,,3,27,1581,1582
+1621,SE,SE125,SE125,,,Västmanlands län,,3,27,1582,1583
+1622,SE,SE2,SE2,Södra Sverige,,,,1,27,1583,1584
+1623,SE,SE21,SE21,,Småland med öarna,,,2,27,1584,1585
+1624,SE,SE211,SE211,,,Jönköpings län,,3,27,1585,1586
+1625,SE,SE212,SE212,,,Kronobergs län,,3,27,1586,1587
+1626,SE,SE213,SE213,,,Kalmar län,,3,27,1587,1588
+1627,SE,SE214,SE214,,,Gotlands län,,3,27,1588,1589
+1628,SE,SE22,SE22,,Sydsverige,,,2,27,1589,1590
+1629,SE,SE221,SE221,,,Blekinge län,,3,27,1590,1591
+1630,SE,SE224,SE224,,,Skåne län,,3,27,1591,1592
+1631,SE,SE23,SE23,,Västsverige,,,2,27,1592,1593
+1632,SE,SE231,SE231,,,Hallands län,,3,27,1593,1594
+1633,SE,SE232,SE232,,,Västra Götalands län,,3,27,1594,1595
+1634,SE,SE3,SE3,Norra Sverige,,,,1,27,1595,1596
+1635,SE,SE31,SE31,,Norra Mellansverige,,,2,27,1596,1597
+1636,SE,SE311,SE311,,,Värmlands län,,3,27,1597,1598
+1637,SE,SE312,SE312,,,Dalarnas län,,3,27,1598,1599
+1638,SE,SE313,SE313,,,Gävleborgs län,,3,27,1599,1600
+1639,SE,SE32,SE32,,Mellersta Norrland,,,2,27,1600,1601
+1640,SE,SE321,SE321,,,Västernorrlands län,,3,27,1601,1602
+1641,SE,SE322,SE322,,,Jämtlands län,,3,27,1602,1603
+1642,SE,SE33,SE33,,Övre Norrland,,,2,27,1603,1604
+1643,SE,SE331,SE331,,,Västerbottens län,,3,27,1604,1605
+1644,SE,SE332,SE332,,,Norrbottens län,,3,27,1605,1606
+1645,SE,SEZ,SEZ,Extra-Regio NUTS 1,,,,1,27,1606,1607
+1646,SE,SEZZ,SEZZ,,Extra-Regio NUTS 2,,,2,27,1607,1608
+1647,SE,SEZZZ,SEZZZ,,,Extra-Regio NUTS 3,,3,27,1608,1609

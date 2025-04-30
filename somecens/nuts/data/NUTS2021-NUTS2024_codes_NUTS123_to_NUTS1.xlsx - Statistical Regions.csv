@@ -1,0 +1,461 @@
+Country code,SR Code,SR label,SR level,Country order,#
+IS,IS0,Ísland,1,1,1
+IS,IS00,Ísland,2,1,2
+IS,IS001,Höfuðborgarsvæði,3,1,3
+IS,IS002,Landsbyggð,3,1,4
+IS,ISZ,Extra-Regio level 1,1,1,5
+IS,ISZZ,Extra-Regio level 2,2,1,6
+IS,ISZZZ,Extra-Regio level 3,3,1,7
+LI,LI0,Liechtenstein,1,2,8
+LI,LI00,Liechtenstein,2,2,9
+LI,LI000,Liechtenstein,3,2,10
+LI,LIZ,Extra-Regio level 1,1,2,11
+LI,LIZZ,Extra-Regio level 2,2,2,12
+LI,LIZZZ,Extra-Regio level 3,3,2,13
+NO,NO0,Norge,1,3,14
+NO,NO02,Innlandet,2,3,15
+NO,NO020,Innlandet,3,3,16
+NO,NO06,Trøndelag/Trööndelage,2,3,17
+NO,NO060,Trøndelag/Trööndelage,3,3,18
+NO,NO07,Nord-Norge,2,3,19
+NO,NO071,Nordland/Nordlánnda,3,3,20
+NO,NO072,Troms/Romsa/Tromssa,3,3,21
+NO,NO073,Finnmark/Finnmárku/Finmarkku,3,3,22
+NO,NO08,Oslo og Viken,2,3,23
+NO,NO081,Oslo,3,3,24
+NO,NO083,Østfold,3,3,25
+NO,NO084,Akershus,3,3,26
+NO,NO085,Buskerud,3,3,27
+NO,NO09,Agder og Sør-Østlandet,2,3,28
+NO,NO092,Agder,3,3,29
+NO,NO093,Vestfold,3,3,30
+NO,NO094,Telemark,3,3,31
+NO,NO0A,Vestlandet,2,3,32
+NO,NO0A1,Rogaland,3,3,33
+NO,NO0A2,Vestland,3,3,34
+NO,NO0A3,Møre og Romsdal,3,3,35
+NO,NO0B,Svalbard og Jan Mayen,2,3,36
+NO,NO0B1,Jan Mayen,3,3,37
+NO,NO0B2,Svalbard,3,3,38
+NO,NOZ,Extra-Regio level 1,1,3,39
+NO,NOZZ,Extra-Regio level 2,2,3,40
+NO,NOZZZ,Extra-Regio level 3,3,3,41
+CH,CH0,Schweiz/Suisse/Svizzera,1,4,42
+CH,CH01,Région lémanique,2,4,43
+CH,CH011,Vaud,3,4,44
+CH,CH012,Valais / Wallis,3,4,45
+CH,CH013,Genève,3,4,46
+CH,CH02,Espace Mittelland,2,4,47
+CH,CH021,Bern / Berne,3,4,48
+CH,CH022,Fribourg / Freiburg,3,4,49
+CH,CH023,Solothurn,3,4,50
+CH,CH024,Neuchâtel,3,4,51
+CH,CH025,Jura,3,4,52
+CH,CH03,Nordwestschweiz,2,4,53
+CH,CH031,Basel-Stadt,3,4,54
+CH,CH032,Basel-Landschaft,3,4,55
+CH,CH033,Aargau,3,4,56
+CH,CH04,Zürich,2,4,57
+CH,CH040,Zürich,3,4,58
+CH,CH05,Ostschweiz,2,4,59
+CH,CH051,Glarus,3,4,60
+CH,CH052,Schaffhausen,3,4,61
+CH,CH053,Appenzell Ausserrhoden,3,4,62
+CH,CH054,Appenzell Innerrhoden,3,4,63
+CH,CH055,St. Gallen,3,4,64
+CH,CH056,Graubünden / Grigioni / Grischun,3,4,65
+CH,CH057,Thurgau,3,4,66
+CH,CH06,Zentralschweiz,2,4,67
+CH,CH061,Luzern,3,4,68
+CH,CH062,Uri,3,4,69
+CH,CH063,Schwyz,3,4,70
+CH,CH064,Obwalden,3,4,71
+CH,CH065,Nidwalden,3,4,72
+CH,CH066,Zug,3,4,73
+CH,CH07,Ticino,2,4,74
+CH,CH070,Ticino,3,4,75
+CH,CHZ,Extra-Regio level 1,1,4,76
+CH,CHZZ,Extra-Regio level 2,2,4,77
+CH,CHZZZ,Extra-Regio level 3,3,4,78
+ME,ME0,Црна Гора ,1,5,79
+ME,ME00,Црна Гора,2,5,80
+ME,ME000,Црна Гора,3,5,81
+ME,MEZ,Extra-Regio level 1,1,5,82
+ME,MEZZ,Extra-Regio level 2,2,5,83
+ME,MEZZZ,Extra-Regio level 3,3,5,84
+MK,MK0,Северна Македонија,1,6,85
+MK,MK00,Северна Македонија,2,6,86
+MK,MK001,Вардарски,3,6,87
+MK,MK002,Источен,3,6,88
+MK,MK003,Југозападен,3,6,89
+MK,MK004,Југоисточен,3,6,90
+MK,MK005,Пелагониски,3,6,91
+MK,MK006,Полошки,3,6,92
+MK,MK007,Североисточен,3,6,93
+MK,MK008,Скопски,3,6,94
+MK,MKZ,Extra-Regio level 1,1,6,95
+MK,MKZZ,Extra-Regio level 2,2,6,96
+MK,MKZZZ,Extra-Regio level 3,3,6,97
+AL,AL0,Shqipëria,1,7,98
+AL,AL01,Veri,2,7,99
+AL,AL011,Dibër,3,7,100
+AL,AL012,Durrës,3,7,101
+AL,AL013,Kukës,3,7,102
+AL,AL014,Lezhë,3,7,103
+AL,AL015,Shkodër,3,7,104
+AL,AL02,Qender,2,7,105
+AL,AL021,Elbasan,3,7,106
+AL,AL022,Tiranë,3,7,107
+AL,AL03,Jug,2,7,108
+AL,AL031,Berat,3,7,109
+AL,AL032,Fier,3,7,110
+AL,AL033,Gjirokastër,3,7,111
+AL,AL034,Korçë,3,7,112
+AL,AL035,Vlorë,3,7,113
+AL,ALZ,Extra-Regio level 1,1,7,114
+AL,ALZZ,Extra-Regio level 2,2,7,115
+AL,ALZZZ,Extra-Regio level 3,3,7,116
+RS,RS1,Србија - север ,1,8,117
+RS,RS11,Београдски регион,2,8,118
+RS,RS110,Београдска област,3,8,119
+RS,RS12,Регион Војводине,2,8,120
+RS,RS121,Западнобачка област,3,8,121
+RS,RS122,Јужнобанатска област,3,8,122
+RS,RS123,Јужнобачка област,3,8,123
+RS,RS124,Севернобанатска област,3,8,124
+RS,RS125,Севернобачка област,3,8,125
+RS,RS126,Средњобанатска област,3,8,126
+RS,RS127,Сремска област,3,8,127
+RS,RS2,Србија - југ ,1,8,128
+RS,RS21,Регион Шумадије и Западне Србије,2,8,129
+RS,RS211,Златиборска област,3,8,130
+RS,RS212,Колубарска област,3,8,131
+RS,RS213,Мачванска област,3,8,132
+RS,RS214,Моравичка област,3,8,133
+RS,RS215,Поморавска област,3,8,134
+RS,RS216,Расинска област,3,8,135
+RS,RS217,Рашка област,3,8,136
+RS,RS218,Шумадијска област,3,8,137
+RS,RS22,Регион Јужне и Источне Србије,2,8,138
+RS,RS221,Борска област,3,8,139
+RS,RS222,Браничевска област,3,8,140
+RS,RS223,Зајечарска област,3,8,141
+RS,RS224,Јабланичка област,3,8,142
+RS,RS225,Нишавска област,3,8,143
+RS,RS226,Пиротска област,3,8,144
+RS,RS227,Подунавска област,3,8,145
+RS,RS228,Пчињска област,3,8,146
+RS,RS229,Топличка област,3,8,147
+RS,RSZ,Extra-Regio level 1,1,8,148
+RS,RSZZ,Extra-Regio level 2,2,8,149
+RS,RSZZZ,Extra-Regio level 3,3,8,150
+TR,TR1,İstanbul,1,9,151
+TR,TR10,İstanbul,2,9,152
+TR,TR100,İstanbul,3,9,153
+TR,TR2,Batı Marmara,1,9,154
+TR,TR21,"Tekirdağ, Edirne, Kırklareli",2,9,155
+TR,TR211,Tekirdağ,3,9,156
+TR,TR212,Edirne,3,9,157
+TR,TR213,Kırklareli,3,9,158
+TR,TR22,"Balıkesir, Çanakkale",2,9,159
+TR,TR221,Balıkesir,3,9,160
+TR,TR222,Çanakkale,3,9,161
+TR,TR3,Ege,1,9,162
+TR,TR31,İzmir,2,9,163
+TR,TR310,İzmir,3,9,164
+TR,TR32,"Aydın, Denizli, Muğla",2,9,165
+TR,TR321,Aydın,3,9,166
+TR,TR322,Denizli,3,9,167
+TR,TR323,Muğla,3,9,168
+TR,TR33,"Manisa, Afyonkarahisar, Kütahya, Uşak",2,9,169
+TR,TR331,Manisa,3,9,170
+TR,TR332,Afyonkarahisar,3,9,171
+TR,TR333,Kütahya,3,9,172
+TR,TR334,Uşak,3,9,173
+TR,TR4,Doğu Marmara,1,9,174
+TR,TR41,"Bursa, Eskişehir, Bilecik",2,9,175
+TR,TR411,Bursa,3,9,176
+TR,TR412,Eskişehir,3,9,177
+TR,TR413,Bilecik,3,9,178
+TR,TR42,"Kocaeli, Sakarya, Düzce, Bolu, Yalova",2,9,179
+TR,TR421,Kocaeli,3,9,180
+TR,TR422,Sakarya,3,9,181
+TR,TR423,Düzce,3,9,182
+TR,TR424,Bolu,3,9,183
+TR,TR425,Yalova,3,9,184
+TR,TR5,Batı Anadolu,1,9,185
+TR,TR51,Ankara,2,9,186
+TR,TR510,Ankara,3,9,187
+TR,TR52,"Konya, Karaman",2,9,188
+TR,TR521,Konya,3,9,189
+TR,TR522,Karaman,3,9,190
+TR,TR6,Akdeniz,1,9,191
+TR,TR61,"Antalya, Isparta, Burdur",2,9,192
+TR,TR611,Antalya,3,9,193
+TR,TR612,Isparta,3,9,194
+TR,TR613,Burdur,3,9,195
+TR,TR62,"Adana, Mersin",2,9,196
+TR,TR621,Adana,3,9,197
+TR,TR622,Mersin,3,9,198
+TR,TR63,"Hatay, Kahramanmaraş, Osmaniye",2,9,199
+TR,TR631,Hatay,3,9,200
+TR,TR632,Kahramanmaraş,3,9,201
+TR,TR633,Osmaniye,3,9,202
+TR,TR7,Orta Anadolu,1,9,203
+TR,TR71,"Kırıkkale, Aksaray, Niğde, Nevşehir, Kırşehir",2,9,204
+TR,TR711,Kırıkkale,3,9,205
+TR,TR712,Aksaray,3,9,206
+TR,TR713,Niğde,3,9,207
+TR,TR714,Nevşehir,3,9,208
+TR,TR715,Kırşehir,3,9,209
+TR,TR72,"Kayseri, Sivas, Yozgat",2,9,210
+TR,TR721,Kayseri,3,9,211
+TR,TR722,Sivas,3,9,212
+TR,TR723,Yozgat,3,9,213
+TR,TR8,Batı Karadeniz,1,9,214
+TR,TR81,"Zonguldak, Karabük, Bartın",2,9,215
+TR,TR811,Zonguldak,3,9,216
+TR,TR812,Karabük,3,9,217
+TR,TR813,Bartın,3,9,218
+TR,TR82,"Kastamonu, Çankırı, Sinop",2,9,219
+TR,TR821,Kastamonu,3,9,220
+TR,TR822,Çankırı,3,9,221
+TR,TR823,Sinop,3,9,222
+TR,TR83,"Samsun, Tokat, Çorum, Amasya",2,9,223
+TR,TR831,Samsun,3,9,224
+TR,TR832,Tokat,3,9,225
+TR,TR833,Çorum,3,9,226
+TR,TR834,Amasya,3,9,227
+TR,TR9,Doğu Karadeniz,1,9,228
+TR,TR90,"Trabzon, Ordu, Giresun, Rize, Artvin, Gümüşhane",2,9,229
+TR,TR901,Trabzon,3,9,230
+TR,TR902,Ordu,3,9,231
+TR,TR903,Giresun,3,9,232
+TR,TR904,Rize,3,9,233
+TR,TR905,Artvin,3,9,234
+TR,TR906,Gümüşhane,3,9,235
+TR,TRA,Kuzeydoğu Anadolu,1,9,236
+TR,TRA1,"Erzurum, Erzincan, Bayburt",2,9,237
+TR,TRA11,Erzurum,3,9,238
+TR,TRA12,Erzincan,3,9,239
+TR,TRA13,Bayburt,3,9,240
+TR,TRA2,"Ağrı, Kars, Iğdır, Ardahan",2,9,241
+TR,TRA21,Ağrı,3,9,242
+TR,TRA22,Kars,3,9,243
+TR,TRA23,Iğdır,3,9,244
+TR,TRA24,Ardahan,3,9,245
+TR,TRB,Ortadoğu Anadolu,1,9,246
+TR,TRB1,"Malatya, Elazığ, Bingöl, Tunceli",2,9,247
+TR,TRB11,Malatya,3,9,248
+TR,TRB12,Elazığ,3,9,249
+TR,TRB13,Bingöl,3,9,250
+TR,TRB14,Tunceli,3,9,251
+TR,TRB2,"Van, Muş, Bitlis, Hakkari",2,9,252
+TR,TRB21,Van,3,9,253
+TR,TRB22,Muş,3,9,254
+TR,TRB23,Bitlis,3,9,255
+TR,TRB24,Hakkari,3,9,256
+TR,TRC,Güneydoğu Anadolu,1,9,257
+TR,TRC1,"Gaziantep, Adıyaman, Kilis",2,9,258
+TR,TRC11,Gaziantep,3,9,259
+TR,TRC12,Adıyaman,3,9,260
+TR,TRC13,Kilis,3,9,261
+TR,TRC2,"Şanlıurfa, Diyarbakır",2,9,262
+TR,TRC21,Şanlıurfa,3,9,263
+TR,TRC22,Diyarbakır,3,9,264
+TR,TRC3,"Mardin, Batman, Şırnak, Siirt",2,9,265
+TR,TRC31,Mardin,3,9,266
+TR,TRC32,Batman,3,9,267
+TR,TRC33,Şırnak,3,9,268
+TR,TRC34,Siirt,3,9,269
+TR,TRZ,Extra-Regio level 1,1,9,270
+TR,TRZZ,Extra-Regio level 2,2,9,271
+TR,TRZZZ,Extra-Regio level 3,3,9,272
+UA,UA1,Макрорегіон_01,1,10,273
+UA,UA11,Полтавська Область,2,10,274
+UA,UA111,Кременчуцький Район,3,10,275
+UA,UA112,Лубенський Район,3,10,276
+UA,UA113,Миргородський Район,3,10,277
+UA,UA114,Полтавський Район,3,10,278
+UA,UA12,Сумська Область,2,10,279
+UA,UA121,Конотопський Район,3,10,280
+UA,UA122,Охтирський Район,3,10,281
+UA,UA123,Роменський Район,3,10,282
+UA,UA124,Сумський Район,3,10,283
+UA,UA125,Шосткинський Район,3,10,284
+UA,UA13,Харківська Область,2,10,285
+UA,UA131,Богодухівський Район,3,10,286
+UA,UA132,Ізюмський Район,3,10,287
+UA,UA133,Красноградський Район,3,10,288
+UA,UA134,Куп'Янський Район,3,10,289
+UA,UA135,Лозівський Район,3,10,290
+UA,UA136,Харківський Район,3,10,291
+UA,UA137,Чугуївський Район,3,10,292
+UA,UA14,Чернігівська Область,2,10,293
+UA,UA141,Корюківський Район,3,10,294
+UA,UA142,Ніжинський Район,3,10,295
+UA,UA143,Новгород-Сіверський Район,3,10,296
+UA,UA144,Прилуцький Район,3,10,297
+UA,UA145,Чернігівський Район,3,10,298
+UA,UA2,Макрорегіон_02,1,10,299
+UA,UA21,Донецька Область,2,10,300
+UA,UA211,Бахмутський Район,3,10,301
+UA,UA212,Волноваський Район,3,10,302
+UA,UA213,Горлівський Район,3,10,303
+UA,UA214,Донецький Район,3,10,304
+UA,UA215,Кальміуський Район,3,10,305
+UA,UA216,Краматорський Район,3,10,306
+UA,UA217,Маріупольський Район,3,10,307
+UA,UA218,Покровський Район,3,10,308
+UA,UA22,Луганська Область,2,10,309
+UA,UA221,Алчевський Район,3,10,310
+UA,UA222,Довжанський Район,3,10,311
+UA,UA223,Луганський Район,3,10,312
+UA,UA224,Ровеньківський Район,3,10,313
+UA,UA225,Сватівський Район,3,10,314
+UA,UA226,Сєвєродонецький Район,3,10,315
+UA,UA227,Старобільський Район,3,10,316
+UA,UA228,Щастинський Район,3,10,317
+UA,UA3,Макрорегіон_03,1,10,318
+UA,UA31,Дніпропетровська Область,2,10,319
+UA,UA311,Дніпровський Район,3,10,320
+UA,UA312,Кам'Янський Район,3,10,321
+UA,UA313,Криворізький Район,3,10,322
+UA,UA314,Нікопольський Район,3,10,323
+UA,UA315,Новомосковський Район,3,10,324
+UA,UA316,Павлоградський Район,3,10,325
+UA,UA317,Синельниківський Район,3,10,326
+UA,UA32,Запорізька Область,2,10,327
+UA,UA321,Бердянський Район,3,10,328
+UA,UA322,Василівський Район,3,10,329
+UA,UA323,Запорізький Район,3,10,330
+UA,UA324,Мелітопольський Район,3,10,331
+UA,UA325,Пологівський Район,3,10,332
+UA,UA33,Кіровоградська Область,2,10,333
+UA,UA331,Голованівський Район,3,10,334
+UA,UA332,Кропивницький Район,3,10,335
+UA,UA333,Новоукраїнський Район,3,10,336
+UA,UA334,Олександрійський Район,3,10,337
+UA,UA4,Макрорегіон_04,1,10,338
+UA,UA41,Миколаївська Область,2,10,339
+UA,UA411,Баштанський Район,3,10,340
+UA,UA412,Вознесенський Район,3,10,341
+UA,UA413,Миколаївський Район,3,10,342
+UA,UA414,Первомайський Район,3,10,343
+UA,UA42,Одеська Область,2,10,344
+UA,UA421,Березівський Район,3,10,345
+UA,UA422,Білгород-Дністровський Район,3,10,346
+UA,UA423,Болградський Район,3,10,347
+UA,UA424,Ізмаїльський Район,3,10,348
+UA,UA425,Одеський Район,3,10,349
+UA,UA426,Подільський Район,3,10,350
+UA,UA427,Роздільнянський Район,3,10,351
+UA,UA43,Херсонська Область,2,10,352
+UA,UA431,Бериславський Район,3,10,353
+UA,UA432,Генічеський Район,3,10,354
+UA,UA433,Каховський Район,3,10,355
+UA,UA434,Скадовський Район,3,10,356
+UA,UA435,Херсонський Район,3,10,357
+UA,UA44,Ар Крим,2,10,358
+UA,UA441,Бахчисарайський Район,3,10,359
+UA,UA442,Білогірський Район,3,10,360
+UA,UA443,Джанкойський Район,3,10,361
+UA,UA444,Євпаторійський Район,3,10,362
+UA,UA445,Керченський Район,3,10,363
+UA,UA446,Курманський Район,3,10,364
+UA,UA447,Перекопський Район,3,10,365
+UA,UA448,Сімферопольський Район,3,10,366
+UA,UA449,Феодосійський Район,3,10,367
+UA,UA44A,Ялтинський Район,3,10,368
+UA,UA45,М. Севастополь,2,10,369
+UA,UA450,М. Севастополь,3,10,370
+UA,UA5,Макрорегіон_05,1,10,371
+UA,UA51,Вінницька Область,2,10,372
+UA,UA511,Вінницький Район,3,10,373
+UA,UA512,Гайсинський Район,3,10,374
+UA,UA513,Жмеринський Район,3,10,375
+UA,UA514,Могилів-Подільський Район,3,10,376
+UA,UA515,Тульчинський Район,3,10,377
+UA,UA516,Хмільницький Район,3,10,378
+UA,UA52,Тернопільська Область,2,10,379
+UA,UA521,Кременецький Район,3,10,380
+UA,UA522,Тернопільський Район,3,10,381
+UA,UA523,Чортківський Район,3,10,382
+UA,UA53,Хмельницька Область,2,10,383
+UA,UA531,Кам'Янець-Подільський Район,3,10,384
+UA,UA532,Хмельницький Район,3,10,385
+UA,UA533,Шепетівський Район,3,10,386
+UA,UA6,Макрорегіон_06,1,10,387
+UA,UA61,Київська  Область,2,10,388
+UA,UA611,Білоцерківський Район,3,10,389
+UA,UA612,Бориспільський Район,3,10,390
+UA,UA613,Броварський Район,3,10,391
+UA,UA614,Бучанський Район,3,10,392
+UA,UA615,Вишгородський Район,3,10,393
+UA,UA616,Обухівський Район,3,10,394
+UA,UA617,Фастівський Район,3,10,395
+UA,UA62,Черкаська  Область,2,10,396
+UA,UA621,Звенигородський Район,3,10,397
+UA,UA622,Золотоніський Район,3,10,398
+UA,UA623,Уманський Район,3,10,399
+UA,UA624,Черкаський Район,3,10,400
+UA,UA63,М. Київ ,2,10,401
+UA,UA630,М. Київ,3,10,402
+UA,UA7,Макрорегіон_07,1,10,403
+UA,UA71,Закарпатська Область,2,10,404
+UA,UA711,Берегівський Район,3,10,405
+UA,UA712,Мукачівський Район,3,10,406
+UA,UA713,Рахівський Район,3,10,407
+UA,UA714,Тячівський Район,3,10,408
+UA,UA715,Ужгородський Район,3,10,409
+UA,UA716,Хустський Район,3,10,410
+UA,UA72,Івано-Франківська Область,2,10,411
+UA,UA721,Верховинський Район,3,10,412
+UA,UA722,Івано-Франківський Район,3,10,413
+UA,UA723,Калуський Район,3,10,414
+UA,UA724,Коломийський Район,3,10,415
+UA,UA725,Косівський Район,3,10,416
+UA,UA726,Надвірнянський Район,3,10,417
+UA,UA73,Львівська Область,2,10,418
+UA,UA731,Дрогобицький Район,3,10,419
+UA,UA732,Золочівський Район,3,10,420
+UA,UA733,Львівський Район,3,10,421
+UA,UA734,Самбірський Район,3,10,422
+UA,UA735,Стрийський Район,3,10,423
+UA,UA736,Червоноградський Район,3,10,424
+UA,UA737,Яворівський Район,3,10,425
+UA,UA74,Чернівецька Область,2,10,426
+UA,UA741,Вижницький Район,3,10,427
+UA,UA742,Дністровський Район,3,10,428
+UA,UA743,Чернівецький Район,3,10,429
+UA,UA8,Макрорегіон_08,1,10,430
+UA,UA81,Волинська Область,2,10,431
+UA,UA811,Володимирський Район,3,10,432
+UA,UA812,Камінь-Каширський Район,3,10,433
+UA,UA813,Ковельський Район,3,10,434
+UA,UA814,Луцький Район,3,10,435
+UA,UA82,Житомирська Область,2,10,436
+UA,UA821,Бердичівський Район,3,10,437
+UA,UA822,Житомирський Район,3,10,438
+UA,UA823,Коростенський Район,3,10,439
+UA,UA824,Звягельський Район,3,10,440
+UA,UA83,Рівненська Область,2,10,441
+UA,UA831,Вараський Район,3,10,442
+UA,UA832,Дубенський Район,3,10,443
+UA,UA833,Рівненський Район,3,10,444
+UA,UA834,Сарненський Район,3,10,445
+UA,UAZ,Extra-Regio level 1,1,10,446
+UA,UAZZ,Extra-Regio level 2,2,10,447
+UA,UAZZZ,Extra-Regio level 3,3,10,448
+XK,XK0,Kosovë/Kosovo,1,11,449
+XK,XK00,Kosovë/Kosovo,2,11,450
+XK,XK001,Prishtinë/Priština,3,11,451
+XK,XK002,Mitrovicë/Mitrovica,3,11,452
+XK,XK003,Pejë/Peć,3,11,453
+XK,XK004,Prizren/Prizren,3,11,454
+XK,XK005,Ferizaj/Uroševac,3,11,455
+XK,XK006,Gjilan/Gnjilane,3,11,456
+XK,XK007,Gjakovë/Đakovica,3,11,457
+XK,XKZ,Extra-Regio level 1,1,11,458
+XK,XKZZ,Extra-Regio level 2,2,11,459
+XK,XKZZZ,Extra-Regio level 3,3,11,460
