@@ -22,3 +22,12 @@ with open(NUTSCODESPATH, "r") as fh:
 COUNTRYCODES = {v: k for k,v in CODESCOUNTRY.items()}
 
 
+RENAMECOLUMNS = {
+    "Country Code": "country_code",
+    "Code 2024": "code",
+    "NUTS level 1": "level_1",
+    "NUTS level 2": "level_2",
+    "NUTS level 3": "level_3",
+    "NUTS level": "level"
+}
+
