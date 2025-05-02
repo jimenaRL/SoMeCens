@@ -1,4 +1,4 @@
-country_code,code,level,parent_code,name
+country_code,code,level,parent_code,label
 BE,BE,0,,belgium
 BE,BE1,1,BE,Région de Bruxelles-Capitale/Brussels Hoofdstedelijk Gewest
 BE,BE10,2,BE1,Région de Bruxelles-Capitale/Brussels Hoofdstedelijk Gewest
