@@ -20,7 +20,7 @@ COLUMNS = [
     "code",
     "level",
     "parent_code",
-    "name"
+    "label"
 ]
 
 
@@ -32,10 +32,10 @@ with open(f'nuts_flatten.csv', 'w', newline='') as csvfile:
         for r in reader:
             tmp = {v: r[k] for k,v in RENAMECOLUMNS.items()}
             if tmp["level"] == '0':
-                tmp["name"] = CODESCOUNTRY[tmp["code"]]
+                tmp["label"] = CODESCOUNTRY[tmp["code"]]
                 tmp["parent_code"] = ''
             else:
-                tmp["name"] = tmp[f"level_{tmp['level']}"]
+                tmp["label"] = tmp[f"level_{tmp['level']}"]
                 tmp["parent_code"] = tmp["code"][:-1]
             del tmp["level_1"]
             del tmp["level_2"]
