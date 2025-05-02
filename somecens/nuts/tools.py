@@ -1,6 +1,8 @@
+import csv
 from subprocess import Popen, PIPE
 
 from somecens.nuts.conf  import \
+    NUTSFLATTENPATH, \
     COUNTRYCODES, \
     NUTSLEVELS, \
     NUTSPATH
@@ -24,3 +26,8 @@ def getNutsLocations(country, format='dict'):
         return [(loc, level) for level in locsDict for loc in locsDict[level]]
     else:
         raise ValueError(f"Format must be 'dict' or 'flatten'. Found {format}")
+
+def getNuts(country):
+    code = COUNTRYCODES[country]
+    with open(NUTSFLATTENPATH, newline='') as csvfile:
+        return [d for d in csv.DictReader(csvfile) if d['country_code'] == code]

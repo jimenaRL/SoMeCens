@@ -13,7 +13,7 @@ EPOYEARSPATH = os.path.join(DATAFOLDERPATH, EPOFILES['epo_country_years_in_nuts'
 with open(EPOYEARSPATH, "r") as fh:
     COUNTRYEARS = yaml.load(fh, Loader=yaml.SafeLoader)
 
-METADATAFIELDS = ['screen_name', 'description', 'location']
+METADATAFIELDS = ['pseudo_id', 'screen_name', 'description', 'location']
 METADATATABLE = "metadata"
 
 DEFAULTDB = "pseudonymized_alldata"

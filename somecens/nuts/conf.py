@@ -12,10 +12,12 @@ NUTSFILES = {
     'nutsAllLevels': 'NUTS2021-NUTS2024_codes_NUTS123_to_NUTS1.xlsx - NUTS2021- NUTS2024.csv',
     'nutsCyrillicGreekLatin': 'NUTS2021-NUTS2024_codes_NUTS123_to_NUTS1.xlsx - Cyrillic & Greek to Latin.csv',
     'nuts_codes_country': 'nuts_codes_country.yml',
+    'nuts_flatten': 'nuts_flatten.csv',
 }
 
 NUTSPATH = os.path.join(DATAFOLDERPATH, NUTSFILES['nutsAllLevels'])
 NUTSCODESPATH = os.path.join(DATAFOLDERPATH, NUTSFILES['nuts_codes_country'])
+NUTSFLATTENPATH = os.path.join(DATAFOLDERPATH, NUTSFILES['nuts_flatten'])
 
 with open(NUTSCODESPATH, "r") as fh:
     CODESCOUNTRY = yaml.load(fh, Loader=yaml.SafeLoader)
