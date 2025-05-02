@@ -7,7 +7,10 @@ from somecens.nuts.conf  import \
     NUTSLEVELS, \
     NUTSPATH
 
-def getNutsLocationsLevel(country, level):
+def strToInt(str: str) -> int:
+    return int(srt.replace('\u202f', ''))
+
+def getNutsLocationsLevel(country, level) -> str:
     code = COUNTRYCODES[country]
     f1 = f"col('Country Code') eq '{code}'"
     f2 = f"col('NUTS level') eq {level}"
