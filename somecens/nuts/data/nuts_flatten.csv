@@ -58,9 +58,6 @@ BE,BE35,2,BE3,Prov. Namur
 BE,BE351,3,BE35,Arr. Dinant
 BE,BE352,3,BE35,Arr. Namur
 BE,BE353,3,BE35,Arr. Philippeville
-BE,BEZ,1,BE,Extra-Regio NUTS 1
-BE,BEZZ,2,BEZ,Extra-Regio NUTS 2
-BE,BEZZZ,3,BEZZ,Extra-Regio NUTS 3
 BG,BG,0,,bulgaria
 BG,BG3,1,BG,Северна и Югоизточна България
 BG,BG31,2,BG3,Северозападен
@@ -98,9 +95,6 @@ BG,BG422,3,BG42,Хасково
 BG,BG423,3,BG42,Пазарджик
 BG,BG424,3,BG42,Смолян
 BG,BG425,3,BG42,Кърджали
-BG,BGZ,1,BG,Extra-Regio NUTS 1
-BG,BGZZ,2,BGZ,Extra-Regio NUTS 2
-BG,BGZZZ,3,BGZZ,Extra-Regio NUTS 3
 CZ,CZ,0,,czechia
 CZ,CZ0,1,CZ,Česko
 CZ,CZ01,2,CZ0,Praha
@@ -125,9 +119,6 @@ CZ,CZ071,3,CZ07,Olomoucký kraj
 CZ,CZ072,3,CZ07,Zlínský kraj
 CZ,CZ08,2,CZ0,Moravskoslezsko
 CZ,CZ080,3,CZ08,Moravskoslezský kraj
-CZ,CZZ,1,CZ,Extra-Regio NUTS 1
-CZ,CZZZ,2,CZZ,Extra-Regio NUTS 2
-CZ,CZZZZ,3,CZZZ,Extra-Regio NUTS 3
 DK,DK,0,,denmark
 DK,DK0,1,DK,Danmark
 DK,DK01,2,DK0,Hovedstaden
@@ -146,9 +137,6 @@ DK,DK041,3,DK04,Vestjylland
 DK,DK042,3,DK04,Østjylland
 DK,DK05,2,DK0,Nordjylland
 DK,DK050,3,DK05,Nordjylland
-DK,DKZ,1,DK,Extra-Regio NUTS 1
-DK,DKZZ,2,DKZ,Extra-Regio NUTS 2
-DK,DKZZZ,3,DKZZ,Extra-Regio NUTS 3
 DE,DE,0,,germany
 DE,DE1,1,DE,Baden-Württemberg
 DE,DE11,2,DE1,Stuttgart
@@ -611,9 +599,6 @@ DE,DEG0J,3,DEG0,Saale-Holzland-Kreis
 DE,DEG0K,3,DEG0,Saale-Orla-Kreis
 DE,DEG0L,3,DEG0,Greiz
 DE,DEG0M,3,DEG0,Altenburger Land
-DE,DEZ,1,DE,Extra-Regio NUTS 1
-DE,DEZZ,2,DEZ,Extra-Regio NUTS 2
-DE,DEZZZ,3,DEZZ,Extra-Regio NUTS 3
 EE,EE,0,,estonia
 EE,EE0,1,EE,Eesti
 EE,EE00,2,EE0,Eesti
@@ -622,9 +607,6 @@ EE,EE004,3,EE00,Lääne-Eesti
 EE,EE008,3,EE00,Lõuna-Eesti
 EE,EE009,3,EE00,Kesk-Eesti
 EE,EE00A,3,EE00,Kirde-Eesti
-EE,EEZ,1,EE,Extra-Regio NUTS 1
-EE,EEZZ,2,EEZ,Extra-Regio NUTS 2
-EE,EEZZZ,3,EEZZ,Extra-Regio NUTS 3
 IE,IE,0,,ireland
 IE,IE0,1,IE,Ireland
 IE,IE04,2,IE0,Northern and Western
@@ -638,9 +620,6 @@ IE,IE06,2,IE0,Eastern and Midland
 IE,IE061,3,IE06,Dublin
 IE,IE062,3,IE06,Mid-East
 IE,IE063,3,IE06,Midland
-IE,IEZ,1,IE,Extra-Regio NUTS 1
-IE,IEZZ,2,IEZ,Extra-Regio NUTS 2
-IE,IEZZZ,3,IEZZ,Extra-Regio NUTS 3
 EL,EL,0,,greece
 EL,EL3,1,EL,Αττική 
 EL,EL30,2,EL3,Aττική
@@ -711,9 +690,6 @@ EL,EL65,2,EL6,Πελοπόννησος
 EL,EL651,3,EL65,"Αργολίδα, Αρκαδία"
 EL,EL652,3,EL65,Κορινθία
 EL,EL653,3,EL65,"Λακωνία, Μεσσηνία"
-EL,ELZ,1,EL,Extra-Regio NUTS 1
-EL,ELZZ,2,ELZ,Extra-Regio NUTS 2
-EL,ELZZZ,3,ELZZ,Extra-Regio NUTS 3
 ES,ES,0,,spain
 ES,ES1,1,ES,Noroeste
 ES,ES11,2,ES1,Galicia
@@ -800,9 +776,6 @@ ES,ES706,3,ES70,La Gomera
 ES,ES707,3,ES70,La Palma
 ES,ES708,3,ES70,Lanzarote
 ES,ES709,3,ES70,Tenerife
-ES,ESZ,1,ES,Extra-Regio NUTS 1
-ES,ESZZ,2,ESZ,Extra-Regio NUTS 2
-ES,ESZZZ,3,ESZZ,Extra-Regio NUTS 3
 FR,FR,0,,france
 FR,FR1,1,FR,Ile-de-France
 FR,FR10,2,FR1,Ile-de-France
@@ -946,9 +919,6 @@ FR,FRY4,2,FRY,La Réunion
 FR,FRY40,3,FRY4,La Réunion
 FR,FRY5,2,FRY,Mayotte
 FR,FRY50,3,FRY5,Mayotte 
-FR,FRZ,1,FR,Extra-Regio NUTS 1
-FR,FRZZ,2,FRZ,Extra-Regio NUTS 2
-FR,FRZZZ,3,FRZZ,Extra-Regio NUTS 3
 HR,HR,0,,croatia
 HR,HR0,1,HR,Hrvatska
 HR,HR02,2,HR0,Panonska Hrvatska
@@ -976,9 +946,6 @@ HR,HR062,3,HR06,Varaždinska županija
 HR,HR063,3,HR06,Koprivničko-križevačka županija
 HR,HR064,3,HR06,Krapinsko-zagorska županija
 HR,HR065,3,HR06,Zagrebačka županija
-HR,HRZ,1,HR,Extra-Regio NUTS 1
-HR,HRZZ,2,HRZ,Extra-Regio NUTS 2
-HR,HRZZZ,3,HRZZ,Extra-Regio NUTS 3
 IT,IT,0,,italy
 IT,ITC,1,IT,Nord-Ovest
 IT,ITC1,2,ITC,Piemonte
@@ -1113,16 +1080,10 @@ IT,ITI42,3,ITI4,Rieti
 IT,ITI43,3,ITI4,Roma
 IT,ITI44,3,ITI4,Latina
 IT,ITI45,3,ITI4,Frosinone
-IT,ITZ,1,IT,Extra-Regio NUTS 1
-IT,ITZZ,2,ITZ,Extra-Regio NUTS 2
-IT,ITZZZ,3,ITZZ,Extra-Regio NUTS 3
 CY,CY,0,,cyprus
 CY,CY0,1,CY,Κύπρος
 CY,CY00,2,CY0,Κύπρος
 CY,CY000,3,CY00,Κύπρος
-CY,CYZ,1,CY,Extra-Regio NUTS 1
-CY,CYZZ,2,CYZ,Extra-Regio NUTS 2
-CY,CYZZZ,3,CYZZ,Extra-Regio NUTS 3
 LV,LV,0,,latvia
 LV,LV0,1,LV,Latvija
 LV,LV00,2,LV0,Latvija
@@ -1135,9 +1096,6 @@ LV,,3,,Vidzeme
 LV,LV00C,3,LV00,Vidzeme
 LV,LV005,3,LV00,Latgale
 LV,LV009,3,LV00,Zemgale
-LV,LVZ,1,LV,Extra-Regio NUTS 1
-LV,LVZZ,2,LVZ,Extra-Regio NUTS 2
-LV,LVZZZ,3,LVZZ,Extra-Regio NUTS 3
 LT,LT,0,,lithuania
 LT,LT0,1,LT,Lietuva
 LT,LT01,2,LT0,Sostinės regionas
@@ -1152,16 +1110,10 @@ LT,LT026,3,LT02,Šiaulių apskritis
 LT,LT027,3,LT02,Tauragės apskritis
 LT,LT028,3,LT02,Telšių apskritis
 LT,LT029,3,LT02,Utenos apskritis
-LT,LTZ,1,LT,Extra-Regio NUTS 1
-LT,LTZZ,2,LTZ,Extra-Regio NUTS 2
-LT,LTZZZ,3,LTZZ,Extra-Regio NUTS 3
 LU,LU,0,,luxembourg
 LU,LU0,1,LU,Luxembourg
 LU,LU00,2,LU0,Luxembourg
 LU,LU000,3,LU00,Luxembourg
-LU,LUZ,1,LU,Extra-Regio NUTS 1
-LU,LUZZ,2,LUZ,Extra-Regio NUTS 2
-LU,LUZZZ,3,LUZZ,Extra-Regio NUTS 3
 HU,HU,0,,hungary
 HU,HU1,1,HU,Közép-Magyarország
 HU,HU11,2,HU1,Budapest
@@ -1194,17 +1146,11 @@ HU,HU33,2,HU3,Dél-Alföld
 HU,HU331,3,HU33,Bács-Kiskun
 HU,HU332,3,HU33,Békés
 HU,HU333,3,HU33,Csongrád-Csanád
-HU,HUZ,1,HU,Extra-Regio NUTS 1
-HU,HUZZ,2,HUZ,Extra-Regio NUTS 2
-HU,HUZZZ,3,HUZZ,Extra-Regio NUTS 3
 MT,MT,0,,malta
 MT,MT0,1,MT,Malta
 MT,MT00,2,MT0,Malta
 MT,MT001,3,MT00,Malta
 MT,MT002,3,MT00,Gozo and Comino/Għawdex u Kemmuna
-MT,MTZ,1,MT,Extra-Regio NUTS 1
-MT,MTZZ,2,MTZ,Extra-Regio NUTS 2
-MT,MTZZZ,3,MTZZ,Extra-Regio NUTS 3
 NL,NL,0,,netherlands
 NL,NL1,1,NL,Noord-Nederland
 NL,NL11,2,NL1,Groningen
@@ -1274,9 +1220,6 @@ NL,NL42,2,NL4,Limburg (NL)
 NL,NL421,3,NL42,Noord-Limburg
 NL,NL422,3,NL42,Midden-Limburg
 NL,NL423,3,NL42,Zuid-Limburg
-NL,NLZ,1,NL,Extra-Regio NUTS 1
-NL,NLZZ,2,NLZ,Extra-Regio NUTS 2
-NL,NLZZZ,3,NLZZ,Extra-Regio NUTS 3
 AT,AT,0,,austria
 AT,AT1,1,AT,Ostösterreich
 AT,AT11,2,AT1,Burgenland
@@ -1325,9 +1268,6 @@ AT,AT335,3,AT33,Tiroler Unterland
 AT,AT34,2,AT3,Vorarlberg
 AT,AT341,3,AT34,Bludenz-Bregenzer Wald
 AT,AT342,3,AT34,Rheintal-Bodenseegebiet
-AT,ATZ,1,AT,Extra-Regio NUTS 1
-AT,ATZZ,2,ATZ,Extra-Regio NUTS 2
-AT,ATZZZ,3,ATZZ,Extra-Regio NUTS 3
 PL,PL,0,,poland
 PL,PL2,1,PL,Makroregion południowy
 PL,PL21,2,PL2,Małopolskie
@@ -1426,9 +1366,6 @@ PL,PL923,3,PL92,Płocki
 PL,PL924,3,PL92,Ostrołęcki
 PL,PL925,3,PL92,Siedlecki
 PL,PL926,3,PL92,Żyrardowski
-PL,PLZ,1,PL,Extra-Regio NUTS 1
-PL,PLZZ,2,PLZ,Extra-Regio NUTS 2
-PL,PLZZZ,3,PLZZ,Extra-Regio NUTS 3
 PT,PT,0,,portugal
 PT,PT1,1,PT,Continente
 PT,PT11,2,PT1,Norte
@@ -1474,9 +1411,6 @@ PT,PT200,3,PT20,Região Autónoma dos Açores
 PT,PT3,1,PT,Região Autónoma da Madeira
 PT,PT30,2,PT3,Região Autónoma da Madeira
 PT,PT300,3,PT30,Região Autónoma da Madeira
-PT,PTZ,1,PT,Extra-Regio NUTS 1
-PT,PTZZ,2,PTZ,Extra-Regio NUTS 2
-PT,PTZZZ,3,PTZZ,Extra-Regio NUTS 3
 RO,RO,0,,romania
 RO,RO1,1,RO,Macroregiunea Unu
 RO,RO11,2,RO1,Nord-Vest
@@ -1532,9 +1466,6 @@ RO,RO421,3,RO42,Arad
 RO,RO422,3,RO42,Caraş-Severin
 RO,RO423,3,RO42,Hunedoara
 RO,RO424,3,RO42,Timiş
-RO,ROZ,1,RO,Extra-Regio NUTS 1
-RO,ROZZ,2,ROZ,Extra-Regio NUTS 2
-RO,ROZZZ,3,ROZZ,Extra-Regio NUTS 3
 SI,SI,0,,slovenia
 SI,SI0,1,SI,Slovenija
 SI,SI03,2,SI0,Vzhodna Slovenija
@@ -1551,9 +1482,6 @@ SI,SI041,3,SI04,Osrednjeslovenska
 SI,SI042,3,SI04,Gorenjska
 SI,SI043,3,SI04,Goriška
 SI,SI044,3,SI04,Obalno-kraška
-SI,SIZ,1,SI,Extra-Regio NUTS 1
-SI,SIZZ,2,SIZ,Extra-Regio NUTS 2
-SI,SIZZZ,3,SIZZ,Extra-Regio NUTS 3
 SK,SK,0,,slovakia
 SK,SK0,1,SK,Slovensko
 SK,SK01,2,SK0,Bratislavský kraj
@@ -1568,9 +1496,6 @@ SK,SK032,3,SK03,Banskobystrický kraj
 SK,SK04,2,SK0,Východné Slovensko
 SK,SK041,3,SK04,Prešovský kraj
 SK,SK042,3,SK04,Košický kraj
-SK,SKZ,1,SK,Extra-Regio NUTS 1
-SK,SKZZ,2,SKZ,Extra-Regio NUTS 2
-SK,SKZZZ,3,SKZZ,Extra-Regio NUTS 3
 FI,FI,0,,finland
 FI,FI1,1,FI,Manner-Suomi
 FI,FI19,2,FI1,Länsi-Suomi
@@ -1607,9 +1532,6 @@ FI,FI1D9,3,FI1D,Pohjois-Pohjanmaa
 FI,FI2,1,FI,Åland
 FI,FI20,2,FI2,Åland
 FI,FI200,3,FI20,Åland
-FI,FIZ,1,FI,Extra-Regio NUTS 1
-FI,FIZZ,2,FIZ,Extra-Regio NUTS 2
-FI,FIZZZ,3,FIZZ,Extra-Regio NUTS 3
 SE,SE,0,,sweden
 SE,SE1,1,SE,Östra Sverige
 SE,SE11,2,SE1,Stockholm
@@ -1643,6 +1565,3 @@ SE,SE322,3,SE32,Jämtlands län
 SE,SE33,2,SE3,Övre Norrland
 SE,SE331,3,SE33,Västerbottens län
 SE,SE332,3,SE33,Norrbottens län
-SE,SEZ,1,SE,Extra-Regio NUTS 1
-SE,SEZZ,2,SEZ,Extra-Regio NUTS 2
-SE,SEZZZ,3,SEZZ,Extra-Regio NUTS 3
