@@ -2,15 +2,22 @@ from __future__ import annotations
 from typing import Type
 from typing import Any
 
-DEFAULTAGECATS = [
+DEFAULTAGECATS = {
     'age_less_or_equal_18',
     'age_between_19_and_29',
     'age_between_30_and_39',
     'age_greater_or_equal_40'
-]
-DEFAULTGENDERCATS = ['male', 'female']
+}
+DEFAULTGENDERCATS = {
+    'male',
+    'female',
+    'total'
+}
 
 class GeoUnit:
+
+    ageDistTol = 0.000001
+    genderDistTol = 0.000001
 
     def __init__(
         self,
@@ -38,7 +45,9 @@ class GeoUnit:
         s += f"\n{indent}GeoUnit {self.label}"
         s += f"\n{indent}level: {self.level}"
         s += f"\n{indent}code: {self.code}"
-        s += f"\n{indent}children: {' | '.join([child.code for child in self.children])}"
+        codes = ' | '.join([child.code for child in self.children])
+        if self.children:
+            s += f"\n{indent}children: {codes}"
         print(s)
 
     def addChild(self, child: Type[GeoUnit]) -> None:
@@ -49,66 +58,95 @@ class GeoUnit:
 
     def setAgeDistribution(ageDistribution: dict) -> None:
         assert ageDistribution.keys == self.ageCategories
-        assert sum(map(float, ageDistribution.values)) == 100
+        assert abs(sum(ageDistribution.values) - 100) < self.ageDistTol
         self.ageDistribution = ageDistribution
 
     def setGenderDistribution(genderDistribution: dict) -> None:
         assert genderDistribution.keys == self.genderCategories
-        assert sum(map(float, genderDistribution.values)) == 100
+        assert abs(sum(genderDistribution.values) - 100) < self.genderDistTol
         self.genderDistribution = genderDistribution
 
 class DemoGraph:
 
-    def showGeoUnit(self, indent: int = 0, geoUnit: GeoUnit | None = None) -> None:
-        geoUnit.indentPrint()
+    demoKeys = {'country_code', 'label', 'level', 'code', 'parent_code'}
+    defaultGenderCategories = DEFAULTGENDERCATS
+
+    def _showGeoUnits(self, indent: int = 0, geoUnit: GeoUnit | None = None) -> None:
         if geoUnit:
+            geoUnit.indentPrint()
             for child in geoUnit.children:
                 indent += 1
-                self.showGeoUnit(indent, child)
+                self._showGeoUnits(indent, child)
 
     def showGeoUnits(self) -> None:
-        self.showGeoUnit(0, self.rootGeoUnit)
+        self._showGeoUnits(0, self.rootGeoUnit)
 
-    def getCountryAndCode(self):
-        for d in self.demography:
+    def getCountryAndCode(self, demography):
+        for d in demography:
             if d['level'] == '0':
                 return d['label'], d['code']
 
     def checkDemography(self, demography: Iterable[Dict]) -> None:
+        # check dicts's keys and values instances
+        kt = set([isinstance(k, str) for d in demography for k in d.keys()])
+        vt = set([isinstance(v, str) for d in demography for v in d.values()])
+        assert kt == vt == {True}
+        # check dicts keys
+        dk = set([set(d.keys()) ==  self.demoKeys for d in demography])
+        assert dk == {True}
         # check that there is only one level 0
         nb_first_levels = sum([1 for d in demography if d['level'] == '0'])
         if  nb_first_levels != 1:
             mssg = f"Found {nb_first_levels} firt levels. Must be only one."
             raise ValueError(mssg)
 
-    def getGeoUnit(self, geoUnit, code: str):
+    def _getGeoUnit(self, geoUnit, code: str):
         if geoUnit.code == code:
             return geoUnit
         for child in geoUnit.children:
-            geoUnit = self.getGeoUnit(child, code)
+            geoUnit = self._getGeoUnit(child, code)
             if geoUnit:
                 return geoUnit
 
-    def setGenderDistributions(geoUnit, genderDistribution: Iterable[Dict]) -> None:
-        if geoUnit:
-            for child in geoUnit.children:
-                indent += 1
-                self.showGeoUnit(indent, child)
+    def getGeoUnit(self, code: str):
+        return self._getGeoUnit(geoUnit=self.rootGeoUnit, code=code)
 
-    def setGenderDistributions(genderDistribution: Iterable[Dict]) -> None:
-        self.setGenderDistributions(self.rootGeoUnit)
+    def checkGenderDistributions(self, genderDistribution: Iterable[Dict]) -> None:
+        # check dicts's keys instances
+        kt = set([isinstance(k, str) for d in demography for k in d.keys()])
+        # check that dicts's values are convertible to float
+        try:
+            gD = [{k: float(v)} for d in demography for k, v in d.items()]
+        except Exception as e:
+            raise ValueError(
+                """Unnable to parse genderDistribution.
+                Please check that all values can be converted to float.""")
+        # check dicts keys
+        cats = self.genderCategories.union('code')
+        dk = set([set(d.keys()) ==  cats for d in dD])
+        assert dk == {True}
+        # check that all geoUnits are present in the gender distribution
+        # TO DO
 
-    def __init__(self, demography: Iterable[Dict]) -> None:
+    def __init__(
+            self,
+            demography: Iterable[Dict],
+            genderCats: Iterable[str] | None = defaultGenderCategories) -> None:
         """
-        demography: list of Dicts (regarder comment faire dans Types)
+        demography: iterable of dicts
+        Keys and values must be strings and dict keys equal to self.demoKeys
+        genderCats: iterable of strings
         """
         self.checkDemography(demography)
-        self.demography = demography
-        country, code = self.getCountryAndCode()
+        country, code = self.getCountryAndCode(demography)
         self.country = country
         self.countryCode = code
+        self.demography = demography
         self.rootGeoUnit = None
         self.buildGeoTree()
+
+        self.genderCategories = genderCats
+        # self.ageDistribution = age_categories
 
     def __str__(self) -> str:
         return f"{self.country.capitalize()} ({self.countryCode}) DemoGraph"
@@ -127,9 +165,7 @@ class DemoGraph:
             level += 1
             for d in self.demography:
                 if d['level'] == str(level):
-                    parent = self.getGeoUnit(
-                            geoUnit=self.rootGeoUnit,
-                            code=d['parent_code'])
+                    parent = self.getGeoUnit(code=d['parent_code'])
                     parent.addChild(
                         GeoUnit(
                             label=d['label'],
