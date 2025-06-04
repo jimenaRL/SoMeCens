@@ -13,8 +13,8 @@ def writeCsv(file, rows, headers=None, verbose=False):
     if verbose:
         print(f"Csv file saved at {file}.")
 
-def getOccurrences(file, term, search_col):
-    p = Popen(['xan', 'search', '-s', search_col, term, file], stdout=PIPE)
+def searchOccurrences(file, term, search_col):
+    p = Popen(['xan', 'search', '-s', search_col, '--ignore-case', term, file], stdout=PIPE)
     output = p.communicate()[0].decode()
     with tempfile.NamedTemporaryFile() as tmp:
         with open(tmp.name, 'w') as f:
@@ -27,18 +27,23 @@ def getOccurrences(file, term, search_col):
             'users': matchs,
             }
 
-def matchUsersLocations(locations, metadata, headers, search_col = 'location'):
-    with tempfile.NamedTemporaryFile() as tmp:
+def exactMatchUsersLocations(locations, metadata, headers, search_col = 'location'):
+    with tempfile.NamedTemporaryFile()  as tmp:
         # write metadata to tmp file
         writeCsv(tmp.name, metadata, headers=headers)
         # launch multiple threads searching locations terms with xan
         with concurrent.futures.ThreadPoolExecutor() as executor:
             futures = [
-                executor.submit(getOccurrences, tmp.name, loc, search_col)
+                executor.submit(searchOccurrences, tmp.name, loc, search_col)
                 for loc in locations
             ]
             # and collect results
             results = [f.result() for f in futures]
-
     return results
 
+
+def matchUsersLocations(locations, metadata, headers, search_col = 'location', method = 'exact'):
+    if method == 'exact':
+        return exactMatchUsersLocations(locations, metadata, headers, search_col)
+    elif method == 'fuzzy':
+        raise  ValueError('NOT IMPLEMENTED METHOD')

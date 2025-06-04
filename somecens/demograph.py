@@ -1,6 +1,7 @@
 from __future__ import annotations
 from typing import Type
 from typing import Any
+from functools import reduce
 
 from somecens.tools import writeCsv, matchUsersLocations
 from somecens.nuts.conf  import NUTS3AGECATS
@@ -33,11 +34,12 @@ class GeoUnit:
         self.ageDistribution = None
         self.genderCategories = gender_categories
         self.genderDistribution = None
-        self.usersLocations = None
+        self.usersLocations = []
 
     def __str__(self) -> str:
         s = f"GeoUnit \n\tlabel: {self.label}\n\tlevel: {self.level}\n\tcode: {self.code}"
-        s += f"\n\tchildren: {' | '.join([child.code for child in self.children])}"
+        if self.children:
+            s += f"\n\tchildren: {' | '.join([child.code for child in self.children])}"
         return s
 
     def indentPrint(self):
@@ -63,12 +65,13 @@ class GeoUnit:
         s += f"\n{indent}age distribution: {stringAgeDistribution}"
 
 
-        if self.usersLocations is not None:
+        if self.usersLocations:
             usersIndent = "    " * (self.level + 1)
-            stringUsersLocations = '\n'+'\n'.join([
-                f"{usersIndent}{u}" for u in self.usersLocations[:5]])
-            s += f"\n{indent}nb users: {len(self.usersLocations)}"
-            s += f"\n{indent}users examples: {stringUsersLocations}"
+            stringUsersLocations = '\n' \
+            +'\n'.join([f"{usersIndent}{u}" for u in self.usersLocations[:5]]) \
+            + f'\n{usersIndent}...'
+            s += f"\n{indent}nb localized users: {len(self.usersLocations)}"
+            s += f"\n{indent}localized users examples: {stringUsersLocations}"
 
         print(s)
 
@@ -90,6 +93,9 @@ class GeoUnit:
         assert self.genderCategories.issubset(set(genderDistribution.keys()))
         gd = {k: genderDistribution[k] for k in self.genderCategories}
         self.genderDistribution = gd
+
+    def getLocalizedUsers(self) -> Iterable[tuple]:
+        return self.usersLocations
 
 class DemoGraph:
 
@@ -159,6 +165,31 @@ class DemoGraph:
 
     def getGeoUnit(self, code: str) -> Type[GeoUnit]:
         return self._getGeoUnit(geoUnit=self.rootGeoUnit, code=code)
+
+    def _getGeoUnitByLabel(self, geoUnit, label: str) -> Type[GeoUnit]:
+        if geoUnit.label == label:
+            return geoUnit
+        for child in geoUnit.children:
+            geoUnit = self._getGeoUnitByLabel(child, label)
+            if geoUnit:
+                return geoUnit
+
+    def getGeoUnitByLabel(self, label: str) -> Type[GeoUnit]:
+        return self._getGeoUnitByLabel(geoUnit=self.rootGeoUnit, label=label)
+
+    def _getDescendants(self, geoUnit: Type[GeoUnit], descendants):
+        descendants.append([geoUnit])
+        this_descendants = [self._getDescendants(child, []) for child in geoUnit.children]
+        descendants += this_descendants
+        return reduce(lambda x, y: x + y, descendants)
+
+    def getDescendants(self, geoUnit) -> Type[GeoUnit]:
+        return self._getDescendants(geoUnit, [])
+
+    def getLocalizedUsers(self, code: str) -> None:
+        geoUnit = self.getGeoUnit(code)
+        descendants = self.getDescendants(geoUnit)
+        return {g.code: g.getLocalizedUsers() for g in descendants}
 
     def checkGenderDistributions(self, genderDistribution: Iterable[Dict]) -> None:
         # check dicts keys
