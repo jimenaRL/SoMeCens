@@ -2,12 +2,9 @@ from __future__ import annotations
 from typing import Type
 from typing import Any
 
-DEFAULTAGECATS = {
-    'age_less_or_equal_18',
-    'age_between_19_and_29',
-    'age_between_30_and_39',
-    'age_greater_or_equal_40'
-}
+from somecens.nuts.conf  import NUTS3AGECATS
+
+DEFAULTAGECATS = set(NUTS3AGECATS)
 DEFAULTGENDERCATS = {
     'male',
     'female',
@@ -24,7 +21,7 @@ class GeoUnit:
         label: str ,
         level: int,
         code: str,
-        age_categories: set[str] = DEFAULTGENDERCATS,
+        age_categories: set[str] = DEFAULTAGECATS,
         gender_categories: set[str] = DEFAULTGENDERCATS,
         ) -> None:
         self.label = label
@@ -47,8 +44,13 @@ class GeoUnit:
         s += f"\n{indent}GeoUnit {self.label}"
         s += f"\n{indent}level: {self.level}"
         s += f"\n{indent}code: {self.code}"
+        stringAgeDistribution = None
+        if self.ageDistribution is not None:
+            ageIndent = "    " * (self.level + 1)
+            stringAgeDistribution = '\n'+'\n'.join([
+                f"{ageIndent}{k}: {v}" for k, v in self.ageDistribution.items()])
         s += f"\n{indent}gender distribution: {self.genderDistribution}"
-        s += f"\n{indent}age distribution: {self.ageDistribution}"
+        s += f"\n{indent}age distribution: {stringAgeDistribution}"
         codes = ' | '.join([child.code for child in self.children])
         if self.children:
             s += f"\n{indent}children: {codes}"
@@ -60,9 +62,9 @@ class GeoUnit:
     def getChilds(self) -> None:
         return self.children
 
-    def setAgeDistribution(ageDistribution: dict) -> None:
-        assert self.ageCategories.issubset(set(ageDistribution.keys))
-        assert abs(sum(ageDistribution.values) - 100) < self.ageDistTol
+    def setAgeDistribution(self, ageDistribution: dict) -> None:
+        ageDistribution = ageDistribution['age_distributions']
+        assert self.ageCategories.issubset(set(ageDistribution.keys()))
         self.ageDistribution = ageDistribution
 
     def setGenderDistribution(self, genderDistribution: dict) -> None:
@@ -160,16 +162,24 @@ class DemoGraph:
         self._setGenderDistributions(self.rootGeoUnit, genderDistribution)
         return
 
-
     def _setGenderDistributions(self, geoUnit: Type[GeoUnit], genderDistribution: Iterable[Dict]) -> None:
         # we already check that all codes are presents in the distribution
         ugd = [gd for gd in genderDistribution if gd['code'] == geoUnit.code][0]
         geoUnit.setGenderDistribution(ugd)
         for child in geoUnit.children:
             geoUnit = self._setGenderDistributions(child, genderDistribution)
-            # if geoUnit:
-            #     return geoUnit
 
+    def setAgeDistributions(self, ageDistribution: Iterable[Dict]) -> None:
+        # self.checkAgeDistributions(ageDistribution)
+        self._setAgeDistributions(self.rootGeoUnit, ageDistribution)
+        return
+
+    def _setAgeDistributions(self, geoUnit: Type[GeoUnit], ageDistribution: Iterable[Dict]) -> None:
+        # we already check that all codes are presents in the distribution
+        ugd = [gd for gd in ageDistribution if gd['code'] == geoUnit.code][0]
+        geoUnit.setAgeDistribution(ugd)
+        for child in geoUnit.children:
+            geoUnit = self._setAgeDistributions(child, ageDistribution)
 
     def buildGeoTree(self) -> None:
         max_level = max(map(int, set([d['level'] for d in self.demography])))
