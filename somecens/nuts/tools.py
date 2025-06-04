@@ -114,7 +114,6 @@ def getNutsGenderDistributions(country: str | None = None, year: int = 2024):
     else:
         return genderDistDicts
 
-
 def getNutsAgeDistributions(country: str, year: int = 2024):
     age_categories = NUTS3AGECATS
     gender_categories = ["T", "F", "M"]

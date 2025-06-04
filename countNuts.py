@@ -2,11 +2,12 @@ import os
 import yaml
 import tempfile
 import concurrent.futures
+from string import Template
 from subprocess import Popen, PIPE
 from argparse import ArgumentParser
 
 from somecens.tools import writeCsv
-from somecens.nuts.conf import NUTSLEVELS
+from somecens.nuts.conf import LEVELS
 from somecens.nuts.tools import getNutsLocations
 from somecens.epo.conf import DEFAULTDB, DEFAULTDBPATTERN, METADATAFIELDS, COUNTRYEARS
 from somecens.epo.tools import getLastRelease, getMetadata
@@ -25,7 +26,7 @@ def countTotal(file):
     return nb_occurrence
 
 def pipeline(dbpath):
-    counts = {level: {} for level in NUTSLEVELS}
+    counts = {level: {} for level in LEVELS}
     locations = getNutsLocations(country)
     metadata = getMetadata(dbpath)
     with tempfile.NamedTemporaryFile() as tmp:
@@ -46,7 +47,7 @@ def pipeline(dbpath):
         counts[result[0]][result[1]] = result[2]
 
     # add total number of no matches
-    for level in NUTSLEVELS:
+    for level in LEVELS:
         total_level = sum([r[2] for r in results if r[0] == level])
         counts[level]["NO FOUND LOCATION"] = total_count - total_level
 
@@ -55,7 +56,7 @@ def pipeline(dbpath):
 def flatten(counts):
     return [
         (level, term, count)
-        for level in NUTSLEVELS
+        for level in LEVELS
         for term, count in counts[level].items()
     ]
 
@@ -72,7 +73,8 @@ if __name__ == "__main__":
     country = args.country
     year = args.year
     db = args.db
-    dbpattern = args.dbpattern
+    dbpattern = dbpath = Template(args.dbpattern).substitute(
+        country=country, year=year, db=db)
     output = args.output
 
     if not (country and year):

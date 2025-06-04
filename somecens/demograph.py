@@ -2,6 +2,7 @@ from __future__ import annotations
 from typing import Type
 from typing import Any
 
+from somecens.tools import writeCsv, matchUsersLocations
 from somecens.nuts.conf  import NUTS3AGECATS
 
 DEFAULTAGECATS = set(NUTS3AGECATS)
@@ -32,28 +33,43 @@ class GeoUnit:
         self.ageDistribution = None
         self.genderCategories = gender_categories
         self.genderDistribution = None
+        self.usersLocations = None
 
     def __str__(self) -> str:
-        s = f"GeoUnit {self.label}\n\tlevel: {self.level}\n\tcode: {self.code}"
+        s = f"GeoUnit \n\tlabel: {self.label}\n\tlevel: {self.level}\n\tcode: {self.code}"
         s += f"\n\tchildren: {' | '.join([child.code for child in self.children])}"
         return s
 
     def indentPrint(self):
         indent = "    " * self.level
-        s = f"{indent}---------------------------------"
-        s += f"\n{indent}GeoUnit {self.label}"
+        s = f"{indent}---------------------------------------------------------"
+
+        s += f"\n{indent}GeoUnit"
+        s += f"\n{indent}label: {self.label}"
         s += f"\n{indent}level: {self.level}"
         s += f"\n{indent}code: {self.code}"
+
+        childrens = ' | '.join([child.code for child in self.children])
+        if self.children:
+            s += f"\n{indent}children: {childrens}"
+
+        s += f"\n{indent}gender distribution: {self.genderDistribution}"
+
         stringAgeDistribution = None
         if self.ageDistribution is not None:
             ageIndent = "    " * (self.level + 1)
             stringAgeDistribution = '\n'+'\n'.join([
                 f"{ageIndent}{k}: {v}" for k, v in self.ageDistribution.items()])
-        s += f"\n{indent}gender distribution: {self.genderDistribution}"
         s += f"\n{indent}age distribution: {stringAgeDistribution}"
-        codes = ' | '.join([child.code for child in self.children])
-        if self.children:
-            s += f"\n{indent}children: {codes}"
+
+
+        if self.usersLocations is not None:
+            usersIndent = "    " * (self.level + 1)
+            stringUsersLocations = '\n'+'\n'.join([
+                f"{usersIndent}{u}" for u in self.usersLocations[:5]])
+            s += f"\n{indent}nb users: {len(self.usersLocations)}"
+            s += f"\n{indent}users examples: {stringUsersLocations}"
+
         print(s)
 
     def addChild(self, child: Type[GeoUnit]) -> None:
@@ -61,6 +77,9 @@ class GeoUnit:
 
     def getChilds(self) -> None:
         return self.children
+
+    def setUsersLocations(self, usersLocations: dict) -> None:
+        self.usersLocations = usersLocations['users']
 
     def setAgeDistribution(self, ageDistribution: dict) -> None:
         ageDistribution = ageDistribution['age_distributions']
@@ -91,6 +110,7 @@ class DemoGraph:
         self.country = country
         self.countryCode = code
         self.demography = demography
+        self.locations = []
         self.rootGeoUnit = None
         self.buildGeoTree()
 
@@ -181,6 +201,20 @@ class DemoGraph:
         for child in geoUnit.children:
             geoUnit = self._setAgeDistributions(child, ageDistribution)
 
+    def setUsersLocations(self, usersLocations: Iterable[Dict]) -> None:
+        # self.checkUsersLocations(usersLocations)
+        self._setUsersLocations(self.rootGeoUnit, usersLocations)
+        return
+
+    def _setUsersLocations(self, geoUnit: Type[GeoUnit], usersLocations: Iterable[Dict]) -> None:
+        ugd = [gd for gd in usersLocations if gd['loc'] == geoUnit.label]
+        if ugd:
+            geoUnit.setUsersLocations(ugd[0])
+        else:
+            print(f"Didn't find user for localisation {geoUnit.code} {geoUnit.label}")
+        for child in geoUnit.children:
+            geoUnit = self._setUsersLocations(child, usersLocations)
+
     def buildGeoTree(self) -> None:
         max_level = max(map(int, set([d['level'] for d in self.demography])))
         level = 0
@@ -191,6 +225,8 @@ class DemoGraph:
                         label=d['label'],
                         level=int(d['level']),
                         code=d['code'])
+                self.locations.append(d['label'])
+
         while level < max_level:
             level += 1
             for d in self.demography:
@@ -201,4 +237,7 @@ class DemoGraph:
                             label=d['label'],
                             level=int(d['level']),
                             code=d['code']))
+                    self.locations.append(d['label'])
+
+
 

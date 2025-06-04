@@ -14,10 +14,14 @@ def getLastRelease(pathPattern, db, country, year):
     print(f"Found last release at {last_release_path}.")
     return last_release_path
 
-def getMetadata(dbpath):
-    query = f"SELECT {','.join(METADATAFIELDS)} FROM {METADATATABLE}"
+def getMetadata(dbpath, columns = None):
+    if not columns:
+        columns = METADATAFIELDS
+    joinedColumns = ','.join(columns)
+    query = f"SELECT {joinedColumns} FROM {METADATATABLE}"
     with sqlite3.connect(dbpath) as con:
         cur = con.cursor()
         cur.execute(query)
         res = cur.fetchall()
+    print(f"Found {len(res)} rows in metadata with columns {joinedColumns}.")
     return res
