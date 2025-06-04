@@ -1,4 +1,7 @@
+import os
 import csv
+from glob import glob
+import pandas as pd
 from subprocess import Popen, PIPE
 
 from somecens.nuts.conf  import \
@@ -10,6 +13,8 @@ from somecens.nuts.conf  import \
     FLATTEN2021, \
     FLATTEN2024, \
     COUNTRYCODES, \
+    NUTS3AGEFOLDER, \
+    NUTS3AGECATS, \
     LEVELS, \
     ALLLEVELS
 
@@ -109,3 +114,29 @@ def getNutsGenderDistributions(country: str | None = None, year: int = 2024):
     else:
         return genderDistDicts
 
+
+def getNutsAgeDistributions(country: str, year: int = 2024):
+    age_categories = NUTS3AGECATS
+    gender_categories = ["T", "F", "M"]
+    country_code = COUNTRYCODES[country]
+    file = f"/home/jimena/work/dev/SoMeCens/somecens/nuts/data/nuts_age_flatten_{country}_{year}.csv"
+
+    dist = []
+    country_code = COUNTRYCODES[country]
+    with open(file, 'r') as csvfile:
+        data = [d for d in csv.DictReader(csvfile) if d['code'][:2] == country_code]
+    codes = {d['code'] for d in data}
+    ageDist = []
+    for code in codes:
+        ageDist.append({
+            'code': code,
+            'year': year,
+            'age_distributions': {
+            d['age']: {
+                'total': d['total'],
+                'female': d['female'],
+                'male': d['male']
+            }
+            for d in data if d['code'] == code}
+        })
+    return ageDist
