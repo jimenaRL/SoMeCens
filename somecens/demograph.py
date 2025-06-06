@@ -3,6 +3,7 @@ from typing import Type
 from typing import Any
 from functools import reduce
 
+import csv
 from somecens.tools import writeCsv, matchUsersLocations
 from somecens.nuts.conf  import NUTS3AGECATS
 
@@ -117,6 +118,7 @@ class DemoGraph:
         self.countryCode = code
         self.demography = demography
         self.locations = []
+        self.geoUnits = []
         self.rootGeoUnit = None
         self.buildGeoTree()
 
@@ -257,18 +259,32 @@ class DemoGraph:
                         level=int(d['level']),
                         code=d['code'])
                 self.locations.append(d['label'])
+                self.geoUnits.append(self.rootGeoUnit)
 
         while level < max_level:
             level += 1
             for d in self.demography:
                 if d['level'] == str(level):
                     parent = self.getGeoUnit(code=d['parent_code'])
-                    parent.addChild(
-                        GeoUnit(
+                    geoUnit =  GeoUnit(
                             label=d['label'],
                             level=int(d['level']),
-                            code=d['code']))
+                            code=d['code'])
+                    parent.addChild(geoUnit)
                     self.locations.append(d['label'])
+                    self.geoUnits.append(geoUnit)
 
-
-
+    def exportLocaliationsMatches(self, level: int, path: str) -> None:
+        headers = ['code', 'nb_matchs']
+        data = []
+        for geoUnit in self.geoUnits:
+            if geoUnit.level == level:
+                data.append([
+                    geoUnit.code,
+                    sum(map(len, self.getLocalizedUsers(geoUnit.code).values()))
+                ])
+        with open(path, 'w') as f:
+            writer = csv.writer(f)
+            # writer.writerow(headers)
+            writer.writerows(data)
+        print(f"File saved as {path}")

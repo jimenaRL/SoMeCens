@@ -5,8 +5,6 @@ import pandas as pd
 from subprocess import Popen, PIPE
 
 from somecens.nuts.conf  import \
-    NUTS3GENDERFLATTEN2021, \
-    NUTS3GENDERFLATTEN2024, \
     NUTS3GENDERTOTAL, \
     NUTS3GENDERFEMALES, \
     NUTS3GENDERMALES, \
