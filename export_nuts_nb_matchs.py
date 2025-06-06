@@ -1,4 +1,4 @@
-import os
+from glob import glob
 from somecens.nuts.tools import getUnits
 from somecens.nuts.conf  import COUNTRYCODES
 from somecens.epo.tools import getMetadata
@@ -6,20 +6,21 @@ from somecens.demograph import DemoGraph
 from somecens.tools import matchUsersLocations
 
 nuts_year = 2024
-metadata_year = 2020
+metadata_year = 2023
 
 for country in COUNTRYCODES.keys():
 
     print(f"----- {country} nuts_{nuts_year} metadata_{metadata_year} -----")
 
     # get last release
-    dbpath = f"/mnt/hdd2/epodata/stage/*/pseudonymized_alldata/{country}_{metadata_year}_pseudonymized_alldata.db"
-    candidates = glob(dbpath)
+    dbpathpattern = f"/mnt/hdd2/epodata/stage/*/pseudonymized_alldata/{country}_{metadata_year}_pseudonymized_alldata.db"
+    candidates = glob(dbpathpattern)
     candidates.sort()
-    if not len(candidates) == 0:
+    if len(candidates) == 0:
         print(f"No db found for country at {dbpath}")
         continue
-        dbpath = candidates[-1]
+    dbpath = candidates[-1]
+    print(f"Last db release fund at {dbpathpattern}")
 
     geo_units = getUnits(country, year=nuts_year)
     demo = DemoGraph(demography=geo_units)
