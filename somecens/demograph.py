@@ -274,7 +274,7 @@ class DemoGraph:
                     self.locations.append(d['label'])
                     self.geoUnits.append(geoUnit)
 
-    def exportLocaliationsMatches(self, level: int, path: str) -> None:
+    def exportLocalizationsMatches(self, level: int, path: str) -> None:
         headers = ['code', 'nb_matchs']
         data = []
         for geoUnit in self.geoUnits:
@@ -282,6 +282,24 @@ class DemoGraph:
                 data.append([
                     geoUnit.code,
                     sum(map(len, self.getLocalizedUsers(geoUnit.code).values()))
+                ])
+        with open(path, 'w') as f:
+            writer = csv.writer(f)
+            # writer.writerow(headers)
+            writer.writerows(data)
+        print(f"File saved as {path}")
+
+
+    def exportLocalizationsMatchesPerc(self, level: int, path: str) -> None:
+        headers = ['code', 'nb_matchs']
+        data = []
+        for geoUnit in self.geoUnits:
+            if geoUnit.level == level:
+                total = float(geoUnit.genderDistribution['total'])
+                matched = sum(map(len, self.getLocalizedUsers(geoUnit.code).values()))
+                data.append([
+                    geoUnit.code,
+                    100 * matched / total
                 ])
         with open(path, 'w') as f:
             writer = csv.writer(f)

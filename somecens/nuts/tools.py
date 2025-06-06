@@ -4,17 +4,7 @@ from glob import glob
 import pandas as pd
 from subprocess import Popen, PIPE
 
-from somecens.nuts.conf  import \
-    NUTS3GENDERTOTAL, \
-    NUTS3GENDERFEMALES, \
-    NUTS3GENDERMALES, \
-    FLATTEN2021, \
-    FLATTEN2024, \
-    COUNTRYCODES, \
-    NUTS3AGEFOLDER, \
-    NUTS3AGECATS, \
-    LEVELS, \
-    ALLLEVELS
+from somecens.nuts.conf  import *
 
 def strToInt(string: str) -> int:
     return int(string.replace('\u202f', ''))
