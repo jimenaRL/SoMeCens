@@ -5,18 +5,23 @@ from somecens.epo.tools import getMetadata
 from somecens.demograph import DemoGraph
 from somecens.tools import matchUsersLocations
 
-year = 2024
+nuts_year = 2024
 metadata_year = 2020
 
 for country in COUNTRYCODES.keys():
 
-    dbpath = f"/mnt/hdd2/epodata/stage/20250416/pseudonymized_alldata/{country}_2020_pseudonymized_alldata.db"
-    if not os.path.exists(dbpath):
-        print(f"Missing db at {dbpath}")
-        continue
+    print(f"----- {country} nuts_{nuts_year} metadata_{metadata_year} -----")
 
-    print(f"----- {country} nuts_{year} metadata_{metadata_year} -----")
-    geo_units = getUnits(country, year=year)
+    # get last release
+    dbpath = f"/mnt/hdd2/epodata/stage/*/pseudonymized_alldata/{country}_{metadata_year}_pseudonymized_alldata.db"
+    candidates = glob(dbpath)
+    candidates.sort()
+    if not len(candidates) == 0:
+        print(f"No db found for country at {dbpath}")
+        continue
+        dbpath = candidates[-1]
+
+    geo_units = getUnits(country, year=nuts_year)
     demo = DemoGraph(demography=geo_units)
 
     columns = ['pseudo_id', 'location']
