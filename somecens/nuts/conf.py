@@ -23,12 +23,15 @@ FILES = {
     'ageDistributions2074': 'NUTS123_Y2015_2024_Gender_Age_20_74.xlsx',
     'ageDistribution75': 'NUTS123_Y2015_2024_Gender_Age_75+.xlsx',
     'ageFolder': 'age',
+    'LAUtoNUTS3': 'NUTS2024_codes_LAU_to_NUTS3.csv'
 }
 
 ALLLEVELS = os.path.join(DATAFOLDER, FILES['allLevels'])
 CODES = os.path.join(DATAFOLDER, FILES['codes_country'])
 FLATTEN2021 = os.path.join(DATAFOLDER, FILES['flattenStructure2021'])
 FLATTEN2024 = os.path.join(DATAFOLDER, FILES['flattenStructure2024'])
+
+LAUtoNUTS3 = os.path.join(DATAFOLDER, FILES['LAUtoNUTS3'])
 
 NUTS3GENDERMALES = os.path.join(DATAFOLDER, FILES['nuts3_males'])
 NUTS3GENDERFEMALES = os.path.join(DATAFOLDER, FILES['nuts3_females'])

@@ -36,6 +36,7 @@ class GeoUnit:
         self.genderCategories = gender_categories
         self.genderDistribution = None
         self.usersLocations = []
+        self.subUnitsNames = []
 
     def __str__(self) -> str:
         s = f"GeoUnit \n\tlabel: {self.label}\n\tlevel: {self.level}\n\tcode: {self.code}"
@@ -72,7 +73,12 @@ class GeoUnit:
             +'\n'.join([f"{usersIndent}{u}" for u in self.usersLocations[:5]]) \
             + f'\n{usersIndent}...'
             s += f"\n{indent}nb localized users: {len(self.usersLocations)}"
-            s += f"\n{indent}localized users examples: {stringUsersLocations}"
+            s += f"{indent}localized users examples: {stringUsersLocations}"
+
+        sIndent = "    " * (self.level + 1)
+        subUnitsNames = f'\n{sIndent}' + f'\n{sIndent}'.join([s for s in self.subUnitsNames])
+        if self.subUnitsNames:
+            s += f"\n{indent}sub units names:{subUnitsNames}"
 
         print(s)
 
@@ -84,6 +90,9 @@ class GeoUnit:
 
     def setUsersLocations(self, usersLocations: dict) -> None:
         self.usersLocations = usersLocations['users']
+
+    def setSubUnitsNames(self, subUnitsNames: Iterable[str]) -> None:
+        self.subUnitsNames = subUnitsNames
 
     def setAgeDistribution(self, ageDistribution: dict) -> None:
         ageDistribution = ageDistribution['age_distributions']
@@ -120,6 +129,7 @@ class DemoGraph:
         self.locations = []
         self.geoUnits = []
         self.rootGeoUnit = None
+        self.code2label = {}
         self.buildGeoTree()
 
         self.genderCategories = genderCats
@@ -142,6 +152,20 @@ class DemoGraph:
         for d in demography:
             if d['level'] == '0':
                 return d['label'], d['code']
+
+    def findLabelFromCode(self, code: str) -> str:
+        if not code in self.code2label:
+            raise ValueError(f"Code '{code}' is not present in demography.")
+        return self.code2label[code]
+
+    def findCodesFromLabel(self, label: str) -> str:
+        reverseDict = {
+            v: [k for k in self.code2label if self.code2label[k] == v]
+            for v in self.code2label.values()
+        }
+        if not label in reverseDict:
+            raise ValueError(f"Label '{label}' is not present in demography.")
+        return reverseDict[label]
 
     def checkDemography(self, demography: Iterable[Dict]) -> None:
         # check dicts's keys and values instances
@@ -248,6 +272,18 @@ class DemoGraph:
         for child in geoUnit.children:
             geoUnit = self._setUsersLocations(child, usersLocations)
 
+    def setSubUnitsNames(self, subUnitsNames: Iterable[Dict]) -> None:
+        self._setSubUnitsNames(self.rootGeoUnit, subUnitsNames)
+        return
+
+    def _setSubUnitsNames(self, geoUnit: Type[GeoUnit], subUnitsNames: Iterable[Dict]) -> None:
+        subUnits = [su for su in subUnitsNames if su['code'] == geoUnit.code]
+        if subUnits:
+            geoUnit.setSubUnitsNames([su['label'] for su in subUnits])
+        else:
+            for child in geoUnit.children:
+                geoUnit = self._setSubUnitsNames(child, subUnitsNames)
+
     def buildGeoTree(self) -> None:
         max_level = max(map(int, set([d['level'] for d in self.demography])))
         level = 0
@@ -260,6 +296,7 @@ class DemoGraph:
                         code=d['code'])
                 self.locations.append(d['label'])
                 self.geoUnits.append(self.rootGeoUnit)
+                self.code2label[d['code']] = d['label']
 
         while level < max_level:
             level += 1
@@ -273,6 +310,7 @@ class DemoGraph:
                     parent.addChild(geoUnit)
                     self.locations.append(d['label'])
                     self.geoUnits.append(geoUnit)
+                    self.code2label[d['code']] = d['label']
 
     def exportLocalizationsMatches(self, level: int, path: str) -> None:
         headers = ['code', 'nb_matchs']

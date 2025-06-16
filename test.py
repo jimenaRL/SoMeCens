@@ -1,6 +1,6 @@
 from somecens import DemoGraph
 from somecens.nuts.tools import \
-    getUnits, getNutsLocations, getNutsLocationsLevel, getNutsGenderDistributions, getNutsAgeDistributions
+    getUnits, getNutsLocations, getNutsLocationsLevel, getNutsGenderDistributions, getNutsAgeDistributions, COUNTRYCODES, getLaus
 from somecens.epo.tools import getMetadata
 from somecens.tools import matchUsersLocations
 
@@ -14,17 +14,28 @@ print(f"----- {country} nuts_{year} metadata_{metadata_year} -----")
 geo_units = getUnits(country, year=year)
 
 demo = DemoGraph(demography=geo_units)
-# demo.showGeoUnits()
+
+code = "FRK21"
+label = "Ile-de-France"
+print(f"The label of the NUTS code '{code}' is: '{demo.findLabelFromCode(code)}'")
+print(f"The NUTS codes associated to the label '{label}' are: {demo.findCodesFromLabel(label)}")
+#demo.showGeoUnits()
+
 # getUnit = demo.getGeoUnit(code='FRJ')
 # getUnit_descendants = demo.getDescendants(getUnit)
 
-# genderDist = getNutsGenderDistributions(country, year=year)
-# demo.setGenderDistributions(genderDist)
-# # demo.showGeoUnits()
+genderDist = getNutsGenderDistributions(country, year=year)
+demo.setGenderDistributions(genderDist)
+# demo.showGeoUnits()
 
-# ageDist = getNutsAgeDistributions(country, year=year)
-# demo.setAgeDistributions(ageDist)
-# # demo.showGeoUnits()
+ageDist = getNutsAgeDistributions(country, year=year)
+demo.setAgeDistributions(ageDist)
+# demo.showGeoUnits()
+
+laus = getLaus('france')
+demo.setSubUnitsNames(laus)
+geoUnit = demo.getGeoUnit(code='FR101')
+geoUnit.indentPrint()
 
 columns = ['pseudo_id', 'location']
 metadata = getMetadata(f'{country}_2020_pseudonymized_alldata.db', columns)
@@ -33,12 +44,11 @@ usersLocations = matchUsersLocations(demo.locations, metadata, columns)
 demo.setUsersLocations(usersLocations)
 # demo.showGeoUnits()
 
-# for level in [1, 2, 3]:
-#     demo.exportLocaliationsMatches(
-#         path=f'nb_matchs_{country}_nuts_{level}.csv',
-#         level=level
-#     )
-
+for level in [1, 2, 3]:
+    demo.exportLocalizationsMatches(
+        path=f'nb_matchs_{country}_nuts_{level}.csv',
+        level=level
+    )
 
 localizedUsersDict = demo.getLocalizedUsers(code="FRK21")
 print("Localized users examples:")

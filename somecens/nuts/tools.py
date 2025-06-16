@@ -33,6 +33,19 @@ def getNutsLocations(country: str, format: str = 'dict', year: int = 2024):
     else:
         raise ValueError(f"Format must be 'dict' or 'flatten'. Found {format}")
 
+def getLaus(country: str | None = None):
+    path = globals()[f"LAUtoNUTS3"]
+    with open(path, newline='') as csvfile:
+        laus = [d for d in csv.DictReader(csvfile)]
+    if country:
+        code = COUNTRYCODES[country]
+        return [
+            {'code': l['NUTS3'], 'label': l["LAU_NAME_NATIONAL"]}
+            for l in laus if l['NUTS3'][:2] == code
+            ]
+    else:
+        return laus
+
 def getUnits(country: str | None = None, year: int = 2024):
     path = globals()[f"FLATTEN{year}"]
     with open(path, newline='') as csvfile:
