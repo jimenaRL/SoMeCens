@@ -89,7 +89,7 @@ class GeoUnit:
         return self.children
 
     def setUsersLocations(self, usersLocations: dict) -> None:
-        self.usersLocations = usersLocations['users']
+        self.usersLocations = usersLocations
 
     def setSubUnitsNames(self, subUnitsNames: Iterable[str]) -> None:
         self.subUnitsNames = subUnitsNames
@@ -106,6 +106,9 @@ class GeoUnit:
 
     def getLocalizedUsers(self) -> Iterable[tuple]:
         return self.usersLocations
+
+    def getSubUnits(self) -> Iterable[str]:
+        return [self.label] + self.subUnitsNames
 
 class DemoGraph:
 
@@ -126,7 +129,7 @@ class DemoGraph:
         self.country = country
         self.countryCode = code
         self.demography = demography
-        self.locations = []
+        self.locations = {}
         self.geoUnits = []
         self.rootGeoUnit = None
         self.code2label = {}
@@ -212,10 +215,14 @@ class DemoGraph:
     def getDescendants(self, geoUnit) -> Type[GeoUnit]:
         return self._getDescendants(geoUnit, [])
 
-    def getLocalizedUsers(self, code: str) -> None:
+    def getSubUnits(self) -> dict:
+        return {g.code: g.getSubUnits() for g in self.geoUnits}
+
+    def getLocalizedUsers(self, code: str, descendants : bool | False) -> None:
         geoUnit = self.getGeoUnit(code)
-        descendants = self.getDescendants(geoUnit)
-        return {g.code: g.getLocalizedUsers() for g in descendants}
+        if descendants:
+            return {g.code: g.getLocalizedUsers() for g in self.getDescendants(geoUnit)}
+        return {geoUnit.code: geoUnit.getLocalizedUsers()}
 
     def checkGenderDistributions(self, genderDistribution: Iterable[Dict]) -> None:
         # check dicts keys
@@ -259,16 +266,14 @@ class DemoGraph:
             geoUnit = self._setAgeDistributions(child, ageDistribution)
 
     def setUsersLocations(self, usersLocations: Iterable[Dict]) -> None:
-        # self.checkUsersLocations(usersLocations)
         self._setUsersLocations(self.rootGeoUnit, usersLocations)
         return
 
     def _setUsersLocations(self, geoUnit: Type[GeoUnit], usersLocations: Iterable[Dict]) -> None:
-        ugd = [gd for gd in usersLocations if gd['loc'] == geoUnit.label]
-        if ugd:
-            geoUnit.setUsersLocations(ugd[0])
+        if geoUnit.code in usersLocations:
+            geoUnit.setUsersLocations(usersLocations[geoUnit.code])
         else:
-            print(f"Didn't find user for localisation {geoUnit.code} {geoUnit.label}")
+            print(f"Didn't find users for gueUnit {geoUnit.code} {geoUnit.label}")
         for child in geoUnit.children:
             geoUnit = self._setUsersLocations(child, usersLocations)
 
@@ -277,9 +282,8 @@ class DemoGraph:
         return
 
     def _setSubUnitsNames(self, geoUnit: Type[GeoUnit], subUnitsNames: Iterable[Dict]) -> None:
-        subUnits = [su for su in subUnitsNames if su['code'] == geoUnit.code]
-        if subUnits:
-            geoUnit.setSubUnitsNames([su['label'] for su in subUnits])
+        if geoUnit.code in subUnitsNames:
+            geoUnit.setSubUnitsNames(subUnitsNames[geoUnit.code])
         else:
             for child in geoUnit.children:
                 geoUnit = self._setSubUnitsNames(child, subUnitsNames)
@@ -294,7 +298,7 @@ class DemoGraph:
                         label=d['label'],
                         level=int(d['level']),
                         code=d['code'])
-                self.locations.append(d['label'])
+                self.locations[d['code']] = d['label']
                 self.geoUnits.append(self.rootGeoUnit)
                 self.code2label[d['code']] = d['label']
 
@@ -308,7 +312,7 @@ class DemoGraph:
                             level=int(d['level']),
                             code=d['code'])
                     parent.addChild(geoUnit)
-                    self.locations.append(d['label'])
+                    self.locations[d['code']] = d['label']
                     self.geoUnits.append(geoUnit)
                     self.code2label[d['code']] = d['label']
 
