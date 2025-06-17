@@ -39,12 +39,10 @@ def getLaus(country: str | None = None):
         laus = [d for d in csv.DictReader(csvfile)]
     if country:
         code = COUNTRYCODES[country]
-        return [
-            {'code': l['NUTS3'], 'label': l["LAU_NAME_NATIONAL"]}
-            for l in laus if l['NUTS3'][:2] == code
-            ]
-    else:
-        return laus
+        laus = [l for l in laus if l['NUTS3'][:2] == code]
+    codes = {l['NUTS3'] for l in laus}
+    laus = {c: [l["LAU_NAME_NATIONAL"] for l in laus if l['NUTS3'] == c] for c in codes}
+    return laus
 
 def getUnits(country: str | None = None, year: int = 2024):
     path = globals()[f"FLATTEN{year}"]
