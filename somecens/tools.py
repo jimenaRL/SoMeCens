@@ -58,7 +58,6 @@ def searchMultipleOccurrences(file, terms, search_col):
         with open(tmpTerms.name, 'w') as f:
             f.writelines('\n'.join(regexs))
         commands = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex', "--patterns", tmpTerms.name, file]
-        print(' '.join(commands))
         p = Popen(commands, stdout=PIPE)
         output = p.communicate()[0].decode()
 
@@ -81,7 +80,6 @@ def regexMatchUsersMultipleLocations(locations_groups, metadata, headers, search
             ]
             # and collect results
             results = [f.result() for f in futures]
-        # results = [searchMultipleOccurrences(tmp.name, locations, search_col) for locations in locations_groups.values()]
         # format results as dict
         results = {loc: res for loc, res in zip(locations_groups.keys(), results)}
     return results
