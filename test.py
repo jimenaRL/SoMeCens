@@ -59,6 +59,8 @@ for loc in localizedUsersDict:
      for u in localizedUsersDict[loc][:3]:
          print("            " + u[0] + " " + f"'{u[1]}'")
 
+for g in demo.geoUnits:
+    print(f"code: {g.code} | label: {g.label} | users found: {len(usersLocations[g.code])}")
 
 
 demo = DemoGraph(demography=geo_units)
@@ -79,8 +81,7 @@ for loc in localizedUsersDictMulti:
         print("            " + u[0] + " " + f"'{u[1]}'")
 
 
-geo_units = demo.geoUnits
-for g in geo_units:
+for g in demo.geoUnits:
     print(f"code: {g.code} | label: {g.label} | users found: {len(lausUsersLocations[g.code])}")
 
 
