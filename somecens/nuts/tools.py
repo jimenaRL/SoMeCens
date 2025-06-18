@@ -42,6 +42,8 @@ def getLaus(country: str | None = None):
         laus = [l for l in laus if l['NUTS3'][:2] == code]
     codes = {l['NUTS3'] for l in laus}
     laus = {c: [l["LAU_NAME_NATIONAL"] for l in laus if l['NUTS3'] == c] for c in codes}
+    if len(laus) == 0:
+        raise ValueError(f"Didn't find any LAU unit for country '{country}'.")
     return laus
 
 def getUnits(country: str | None = None, year: int = 2024):
