@@ -85,6 +85,12 @@ for g in demo.geoUnits:
     print(f"code: {g.code} | label: {g.label} | users found: {len(lausUsersLocations[g.code])}")
 
 
+import pandas as pd
+allLocalizedUsersDictMulti = demo.getLocalizedUsers(code="FR", descendants=True)
+with pd.ExcelWriter('allLocalizedUsersDictMulti_FR.xlsx', engine='xlsxwriter') as writer:
+    for loc in allLocalizedUsersDictMulti:
+        pd.DataFrame(data=allLocalizedUsersDictMulti[loc]).to_excel(writer, sheet_name= loc+" | "+demo.getGeoUnit(code=loc).label[:20])
+
 #for level in [1, 2, 3]:
 #    demo.exportLocalizationsMatches(
 #        path=f'nb_matchs_{country}_nuts_{level}.csv',
