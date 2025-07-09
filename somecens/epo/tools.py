@@ -1,3 +1,4 @@
+import os
 import sqlite3
 from glob import glob
 from string import Template
@@ -15,6 +16,8 @@ def getLastRelease(pathPattern, db, country, year):
     return last_release_path
 
 def getMetadata(dbpath, columns = None):
+    if not os.path.exists(dbpath):
+        raise ValueError(f"Unnable to find database at {dbpath}")
     if not columns:
         columns = METADATAFIELDS
     joinedColumns = ','.join(columns)
