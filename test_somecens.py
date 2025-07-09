@@ -1,14 +1,38 @@
+from argparse import ArgumentParser
+from string import Template
+
 from somecens import DemoGraph
 from somecens.nuts.tools import \
-    getUnits, getNutsLocations, getNutsLocationsLevel, getNutsGenderDistributions, getNutsAgeDistributions, COUNTRYCODES, getLaus
+    COUNTRYCODES, \
+    getLaus, \
+    getUnits, \
+    getNutsLocations, \
+    getNutsLocationsLevel, \
+    getNutsAgeDistributions, \
+    getNutsGenderDistributions
 from somecens.epo.tools import getMetadata
 from somecens.tools import matchUsersLocations, matchUsersMultipleLocations
 
-year = 2024
-country = 'france'
-metadata_year = 2020
+DEFAULTYEAR = 2024
+DEFAULTMETAYEAR = 2020
+DEFAULTCOUNTRY = 'france'
 # METADATADB = f'{country}_2020_pseudonymized_alldata.db'
-METADATADB = f"/mnt/hdd2/epodata/stage/20250416/pseudonymized_alldata/{country}_{metadata_year}_pseudonymized_alldata.db"
+DEFAULTDBPATTERN = "/mnt/hdd2/epodata/stage/20250416/pseudonymized_alldata/${country}_${metadata_year}_pseudonymized_alldata.db"
+
+ap = ArgumentParser (prog="Test script for some4dem")
+ap.add_argument('--country', required=False, type=str, default=DEFAULTCOUNTRY)
+ap.add_argument('--year', required=False, type=str, default=DEFAULTYEAR)
+ap.add_argument('--metadata_year', required=False, type=str, default=DEFAULTMETAYEAR)
+ap.add_argument('--dbpath', required=False, type=str, default=DEFAULTDBPATTERN)
+
+args = ap.parse_args()
+country = args.country
+year = args.year
+metadata_year = args.metadata_year
+dbpath = Template(args.dbpath).safe_substitute(
+    country=country,
+    metadata_year=metadata_year)
+
 
 print(f"----- {country} nuts_{year} metadata_{metadata_year} -----")
 
@@ -42,7 +66,7 @@ demo.setAgeDistributions(ageDist)
 #demo.showGeoUnits()
 
 columns = ['pseudo_id', 'location']
-metadata = getMetadata(METADATADB, columns)
+metadata = getMetadata(dbpath, columns)
 
 usersLocations = matchUsersLocations(
      locations=demo.locations,
@@ -52,11 +76,11 @@ usersLocations = matchUsersLocations(
      method='regex'
 )
 demo.setUsersLocations(usersLocations)
-localizedUsersDict = demo.getLocalizedUsers(code="FRK28", descendants=True)
+localizedUsersDict = demo.getLocalizedUsers(code="FRJ24", descendants=True)
 print("Localized users number:")
 for loc in localizedUsersDict:
      print("    " + loc + " " + demo.getGeoUnit(code=loc).label + " " + str(len(localizedUsersDict[loc])))
-     for u in localizedUsersDict[loc][:3]:
+     for u in localizedUsersDict[loc][-5:]:
          print("            " + u[0] + " " + f"'{u[1]}'")
 
 for g in demo.geoUnits:
@@ -73,11 +97,11 @@ lausUsersLocations = matchUsersMultipleLocations(
     method='regex'
 )
 demo.setUsersLocations(lausUsersLocations)
-localizedUsersDictMulti = demo.getLocalizedUsers(code="FRK28", descendants=True)
+localizedUsersDictMulti = demo.getLocalizedUsers(code="FRJ24", descendants=True)
 print("Localized users number:")
 for loc in localizedUsersDictMulti:
     print("    " + loc + " " + demo.getGeoUnit(code=loc).label + " " + str(len(localizedUsersDictMulti[loc])))
-    for u in localizedUsersDictMulti[loc][:3]:
+    for u in localizedUsersDictMulti[loc][-5:]:
         print("            " + u[0] + " " + f"'{u[1]}'")
 
 
@@ -87,9 +111,10 @@ for g in demo.geoUnits:
 
 import pandas as pd
 allLocalizedUsersDictMulti = demo.getLocalizedUsers(code="FR", descendants=True)
-with pd.ExcelWriter('allLocalizedUsersDictMulti_FR.xlsx', engine='xlsxwriter') as writer:
-    for loc in allLocalizedUsersDictMulti:
-        pd.DataFrame(data=allLocalizedUsersDictMulti[loc]).to_excel(writer, sheet_name= loc+" | "+demo.getGeoUnit(code=loc).label[:20])
+for loc in allLocalizedUsersDictMulti:
+    length = str(len(allLocalizedUsersDictMulti[loc]))
+    label = demo.getGeoUnit(code=loc).label[:15]
+    pd.DataFrame(data=allLocalizedUsersDictMulti[loc]).to_csv("results/20250618/"+loc+"_"+label+"_"+length+".csv")
 
 #for level in [1, 2, 3]:
 #    demo.exportLocalizationsMatches(
