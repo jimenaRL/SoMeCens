@@ -1,7 +1,11 @@
 .python-version
 *.pyc
 *.db
+
+results/*
+metadata_*.csv
+notes*.txt
+
 nutsCounts
 nutsMatchs
-notes.txt
-results/*
+russian_names.py
