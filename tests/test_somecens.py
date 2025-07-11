@@ -6,8 +6,6 @@ from somecens.nuts.tools import \
     COUNTRYCODES, \
     getLaus, \
     getUnits, \
-    getNutsLocations, \
-    getNutsLocationsLevel, \
     getNutsAgeDistributions, \
     getNutsGenderDistributions
 from somecens.epo.tools import getMetadata
@@ -33,47 +31,46 @@ dbpath = Template(args.dbpath).safe_substitute(
     country=country,
     metadata_year=metadata_year)
 
+s = f"----- {country.upper()} nuts_{year} metadata_{metadata_year} -----"
+print(f"{'-' * len(s)}\n{s}\n{'-' * len(s)}")
 
-print(f"----- {country} nuts_{year} metadata_{metadata_year} -----")
-
-
-# locs_level2_2024 = getNutsLocationsLevel(country, level=2, year=year)
-# locations = getNutsLocations(country, format='flatten', year=year)
-geo_units = getUnits(country, year=year)
+nuts_geo_units = getUnits(country, year=year)
 laus = getLaus('france')
 
-demo = DemoGraph(demography=geo_units)
+demo = DemoGraph(demography=nuts_geo_units)
 demo.setSubUnitsNames(laus)
-# demo.getGeoUnit(code='FRF').indentPrint()
 # demo.getGeoUnit(code='FR10').indentPrint()
-# demo.getGeoUnit(code='FR102').indentPrint()
 
-# code = "FRK21"
-# label = "Ile-de-France"
+code = "FRK21"
+label = "Ile-de-France"
 # print(f"The label of the NUTS code '{code}' is: '{demo.findLabelFromCode(code)}'")
 # print(f"The NUTS codes associated to the label '{label}' are: {demo.findCodesFromLabel(label)}")
-# demo.showGeoUnits()
+demo.showGeoUnits(max_level=1)
 
-# getUnit = demo.getGeoUnit(code='FRJ')
-# getUnit_descendants = demo.getDescendants(getUnit)
+geoUnit = demo.getGeoUnit(code='FRJ')
+getUnit_descendants = demo.getDescendants(geoUnit)
 
 genderDist = getNutsGenderDistributions(country, year=year)
 demo.setGenderDistributions(genderDist)
-# demo.showGeoUnits()
+demo.showGeoUnits(max_level=1)
 
 ageDist = getNutsAgeDistributions(country, year=year)
 demo.setAgeDistributions(ageDist)
-#demo.showGeoUnits()
+demo.showGeoUnits(max_level=1)
+
+exit()
+
 
 columns = ['pseudo_id', 'location']
 metadata = getMetadata(dbpath, columns)
 
+# test users locations matchs
 usersLocations = matchUsersLocations(
-     locations=demo.locations,
-     metadata=metadata,
-     headers=columns,
-     search_col='location',
-     method='regex'
+    locations=demo.locations,
+    metadata=metadata,
+    stopwords=["le", "la", "de"],
+    search_index=1,
+    method='regex'
 )
 demo.setUsersLocations(usersLocations)
 localizedUsersDict = demo.getLocalizedUsers(code="FRJ24", descendants=True)
@@ -86,22 +83,22 @@ for loc in localizedUsersDict:
 for g in demo.geoUnits:
     print(f"code: {g.code} | label: {g.label} | users found: {len(usersLocations[g.code])}")
 
-
+# test multiple users locations matchs
 demo = DemoGraph(demography=geo_units)
 demo.setSubUnitsNames(laus)
 lausUsersLocations = matchUsersMultipleLocations(
     locations_groups=demo.getSubUnits(),
     metadata=metadata,
-    headers=columns,
-    search_col='location',
+    stopwords=["le", "la", "de"],
+    search_index=1,
     method='regex'
 )
 demo.setUsersLocations(lausUsersLocations)
-localizedUsersDictMulti = demo.getLocalizedUsers(code="FRJ24", descendants=True)
+localizedUsersDictMulti = demo.getLocalizedUsers(code="FRJ2", descendants=True)
 print("Localized users number:")
 for loc in localizedUsersDictMulti:
     print("    " + loc + " " + demo.getGeoUnit(code=loc).label + " " + str(len(localizedUsersDictMulti[loc])))
-    for u in localizedUsersDictMulti[loc][-5:]:
+    for u in localizedUsersDictMulti[loc][-15:]:
         print("            " + u[0] + " " + f"'{u[1]}'")
 
 
@@ -114,7 +111,7 @@ allLocalizedUsersDictMulti = demo.getLocalizedUsers(code="FR", descendants=True)
 for loc in allLocalizedUsersDictMulti:
     length = str(len(allLocalizedUsersDictMulti[loc]))
     label = demo.getGeoUnit(code=loc).label[:15]
-    pd.DataFrame(data=allLocalizedUsersDictMulti[loc]).to_csv("results/20250618/"+loc+"_"+label+"_"+length+".csv")
+    pd.DataFrame(data=allLocalizedUsersDictMulti[loc]).to_csv("results/20250710/"+loc+"_"+label+"_"+length+".csv")
 
 #for level in [1, 2, 3]:
 #    demo.exportLocalizationsMatches(
