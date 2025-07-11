@@ -1,3 +1,17 @@
+# =============================================================================
+# Demograph
+# =============================================================================
+#
+# Script implementing Demograph and GeoUnit classes.
+#
+# GeoUnit class implements a tree structure where leaves are administrative
+# divisions of a country (e.g. a NUTS in the European standard system)
+# and may contain sociodemographic information like age and genre distributions.
+#
+# Demograph class contains methods to create and manage GeoUnit tree structure
+# from flatten input data, add sociodemographic information among others.
+#
+
 from __future__ import annotations
 from typing import Type
 from typing import Any
@@ -15,7 +29,8 @@ DEFAULTGENDERCATS = {
 }
 
 class GeoUnit:
-
+    """ Class implementing a tree structure of administrative geographics units.
+    """
     ageDistTol = 0.000001
     genderDistTol = 0.000001
 
@@ -111,6 +126,8 @@ class GeoUnit:
         return [self.label] + self.subUnitsNames
 
 class DemoGraph:
+    """ Class to build and manage a GeoUnit tree structure.
+    """
 
     demoKeys = {'country_code', 'label', 'level', 'code', 'parent_code'}
     genderCategories = DEFAULTGENDERCATS
@@ -120,10 +137,18 @@ class DemoGraph:
             demography: Iterable[Dict],
             genderCats: Iterable[str] | None = DEFAULTGENDERCATS) -> None:
         """
-        demography: iterable of dicts
-        Keys and values must be strings and dict keys equal to self.demoKeys
-        genderCats: iterable of strings
+        demography: iterable of dicts of the form
+                {
+                    'country_code': 'FR',
+                    'code': 'FRJ24',
+                    'level': '3',
+                    'label': 'Gers',
+                    'parent_code': 'FRJ2'
+                }
+            representing geographical units.
+        genderCats: iterable of strings wirh the accepted gender gategories.
         """
+
         self.checkDemography(demography)
         country, code = self._getCountryAndCode(demography)
         self.country = country
@@ -141,15 +166,20 @@ class DemoGraph:
     def __str__(self) -> str:
         return f"{self.country.capitalize()} ({self.countryCode}) DemoGraph"
 
-    def _showGeoUnits(self, indent: int = 0, geoUnit: GeoUnit | None = None) -> None:
+    def _showGeoUnits(
+        self,
+        geoUnit: GeoUnit | None = None,
+        max_level: int = -1) -> None:
         if geoUnit:
-            geoUnit.indentPrint()
+            if geoUnit.level <= max_level:
+                geoUnit.indentPrint()
             for child in geoUnit.children:
-                indent += 1
-                self._showGeoUnits(indent, child)
+                self._showGeoUnits(child, max_level)
 
-    def showGeoUnits(self) -> None:
-        self._showGeoUnits(0, self.rootGeoUnit)
+    def showGeoUnits(self, max_level: int = 1000) -> None:
+        """ Print the demograph's geoUnits tree structure until given max level.
+        """
+        self._showGeoUnits(self.rootGeoUnit, max_level)
 
     def _getCountryAndCode(self, demography) -> (str, str):
         for d in demography:
@@ -185,6 +215,10 @@ class DemoGraph:
             raise ValueError(mssg)
 
     def _getGeoUnit(self, geoUnit, code: str) -> Type[GeoUnit]:
+        """
+        If the geoUnit's associate code correspond return the geoUnits, otherwise
+        applies the method recursively to its childs.
+        """
         if geoUnit.code == code:
             return geoUnit
         for child in geoUnit.children:
@@ -193,6 +227,9 @@ class DemoGraph:
                 return geoUnit
 
     def getGeoUnit(self, code: str) -> Type[GeoUnit]:
+        """
+        Returns the geoUnit associate with the code
+        """
         return self._getGeoUnit(geoUnit=self.rootGeoUnit, code=code)
 
     def _getGeoUnitByLabel(self, geoUnit, label: str) -> Type[GeoUnit]:
@@ -213,6 +250,8 @@ class DemoGraph:
         return reduce(lambda x, y: x + y, descendants)
 
     def getDescendants(self, geoUnit) -> Type[GeoUnit]:
+        """ Return a list of containing all descents of the input geoUnit. 
+        """
         return self._getDescendants(geoUnit, [])
 
     def getSubUnits(self) -> dict:
@@ -277,8 +316,13 @@ class DemoGraph:
         for child in geoUnit.children:
             geoUnit = self._setUsersLocations(child, usersLocations)
 
-    def setSubUnitsNames(self, subUnitsNames: Iterable[Dict]) -> None:
-        self._setSubUnitsNames(self.rootGeoUnit, subUnitsNames)
+    def setSubUnitsNames(self, subUnits: Iterable[Dict]) -> None:
+        """ subUnits msut be a list of dictionary of the form
+                {'code' : list of corresponding geographical sub-units names}
+        where 'code' corresponds to one geoUnit of the demograph.
+        ).
+        """
+        self._setSubUnitsNames(self.rootGeoUnit, subUnits)
         return
 
     def _setSubUnitsNames(self, geoUnit: Type[GeoUnit], subUnitsNames: Iterable[Dict]) -> None:

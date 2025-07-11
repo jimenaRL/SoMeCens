@@ -1,3 +1,15 @@
+# =============================================================================
+# NUTS tools
+# =============================================================================
+#
+# Functions for manage NUTS related files.
+#
+# NUTS (Nomenclature of Territorial Units for Statistics) is a geocode standard
+# maintained by Eurostat and used to reference the administrative divisions of
+# European countries. https://ec.europa.eu/eurostat/web/nuts/overview
+#
+
+from __future__ import annotations
 import os
 import csv
 from glob import glob
@@ -7,6 +19,8 @@ from subprocess import Popen, PIPE
 from somecens.nuts.conf  import *
 
 def strToInt(string: str) -> int:
+    """ Remove the Narrow No-Break Space character (U202F) from a string
+    and convert it to an integer."""
     return int(string.replace('\u202f', ''))
 
 def getNutsLocationsLevel(country: str, level: int, year: int = 2024) -> str:
@@ -33,7 +47,12 @@ def getNutsLocations(country: str, format: str = 'dict', year: int = 2024):
     else:
         raise ValueError(f"Format must be 'dict' or 'flatten'. Found {format}")
 
-def getLaus(country: str | None = None):
+def getLaus(country: str | None = None) -> dict:
+    """ Parse NUTS files and return a dictionary of the form
+            {'nuts3_code' : list of LAUs}
+    where a LAUs are the Local administrative units correponding to a NUTS
+    level 3 (formerly NUTS level 4).
+    """
     path = globals()[f"LAUtoNUTS3"]
     with open(path, newline='') as csvfile:
         laus = [d for d in csv.DictReader(csvfile)]
@@ -46,7 +65,17 @@ def getLaus(country: str | None = None):
         raise ValueError(f"Didn't find any LAU unit for country '{country}'.")
     return laus
 
-def getUnits(country: str | None = None, year: int = 2024):
+def getUnits(country: str | None = None, year: int = 2024) -> Iterable[dict]:
+    """ Parse NUTS files and retrun a list of dictionary of the form
+            {
+                'country_code': 'FR',
+                'code': 'FRJ24',
+                'level': '3',
+                'label': 'Gers',
+                'parent_code': 'FRJ2'
+            }
+        representing NUTS geographical units.
+    """
     path = globals()[f"FLATTEN{year}"]
     with open(path, newline='') as csvfile:
         units = [d for d in csv.DictReader(csvfile)]
@@ -106,6 +135,16 @@ def flattenNutsGenderDistributions(year: int = 2024) -> None:
     print(f"Flatten file saved at {outpath}")
 
 def getNutsGenderDistributions(country: str | None = None, year: int = 2024):
+    """ Parse files containing NUTS age distributions and return a list of
+        dictionaries of the form
+            {
+                'code': 'FR',
+                'year': '2024',
+                'total': '68467362',
+                'female': '35271283',
+                'male': '33196079'
+            }
+    """
     path = globals()[f"NUTS3GENDERFLATTEN{year}"]
     with open(path, 'r') as csvfile:
         genderDistDicts = [d for d in csv.DictReader(csvfile)]
@@ -116,6 +155,19 @@ def getNutsGenderDistributions(country: str | None = None, year: int = 2024):
         return genderDistDicts
 
 def getNutsAgeDistributions(country: str, year: int = 2024):
+    """ Parse files containing NUTS age distributions and return a list of
+        dictionaries of the form
+            {
+                'code': 'FRJ24',
+                'year': 2024,
+                'age_distributions': {
+                    'LT5': {'total': '7379', 'female': '3673', 'male': '3706'},
+                    '5-9': {'total': '9242', 'female': '4423', 'male': '4819'},
+                        ...
+                    '85-89': {'total': '5405', 'female': '3247', 'male': '2158'},
+                    'GE85': {'total': '9405', 'female': '5998', 'male': '3407'}}
+            }
+    """
     age_categories = NUTS3AGECATS
     gender_categories = ["T", "F", "M"]
     country_code = COUNTRYCODES[country]
