@@ -1,3 +1,3 @@
-from .demograph import DemoGraph
+from .demograph import DemoGraph, GeoUnit
 
-__all__ = ['__version__', DemoGraph]
+__all__ = ['__version__', DemoGraph, GeoUnit]

@@ -41,10 +41,11 @@ class GeoUnit:
         code: str,
         age_categories: set[str] = DEFAULTAGECATS,
         gender_categories: set[str] = DEFAULTGENDERCATS,
+        **kwargs
         ) -> None:
         self.label = label
         self.code = code
-        self.level = level
+        self.level = int(level)
         self.children = []
         self.ageCategories = age_categories
         self.ageDistribution = None
@@ -216,7 +217,7 @@ class DemoGraph:
 
     def _getGeoUnit(self, geoUnit, code: str) -> Type[GeoUnit]:
         """
-        If the geoUnit's associate code correspond return the geoUnits, otherwise
+        If the geoUnit's associate code corresponds return the geoUnits, otherwise
         applies the method recursively to its childs.
         """
         if geoUnit.code == code:
@@ -230,7 +231,10 @@ class DemoGraph:
         """
         Returns the geoUnit associate with the code
         """
-        return self._getGeoUnit(geoUnit=self.rootGeoUnit, code=code)
+        geoUnit = self._getGeoUnit(geoUnit=self.rootGeoUnit, code=code)
+        if geoUnit is None:
+            raise ValueError(f"There is no geoUnit with code '{code}'.")
+        return geoUnit
 
     def _getGeoUnitByLabel(self, geoUnit, label: str) -> Type[GeoUnit]:
         if geoUnit.label == label:

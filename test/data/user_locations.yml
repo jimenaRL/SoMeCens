@@ -1,0 +1,64 @@
+FR:
+- - 946dcad37ec1c9
+  - Nanterre, France
+  - france nanterre
+- - 7c891fc7eb5b0b
+  - Aix-en-Provence, France
+  - aixenprovence france
+- - e34bc0c9202936
+  - Paris, France
+  - france paris
+FR1:
+- - 8146d1b39ca8df
+  - Yvelines, Ile-de-France
+  - ilefrance yvelines
+FR10:
+- - 8146d1b39ca8df
+  - Yvelines, Ile-de-France
+  - ilefrance yvelines
+- - 394973981d9b73
+  - Ile-de-France, France
+  - france ilefrance
+- - bab565b4916f68
+  - "\xCEle-de-France, France"
+  - france ilefrance
+FR101:
+- - d71cdd5d98d6ec
+  - 'Paris '
+  - paris
+- - e34bc0c9202936
+  - Paris, France
+  - france paris
+FR102:
+- - fe3f85df2e9c8d
+  - Seine-et-Marne
+  - seineetmarne
+- - 5f5baeb62ba607
+  - Seine-et-Marne, Ile-de-France
+  - ilefrance seineetmarne
+- - bde11a74efbaca
+  - Seine-et-Marne (77)
+  - 77 seineetmarne
+FRY: []
+FRY1:
+- - ab7b0502578d8d
+  - Guadeloupe
+  - guadeloupe
+- - 8d688cd2199bac
+  - "Guadeloupe \u2708\uFE0FParis, France"
+  - france guadeloupe paris
+- - effe743b4d051e
+  - Guadeloupe
+  - guadeloupe
+FRY10: []
+FRY2:
+- - 621cc0bb90f526
+  - Martinique
+  - martinique
+FRY20:
+- - 621cc0bb90f526
+  - Martinique
+  - martinique
+- - 28a203ad82608b
+  - martinique
+  - martinique

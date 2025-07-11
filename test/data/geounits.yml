@@ -23,6 +23,11 @@
   label: 'Seine-et-Marne'
   level: '3'
   parent_code: FR10
+- code: FRY
+  country_code: FR
+  label: 'Départements d Outre-Mer'
+  level: '1'
+  parent_code: FR
 - code: FRY1
   country_code: FR
   label: Guadeloupe
@@ -43,33 +48,3 @@
   label: 'Martinique'
   level: '3'
   parent_code: FRY2
-- code: FRY3
-  country_code: FR
-  label: Guyane
-  level: '2'
-  parent_code: FRY
-- code: FRY30
-  country_code: FR
-  label: Guyane
-  level: '3'
-  parent_code: FRY3
-- code: FRY4
-  country_code: FR
-  label: "La R\xE9union"
-  level: '2'
-  parent_code: FRY
-- code: FRY40
-  country_code: FR
-  label: "La R\xE9union"
-  level: '3'
-  parent_code: FRY4
-- code: FRY5
-  country_code: FR
-  label: Mayotte
-  level: '2'
-  parent_code: FRY
-- code: FRY50
-  country_code: FR
-  label: 'Mayotte'
-  level: '3'
-  parent_code: FRY5
