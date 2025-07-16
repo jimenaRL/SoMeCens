@@ -23,9 +23,9 @@ year = DEFAULTYEAR
 metadata_year = DEFAULTMETAYEAR
 dbpath = "france_2023_pseudonymized_alldata.db"
 
-# dir_path = os.path.dirname(os.path.realpath(__file__))
-# geounits_path = os.path.join(dir_path, "data", "geounits.yml")
-DATADIR = os.path.join("/home/jimena/work/dev/SoMeCens/tests/data")
+dir_path = os.path.dirname(os.path.realpath(__file__))
+geounits_path = os.path.join(dir_path, "data", "geounits.yml")
+DATADIR = os.path.join(dir_path, "data")
 
 with open(os.path.join(DATADIR, "geounits.yml")) as f:
     GEOUNITS = yaml.safe_load(f)

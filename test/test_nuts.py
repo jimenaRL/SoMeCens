@@ -60,6 +60,9 @@ def test_gender_distribution(country=COUNTRY, year=YEAR):
 
 if __name__ == "__main__":
 
+    country = COUNTRY
+    year = YEAR
+
     s = f"----- NUTS MODULE TEST | COUNTRY {country} | NUTS {year} -----"
     print(f"{'-' * len(s)}\n{s}\n{'-' * len(s)}")
 
