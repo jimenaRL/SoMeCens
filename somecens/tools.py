@@ -27,29 +27,13 @@ def writeCsv(
 def makeRegex(term: str) -> str:
     return f'\\b{term.rstrip().lstrip()}\\b'
 
-def searchOccurrences(file_path: str, regex: str, search_col: str) -> Iterable[list]:
-    """
-    Use xan program to search for ocurrences of a regex at the csv file in path.
-    Returns a list containig the rows of the csv file that match the term at the
-    'search_col' column.
-    """
-    cmds = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex', regex, file_path]
-    p = Popen(cmds, stdout=PIPE)
-    output = p.communicate()[0].decode()
-    with tempfile.NamedTemporaryFile() as tmp:
-        with open(tmp.name, 'w') as f:
-            f.writelines(output)
-        with open(tmp.name, 'r') as f:
-            matchs = [l for l in csv.reader(f)]
-    # remove headers and return
-    return matchs[1:]
-
 def matchUsersLocations(
     locations: dict,
     data: Iterable[list[str]],
     stopwords: list[str],
     split_characters: list[str],
     search_index: int,
+    banned_words: list[str] = [],
     has_headers: bool = True) -> dict:
     """
     Search for ocurrences of terms in locations in the input data at search_index.
@@ -73,6 +57,8 @@ def matchUsersLocations(
     tokenizer = FingerprintTokenizer(stopwords=stopwords, split=split_characters)
     # for each tuple in data, normalize string at index using the tokenizer
     normalized = [list(d) + [' '.join(tokenizer(d[search_index]))] for d in data]
+    banned_words = [' '.join(tokenizer(b)) for b in banned_words]
+
     with tempfile.NamedTemporaryFile()  as tmp:
         # write normalized data to tmp file
         if has_headers:
@@ -96,10 +82,22 @@ def matchUsersLocations(
     # format results as dict and return
     return {loc: res for loc, res in zip(locations.keys(), results)}
 
-def searchMultipleOccurrences(file, regex_list, search_col):
+
+def searchOccurrences(
+    file: str,
+    regex: str | list(str),
+    search_col: str,
+    banned_words: list(str) = []) -> Iterable[list]:
+    """
+    Use xan program to search for ocurrences of a regex (or list of regex) at
+    the csv file in path. Returns a list containig the rows of the csv file
+    that match the term at the 'search_col' column.
+    """
+    if isinstance(regex, str):
+        regex = [regex]
     with tempfile.NamedTemporaryFile() as tmpRegex:
         with open(tmpRegex.name, 'w') as f:
-            f.writelines('\n'.join(regex_list))
+            f.writelines('\n'.join(regex))
         commands = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex', "--patterns", tmpRegex.name, file]
         p = Popen(commands, stdout=PIPE)
         output = p.communicate()[0].decode()
@@ -157,7 +155,7 @@ def matchUsersMultipleLocations(
         with concurrent.futures.ThreadPoolExecutor() as executor:
             futures = [
                 executor.submit(
-                    searchMultipleOccurrences,
+                    searchOccurrences,
                     tmp.name,
                     [makeRegex(' '.join(tokenizer(l))) for l in locations],
                     "normalized")
