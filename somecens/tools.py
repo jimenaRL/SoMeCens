@@ -31,36 +31,60 @@ def searchOccurrences(
     file: str,
     regex: str | list(str),
     search_col: str,
-    banned_words: list(str) = []) -> Iterable[list]:
+    banned_regex: str | list(str) = []) -> Iterable[list]:
     """
     Use xan program to search for ocurrences of a regex (or list of regex) at
     the csv file in path. Returns a list containig the rows of the csv file
     that match the term at the 'search_col' column.
     """
 
-    # if needed convert string regex to list
+    # if needed convert strings to list
     if isinstance(regex, str):
         regex = [regex]
 
-    # write down regex list to a tmp file to be used by xan
-    with tempfile.NamedTemporaryFile() as tmpRegex:
-        with open(tmpRegex.name, 'w') as f:
-            f.writelines('\n'.join(regex))
-        # perform search with xan
-        commands = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex', "--patterns", tmpRegex.name, file]
-        p = Popen(commands, stdout=PIPE)
-        # and capture string output
-        output = p.communicate()[0].decode()
+    if isinstance(banned_regex, str):
+        banned_regex = [banned_regex]
 
-    # # write down output to file and read it again
-    # with tempfile.NamedTemporaryFile() as tmp:
-    #     with open(tmp.name, 'w') as f:
-    #         f.writelines(output)
-    #     with open(tmp.name, 'r') as f:
-    #         matchs = [l for l in csv.reader(f)]
+    commands = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex']
 
-    # parse output
-    matchs = list(csv.reader(output[:-1].split("\n")))
+    with tempfile.NamedTemporaryFile() as tmpFile:
+
+        # 1/ perform invert search with banned regex
+        # write down banned_regex list to a tmp file to be used by xan
+        with tempfile.NamedTemporaryFile() as tmpBannedRegex:
+            with open(tmpBannedRegex.name, 'w') as f:
+                f.writelines('\n'.join(banned_regex))
+
+            # perform invert search with xan
+            invert_search_cmds = commands + ["--invert-match", "--patterns", tmpBannedRegex.name, file]
+            p = Popen(invert_search_cmds, stdout=PIPE)
+            # capture string output
+            output = p.communicate()[0].decode()
+            # and write down output to temp file
+            with open(tmpFile.name, 'w') as f:
+                f.writelines(output)
+
+        # 2/ perform regular search with regex
+        # write down regex list to a tmp file to be used by xan
+        with tempfile.NamedTemporaryFile() as tmpRegex:
+            with open(tmpRegex.name, 'w') as f:
+                f.writelines('\n'.join(regex))
+
+            # perform invert search with xan
+            search_cmds = commands + ["--patterns", tmpRegex.name, tmpFile.name]
+            p = Popen(search_cmds, stdout=PIPE)
+            # and capture string output
+            output = p.communicate()[0].decode()
+
+            # # write down output to file and read it again
+            # with tempfile.NamedTemporaryFile() as tmp:
+            #     with open(tmp.name, 'w') as f:
+            #         f.writelines(output)
+            #     with open(tmp.name, 'r') as f:
+            #         matchs = [l for l in csv.reader(f)]
+
+            # parse output
+            matchs = list(csv.reader(output[:-1].split("\n")))
 
     # remove headers and return
     return matchs[1:]
@@ -120,7 +144,8 @@ def matchUsersLocations(
                     searchOccurrences,
                     tmp.name,
                     [makeRegex(' '.join(tokenizer(l))) for l in locations],
-                    "normalized")
+                    "normalized",
+                    [makeRegex(' '.join(tokenizer(b))) for b in banned_words])
                 for locations in locations.values()
             ]
             # and collect results
