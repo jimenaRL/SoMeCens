@@ -5,8 +5,7 @@ import yaml
 from somecens import DemoGraph
 from somecens.tools import \
     searchOccurrences, \
-    matchUsersLocations, \
-    matchUsersMultipleLocations
+    matchUsersLocations
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 DATADIR = os.path.join(dir_path, "data")
@@ -38,14 +37,28 @@ MATCHKWARGS = {
     "has_headers": True
 }
 
+BANNEDWORDS = ["États-Unis", "Egypte"]
+
 def test_searchOccurrences():
 
-    regex = "\\bVal-d'Oise\\b"
     file_path = os.path.join(DATADIR, "metadata.csv")
-    matchs = searchOccurrences(file_path, regex=regex, search_col="location")
+    search_col="location"
+
+    regex = "\\bLe Caire\\b"
+    matchs = searchOccurrences(
+        file_path,
+        regex=regex,
+        search_col=search_col,
+        banned_words=BANNEDWORDS)
     assert len(matchs) == 1
-    s = f"regex: {regex} | # matchs: {len(matchs)} | matchs: {matchs}"
-    print(s)
+
+    regex = "\\bVal-d'Oise\\b"
+    matchs = searchOccurrences(
+        file_path,
+        regex=regex,
+        search_col=search_col,
+        banned_words=BANNEDWORDS)
+    assert len(matchs) == 1
 
 def test_matchUsersLocations():
 
@@ -53,6 +66,7 @@ def test_matchUsersLocations():
     usersLocations = matchUsersLocations(
         locations=LOCATIONSDICT,
         data=METADATA,
+        banned_words=BANNEDWORDS,
         **MATCHKWARGS
     )
 
@@ -74,8 +88,8 @@ def test_matchUsersLocations():
 
 def test_matchUsersMultipleLocations():
 
-    multipleUsersLocations = matchUsersMultipleLocations(
-        locations_groups=LOCATIONSDICTGROUPS,
+    multipleUsersLocations = matchUsersLocations(
+        locations=LOCATIONSDICTGROUPS,
         data=METADATA,
         **MATCHKWARGS
     )
