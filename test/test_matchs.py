@@ -39,6 +39,7 @@ MATCHKWARGS = {
 
 BANNEDWORDS = ["États-Unis", "Egypte"]
 
+
 def test_searchOccurrences():
 
     file_path = os.path.join(DATADIR, "metadata.csv")
@@ -49,15 +50,15 @@ def test_searchOccurrences():
         file_path,
         regex=regex,
         search_col=search_col,
-        banned_words=BANNEDWORDS)
-    assert len(matchs) == 1
+        banned_regex=["Egypte"])
+    assert len(matchs) == 0
 
     regex = "\\bVal-d'Oise\\b"
     matchs = searchOccurrences(
         file_path,
         regex=regex,
         search_col=search_col,
-        banned_words=BANNEDWORDS)
+        banned_regex=["États-Unis", "Egypte"])
     assert len(matchs) == 1
 
 def test_matchUsersLocations():
@@ -86,8 +87,7 @@ def test_matchUsersLocations():
             m += f"\n\t{usersLocations[code]}"
             raise ValueError(m)
 
-def test_matchUsersMultipleLocations():
-
+    # test multiple users locations matchs
     multipleUsersLocations = matchUsersLocations(
         locations=LOCATIONSDICTGROUPS,
         data=METADATA,
@@ -108,6 +108,5 @@ if __name__ == "__main__":
 
     test_searchOccurrences()
     test_matchUsersLocations()
-    test_matchUsersMultipleLocations()
 
 
