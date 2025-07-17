@@ -50,6 +50,7 @@ def searchOccurrences(
     with tempfile.NamedTemporaryFile() as tmpFile:
 
         # 1/ perform invert search with banned regex
+
         # write down banned_regex list to a tmp file to be used by xan
         with tempfile.NamedTemporaryFile() as tmpBannedRegex:
             with open(tmpBannedRegex.name, 'w') as f:
@@ -65,6 +66,7 @@ def searchOccurrences(
                 f.writelines(output)
 
         # 2/ perform regular search with regex
+
         # write down regex list to a tmp file to be used by xan
         with tempfile.NamedTemporaryFile() as tmpRegex:
             with open(tmpRegex.name, 'w') as f:
@@ -75,14 +77,6 @@ def searchOccurrences(
             p = Popen(search_cmds, stdout=PIPE)
             # and capture string output
             output = p.communicate()[0].decode()
-
-            # # write down output to file and read it again
-            # with tempfile.NamedTemporaryFile() as tmp:
-            #     with open(tmp.name, 'w') as f:
-            #         f.writelines(output)
-            #     with open(tmp.name, 'r') as f:
-            #         matchs = [l for l in csv.reader(f)]
-
             # parse output
             matchs = list(csv.reader(output[:-1].split("\n")))
 
@@ -113,8 +107,8 @@ def matchUsersLocations(
     """
 
     msg = f"Searching location matchs for {len(locations)} groups and "
-    msg += f"{len(data)} users. Usin stopwords {stopwords}"
-    msg += f" and split characters {split_characters}."
+    msg += f"{len(data)} users. Using stopwords {stopwords} "
+    msg += f"and split characters {split_characters}."
     print(msg)
 
     # if needed convert values of dict from string to list
