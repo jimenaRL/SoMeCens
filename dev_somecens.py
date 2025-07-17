@@ -46,8 +46,7 @@ metadata_year = DEFAULTMETAYEAR
 country = DEFAULTCOUNTRY
 dbpath = f'{country}_2020_pseudonymized_alldata.db'
 
-
-with open('pays_capitales.csv') as f:
+with open('somecens/data/pays_capitales.csv') as f:
     reader = csv.DictReader(f)
     countries = [r["country"] for r in reader]
 
