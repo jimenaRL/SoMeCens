@@ -52,12 +52,15 @@ def searchOccurrences(
         # and capture string output
         output = p.communicate()[0].decode()
 
-    # write down output to file and read it again
-    with tempfile.NamedTemporaryFile() as tmp:
-        with open(tmp.name, 'w') as f:
-            f.writelines(output)
-        with open(tmp.name, 'r') as f:
-            matchs = [l for l in csv.reader(f)]
+    # # write down output to file and read it again
+    # with tempfile.NamedTemporaryFile() as tmp:
+    #     with open(tmp.name, 'w') as f:
+    #         f.writelines(output)
+    #     with open(tmp.name, 'r') as f:
+    #         matchs = [l for l in csv.reader(f)]
+
+    # parse output
+    matchs = list(csv.reader(output[:-1].split("\n")))
 
     # remove headers and return
     return matchs[1:]
