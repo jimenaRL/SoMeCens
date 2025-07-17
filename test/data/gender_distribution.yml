@@ -23,6 +23,51 @@
   male: '716744'
   total: '1470763'
   year: '2024'
+- code: FR108
+  female: '656938'
+  male: '625643'
+  total: '1282581'
+  year: '2024'
+- code: FRB
+  female: '1327443'
+  male: '1254572'
+  total: '2582015'
+  year: '2024'
+- code: FRC
+  female: '1430115'
+  male: '1367045'
+  total: '2797160'
+  year: '2024'
+- code: FRC1
+  female: '830419'
+  male: '787229'
+  total: '1617648'
+  year: '2024'
+- code: FRC11
+  female: '277037'
+  male: '261471'
+  total: '538508'
+  year: '2024'
+- code: FRJ
+  female: '3178695'
+  male: '2983607'
+  total: '6162302'
+  year: '2024'
+- code: FRJ2
+  female: '1633889'
+  male: '1558824'
+  total: '3192713'
+  year: '2024'
+- code: FRJ25
+  female: '90517'
+  male: '85586'
+  total: '176103'
+  year: '2024'
+- code: FRK
+  female: '4213666'
+  male: '4015136'
+  total: '8228802'
+  year: '2024'
 - code: FRY
   female: '1204130'
   male: '1070273'

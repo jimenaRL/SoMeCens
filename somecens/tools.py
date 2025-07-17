@@ -1,3 +1,4 @@
+from __future__ import annotations
 import os
 import csv
 import tempfile
@@ -7,7 +8,11 @@ from somecens.epo.conf import METADATAFIELDS
 
 from fog.tokenizers import FingerprintTokenizer
 
-def writeCsv(file, rows, headers=None, verbose=False):
+def writeCsv(
+    file: str,
+    rows: Iterable[tuple],
+    headers: Iterable[str] | None = None,
+    verbose: bool = False):
     if not isinstance(headers, list):
         raise ValueError(
             f"Headers must be a list. Found {type(headers)} for '{headers}'.")
@@ -19,33 +24,71 @@ def writeCsv(file, rows, headers=None, verbose=False):
     if verbose:
         print(f"Csv file saved at {file}.")
 
-
 def makeRegex(term: str) -> str:
     return f'\\b{term.rstrip().lstrip()}\\b'
 
-def searchOccurrences(file, term, search_col):
-    cmds = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex', term, file]
+def searchOccurrences(file_path: str, regex: str, search_col: str) -> Iterable[list]:
+    """
+    Use xan program to search for ocurrences of a regex at the csv file in path.
+    Returns a list containig the rows of the csv file that match the term at the
+    'search_col' column.
+    """
+    cmds = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex', regex, file_path]
     p = Popen(cmds, stdout=PIPE)
     output = p.communicate()[0].decode()
     with tempfile.NamedTemporaryFile() as tmp:
         with open(tmp.name, 'w') as f:
             f.writelines(output)
         with open(tmp.name, 'r') as f:
-            matchs = [l for l in csv.reader(f)][1:]
-    return matchs
+            matchs = [l for l in csv.reader(f)]
+    # remove headers and return
+    return matchs[1:]
 
-def regexMatchUsersLocations(locations, metadata, stopwords, search_index):
-    tokenizer = FingerprintTokenizer(stopwords=stopwords)
-    nb_cols = len(metadata[0])
-    headers = list(map(str, range(nb_cols))) + ["normalized"]
-    normalized_metadata = [list(m) + [' '.join(tokenizer(m[search_index]))] for m in metadata]
+def matchUsersLocations(
+    locations: dict,
+    data: Iterable[list[str]],
+    stopwords: list[str],
+    split_characters: list[str],
+    search_index: int,
+    has_headers: bool = True) -> dict:
+    """
+    Search for ocurrences of terms in locations in the input data at search_index.
+    Uses multithreaded instances of searchOccurrences method.
+
+    Input locations is a dictionary of the form
+
+        {code: location_name}
+
+    Returns a dict of the form
+
+        {code: rows of input data that matched terms}
+
+    """
+    msg = f"Searching location matchs for {len(locations)} terms, "
+    msg += f"{len(data)} users. Usin stopwords {stopwords}"
+    msg += f" and split characters {split_characters}."
+    print(msg)
+
+    # create tokenizer
+    tokenizer = FingerprintTokenizer(stopwords=stopwords, split=split_characters)
+    # for each tuple in data, normalize string at index using the tokenizer
+    normalized = [list(d) + [' '.join(tokenizer(d[search_index]))] for d in data]
     with tempfile.NamedTemporaryFile()  as tmp:
-        # write normalized metadata to tmp file
-        writeCsv(tmp.name, normalized_metadata, headers)
-        # launch multiple threads searching terms with xan
+        # write normalized data to tmp file
+        if has_headers:
+            headers = data[0] + ["normalized"]
+            data = data[1:]
+        else:
+            headers = [str(j) for j in range(len(data[0]))] + ["normalized"]
+        writeCsv(tmp.name, normalized, headers)
+        # and launch multiple threads of searchOccurrences method
         with concurrent.futures.ThreadPoolExecutor() as executor:
             futures = [
-                executor.submit(searchOccurrences, tmp.name, makeRegex(' '.join(tokenizer(locName))), "normalized")
+                executor.submit(
+                    searchOccurrences,
+                    tmp.name,
+                    makeRegex(' '.join(tokenizer(locName))),
+                    "normalized")
                 for locName in locations.values()
             ]
             # and collect results
@@ -53,12 +96,11 @@ def regexMatchUsersLocations(locations, metadata, stopwords, search_index):
     # format results as dict and return
     return {loc: res for loc, res in zip(locations.keys(), results)}
 
-def searchMultipleOccurrences(file, terms, search_col):
-    with tempfile.NamedTemporaryFile() as tmpTerms:
-        regexs = [r for r in map(makeRegex, terms)]
-        with open(tmpTerms.name, 'w') as f:
-            f.writelines('\n'.join(regexs))
-        commands = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex', "--patterns", tmpTerms.name, file]
+def searchMultipleOccurrences(file, regex_list, search_col):
+    with tempfile.NamedTemporaryFile() as tmpRegex:
+        with open(tmpRegex.name, 'w') as f:
+            f.writelines('\n'.join(regex_list))
+        commands = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex', "--patterns", tmpRegex.name, file]
         p = Popen(commands, stdout=PIPE)
         output = p.communicate()[0].decode()
 
@@ -66,40 +108,62 @@ def searchMultipleOccurrences(file, terms, search_col):
         with open(tmp.name, 'w') as f:
             f.writelines(output)
         with open(tmp.name, 'r') as f:
-            matchs = [l for l in csv.reader(f)][1:]
-    return matchs
+            matchs = [l for l in csv.reader(f)]
 
-def regexMatchUsersMultipleLocations(locations_groups, metadata, stopwords, search_index):
-    tokenizer = FingerprintTokenizer(stopwords=stopwords)
-    nb_cols = len(metadata[0])
-    headers = list(map(str, range(nb_cols))) + ["normalized"]
-    normalized_metadata = [list(m) + [' '.join(tokenizer(m[search_index]))] for m in metadata]
+    # remove headers and return
+    return matchs[1:]
+
+def matchUsersMultipleLocations(
+    locations_groups: dict,
+    data: Iterable[list[str]],
+    stopwords: list[str],
+    split_characters: list[str],
+    search_index: int,
+    has_headers: bool = True
+    ):
+    """
+    Search for ocurrences of terms in locations groups.
+    Uses multithreaded instances of searchMultipleOccurrences method.
+
+    Input locations_groups is a dictionary of the form
+
+        {code: list_of_terms}
+
+    Returns a dict of the form
+
+        {code: rows of input data that matched terms}
+
+    """
+
+    msg = f"Searching location matchs for {len(locations_groups)} groups and "
+    msg += f"{len(data)} users. Usin stopwords {stopwords}"
+    msg += f" and split characters {split_characters}."
+    print(msg)
+
+    # create tokenizer
+    tokenizer = FingerprintTokenizer(stopwords=stopwords, split=split_characters)
+    # for each tuple in data, normalize string at index using the tokenizer
+    normalized = [list(d) + [' '.join(tokenizer(d[search_index]))] for d in data]
     with tempfile.NamedTemporaryFile()  as tmp:
-        # write metadata to tmp file
-        writeCsv(tmp.name, normalized_metadata, headers=headers)
+        # write normalized data to tmp file
+        if has_headers:
+            headers = data[0] + ["normalized"]
+            data = data[1:]
+        else:
+            headers = [str(j) for j in range(len(data[0]))] + ["normalized"]
+        writeCsv(tmp.name, normalized, headers)
+
         # launch multiple threads searching locations terms with xan
         with concurrent.futures.ThreadPoolExecutor() as executor:
             futures = [
-                executor.submit(searchMultipleOccurrences, tmp.name, locations, "normalized")
+                executor.submit(
+                    searchMultipleOccurrences,
+                    tmp.name,
+                    [makeRegex(' '.join(tokenizer(l))) for l in locations],
+                    "normalized")
                 for locations in locations_groups.values()
             ]
             # and collect results
             results = [f.result() for f in futures]
-        # format results as dict
-        results = {loc: res for loc, res in zip(locations_groups.keys(), results)}
-    return results
-
-
-def matchUsersLocations(locations, metadata, stopwords, search_index, method='regex'):
-    if method == 'regex':
-        print(f"Searching users location matchs for {method} method with stopwords {stopwords} ...")
-        return regexMatchUsersLocations(locations, metadata, stopwords, search_index)
-    else:
-        raise  ValueError(f'NOT IMPLEMENTED METHOD {method}')
-
-def matchUsersMultipleLocations(locations_groups, metadata, stopwords, search_index, method='exact'):
-    if method == 'regex':
-        print(f"Searching multiple users locations matchs for {method} method ...")
-        return regexMatchUsersMultipleLocations(locations_groups, metadata, stopwords, search_index)
-    else:
-        raise  ValueError(f'NOT IMPLEMENTED METHOD {method}')
+    # format results as dict and return
+    return {loc: res for loc, res in zip(locations_groups.keys(), results)}

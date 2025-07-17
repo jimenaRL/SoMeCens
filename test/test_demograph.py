@@ -89,9 +89,6 @@ def test_usersLocations():
 #     None
 
 if __name__ == "__main__":
-
-    s = f"----- DEMOGRAPH MODULE TEST -----"
-
     test_geoUnits()
     test_demograph()
     test_bad_formatted_input_geounits()

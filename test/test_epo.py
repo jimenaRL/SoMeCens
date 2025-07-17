@@ -9,7 +9,7 @@ import pytest
 from somecens.epo.tools import getMetadata
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
-DBPATH = os.path.join(dir_path, "data", "test_france_2023.db")
+DBPATH = os.path.join(dir_path, "data", "test_belgium_2020.db")
 COLUMNS = ['pseudo_id', 'location', 'screen_name']
 
 def test_getMetadata(dbpath = DBPATH, columns = COLUMNS):

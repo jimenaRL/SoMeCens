@@ -1,239 +1,160 @@
 - age_distributions:
     10-14:
-      female: '12366'
-      male: '13001'
-      total: '25367'
+      female: '91049'
+      male: '95157'
+      total: '186206'
     15-19:
-      female: '12711'
-      male: '13612'
-      total: '26323'
+      female: '92628'
+      male: '100140'
+      total: '192768'
     20-24:
-      female: '9956'
-      male: '10059'
-      total: '20015'
+      female: '87812'
+      male: '96071'
+      total: '183883'
     25-29:
-      female: '9605'
-      male: '8010'
-      total: '17615'
+      female: '87494'
+      male: '90223'
+      total: '177717'
     30-34:
-      female: '11564'
-      male: '8414'
-      total: '19978'
+      female: '93808'
+      male: '93978'
+      total: '187786'
     35-39:
-      female: '12223'
-      male: '8482'
-      total: '20705'
+      female: '99037'
+      male: '96079'
+      total: '195116'
     40-44:
-      female: '13226'
-      male: '8923'
-      total: '22149'
+      female: '102903'
+      male: '99554'
+      total: '202457'
     45-49:
-      female: '14596'
-      male: '10716'
-      total: '25312'
+      female: '96905'
+      male: '96380'
+      total: '193285'
     5-9:
-      female: '10824'
-      male: '11214'
-      total: '22038'
+      female: '83181'
+      male: '86768'
+      total: '169949'
     50-54:
-      female: '17466'
-      male: '13679'
-      total: '31145'
+      female: '107659'
+      male: '104840'
+      total: '212499'
     55-59:
-      female: '18731'
-      male: '15187'
-      total: '33918'
+      female: '107025'
+      male: '102874'
+      total: '209899'
     60-64:
-      female: '17542'
-      male: '15800'
-      total: '33342'
+      female: '105076'
+      male: '100283'
+      total: '205359'
     65-69:
-      female: '15243'
-      male: '13607'
-      total: '28850'
+      female: '99354'
+      male: '90489'
+      total: '189843'
     70-74:
-      female: '13292'
-      male: '10955'
-      total: '24247'
+      female: '95660'
+      male: '83991'
+      total: '179651'
     75-79:
-      female: '10229'
-      male: '7767'
-      total: '17996'
+      female: '80417'
+      male: '66480'
+      total: '146897'
     80-84:
-      female: '6451'
-      male: '4892'
-      total: '11343'
+      female: '52913'
+      male: '39920'
+      total: '92833'
     85-89:
-      female: '4318'
-      male: '2820'
-      total: '7138'
+      female: '43676'
+      male: '27405'
+      total: '71081'
     GE85:
-      female: '7611'
-      male: '4221'
-      total: '11832'
+      female: '80031'
+      male: '42284'
+      total: '122315'
     LT5:
-      female: '9989'
-      male: '10491'
-      total: '20480'
-  code: FRY10
+      female: '70937'
+      male: '73313'
+      total: '144250'
+  code: FRJ2
   year: 2024
 - age_distributions:
     10-14:
-      female: '391599'
-      male: '411367'
-      total: '802966'
+      female: '252650'
+      male: '265372'
+      total: '518022'
     15-19:
-      female: '388667'
-      male: '406270'
-      total: '794937'
+      female: '248242'
+      male: '265819'
+      total: '514061'
     20-24:
-      female: '427035'
-      male: '415708'
-      total: '842743'
+      female: '229109'
+      male: '241352'
+      total: '470461'
     25-29:
-      female: '443743'
-      male: '423707'
-      total: '867450'
+      female: '230279'
+      male: '233708'
+      total: '463987'
     30-34:
-      female: '459192'
-      male: '435474'
-      total: '894666'
+      female: '251551'
+      male: '248470'
+      total: '500021'
     35-39:
-      female: '455079'
-      male: '424579'
-      total: '879658'
+      female: '267546'
+      male: '258138'
+      total: '525684'
     40-44:
-      female: '439141'
-      male: '412624'
-      total: '851765'
+      female: '272399'
+      male: '261660'
+      total: '534059'
     45-49:
-      female: '406382'
-      male: '401052'
-      total: '807434'
+      female: '251139'
+      male: '249055'
+      total: '500194'
     5-9:
-      female: '362033'
-      male: '379520'
-      total: '741553'
+      female: '235282'
+      male: '247014'
+      total: '482296'
     50-54:
-      female: '408392'
-      male: '399422'
-      total: '807814'
+      female: '274786'
+      male: '273015'
+      total: '547801'
     55-59:
-      female: '387164'
-      male: '367112'
-      total: '754276'
+      female: '267544'
+      male: '262549'
+      total: '530093'
     60-64:
-      female: '349213'
-      male: '319657'
-      total: '668870'
+      female: '254263'
+      male: '241032'
+      total: '495295'
     65-69:
-      female: '297209'
-      male: '253777'
-      total: '550986'
+      female: '239212'
+      male: '212781'
+      total: '451993'
     70-74:
-      female: '272488'
-      male: '219898'
-      total: '492386'
+      female: '230496'
+      male: '196652'
+      total: '427148'
     75-79:
-      female: '222191'
-      male: '178565'
-      total: '400756'
+      female: '194747'
+      male: '159558'
+      total: '354305'
     80-84:
-      female: '143527'
-      male: '105528'
-      total: '249055'
+      female: '129050'
+      male: '95714'
+      total: '224764'
     85-89:
-      female: '111312'
-      male: '65954'
-      total: '177266'
+      female: '100336'
+      male: '59835'
+      total: '160171'
     GE85:
-      female: '207513'
-      male: '103062'
-      total: '310575'
+      female: '183460'
+      male: '91013'
+      total: '274473'
     LT5:
-      female: '348916'
-      male: '363545'
-      total: '712461'
-  code: FR10
-  year: 2024
-- age_distributions:
-    10-14:
-      female: '391599'
-      male: '411367'
-      total: '802966'
-    15-19:
-      female: '388667'
-      male: '406270'
-      total: '794937'
-    20-24:
-      female: '427035'
-      male: '415708'
-      total: '842743'
-    25-29:
-      female: '443743'
-      male: '423707'
-      total: '867450'
-    30-34:
-      female: '459192'
-      male: '435474'
-      total: '894666'
-    35-39:
-      female: '455079'
-      male: '424579'
-      total: '879658'
-    40-44:
-      female: '439141'
-      male: '412624'
-      total: '851765'
-    45-49:
-      female: '406382'
-      male: '401052'
-      total: '807434'
-    5-9:
-      female: '362033'
-      male: '379520'
-      total: '741553'
-    50-54:
-      female: '408392'
-      male: '399422'
-      total: '807814'
-    55-59:
-      female: '387164'
-      male: '367112'
-      total: '754276'
-    60-64:
-      female: '349213'
-      male: '319657'
-      total: '668870'
-    65-69:
-      female: '297209'
-      male: '253777'
-      total: '550986'
-    70-74:
-      female: '272488'
-      male: '219898'
-      total: '492386'
-    75-79:
-      female: '222191'
-      male: '178565'
-      total: '400756'
-    80-84:
-      female: '143527'
-      male: '105528'
-      total: '249055'
-    85-89:
-      female: '111312'
-      male: '65954'
-      total: '177266'
-    GE85:
-      female: '207513'
-      male: '103062'
-      total: '310575'
-    LT5:
-      female: '348916'
-      male: '363545'
-      total: '712461'
-  code: FR1
+      female: '201911'
+      male: '212234'
+      total: '414145'
+  code: FRK
   year: 2024
 - age_distributions:
     10-14:
@@ -316,161 +237,161 @@
   year: 2024
 - age_distributions:
     10-14:
-      female: '92601'
-      male: '93763'
-      total: '186364'
+      female: '4205'
+      male: '4449'
+      total: '8654'
     15-19:
-      female: '85678'
-      male: '87587'
-      total: '173265'
+      female: '4040'
+      male: '4507'
+      total: '8547'
     20-24:
-      female: '65447'
-      male: '60059'
-      total: '125506'
+      female: '2953'
+      male: '3514'
+      total: '6467'
     25-29:
-      female: '65588'
-      male: '52506'
-      total: '118094'
+      female: '3181'
+      male: '3191'
+      total: '6372'
     30-34:
-      female: '75254'
-      male: '57839'
-      total: '133093'
+      female: '3948'
+      male: '4046'
+      total: '7994'
     35-39:
-      female: '76596'
-      male: '59756'
-      total: '136352'
+      female: '4436'
+      male: '4261'
+      total: '8697'
     40-44:
-      female: '75218'
-      male: '59539'
-      total: '134757'
+      female: '4853'
+      male: '4688'
+      total: '9541'
     45-49:
-      female: '71834'
-      male: '60806'
-      total: '132640'
+      female: '4928'
+      male: '4818'
+      total: '9746'
     5-9:
-      female: '89662'
-      male: '91117'
-      total: '180779'
+      female: '3774'
+      male: '4073'
+      total: '7847'
     50-54:
-      female: '76893'
-      male: '67561'
-      total: '144454'
+      female: '6101'
+      male: '5833'
+      total: '11934'
     55-59:
-      female: '79628'
-      male: '71926'
-      total: '151554'
+      female: '6677'
+      male: '6287'
+      total: '12964'
     60-64:
-      female: '72066'
-      male: '66656'
-      total: '138722'
+      female: '7240'
+      male: '6907'
+      total: '14147'
     65-69:
-      female: '59885'
-      male: '54275'
-      total: '114160'
+      female: '7776'
+      male: '7126'
+      total: '14902'
     70-74:
-      female: '48506'
-      male: '40806'
-      total: '89312'
+      female: '7290'
+      male: '6877'
+      total: '14167'
     75-79:
-      female: '35079'
-      male: '27716'
-      total: '62795'
+      female: '6117'
+      male: '5397'
+      total: '11514'
     80-84:
-      female: '23228'
-      male: '17367'
-      total: '40595'
+      female: '4064'
+      male: '3147'
+      total: '7211'
     85-89:
-      female: '15582'
-      male: '9852'
-      total: '25434'
+      female: '3153'
+      male: '2133'
+      total: '5286'
     GE85:
-      female: '26042'
-      male: '14382'
-      total: '40424'
+      female: '5836'
+      male: '3208'
+      total: '9044'
     LT5:
-      female: '84925'
-      male: '86612'
-      total: '171537'
-  code: FRY
+      female: '3098'
+      male: '3257'
+      total: '6355'
+  code: FRJ25
   year: 2024
 - age_distributions:
     10-14:
-      female: '9690'
-      male: '10230'
-      total: '19920'
+      female: '45431'
+      male: '46534'
+      total: '91965'
     15-19:
-      female: '9881'
-      male: '10590'
-      total: '20471'
+      female: '57286'
+      male: '53300'
+      total: '110586'
     20-24:
-      female: '7758'
-      male: '7674'
-      total: '15432'
+      female: '96001'
+      male: '75946'
+      total: '171947'
     25-29:
-      female: '8041'
-      male: '6704'
-      total: '14745'
+      female: '106831'
+      male: '91965'
+      total: '198796'
     30-34:
-      female: '10455'
-      male: '7452'
-      total: '17907'
+      female: '94024'
+      male: '89697'
+      total: '183721'
     35-39:
-      female: '10994'
-      male: '7581'
-      total: '18575'
+      female: '75681'
+      male: '74146'
+      total: '149827'
     40-44:
-      female: '10714'
-      male: '7783'
-      total: '18497'
+      female: '66929'
+      male: '63185'
+      total: '130114'
     45-49:
-      female: '11452'
-      male: '8549'
-      total: '20001'
+      female: '63888'
+      male: '62244'
+      total: '126132'
     5-9:
-      female: '8960'
-      male: '9213'
-      total: '18173'
+      female: '38353'
+      male: '40236'
+      total: '78589'
     50-54:
-      female: '15068'
-      male: '12110'
-      total: '27178'
+      female: '66733'
+      male: '64365'
+      total: '131098'
     55-59:
-      female: '16972'
-      male: '14142'
-      total: '31114'
+      female: '63243'
+      male: '59103'
+      total: '122346'
     60-64:
-      female: '16914'
-      male: '14581'
-      total: '31495'
+      female: '59254'
+      male: '52725'
+      total: '111979'
     65-69:
-      female: '14537'
-      male: '12281'
-      total: '26818'
+      female: '51885'
+      male: '43077'
+      total: '94962'
     70-74:
-      female: '12305'
-      male: '10066'
-      total: '22371'
+      female: '52432'
+      male: '39624'
+      total: '92056'
     75-79:
-      female: '9064'
-      male: '7188'
-      total: '16252'
+      female: '46945'
+      male: '34559'
+      total: '81504'
     80-84:
-      female: '6327'
-      male: '4548'
-      total: '10875'
+      female: '29790'
+      male: '20822'
+      total: '50612'
     85-89:
-      female: '4698'
-      male: '2953'
-      total: '7651'
+      female: '21616'
+      male: '12626'
+      total: '34242'
     GE85:
-      female: '7890'
-      male: '4374'
-      total: '12264'
+      female: '41047'
+      male: '20246'
+      total: '61293'
     LT5:
-      female: '7698'
-      male: '7804'
-      total: '15502'
-  code: FRY20
+      female: '40803'
+      male: '42476'
+      total: '83279'
+  code: FR101
   year: 2024
 - age_distributions:
     10-14:
@@ -553,6 +474,164 @@
   year: 2024
 - age_distributions:
     10-14:
+      female: '12366'
+      male: '13001'
+      total: '25367'
+    15-19:
+      female: '12711'
+      male: '13612'
+      total: '26323'
+    20-24:
+      female: '9956'
+      male: '10059'
+      total: '20015'
+    25-29:
+      female: '9605'
+      male: '8010'
+      total: '17615'
+    30-34:
+      female: '11564'
+      male: '8414'
+      total: '19978'
+    35-39:
+      female: '12223'
+      male: '8482'
+      total: '20705'
+    40-44:
+      female: '13226'
+      male: '8923'
+      total: '22149'
+    45-49:
+      female: '14596'
+      male: '10716'
+      total: '25312'
+    5-9:
+      female: '10824'
+      male: '11214'
+      total: '22038'
+    50-54:
+      female: '17466'
+      male: '13679'
+      total: '31145'
+    55-59:
+      female: '18731'
+      male: '15187'
+      total: '33918'
+    60-64:
+      female: '17542'
+      male: '15800'
+      total: '33342'
+    65-69:
+      female: '15243'
+      male: '13607'
+      total: '28850'
+    70-74:
+      female: '13292'
+      male: '10955'
+      total: '24247'
+    75-79:
+      female: '10229'
+      male: '7767'
+      total: '17996'
+    80-84:
+      female: '6451'
+      male: '4892'
+      total: '11343'
+    85-89:
+      female: '4318'
+      male: '2820'
+      total: '7138'
+    GE85:
+      female: '7611'
+      male: '4221'
+      total: '11832'
+    LT5:
+      female: '9989'
+      male: '10491'
+      total: '20480'
+  code: FRY10
+  year: 2024
+- age_distributions:
+    10-14:
+      female: '44672'
+      male: '47480'
+      total: '92152'
+    15-19:
+      female: '45164'
+      male: '49027'
+      total: '94191'
+    20-24:
+      female: '39281'
+      male: '43903'
+      total: '83184'
+    25-29:
+      female: '38955'
+      male: '40864'
+      total: '79819'
+    30-34:
+      female: '41446'
+      male: '42219'
+      total: '83665'
+    35-39:
+      female: '46102'
+      male: '45026'
+      total: '91128'
+    40-44:
+      female: '47813'
+      male: '47040'
+      total: '94853'
+    45-49:
+      female: '46549'
+      male: '46066'
+      total: '92615'
+    5-9:
+      female: '41491'
+      male: '43294'
+      total: '84785'
+    50-54:
+      female: '54444'
+      male: '53570'
+      total: '108014'
+    55-59:
+      female: '56195'
+      male: '54227'
+      total: '110422'
+    60-64:
+      female: '57102'
+      male: '53779'
+      total: '110881'
+    65-69:
+      female: '56838'
+      male: '51745'
+      total: '108583'
+    70-74:
+      female: '57268'
+      male: '49379'
+      total: '106647'
+    75-79:
+      female: '46461'
+      male: '38910'
+      total: '85371'
+    80-84:
+      female: '30003'
+      male: '21753'
+      total: '51756'
+    85-89:
+      female: '24771'
+      male: '14772'
+      total: '39543'
+    GE85:
+      female: '45763'
+      male: '22150'
+      total: '67913'
+    LT5:
+      female: '34872'
+      male: '36797'
+      total: '71669'
+  code: FRC1
+  year: 2024
+- age_distributions:
+    10-14:
       female: '9690'
       male: '10230'
       total: '19920'
@@ -628,7 +707,86 @@
       female: '7698'
       male: '7804'
       total: '15502'
-  code: FRY2
+  code: FRY20
+  year: 2024
+- age_distributions:
+    10-14:
+      female: '175740'
+      male: '183946'
+      total: '359686'
+    15-19:
+      female: '178883'
+      male: '190920'
+      total: '369803'
+    20-24:
+      female: '168591'
+      male: '177783'
+      total: '346374'
+    25-29:
+      female: '163043'
+      male: '164730'
+      total: '327773'
+    30-34:
+      female: '175509'
+      male: '171554'
+      total: '347063'
+    35-39:
+      female: '187446'
+      male: '178331'
+      total: '365777'
+    40-44:
+      female: '195936'
+      male: '185590'
+      total: '381526'
+    45-49:
+      female: '186761'
+      male: '180337'
+      total: '367098'
+    5-9:
+      female: '158687'
+      male: '167358'
+      total: '326045'
+    50-54:
+      female: '209112'
+      male: '200718'
+      total: '409830'
+    55-59:
+      female: '209325'
+      male: '197840'
+      total: '407165'
+    60-64:
+      female: '208281'
+      male: '193088'
+      total: '401369'
+    65-69:
+      female: '201017'
+      male: '179350'
+      total: '380367'
+    70-74:
+      female: '196273'
+      male: '170263'
+      total: '366536'
+    75-79:
+      female: '166564'
+      male: '136439'
+      total: '303003'
+    80-84:
+      female: '107334'
+      male: '81247'
+      total: '188581'
+    85-89:
+      female: '84325'
+      male: '52259'
+      total: '136584'
+    GE85:
+      female: '153237'
+      male: '80421'
+      total: '233658'
+    LT5:
+      female: '136956'
+      male: '143692'
+      total: '280648'
+  code: FRJ
   year: 2024
 - age_distributions:
     10-14:
@@ -711,80 +869,633 @@
   year: 2024
 - age_distributions:
     10-14:
-      female: '45431'
-      male: '46534'
-      total: '91965'
+      female: '391599'
+      male: '411367'
+      total: '802966'
     15-19:
-      female: '57286'
-      male: '53300'
-      total: '110586'
+      female: '388667'
+      male: '406270'
+      total: '794937'
     20-24:
-      female: '96001'
-      male: '75946'
-      total: '171947'
+      female: '427035'
+      male: '415708'
+      total: '842743'
     25-29:
-      female: '106831'
-      male: '91965'
-      total: '198796'
+      female: '443743'
+      male: '423707'
+      total: '867450'
     30-34:
-      female: '94024'
-      male: '89697'
-      total: '183721'
+      female: '459192'
+      male: '435474'
+      total: '894666'
     35-39:
-      female: '75681'
-      male: '74146'
-      total: '149827'
+      female: '455079'
+      male: '424579'
+      total: '879658'
     40-44:
-      female: '66929'
-      male: '63185'
-      total: '130114'
+      female: '439141'
+      male: '412624'
+      total: '851765'
     45-49:
-      female: '63888'
-      male: '62244'
-      total: '126132'
+      female: '406382'
+      male: '401052'
+      total: '807434'
     5-9:
-      female: '38353'
-      male: '40236'
-      total: '78589'
+      female: '362033'
+      male: '379520'
+      total: '741553'
     50-54:
-      female: '66733'
-      male: '64365'
-      total: '131098'
+      female: '408392'
+      male: '399422'
+      total: '807814'
     55-59:
-      female: '63243'
-      male: '59103'
-      total: '122346'
+      female: '387164'
+      male: '367112'
+      total: '754276'
     60-64:
-      female: '59254'
-      male: '52725'
-      total: '111979'
+      female: '349213'
+      male: '319657'
+      total: '668870'
     65-69:
-      female: '51885'
-      male: '43077'
-      total: '94962'
+      female: '297209'
+      male: '253777'
+      total: '550986'
     70-74:
-      female: '52432'
-      male: '39624'
-      total: '92056'
+      female: '272488'
+      male: '219898'
+      total: '492386'
     75-79:
-      female: '46945'
-      male: '34559'
-      total: '81504'
+      female: '222191'
+      male: '178565'
+      total: '400756'
     80-84:
-      female: '29790'
-      male: '20822'
-      total: '50612'
+      female: '143527'
+      male: '105528'
+      total: '249055'
     85-89:
-      female: '21616'
-      male: '12626'
-      total: '34242'
+      female: '111312'
+      male: '65954'
+      total: '177266'
     GE85:
-      female: '41047'
-      male: '20246'
-      total: '61293'
+      female: '207513'
+      male: '103062'
+      total: '310575'
     LT5:
-      female: '40803'
-      male: '42476'
-      total: '83279'
-  code: FR101
+      female: '348916'
+      male: '363545'
+      total: '712461'
+  code: FR10
+  year: 2024
+- age_distributions:
+    10-14:
+      female: '9690'
+      male: '10230'
+      total: '19920'
+    15-19:
+      female: '9881'
+      male: '10590'
+      total: '20471'
+    20-24:
+      female: '7758'
+      male: '7674'
+      total: '15432'
+    25-29:
+      female: '8041'
+      male: '6704'
+      total: '14745'
+    30-34:
+      female: '10455'
+      male: '7452'
+      total: '17907'
+    35-39:
+      female: '10994'
+      male: '7581'
+      total: '18575'
+    40-44:
+      female: '10714'
+      male: '7783'
+      total: '18497'
+    45-49:
+      female: '11452'
+      male: '8549'
+      total: '20001'
+    5-9:
+      female: '8960'
+      male: '9213'
+      total: '18173'
+    50-54:
+      female: '15068'
+      male: '12110'
+      total: '27178'
+    55-59:
+      female: '16972'
+      male: '14142'
+      total: '31114'
+    60-64:
+      female: '16914'
+      male: '14581'
+      total: '31495'
+    65-69:
+      female: '14537'
+      male: '12281'
+      total: '26818'
+    70-74:
+      female: '12305'
+      male: '10066'
+      total: '22371'
+    75-79:
+      female: '9064'
+      male: '7188'
+      total: '16252'
+    80-84:
+      female: '6327'
+      male: '4548'
+      total: '10875'
+    85-89:
+      female: '4698'
+      male: '2953'
+      total: '7651'
+    GE85:
+      female: '7890'
+      male: '4374'
+      total: '12264'
+    LT5:
+      female: '7698'
+      male: '7804'
+      total: '15502'
+  code: FRY2
+  year: 2024
+- age_distributions:
+    10-14:
+      female: '45469'
+      male: '47806'
+      total: '93275'
+    15-19:
+      female: '42689'
+      male: '45893'
+      total: '88582'
+    20-24:
+      female: '40447'
+      male: '42035'
+      total: '82482'
+    25-29:
+      female: '40437'
+      male: '38532'
+      total: '78969'
+    30-34:
+      female: '43986'
+      male: '41084'
+      total: '85070'
+    35-39:
+      female: '47203'
+      male: '42747'
+      total: '89950'
+    40-44:
+      female: '46285'
+      male: '43622'
+      total: '89907'
+    45-49:
+      female: '42028'
+      male: '41430'
+      total: '83458'
+    5-9:
+      female: '42731'
+      male: '45721'
+      total: '88452'
+    50-54:
+      female: '40579'
+      male: '40501'
+      total: '81080'
+    55-59:
+      female: '39473'
+      male: '37223'
+      total: '76696'
+    60-64:
+      female: '35848'
+      male: '32293'
+      total: '68141'
+    65-69:
+      female: '30888'
+      male: '26064'
+      total: '56952'
+    70-74:
+      female: '27112'
+      male: '22549'
+      total: '49661'
+    75-79:
+      female: '20412'
+      male: '17134'
+      total: '37546'
+    80-84:
+      female: '12588'
+      male: '9406'
+      total: '21994'
+    85-89:
+      female: '9641'
+      male: '5592'
+      total: '15233'
+    GE85:
+      female: '17705'
+      male: '8730'
+      total: '26435'
+    LT5:
+      female: '41058'
+      male: '42873'
+      total: '83931'
+  code: FR108
+  year: 2024
+- age_distributions:
+    10-14:
+      female: '92601'
+      male: '93763'
+      total: '186364'
+    15-19:
+      female: '85678'
+      male: '87587'
+      total: '173265'
+    20-24:
+      female: '65447'
+      male: '60059'
+      total: '125506'
+    25-29:
+      female: '65588'
+      male: '52506'
+      total: '118094'
+    30-34:
+      female: '75254'
+      male: '57839'
+      total: '133093'
+    35-39:
+      female: '76596'
+      male: '59756'
+      total: '136352'
+    40-44:
+      female: '75218'
+      male: '59539'
+      total: '134757'
+    45-49:
+      female: '71834'
+      male: '60806'
+      total: '132640'
+    5-9:
+      female: '89662'
+      male: '91117'
+      total: '180779'
+    50-54:
+      female: '76893'
+      male: '67561'
+      total: '144454'
+    55-59:
+      female: '79628'
+      male: '71926'
+      total: '151554'
+    60-64:
+      female: '72066'
+      male: '66656'
+      total: '138722'
+    65-69:
+      female: '59885'
+      male: '54275'
+      total: '114160'
+    70-74:
+      female: '48506'
+      male: '40806'
+      total: '89312'
+    75-79:
+      female: '35079'
+      male: '27716'
+      total: '62795'
+    80-84:
+      female: '23228'
+      male: '17367'
+      total: '40595'
+    85-89:
+      female: '15582'
+      male: '9852'
+      total: '25434'
+    GE85:
+      female: '26042'
+      male: '14382'
+      total: '40424'
+    LT5:
+      female: '84925'
+      male: '86612'
+      total: '171537'
+  code: FRY
+  year: 2024
+- age_distributions:
+    10-14:
+      female: '391599'
+      male: '411367'
+      total: '802966'
+    15-19:
+      female: '388667'
+      male: '406270'
+      total: '794937'
+    20-24:
+      female: '427035'
+      male: '415708'
+      total: '842743'
+    25-29:
+      female: '443743'
+      male: '423707'
+      total: '867450'
+    30-34:
+      female: '459192'
+      male: '435474'
+      total: '894666'
+    35-39:
+      female: '455079'
+      male: '424579'
+      total: '879658'
+    40-44:
+      female: '439141'
+      male: '412624'
+      total: '851765'
+    45-49:
+      female: '406382'
+      male: '401052'
+      total: '807434'
+    5-9:
+      female: '362033'
+      male: '379520'
+      total: '741553'
+    50-54:
+      female: '408392'
+      male: '399422'
+      total: '807814'
+    55-59:
+      female: '387164'
+      male: '367112'
+      total: '754276'
+    60-64:
+      female: '349213'
+      male: '319657'
+      total: '668870'
+    65-69:
+      female: '297209'
+      male: '253777'
+      total: '550986'
+    70-74:
+      female: '272488'
+      male: '219898'
+      total: '492386'
+    75-79:
+      female: '222191'
+      male: '178565'
+      total: '400756'
+    80-84:
+      female: '143527'
+      male: '105528'
+      total: '249055'
+    85-89:
+      female: '111312'
+      male: '65954'
+      total: '177266'
+    GE85:
+      female: '207513'
+      male: '103062'
+      total: '310575'
+    LT5:
+      female: '348916'
+      male: '363545'
+      total: '712461'
+  code: FR1
+  year: 2024
+- age_distributions:
+    10-14:
+      female: '14245'
+      male: '15459'
+      total: '29704'
+    15-19:
+      female: '17738'
+      male: '17778'
+      total: '35516'
+    20-24:
+      female: '18273'
+      male: '18522'
+      total: '36795'
+    25-29:
+      female: '16301'
+      male: '16686'
+      total: '32987'
+    30-34:
+      female: '15334'
+      male: '15907'
+      total: '31241'
+    35-39:
+      female: '16346'
+      male: '16058'
+      total: '32404'
+    40-44:
+      female: '16386'
+      male: '16039'
+      total: '32425'
+    45-49:
+      female: '15563'
+      male: '15141'
+      total: '30704'
+    5-9:
+      female: '13747'
+      male: '14231'
+      total: '27978'
+    50-54:
+      female: '17832'
+      male: '17588'
+      total: '35420'
+    55-59:
+      female: '17493'
+      male: '16535'
+      total: '34028'
+    60-64:
+      female: '17597'
+      male: '15942'
+      total: '33539'
+    65-69:
+      female: '16568'
+      male: '14919'
+      total: '31487'
+    70-74:
+      female: '16560'
+      male: '13697'
+      total: '30257'
+    75-79:
+      female: '13545'
+      male: '11204'
+      total: '24749'
+    80-84:
+      female: '8785'
+      male: '6404'
+      total: '15189'
+    85-89:
+      female: '6900'
+      male: '4173'
+      total: '11073'
+    GE85:
+      female: '12805'
+      male: '6459'
+      total: '19264'
+    LT5:
+      female: '11919'
+      male: '12902'
+      total: '24821'
+  code: FRC11
+  year: 2024
+- age_distributions:
+    10-14:
+      female: '80824'
+      male: '85597'
+      total: '166421'
+    15-19:
+      female: '80273'
+      male: '88262'
+      total: '168535'
+    20-24:
+      female: '69173'
+      male: '78362'
+      total: '147535'
+    25-29:
+      female: '68927'
+      male: '72601'
+      total: '141528'
+    30-34:
+      female: '74088'
+      male: '75239'
+      total: '149327'
+    35-39:
+      female: '82006'
+      male: '79900'
+      total: '161906'
+    40-44:
+      female: '84743'
+      male: '83663'
+      total: '168406'
+    45-49:
+      female: '81853'
+      male: '80928'
+      total: '162781'
+    5-9:
+      female: '74827'
+      male: '78077'
+      total: '152904'
+    50-54:
+      female: '94337'
+      male: '93416'
+      total: '187753'
+    55-59:
+      female: '95436'
+      male: '93527'
+      total: '188963'
+    60-64:
+      female: '95898'
+      male: '90389'
+      total: '186287'
+    65-69:
+      female: '94440'
+      male: '85308'
+      total: '179748'
+    70-74:
+      female: '93242'
+      male: '80673'
+      total: '173915'
+    75-79:
+      female: '76067'
+      male: '64118'
+      total: '140185'
+    80-84:
+      female: '48752'
+      male: '36110'
+      total: '84862'
+    85-89:
+      female: '40133'
+      male: '23917'
+      total: '64050'
+    GE85:
+      female: '73142'
+      male: '35985'
+      total: '109127'
+    LT5:
+      female: '62087'
+      male: '64890'
+      total: '126977'
+  code: FRC
+  year: 2024
+- age_distributions:
+    10-14:
+      female: '78717'
+      male: '81856'
+      total: '160573'
+    15-19:
+      female: '75317'
+      male: '83049'
+      total: '158366'
+    20-24:
+      female: '63860'
+      male: '69151'
+      total: '133011'
+    25-29:
+      female: '64319'
+      male: '65418'
+      total: '129737'
+    30-34:
+      female: '70657'
+      male: '68747'
+      total: '139404'
+    35-39:
+      female: '77449'
+      male: '73618'
+      total: '151067'
+    40-44:
+      female: '79432'
+      male: '76066'
+      total: '155498'
+    45-49:
+      female: '76632'
+      male: '75392'
+      total: '152024'
+    5-9:
+      female: '70625'
+      male: '74364'
+      total: '144989'
+    50-54:
+      female: '88728'
+      male: '86285'
+      total: '175013'
+    55-59:
+      female: '87682'
+      male: '84525'
+      total: '172207'
+    60-64:
+      female: '86204'
+      male: '80386'
+      total: '166590'
+    65-69:
+      female: '84725'
+      male: '75736'
+      total: '160461'
+    70-74:
+      female: '83656'
+      male: '71986'
+      total: '155642'
+    75-79:
+      female: '68501'
+      male: '56593'
+      total: '125094'
+    80-84:
+      female: '44211'
+      male: '32267'
+      total: '76478'
+    85-89:
+      female: '36430'
+      male: '22369'
+      total: '58799'
+    GE85:
+      female: '66084'
+      male: '34322'
+      total: '100406'
+    LT5:
+      female: '60644'
+      male: '64811'
+      total: '125455'
+  code: FRB
   year: 2024

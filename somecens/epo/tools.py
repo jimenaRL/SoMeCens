@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import os
 import sqlite3
 from glob import glob
@@ -5,7 +7,7 @@ from string import Template
 
 from somecens.epo.conf import METADATAFIELDS, METADATATABLE
 
-def getLastRelease(pathPattern, db, country, year):
+def getLastRelease(pathPattern: str, db: str, country: str, year: int):
     path = Template(pathPattern).substitute(db=db, country=country, year=year)
     canditates_paths = glob(path)
     if len(canditates_paths) == 0:
@@ -15,7 +17,7 @@ def getLastRelease(pathPattern, db, country, year):
     print(f"Found last release at {last_release_path}.")
     return last_release_path
 
-def getMetadata(dbpath, columns = None):
+def getMetadata(dbpath: str, columns:  Iterable[str] | None = None):
     if not os.path.exists(dbpath):
         raise ValueError(f"Unnable to find database at {dbpath}")
     if not columns:
