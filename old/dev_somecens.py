@@ -55,6 +55,10 @@ metadata = getMetadata(
     columns=['pseudo_id', 'location'],
     not_null="location",
     limit=1000)
+print(f"metadata is a list of {len(metadata)} (pseudo_id, declared_localization) tuples.")
+
+demography = getUnits(country, year)
+print(f"demography is a list of {len(demography)} dicts of kind:\n\t{demography[0]}")
 
 demo = DemoGraph(demography=getUnits(country, year))
 demo.setSubUnitsNames(getLaus(country))
