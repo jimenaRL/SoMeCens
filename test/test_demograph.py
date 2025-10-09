@@ -1,15 +1,14 @@
 # =============================================================================
-# Demograph and GeoUnit classes tests
+# Demograph class tests
 # =============================================================================
 #
 
 import os
 import csv
-import json
 import yaml
 import pytest
 
-from somecens import DemoGraph, GeoUnit
+from somecens import DemoGraph
 
 dir_path = os.path.dirname(os.path.realpath(__file__))
 geounits_path = os.path.join(dir_path, "data", "geounits.yml")
@@ -33,9 +32,6 @@ with open(os.path.join(DATADIR, "metadata.csv")) as f:
 with open(os.path.join(DATADIR, "user_locations.yml")) as f:
     USERLOCATIONS = yaml.safe_load(f)
 
-def test_geoUnits():
-    geoUnit = GeoUnit(**GEOUNITS[-1])
-    geoUnit.indentPrint()
 
 def test_bad_formatted_input_geounits():
     badUnit = {
@@ -49,6 +45,7 @@ def test_bad_formatted_input_geounits():
     with pytest.raises(Exception) as exc_info:
         demo = DemoGraph(demography=BADGEOUNITS)
     assert exc_info.value.args[0] == "There is no geoUnit with code 'YRY2'."
+
 
 def test_demograph():
 
@@ -77,10 +74,10 @@ def test_usersLocations():
     demo.setUsersLocations(USERLOCATIONS)
 
     print("Localized users:")
-    for loc, users in demo.getLocalizedUsers(code="FR", descendants=True).items():
-         print("    " + loc + " " + demo.getGeoUnit(code=loc).label)
-         for u in users:
-             print("            " + u[0] + " " + f"'{u[1]}'")
+    for loc, usr in demo.getLocalizedUsers(code="FR", descendants=True).items():
+        print("    " + loc + " " + demo.getGeoUnit(code=loc).label)
+        for u in usr:
+            print("            " + u[0] + " " + f"'{u[1]}'")
 
 # def test_checkDemography():
 #     None
@@ -88,10 +85,8 @@ def test_usersLocations():
 # def test_checkGenderDistributions():
 #     None
 
+
 if __name__ == "__main__":
-    test_geoUnits()
     test_demograph()
     test_bad_formatted_input_geounits()
     test_usersLocations()
-
-

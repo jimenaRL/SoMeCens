@@ -43,28 +43,28 @@ BANNEDWORDS = ["États-Unis", "Egypte"]
 def test_searchOccurrences():
 
     file_path = os.path.join(DATADIR, "metadata.csv")
-    search_col="location"
+    search_col = "location"
 
     regex = "\\bLe Caire\\b"
     matchs = searchOccurrences(
         file_path,
         regex=regex,
         search_col=search_col,
-        banned_regex=["Egypte"])
+        banned_regex=["\\bEgypte\\b"])
     assert len(matchs) == 0
 
-    regex = "\\bVal-d'Oise\\b"
+    regex = ["\\bVal-d'Oise\\b", "\\bArica\\b"]
     matchs = searchOccurrences(
         file_path,
         regex=regex,
-        search_col=search_col,
-        banned_regex=["États-Unis", "Egypte"])
+        search_col=search_col)
     assert len(matchs) == 1
+
 
 def test_matchUsersLocations():
 
     # test users locations matchs
-    usersLocations = matchUsersLocations(
+    matchedUsersLocs = matchUsersLocations(
         locations=LOCATIONSDICT,
         data=METADATA,
         banned_words=BANNEDWORDS,
@@ -77,36 +77,43 @@ def test_matchUsersLocations():
             code: {code}
             label: {label}
             # users expected: {MATCHNUMBERS[code]}
-            # matched users: {len(usersLocations[code])}
-            matchs:\n\t\t{'\n\t\t'.join([u[1]+" | "+u[2] for u in usersLocations[code]])}
+            # matched users: {len(matchedUsersLocs[code])}
+            matchs:
+            \t{'\n\t\t'.join([u[1] + " | " + u[2] for u in matchedUsersLocs[code]])}
             ------------"""
         print(s)
-        if MATCHNUMBERS[code] != len(usersLocations[code]):
+        if MATCHNUMBERS[code] != len(matchedUsersLocs[code]):
             m = f"Expected {MATCHNUMBERS[code]} matchs in data for location "
-            m += f"'{code}: {label}', found {len(usersLocations[code])}:"
-            m += f"\n\t{usersLocations[code]}"
+            m += f"'{code}: {label}', found {len(matchedUsersLocs[code])}:"
+            m += f"\n\t{matchedUsersLocs[code]}"
             raise ValueError(m)
 
+
+def test_matchMultipleUsersLocations():
+
     # test multiple users locations matchs
-    multipleUsersLocations = matchUsersLocations(
+    multiUsersLocs = matchUsersLocations(
         locations=LOCATIONSDICTGROUPS,
         data=METADATA,
+        banned_words=BANNEDWORDS,
         **MATCHKWARGS
     )
 
-    for code, label in LOCATIONSDICT.items():
+    for code, labels_list in LOCATIONSDICTGROUPS.items():
         s = f"""
             ------------
             code: {code}
-            label: {label}
-            # matched users: {len(multipleUsersLocations[code])}
-            matchs:\n\t\t{'\n\t\t'.join([u[1]+" | "+u[2] for u in multipleUsersLocations[code]])}
+            labels list: {labels_list}
+            XXXX: {LOCATIONSDICT[code]}
+            # matched users: {len(multiUsersLocs[code])}
+            matchs:
+                \t{'\n\t\t'.join([u[1] + " | " + u[2] for u in multiUsersLocs[code]])}
             ------------"""
         print(s)
+
 
 if __name__ == "__main__":
 
     test_searchOccurrences()
     test_matchUsersLocations()
-
-
+    test_matchMultipleUsersLocations()

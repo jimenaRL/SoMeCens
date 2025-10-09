@@ -14,7 +14,8 @@ COLUMNS = ['pseudo_id', 'location', 'screen_name']
 LIMIT = 11
 NOTNULL = "location"
 
-def test_getMetadata(dbpath = DBPATH, columns = COLUMNS, limit = LIMIT):
+
+def test_getMetadata(dbpath=DBPATH, columns=COLUMNS, limit=LIMIT):
 
     metadata = getMetadata(
         dbpath,
@@ -22,7 +23,7 @@ def test_getMetadata(dbpath = DBPATH, columns = COLUMNS, limit = LIMIT):
         not_null=NOTNULL,
         limit=limit)
 
-    assert type(metadata) == list
+    assert isinstance(metadata, list)
     assert len(metadata[0]) == len(COLUMNS)
     assert len(metadata) == limit
 
@@ -30,6 +31,7 @@ def test_getMetadata(dbpath = DBPATH, columns = COLUMNS, limit = LIMIT):
     with pytest.raises(Exception) as exc_info:
         getMetadata(badpath, columns)
     assert exc_info.value.args[0] == f"Unnable to find database at {badpath}"
+
 
 if __name__ == "__main__":
     test_getMetadata()
