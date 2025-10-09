@@ -10,18 +10,18 @@
 #
 
 from __future__ import annotations
-import os
-import csv
-from glob import glob
-import pandas as pd
 from subprocess import Popen, PIPE
 
-from somecens.nuts.conf  import *
+import os
+import csv
+from somecens.nuts.conf import *
+
 
 def strToInt(string: str) -> int:
     """ Remove the Narrow No-Break Space character (U202F) from a string
     and convert it to an integer."""
     return int(string.replace('\u202f', ''))
+
 
 def getNutsLocationsLevel(country: str, level: int, year: int = 2024) -> str:
     code = COUNTRYCODES[country]
@@ -31,10 +31,12 @@ def getNutsLocationsLevel(country: str, level: int, year: int = 2024) -> str:
     s = f"NUTS level {level}"
     p1 = Popen(["xan", "filter", f1, ALLLEVELS], stdout=PIPE)
     p2 = Popen(["xan", "filter", f2], stdin=p1.stdout, stdout=PIPE)
-    p3 = Popen(["xan", "filter", "--invert-match", nf3], stdin=p2.stdout, stdout=PIPE)
+    p3 = Popen(
+        ["xan", "filter", "--invert-match", nf3], stdin=p2.stdout, stdout=PIPE)
     p4 = Popen(["xan", "select", s], stdin=p3.stdout, stdout=PIPE)
     output = p4.communicate()[0].decode().split('\n')[1:-1]
     return output
+
 
 def getNutsLocations(country: str, format: str = 'dict', year: int = 2024):
     locsDict = {
@@ -47,6 +49,7 @@ def getNutsLocations(country: str, format: str = 'dict', year: int = 2024):
     else:
         raise ValueError(f"Format must be 'dict' or 'flatten'. Found {format}")
 
+
 def getLaus(country: str | None = None) -> dict:
     """ Parse NUTS files and return a dictionary of the form
             {'nuts3_code' : list of LAUs}
@@ -58,12 +61,16 @@ def getLaus(country: str | None = None) -> dict:
         laus = [d for d in csv.DictReader(csvfile)]
     if country:
         code = COUNTRYCODES[country]
-        laus = [l for l in laus if l['NUTS3'][:2] == code]
-    codes = {l['NUTS3'] for l in laus}
-    laus = {c: [l["LAU_NAME_NATIONAL"] for l in laus if l['NUTS3'] == c] for c in codes}
+        laus = [lau for lau in laus if lau['NUTS3'][:2] == code]
+    codes = {lau['NUTS3'] for lau in laus}
+    laus = {
+        c: [lau["LAU_NAME_NATIONAL"]
+            for lau in laus if lau['NUTS3'] == c] for c in codes
+    }
     if len(laus) == 0:
         raise ValueError(f"Didn't find any LAU unit for country '{country}'.")
     return laus
+
 
 def getUnits(country: str | None = None, year: int = 2024) -> Iterable[dict]:
     """ Parse NUTS files and retrun a list of dictionary of the form
@@ -85,11 +92,14 @@ def getUnits(country: str | None = None, year: int = 2024) -> Iterable[dict]:
     else:
         return units
 
+
 def getCountryCode(code: str) -> str:
     return code[:2]
 
+
 def getParentCode(code: str) -> str:
     return code[:-1]
+
 
 def flattenNutsGenderDistributions(year: int = 2024) -> None:
     with open(NUTS3GENDERTOTAL) as tf:
@@ -106,19 +116,19 @@ def flattenNutsGenderDistributions(year: int = 2024) -> None:
             if m['code'] == code:
                 try:
                     gd['male'] = strToInt(m[str(year)])
-                except:
+                except Exception:
                     continue
         for f in fD:
             if f['code'] == code:
                 try:
                     gd['female'] = strToInt(f[str(year)])
-                except:
+                except Exception:
                     continue
         for t in tD:
             if t['code'] == code:
                 try:
                     gd['total'] = strToInt(t[str(year)])
-                except:
+                except Exception:
                     continue
         if len(gd) == 5:
             gDist.append(gd)
@@ -133,6 +143,7 @@ def flattenNutsGenderDistributions(year: int = 2024) -> None:
         for row in gDist:
             writer.writerow(row)
     print(f"Flatten file saved at {outpath}")
+
 
 def getNutsGenderDistributions(country: str | None = None, year: int = 2024):
     """ Parse files containing NUTS age distributions and return a list of
@@ -154,29 +165,33 @@ def getNutsGenderDistributions(country: str | None = None, year: int = 2024):
     else:
         return genderDistDicts
 
+
 def getNutsAgeDistributions(country: str, year: int = 2024):
     """ Parse files containing NUTS age distributions and return a list of
         dictionaries of the form
-            {
-                'code': 'FRJ24',
-                'year': 2024,
-                'age_distributions': {
-                    'LT5': {'total': '7379', 'female': '3673', 'male': '3706'},
-                    '5-9': {'total': '9242', 'female': '4423', 'male': '4819'},
-                        ...
-                    '85-89': {'total': '5405', 'female': '3247', 'male': '2158'},
-                    'GE85': {'total': '9405', 'female': '5998', 'male': '3407'}}
-            }
+        {
+            'code': 'FRJ24',
+            'year': 2024,
+            'age_distributions': {
+                'LT5': {'total': '7379', 'female': '3673', 'male': '3706'},
+                '5-9': {'total': '9242', 'female': '4423', 'male': '4819'},
+                    ...
+                '85-89': {'total': '5405', 'female': '3247', 'male': '2158'},
+                'GE85': {'total': '9405', 'female': '5998', 'male': '3407'}}
+        }
     """
     age_categories = NUTS3AGECATS
     gender_categories = ["T", "F", "M"]
     country_code = COUNTRYCODES[country]
-    file = f"/home/jimena/work/dev/SoMeCens/somecens/nuts/data/nuts_age_flatten_{country}_{year}.csv"
+    file = os.path.join(
+        "/home/jimena/work/dev/SoMeCens/somecens/nuts/data",
+        f"nuts_age_flatten_{country}_{year}.csv")
 
     dist = []
     country_code = COUNTRYCODES[country]
     with open(file, 'r') as csvfile:
-        data = [d for d in csv.DictReader(csvfile) if d['code'][:2] == country_code]
+        data = [
+            d for d in csv.DictReader(csvfile) if d['code'][:2] == country_code]
     codes = {d['code'] for d in data}
     ageDist = []
     for code in codes:
@@ -184,11 +199,11 @@ def getNutsAgeDistributions(country: str, year: int = 2024):
             'code': code,
             'year': year,
             'age_distributions': {
-            d['age']: {
-                'total': d['total'],
-                'female': d['female'],
-                'male': d['male']
-            }
-            for d in data if d['code'] == code}
+                d['age']: {
+                    'total': d['total'],
+                    'female': d['female'],
+                    'male': d['male']
+                }
+                for d in data if d['code'] == code}
         })
     return ageDist

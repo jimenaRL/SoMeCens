@@ -2,7 +2,7 @@ import os
 import yaml
 
 DIR = os.path.dirname(os.path.realpath(__file__))
-DATAFOLDER =  os.path.join(DIR, 'data')
+DATAFOLDER = os.path.join(DIR, 'data')
 
 LEVELS = [1, 2, 3]
 
@@ -40,7 +40,7 @@ NUTS3GENDERFLATTEN2024 = os.path.join(DATAFOLDER, FILES['flattenGenderDistributi
 NUTS3GENDERFLATTEN2021 = os.path.join(DATAFOLDER, FILES['flattenGenderDistributions2021'])
 
 NUTS3AGE20_74 = os.path.join(DATAFOLDER, FILES['ageDistributions2074'])
-NUTS3AGEunder19= os.path.join(DATAFOLDER, FILES['ageDistributions19'])
+NUTS3AGEunder19 = os.path.join(DATAFOLDER, FILES['ageDistributions19'])
 NUTS3AGE75plus = os.path.join(DATAFOLDER, FILES['ageDistribution75'])
 
 NUTS3AGEFOLDER = os.path.join(DATAFOLDER, FILES['ageFolder'])
@@ -69,4 +69,4 @@ NUTS3AGECATS = [
 
 with open(CODES, "r") as fh:
     CODESCOUNTRY = yaml.load(fh, Loader=yaml.SafeLoader)
-COUNTRYCODES = {v: k for k,v in CODESCOUNTRY.items()}
+COUNTRYCODES = {v: k for k, v in CODESCOUNTRY.items()}

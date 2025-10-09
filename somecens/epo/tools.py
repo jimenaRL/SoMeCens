@@ -7,6 +7,7 @@ from string import Template
 
 from somecens.epo.conf import METADATAFIELDS, METADATATABLE
 
+
 def getLastRelease(pathPattern: str, db: str, country: str, year: int) -> str:
     path = Template(pathPattern).substitute(db=db, country=country, year=year)
     canditates_paths = glob(path)
@@ -17,11 +18,12 @@ def getLastRelease(pathPattern: str, db: str, country: str, year: int) -> str:
     print(f"Found last release at {last_release_path}.")
     return last_release_path
 
+
 def getMetadata(
         dbpath: str,
         limit: int | None = None,
         not_null: str | None = None,
-        columns:  Iterable[str] | None = None) -> list(tuple):
+        columns: Iterable[str] | None = None) -> list(tuple):
     if not os.path.exists(dbpath):
         raise ValueError(f"Unnable to find database at {dbpath}")
     if not columns:
