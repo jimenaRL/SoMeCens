@@ -2,11 +2,7 @@
 # Demograph
 # =============================================================================
 #
-# Script implementing Demograph and GeoUnit classes.
-#
-# GeoUnit class implements a tree structure where leaves are administrative
-# divisions of a country (e.g. a NUTS in the European standard system)
-# and may contain sociodemographic information like age and genre distributions.
+# Script implementing Demograph  class.
 #
 # Demograph class contains methods to create and manage GeoUnit tree structure
 # from flatten input data, add sociodemographic information among others.
@@ -18,8 +14,9 @@ from typing import Any
 from functools import reduce
 
 import csv
-from somecens.tools import writeCsv, matchUsersLocations
-from somecens.nuts.conf  import NUTS3AGECATS
+
+from somecens import GeoUnit
+from somecens.nuts.conf import NUTS3AGECATS
 
 DEFAULTAGECATS = set(NUTS3AGECATS)
 DEFAULTGENDERCATS = {
@@ -28,103 +25,6 @@ DEFAULTGENDERCATS = {
     'total',
 }
 
-class GeoUnit:
-    """ Class implementing a tree structure of administrative geographics units.
-    """
-    ageDistTol = 0.000001
-    genderDistTol = 0.000001
-
-    def __init__(
-        self,
-        label: str ,
-        level: int,
-        code: str,
-        age_categories: set[str] = DEFAULTAGECATS,
-        gender_categories: set[str] = DEFAULTGENDERCATS,
-        **kwargs
-        ) -> None:
-        self.label = label
-        self.code = code
-        self.level = int(level)
-        self.children = []
-        self.ageCategories = age_categories
-        self.ageDistribution = None
-        self.genderCategories = gender_categories
-        self.genderDistribution = None
-        self.usersLocations = []
-        self.subUnitsNames = []
-
-    def __str__(self) -> str:
-        s = f"GeoUnit \n\tlabel: {self.label}\n\tlevel: {self.level}\n\tcode: {self.code}"
-        if self.children:
-            s += f"\n\tchildren: {' | '.join([child.code for child in self.children])}"
-        return s
-
-    def indentPrint(self):
-        indent = "    " * self.level
-        s = f"{indent}---------------------------------------------------------"
-
-        s += f"\n{indent}GeoUnit"
-        s += f"\n{indent}label: {self.label}"
-        s += f"\n{indent}level: {self.level}"
-        s += f"\n{indent}code: {self.code}"
-
-        childrens = ' | '.join([child.code for child in self.children])
-        if self.children:
-            s += f"\n{indent}children: {childrens}"
-
-        s += f"\n{indent}gender distribution: {self.genderDistribution}"
-
-        stringAgeDistribution = None
-        if self.ageDistribution is not None:
-            ageIndent = "    " * (self.level + 1)
-            stringAgeDistribution = '\n'+'\n'.join([
-                f"{ageIndent}{k}: {v}" for k, v in self.ageDistribution.items()])
-        s += f"\n{indent}age distribution: {stringAgeDistribution}"
-
-
-        if self.usersLocations:
-            usersIndent = "    " * (self.level + 1)
-            stringUsersLocations = '\n' \
-            +'\n'.join([f"{usersIndent}{u}" for u in self.usersLocations[:5]]) \
-            + f'\n{usersIndent}...'
-            s += f"\n{indent}nb localized users: {len(self.usersLocations)}"
-            s += f"{indent}localized users examples: {stringUsersLocations}"
-
-        sIndent = "    " * (self.level + 1)
-        subUnitsNames = f'\n{sIndent}' + f'\n{sIndent}'.join([s for s in self.subUnitsNames])
-        if self.subUnitsNames:
-            s += f"\n{indent}sub units names:{subUnitsNames}"
-
-        print(s)
-
-    def addChild(self, child: Type[GeoUnit]) -> None:
-        self.children.append(child)
-
-    def getChilds(self) -> None:
-        return self.children
-
-    def setUsersLocations(self, usersLocations: dict) -> None:
-        self.usersLocations = usersLocations
-
-    def setSubUnitsNames(self, subUnitsNames: Iterable[str]) -> None:
-        self.subUnitsNames = subUnitsNames
-
-    def setAgeDistribution(self, ageDistribution: dict) -> None:
-        ageDistribution = ageDistribution['age_distributions']
-        assert self.ageCategories.issubset(set(ageDistribution.keys()))
-        self.ageDistribution = ageDistribution
-
-    def setGenderDistribution(self, genderDistribution: dict) -> None:
-        assert self.genderCategories.issubset(set(genderDistribution.keys()))
-        gd = {k: genderDistribution[k] for k in self.genderCategories}
-        self.genderDistribution = gd
-
-    def getLocalizedUsers(self) -> Iterable[tuple]:
-        return self.usersLocations
-
-    def getSubUnits(self) -> Iterable[str]:
-        return [self.label] + self.subUnitsNames
 
 class DemoGraph:
     """ Class to build and manage a GeoUnit tree structure.
@@ -170,7 +70,8 @@ class DemoGraph:
     def _showGeoUnits(
         self,
         geoUnit: GeoUnit | None = None,
-        max_level: int = -1) -> None:
+        max_level: int = -1
+    ) -> None:
         if geoUnit:
             if geoUnit.level <= max_level:
                 geoUnit.indentPrint()
@@ -188,7 +89,7 @@ class DemoGraph:
                 return d['label'], d['code']
 
     def findLabelFromCode(self, code: str) -> str:
-        if not code in self.code2label:
+        if code not in self.code2label:
             raise ValueError(f"Code '{code}' is not present in demography.")
         return self.code2label[code]
 
@@ -197,7 +98,7 @@ class DemoGraph:
             v: [k for k in self.code2label if self.code2label[k] == v]
             for v in self.code2label.values()
         }
-        if not label in reverseDict:
+        if label not in reverseDict:
             raise ValueError(f"Label '{label}' is not present in demography.")
         return reverseDict[label]
 
@@ -207,18 +108,18 @@ class DemoGraph:
         vt = set([isinstance(v, str) for d in demography for v in d.values()])
         assert kt == vt == {True}
         # check dicts keys
-        dk = set([set(d.keys()) ==  self.demoKeys for d in demography])
+        dk = set([set(d.keys()) == self.demoKeys for d in demography])
         assert dk == {True}
         # check that there is only one level 0
         nb_first_levels = sum([1 for d in demography if d['level'] == '0'])
-        if  nb_first_levels != 1:
+        if nb_first_levels != 1:
             mssg = f"Found {nb_first_levels} firt levels. Must be only one."
             raise ValueError(mssg)
 
     def _getGeoUnit(self, geoUnit, code: str) -> Type[GeoUnit]:
         """
-        If the geoUnit's associate code corresponds return the geoUnits, otherwise
-        applies the method recursively to its childs.
+        If the geoUnit's associate code corresponds return the geoUnits,
+        otherwise applies the method recursively to its childs.
         """
         if geoUnit.code == code:
             return geoUnit
@@ -249,33 +150,47 @@ class DemoGraph:
 
     def _getDescendants(self, geoUnit: Type[GeoUnit], descendants):
         descendants.append([geoUnit])
-        this_descendants = [self._getDescendants(child, []) for child in geoUnit.children]
+        this_descendants = [
+            self._getDescendants(child, []) for child in geoUnit.children]
         descendants += this_descendants
         return reduce(lambda x, y: x + y, descendants)
 
     def getDescendants(self, geoUnit) -> Type[GeoUnit]:
-        """ Return a list of containing all descents of the input geoUnit. 
+        """ Return a list of containing all descents of the input geoUnit.
         """
         return self._getDescendants(geoUnit, [])
 
     def getSubUnits(self) -> dict:
         return {g.code: g.getSubUnits() for g in self.geoUnits}
 
-    def getLocalizedUsers(self, code: str, descendants : bool | False) -> None:
+    def getLocalizedUsers(self, code: str, descendants: bool | False) -> None:
+        """
+        Return the localized users of a geoUnit and its descendants
+        """
         geoUnit = self.getGeoUnit(code)
         if descendants:
-            return {g.code: g.getLocalizedUsers() for g in self.getDescendants(geoUnit)}
+            return {
+                g.code:
+                g.getLocalizedUsers() for g in self.getDescendants(geoUnit)}
         return {geoUnit.code: geoUnit.getLocalizedUsers()}
 
-    def checkGenderDistributions(self, genderDistribution: Iterable[Dict]) -> None:
+    def checkGenderDistributions(
+        self,
+        genderDistribution: Iterable[Dict]
+    ) -> None:
         # check dicts keys
-        dk = set([set(d.keys()) ==  self.genderCategories for d in genderDistribution])
+        dk = set([
+            set(d.keys()) == self.genderCategories for d in genderDistribution])
         # check dicts's keys instances
-        kt = set([isinstance(k, str) for d in genderDistribution for k in d.keys()])
+        kt = set([
+            isinstance(k, str) for d in genderDistribution for k in d.keys()])
         assert kt == {True}
         # check that dicts's values are convertible to float
         try:
-            [float(d[k]) for d in genderDistribution for k in ['male', 'female', 'total']]
+            [
+                float(d[k])
+                for d in genderDistribution for k in ['male', 'female', 'total']
+            ]
         except Exception as e:
             raise ValueError(
                 """Unnable to parse genderDistribution.
@@ -284,12 +199,18 @@ class DemoGraph:
         codes = {gd['code'] for gd in genderDistribution}
         assert codes == {gd['code'] for gd in self.demography}
 
-    def setGenderDistributions(self, genderDistribution: Iterable[Dict]) -> None:
+    def setGenderDistributions(
+        self,
+        genderDistribution: Iterable[Dict]
+    ) -> None:
         self.checkGenderDistributions(genderDistribution)
         self._setGenderDistributions(self.rootGeoUnit, genderDistribution)
         return
 
-    def _setGenderDistributions(self, geoUnit: Type[GeoUnit], genderDistribution: Iterable[Dict]) -> None:
+    def _setGenderDistributions(
+        self,
+        geoUnit: Type[GeoUnit], genderDistribution: Iterable[Dict]
+    ) -> None:
         # we already check that all codes are presents in the distribution
         ugd = [gd for gd in genderDistribution if gd['code'] == geoUnit.code][0]
         geoUnit.setGenderDistribution(ugd)
@@ -301,7 +222,11 @@ class DemoGraph:
         self._setAgeDistributions(self.rootGeoUnit, ageDistribution)
         return
 
-    def _setAgeDistributions(self, geoUnit: Type[GeoUnit], ageDistribution: Iterable[Dict]) -> None:
+    def _setAgeDistributions(
+        self,
+        geoUnit: Type[GeoUnit],
+        ageDistribution: Iterable[Dict]
+    ) -> None:
         # we already check that all codes are presents in the distribution
         ugd = [gd for gd in ageDistribution if gd['code'] == geoUnit.code][0]
         geoUnit.setAgeDistribution(ugd)
@@ -312,11 +237,16 @@ class DemoGraph:
         self._setUsersLocations(self.rootGeoUnit, usersLocations)
         return
 
-    def _setUsersLocations(self, geoUnit: Type[GeoUnit], usersLocations: Iterable[Dict]) -> None:
+    def _setUsersLocations(
+        self,
+        geoUnit: Type[GeoUnit],
+        usersLocations: Iterable[Dict]
+    ) -> None:
         if geoUnit.code in usersLocations:
             geoUnit.setUsersLocations(usersLocations[geoUnit.code])
         else:
-            print(f"Didn't find users for gueUnit {geoUnit.code} {geoUnit.label}")
+            print(
+                f"Didn't find users for gueUnit {geoUnit.code} {geoUnit.label}")
         for child in geoUnit.children:
             geoUnit = self._setUsersLocations(child, usersLocations)
 
@@ -329,7 +259,11 @@ class DemoGraph:
         self._setSubUnitsNames(self.rootGeoUnit, subUnits)
         return
 
-    def _setSubUnitsNames(self, geoUnit: Type[GeoUnit], subUnitsNames: Iterable[Dict]) -> None:
+    def _setSubUnitsNames(
+        self,
+        geoUnit: Type[GeoUnit],
+        subUnitsNames: Iterable[Dict]
+    ) -> None:
         if geoUnit.code in subUnitsNames:
             geoUnit.setSubUnitsNames(subUnitsNames[geoUnit.code])
         else:
@@ -343,9 +277,9 @@ class DemoGraph:
             # we already check that there is only one level 0
             if d['level'] == '0':
                 self.rootGeoUnit = GeoUnit(
-                        label=d['label'],
-                        level=int(d['level']),
-                        code=d['code'])
+                    label=d['label'],
+                    level=int(d['level']),
+                    code=d['code'])
                 self.locations[d['code']] = d['label']
                 self.geoUnits.append(self.rootGeoUnit)
                 self.code2label[d['code']] = d['label']
@@ -355,10 +289,10 @@ class DemoGraph:
             for d in self.demography:
                 if d['level'] == str(level):
                     parent = self.getGeoUnit(code=d['parent_code'])
-                    geoUnit =  GeoUnit(
-                            label=d['label'],
-                            level=int(d['level']),
-                            code=d['code'])
+                    geoUnit = GeoUnit(
+                        label=d['label'],
+                        level=int(d['level']),
+                        code=d['code'])
                     parent.addChild(geoUnit)
                     self.locations[d['code']] = d['label']
                     self.geoUnits.append(geoUnit)
@@ -379,14 +313,16 @@ class DemoGraph:
             writer.writerows(data)
         print(f"File saved as {path}")
 
-
     def exportLocalizationsMatchesPerc(self, level: int, path: str) -> None:
         headers = ['code', 'nb_matchs']
         data = []
         for geoUnit in self.geoUnits:
             if geoUnit.level == level:
                 total = float(geoUnit.genderDistribution['total'])
-                matched = sum(map(len, self.getLocalizedUsers(geoUnit.code).values()))
+                matched = sum(map(
+                    len,
+                    self.getLocalizedUsers(geoUnit.code).values()
+                ))
                 data.append([
                     geoUnit.code,
                     100 * matched / total

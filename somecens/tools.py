@@ -1,37 +1,40 @@
 from __future__ import annotations
-import os
 import csv
 import tempfile
 import concurrent.futures
 from subprocess import Popen, PIPE
-from somecens.epo.conf import METADATAFIELDS
 
 from fog.tokenizers import FingerprintTokenizer
+
 
 def writeCsv(
     file: str,
     rows: Iterable[tuple],
     headers: Iterable[str] | None = None,
-    verbose: bool = False):
+    verbose: bool = False
+):
     if not isinstance(headers, list):
         raise ValueError(
             f"Headers must be a list. Found {type(headers)} for '{headers}'.")
     with open(file, 'w') as f:
-        writer =  csv.writer(f)
+        writer = csv.writer(f)
         if headers:
             writer.writerow(headers)
         writer.writerows(rows)
     if verbose:
         print(f"Csv file saved at {file}.")
 
+
 def makeRegex(term: str) -> str:
     return f'\\b{term.rstrip().lstrip()}\\b'
+
 
 def searchOccurrences(
     file: str,
     regex: str | list(str),
     search_col: str,
-    banned_regex: str | list(str) = []) -> Iterable[list]:
+    banned_regex: str | list(str) = []
+) -> Iterable[list]:
     """
     Use xan program to search for ocurrences of a regex (or list of regex) at
     the csv file in path. Returns a list containig the rows of the csv file
@@ -83,6 +86,7 @@ def searchOccurrences(
     # remove headers and return
     return matchs[1:]
 
+
 def matchUsersLocations(
     locations: dict,
     data: Iterable[list[str]],
@@ -90,26 +94,32 @@ def matchUsersLocations(
     split_characters: list[str],
     search_index: int,
     banned_words: list[str] = [],
-    has_headers: bool = True
-    ):
+    has_headers: bool = True,
+    verbose: bool = False
+):
     """
     Search for ocurrences of terms in locations groups.
     Uses multithreaded instances of searchMultipleOccurrences method.
 
-    Input locations is a dictionary of the form
+    Input 'locations' is a dictionari of the form
 
         {code: term} or {code: [term_1, ..., term_N]}
 
-    Returns a dict of the form
+    Input 'data' is a list of tuples of the form
 
-        {code: rows of input data that matched terms}
+        [(id_1, location_1), ..., (id_M, location_M)]
+
+    Returns a dict with the same keys of 'locations' and values
+
+        {code: [(id_j, location_j, normalized_location_that_matched_j), ...]
 
     """
 
-    msg = f"Searching location matchs for {len(locations)} groups and "
-    msg += f"{len(data)} users. Using stopwords {stopwords} "
-    msg += f"and split characters {split_characters}."
-    print(msg)
+    if verbose:
+        msg = f"Searching location matchs for {len(locations)} groups and "
+        msg += f"{len(data)} users. Using stopwords {stopwords} "
+        msg += f"and split characters {split_characters}."
+        print(msg)
 
     # if needed convert values of dict from string to list
     for code, value in locations.items():
@@ -117,13 +127,15 @@ def matchUsersLocations(
             locations[code] = [value]
 
     # create tokenizer
-    tokenizer = FingerprintTokenizer(stopwords=stopwords, split=split_characters)
+    tokenizer = FingerprintTokenizer(
+        stopwords=stopwords, split=split_characters, sort=False)
 
     # for each tuple in data, normalize string at index using the tokenizer
-    normalized = [list(d) + [' '.join(tokenizer(d[search_index]))] for d in data]
+    normalized = [
+        list(d) + [' '.join(tokenizer(d[search_index]))] for d in data]
 
     # write normalized data to a tmp file to be used by the search method
-    with tempfile.NamedTemporaryFile()  as tmp:
+    with tempfile.NamedTemporaryFile() as tmp:
         if has_headers:
             headers = data[0] + ["normalized"]
             data = data[1:]
@@ -137,7 +149,7 @@ def matchUsersLocations(
                 executor.submit(
                     searchOccurrences,
                     tmp.name,
-                    [makeRegex(' '.join(tokenizer(l))) for l in locations],
+                    [makeRegex(' '.join(tokenizer(loc))) for loc in locations],
                     "normalized",
                     [makeRegex(' '.join(tokenizer(b))) for b in banned_words])
                 for locations in locations.values()
