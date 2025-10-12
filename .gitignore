@@ -8,6 +8,7 @@ pytest.ini
 results/*
 metadata_*.csv
 notes*.txt
+data/*
 
 nutsCounts
 nutsMatchs
