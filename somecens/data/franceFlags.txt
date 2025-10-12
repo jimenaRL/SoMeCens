@@ -1,9 +1,9 @@
 name,emojiflag
-':France:',🇫🇷
-':Clipperton_Island:',🇨🇵
-':St._Martin:',🇲🇫
-':French_Guiana:',🇬🇫
-':New_Caledonia:',🇳🇨
-':Réunion:',🇷🇪
-':Guadeloupe:',🇬🇵
-':Martinique:',🇲🇶
+:France:,🇫🇷
+:Clipperton_Island:,🇨🇵
+:St._Martin:,🇲🇫
+:French_Guiana:,🇬🇫
+:New_Caledonia:,🇳🇨
+:Réunion:,🇷🇪
+:Guadeloupe:,🇬🇵
+:Martinique:,🇲🇶
