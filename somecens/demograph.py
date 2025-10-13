@@ -64,6 +64,8 @@ class DemoGraph:
         self.genderCategories = genderCats
         # self.ageDistribution = age_categories
 
+        print(f"Created {self}")
+
     def __str__(self) -> str:
         return f"{self.country.capitalize()} ({self.countryCode}) DemoGraph"
 
@@ -160,8 +162,14 @@ class DemoGraph:
         """
         return self._getDescendants(geoUnit, [])
 
-    def getSubUnits(self) -> dict:
+    def getAllSubUnits(self) -> dict:
         return {g.code: g.getSubUnits() for g in self.geoUnits}
+
+    def getSubUnits(self, code) -> dict:
+        for g in self.geoUnits:
+            if code == g.code:
+                return g.getSubUnits()
+        raise ValueError(f"Code '{code}' is not present in demography.")
 
     def getLocalizedUsers(self, code: str, descendants: bool | False) -> None:
         """
