@@ -11,21 +11,18 @@ from somecens.epo.tools import getMetadata
 dir_path = os.path.dirname(os.path.realpath(__file__))
 DBPATH = os.path.join(dir_path, "data", "test_belgium_2020.db")
 COLUMNS = ['pseudo_id', 'location', 'screen_name']
-LIMIT = 11
 NOTNULL = "location"
 
 
-def test_getMetadata(dbpath=DBPATH, columns=COLUMNS, limit=LIMIT):
+def test_getMetadata(dbpath=DBPATH, columns=COLUMNS):
 
     metadata = getMetadata(
         dbpath,
         columns=columns,
-        not_null=NOTNULL,
-        limit=limit)
+        not_null_column=NOTNULL)
 
     assert isinstance(metadata, list)
     assert len(metadata[0]) == len(COLUMNS)
-    assert len(metadata) == limit
 
     badpath = "qehfzefasashvze.db"
     with pytest.raises(Exception) as exc_info:

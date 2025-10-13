@@ -20,27 +20,30 @@ def getLastRelease(pathPattern: str, db: str, country: str, year: int) -> str:
 
 
 def getMetadata(
-        dbpath: str,
-        limit: int | None = None,
-        not_null: str | None = None,
-        columns: Iterable[str] | None = None) -> list(tuple):
+    dbpath: str,
+    not_null_column: str | None = None,
+    columns: Iterable[str] | None = None
+) -> list(tuple):
+
     if not os.path.exists(dbpath):
         raise ValueError(f"Unnable to find database at {dbpath}")
+
     if not columns:
         columns = METADATAFIELDS
+
     joinedColumns = ','.join(columns)
     query = f"SELECT {joinedColumns} FROM {METADATATABLE} "
-    if not_null:
-        query += f"WHERE {not_null} IS NOT NULL "
-    if limit:
-        query += f"LIMIT {limit} "
+
+    if not_null_column:
+        query += f"WHERE {not_null_column} IS NOT NULL "
+
     with sqlite3.connect(dbpath) as con:
         cur = con.cursor()
         cur.execute(query)
         res = cur.fetchall()
 
     msg = f"Found {len(res)} rows in metadata with columns {joinedColumns}"
-    if not_null:
-        msg += f" and not NULL column {not_null}"
+    if not_null_column:
+        msg += f" and {not_null_column} NOT NULL"
     print(msg)
     return res
