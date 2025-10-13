@@ -10,6 +10,7 @@ import os
 import csv
 import yaml
 import json
+import time
 from string import Template
 from argparse import ArgumentParser
 
@@ -44,7 +45,7 @@ ap.add_argument('--genderdistpath', type=str, default=GENDERDISTPATH)
 ap.add_argument('--agedistpath', type=str, default=AGEDISTPATH)
 ap.add_argument('--subunitspath', type=str, default=SUBUNITSPATH)
 ap.add_argument('--unitspath', type=str, default=GEOUNITSPATH)
-ap.add_argument('--limit', type=int, default=1000)
+ap.add_argument('--limit', type=int, default=0)
 ap.add_argument('--random', type=bool, default=False)
 ap.add_argument('--debugcode', type=str, default='')
 
@@ -93,11 +94,13 @@ print(f"Jsonl gender distribution load from {genderdistpath}")
 
 with open(agedistpath, "r") as f:
     ageDist = [json.loads(l) for l in f.readlines()]
-print(f"Jsonl age distribution file saved at {agedistpath}")
+print(f"Jsonl age distribution file load from {agedistpath}")
 
 with open(usersdatapath, 'r') as f:
     metadata = [r for r in csv.reader(f)]
-
+print(f"Locations file with {len(metadata)} entries load from {agedistpath}")
+if limit:
+    metadata = metadata[:limit]
 
 # 1. Create demograp object and set:
 #   - age distribution per geographical unit
@@ -112,7 +115,6 @@ demo.setSubUnitsNames(subUnits)
 
 # show
 demo.showGeoUnits(max_level=0)
-exit()
 
 # 2. Match locations users from metadata and add information to demograph
 match_kwargs = {
@@ -120,7 +122,7 @@ match_kwargs = {
     "split_characters": ["-", "/", "|"],
     "search_index": 1,
     "has_headers": True,
-    "verbose": False
+    "verbose": True
 }
 
 with open('somecens/data/flags_unicode_emoji.json', 'r') as f:
@@ -138,6 +140,7 @@ banned_words = banned_words.union({"Québec"})
 locations = demo.getAllSubUnits()
 
 # /!\ MEASURE TIME /!\
+start = time.time()
 users_matched_locations = matchUsersLocations(
     locations=locations,
     data=metadata,
@@ -162,6 +165,8 @@ for loc, usr in demo.getLocalizedUsers(code=debugcode, descendants=True).items()
     for u in usr:
         print("            " + u[0] + " " + f"'{u[1]}'")
 
+duration = time.time() - start
+print(f"Matching {len(metadata)} users locations took {duration} seconds.")
 
 # 4. Make choropleth with:
 #   - number of matched users in each geographical unit
