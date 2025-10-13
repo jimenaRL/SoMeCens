@@ -1,6 +1,7 @@
 import os
 import csv
 import yaml
+import json
 
 from somecens import DemoGraph
 from somecens.tools import \
@@ -25,10 +26,22 @@ with open(os.path.join(DATADIR, "user_locations.yml")) as f:
 with open(os.path.join(DATADIR, "expected_match_numbers.yml")) as f:
     MATCHNUMBERS = yaml.safe_load(f)
 
+with open('somecens/data/flags_unicode_emoji.json', 'r') as f:
+    flags_unicode_emojis = json.load(f)
+
+with open("somecens/data/franceFlags.txt", 'r') as f:
+    french_flag_emojis = [d['name'] for d in csv.DictReader(f)]
+
+banned_emojis = list(flags_unicode_emojis.values())
+for f in french_flag_emojis:
+    banned_emojis.remove(f)
+
+BANNEDEMOJIES = list(flags_unicode_emojis.values())
+
 DEMO = DemoGraph(demography=GEOUNITS)
 DEMO.setSubUnitsNames(SUBUNITS)
 LOCATIONSDICT = {d["code"]: d["label"] for d in GEOUNITS}
-LOCATIONSDICTGROUPS = DEMO.getSubUnits()
+LOCATIONSDICTGROUPS = DEMO.getAllSubUnits()
 
 MATCHKWARGS = {
     "stopwords": ["le", "la", "de"],
@@ -59,6 +72,44 @@ def test_searchOccurrences():
         regex=regex,
         search_col=search_col)
     assert len(matchs) == 1
+
+
+    regex = ["\\bVal-d'Oise\\b", "\\bArica\\b"]
+    matchs = searchOccurrences(
+        file_path,
+        regex=regex,
+        search_col=search_col)
+    assert len(matchs) == 1
+
+    BANNEDEMOJIES.remove(':France:')
+
+    regex = ["\\bArica\\b", "\\bFrance\\b",]
+    matchs = searchOccurrences(
+        file_path,
+        regex=regex,
+        search_col=search_col)
+    assert len(matchs) == 7
+    matchs = searchOccurrences(
+        file_path,
+        regex=regex,
+        banned_emojis=BANNEDEMOJIES,
+        allowed_emojis=french_flag_emojis,
+        search_col=search_col)
+    assert len(matchs) == 6
+
+    regex = ["\\bBordeaux\\b",]
+    matchs = searchOccurrences(
+        file_path,
+        regex=regex,
+        search_col=search_col)
+    assert len(matchs) == 1
+    matchs = searchOccurrences(
+        file_path,
+        regex=regex,
+        banned_emojis=BANNEDEMOJIES,
+        search_col=search_col)
+    assert len(matchs) == 0
+
 
 
 def test_matchUsersLocations():
@@ -113,7 +164,6 @@ def test_matchMultipleUsersLocations():
 
 
 if __name__ == "__main__":
-
-    test_searchOccurrences()
+    # test_searchOccurrences()
     test_matchUsersLocations()
-    test_matchMultipleUsersLocations()
+    # test_matchMultipleUsersLocations()

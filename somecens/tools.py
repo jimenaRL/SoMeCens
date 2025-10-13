@@ -1,5 +1,6 @@
 from __future__ import annotations
 import csv
+import emoji
 import tempfile
 import concurrent.futures
 from subprocess import Popen, PIPE
@@ -33,7 +34,9 @@ def searchOccurrences(
     file: str,
     regex: str | list(str),
     search_col: str,
-    banned_regex: str | list(str) = []
+    banned_regex: str | list(str) = [],
+    allowed_emojis: str | list(str) = [],
+    banned_emojis: str | list(str) = [],
 ) -> Iterable[list]:
     """
     Use xan program to search for ocurrences of a regex (or list of regex) at
@@ -81,10 +84,36 @@ def searchOccurrences(
             # and capture string output
             output = p.communicate()[0].decode()
             # parse output
-            matchs = list(csv.reader(output[:-1].split("\n")))
+            try:
+                matchs = list(csv.reader(output[:-1].split("\n")))
+            except Exception as exc:
+                print(f"!!!!!!!!!!!!!!!!!!!!!!!! SOMETHING WENT WRONG! !!!!!!!!!!!!!!!")
+                print(exc)
 
-    # remove headers and return
-    return matchs[1:]
+    # remove headers
+    matchs = matchs[1:]
+
+    # remove matchs with banned emojis
+    ematchs = []
+    removed = []
+    for match in matchs:
+        location = match[1]
+        found_emojis = emoji.distinct_emoji_list(location)
+        found_demojize_emojis = [emoji.demojize(e) for e in found_emojis]
+        if any([e in allowed_emojis for e in found_demojize_emojis]):
+            ematchs.append(match)
+            continue
+        if any([e in banned_emojis for e in found_demojize_emojis]):
+            removed.append(match)
+        else:
+            ematchs.append(match)
+
+    nb_removed = len(matchs) - len(ematchs)
+    # if nb_removed > 0:
+    #     print(f"Removed {nb_removed} matched terms with banned emojis:")
+    #     print(removed)
+
+    return ematchs
 
 
 def matchUsersLocations(
@@ -93,7 +122,9 @@ def matchUsersLocations(
     stopwords: list[str],
     split_characters: list[str],
     search_index: int,
-    banned_words: list[str] = [],
+    banned_words: Iterable[str] = [],
+    allowed_emojis: Iterable[str] = [],
+    banned_emojis: Iterable[str] = [],
     has_headers: bool = True,
     verbose: bool = False
 ):
@@ -137,6 +168,8 @@ def matchUsersLocations(
     # write normalized data to a tmp file to be used by the search method
     with tempfile.NamedTemporaryFile() as tmp:
         if has_headers:
+            if isinstance(data[0], tuple):
+                data[0] = list(data[0])
             headers = data[0] + ["normalized"]
             data = data[1:]
         else:
@@ -151,10 +184,19 @@ def matchUsersLocations(
                     tmp.name,
                     [makeRegex(' '.join(tokenizer(loc))) for loc in locations],
                     "normalized",
-                    [makeRegex(' '.join(tokenizer(b))) for b in banned_words])
+                    [makeRegex(' '.join(tokenizer(b))) for b in banned_words],
+                    allowed_emojis,
+                    banned_emojis)
                 for locations in locations.values()
             ]
             # and collect results
             results = [f.result() for f in futures]
+
     # format results as dict and return
-    return {loc: res for loc, res in zip(locations.keys(), results)}
+    results = {loc: res for loc, res in zip(locations.keys(), results)}
+
+    if verbose:
+        for loc, res in results.items():
+            print(f"{loc}: {len(res)}")
+
+    return results
