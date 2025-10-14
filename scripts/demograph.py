@@ -30,7 +30,7 @@ DIRPATH = os.environ['SOMECENSDIR'] if 'SOMECENSDIR' in os.environ else '.'
 SMCDATAPATH = os.path.join(DIRPATH, "somecens", "data")
 
 COUNTRYDATAPATH = os.path.join(DIRPATH, "data", "${country}")
-GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts2024.yml")
+GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts2024.csv")
 SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits.yml")
 GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts2024.csv")
 AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts2024.jsonl")
@@ -79,7 +79,7 @@ with open(os.path.join(SMCDATAPATH, "geocodes_countries_capitals.csv")) as f:
 #  1. Load sociodemographic data
 
 with open(unitspath, "r") as f:
-   geoUnits = yaml.safe_load(f)
+    geoUnits = [r for r in csv.DictReader(f)]
 print(f"Geographical units load from {unitspath}")
 
 with open(subunitspath, "r") as f:
