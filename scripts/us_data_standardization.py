@@ -105,10 +105,10 @@ print(f"Csv file with us geographical units saved at {units}")
 os.system(f"xan head {units} | xan v")
 
 
-exit()
 # 2. Parse data to get gender and age distributions
 
 # 2.1 Gender distributions
+county_genderDist = os.path.join(FOLDER, "us_counties_genreDists_year2023.csv")
 cmd = parent_cmd + f"""
     xan select COUNTY,TOT_POP,TOT_MALE,TOT_FEMALE | \
     xan rename total,male,female,code -s TOT_POP,TOT_MALE,TOT_FEMALE,COUNTY | \
@@ -120,18 +120,17 @@ os.system(cmd)
 print(f"Csv file with us counties gender distributions units saved at {county_genderDist}")
 os.system(f"xan tail {county_genderDist} | xan v")
 
-exit()
-
 state_genderDist = os.path.join(FOLDER, "us_states_genreDists_year2023.csv")
 with tempfile.NamedTemporaryFile() as t:
         with tempfile.NamedTemporaryFile() as tT:
             with tempfile.NamedTemporaryFile() as tM:
                 with tempfile.NamedTemporaryFile() as tF:
                     for file, CAT in zip([tT.name, tM.name, tF.name], ['TOT_POP', 'TOT_MALE', 'TOT_FEMALE']):
-                        cmd = copy.deepcopy(parent_cmd)
-                        cmd += " | xan select STATE,TOT_POP,TOT_MALE,TOT_FEMALE"
-                        cmd += f" | xan groupby STATE 'sum({CAT})'"
-                        cmd += f"  > {file}"
+                        cmd = parent_cmd + f"""
+                            xan select STATE,TOT_POP,TOT_MALE,TOT_FEMALE | \
+                            xan groupby STATE 'sum({CAT})' \
+                            > {file}
+                        """
                         os.system(cmd)
                     os.system(f"xan join STATE {tT.name} STATE {tM.name} > {t.name}")
                     os.system(f"xan join STATE {t.name} STATE {tF.name} > {state_genderDist}")
@@ -145,9 +144,9 @@ with tempfile.NamedTemporaryFile() as t:
 genderDist = os.path.join(FOLDER, "us_genre_distribution_year2023.csv")
 cmd = f"xan cat rows {state_genderDist} {county_genderDist} > {genderDist}"
 os.system(cmd)
-
-os.system(f"xan tail {genderDist} | xan v")
 print(f"US gender distribution csv file saved at {genderDist}")
+os.system(f"xan tail {genderDist} | xan v")
+
 
 # 2.2 Age distributions [TO DO]
 
