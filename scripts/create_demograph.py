@@ -122,7 +122,7 @@ print(f"Locations file with {len(metadata)} entries loaded from {agedistpath}")
 
 demo = DemoGraph(demography=geoUnits)
 if subUnits:
-demo.setSubUnitsNames(subUnits)
+    demo.setSubUnitsNames(subUnits)
 if genderDist:
     demo.setGenderDistributions(genderDist)
 if ageDist:
