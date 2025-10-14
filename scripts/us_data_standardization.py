@@ -19,8 +19,8 @@ FOLDER = os.path.join(DIRPATH, "data/us")
 DEFAULTYEAR = 5
 DATAPATH = os.path.join(FOLDER, "cc-est2023-alldata.csv")
 GEOUNITSPATH = os.path.join(FOLDER, f"us_geoUnits_year2023.csv")
-MDYEAR = 2023
-EPODBPATH = os.path.join(FOLDER, "us", f"us_{MDYEAR}_pseudonymized_alldata.db")
+MDYEAR = 2025
+EPODBPATH = os.path.join(FOLDER, f"us_{MDYEAR}_pseudonymized_alldata.db")
 METADATAPATH = os.path.join(FOLDER, f"us_metadata{MDYEAR}.csv")
 
 # YEARDICT = {
@@ -74,8 +74,6 @@ cmd = parent_cmd + f"""
     > {county_units}
 """
 os.system(cmd)
-print(f"Csv file with us counties geographical units saved at {county_units}")
-os.system(f"xan tail {county_units} | xan v")
 
 # 1.2 States
 state_units = os.path.join(FOLDER, "us_states_geounits_year2023.csv")
@@ -91,10 +89,8 @@ cmd = parent_cmd + f"""
     > {state_units}
 """
 os.system(cmd)
-print(f"Csv file with us state geographical units saved at {state_units}")
-os.system(f"xan tail {state_units} | xan v")
 
-# 1. Country
+# 1.3 All
 country_units = os.path.join(FOLDER, "us_country_geounits_year2023.csv")
 
 units = os.path.join(FOLDER, "us_geounits_year2023.csv")
@@ -108,18 +104,23 @@ os.system(f"xan head {units} | xan v")
 # 2. Parse data to get gender and age distributions
 
 # 2.1 Gender distributions
+
+# 2.1.1 Counties
 county_genderDist = os.path.join(FOLDER, "us_counties_genreDists_year2023.csv")
 cmd = parent_cmd + f"""
-    xan select COUNTY,TOT_POP,TOT_MALE,TOT_FEMALE | \
-    xan rename total,male,female,code -s TOT_POP,TOT_MALE,TOT_FEMALE,COUNTY | \
+    xan select STATE,COUNTY,TOT_POP,TOT_MALE,TOT_FEMALE | \
+    xan map --overwrite 'STATE ++ COUNTY as code' | \
+    xan rename total,male,female,code -s TOT_POP,TOT_MALE,TOT_FEMALE,code | \
+    xan select total,male,female,code | \
     xan map '\"2023\" as year' \
     > {county_genderDist}
 """
 
 os.system(cmd)
 print(f"Csv file with us counties gender distributions units saved at {county_genderDist}")
-os.system(f"xan tail {county_genderDist} | xan v")
+os.system(f"xan head {county_genderDist} | xan v")
 
+# 2.1.2 States
 state_genderDist = os.path.join(FOLDER, "us_states_genreDists_year2023.csv")
 with tempfile.NamedTemporaryFile() as t:
         with tempfile.NamedTemporaryFile() as tT:
@@ -137,15 +138,30 @@ with tempfile.NamedTemporaryFile() as t:
                     cmd = f"xan select STATE,'sum(TOT_POP)','sum(TOT_MALE)','sum(TOT_FEMALE)' {state_genderDist} "
                     cmd += " | xan rename code,total,male,female "
                     cmd += " | xan map '\"2023\" as year'"
+                    cmd += " | xan select total,male,female,code,year"
                     cmd += f" > {t.name}"
                     os.system(cmd)
                     os.system(f"mv {t.name} {state_genderDist}")
+print(f"Csv file with us state gender distributions units saved at {state_genderDist}")
+os.system(f"xan head {state_genderDist} | xan v")
 
+# 2.1.3 Country
+country_genderDist = os.path.join(FOLDER, "us_country_genreDists_year2023.csv")
+cmd = f"xan agg --along-cols total,male,female 'sum(_)' {state_genderDist}"
+cmd += " | xan map '\"2023\" as year'"
+cmd += " | xan map '\"0\" as code'"
+cmd += " | xan select total,male,female,code,year"
+cmd += f" > {country_genderDist}"
+os.system(cmd)
+print(f"Csv file with us country gender distributions units saved at {country_genderDist}")
+os.system(f"xan head {country_genderDist} | xan v")
+
+# 2.1.3 All
 genderDist = os.path.join(FOLDER, "us_genre_distribution_year2023.csv")
-cmd = f"xan cat rows {state_genderDist} {county_genderDist} > {genderDist}"
+cmd = f"xan cat rows {country_genderDist} {state_genderDist} {county_genderDist} > {genderDist}"
 os.system(cmd)
 print(f"US gender distribution csv file saved at {genderDist}")
-os.system(f"xan tail {genderDist} | xan v")
+os.system(f"xan head {genderDist} | xan v")
 
 
 # 2.2 Age distributions [TO DO]
@@ -156,6 +172,7 @@ os.system(f"xan tail {genderDist} | xan v")
 # columns = ['pseudo_id', 'location', 'screen_name']
 # metadata = getMetadata(EPODBPATH, columns=columns, not_null_column="location")
 
+# metadatapath = os.path.join(FOLDER, f"us_metadata{MDYEAR}.csv")
 # with open(metadatapath, 'w') as f:
 #     writer = csv.writer(f)
 #     writer.writerow(columns)
