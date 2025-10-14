@@ -78,27 +78,46 @@ with open(metadatapath, 'w') as f:
     writer.writerows(metadata)
 print(f"Csv metadata file saved at {metadatapath}")
 
-unitspath = os.path.join(outfolder, f"france_geoUnits_nuts{nutsyear}.yml")
+unitspath = os.path.join(outfolder, f"france_geoUnits_nuts{nutsyear}.csv")
+columns = geoUnits[0].keys()
+unitsdata = [g.values() for g in geoUnits]
 with open(unitspath, "w") as f:
-   yaml.dump(geoUnits, f)
-print(f"Yaml file with {country} geographical subunits saved at {unitspath}")
+    writer = csv.writer(f)
+    writer.writerow(columns)
+    writer.writerows(unitsdata)
+print(f"Csv file with {country} geographical units saved at {unitspath}")
 
 subunitspath = os.path.join(outfolder, "france_subUnits.yml")
 with open(subunitspath, "w") as f:
    yaml.dump(subUnits, f)
 print(f"Yaml file with {country} geographical geounits saved at {subunitspath}")
 
-genderdistpath = os.path.join(
+genderdistname = os.path.join(
     outfolder,
-    f"france_gender_distribution_nuts{nutsyear}.jsonl")
-with open(genderdistpath, "w") as f:
+    f"france_gender_distribution_nuts{nutsyear}")
+with open(genderdistname + '.jsonl', "w") as f:
     f.writelines([json.dumps(l)+'\n' for l in genderDist])
-print(f"Jsonl gender distribution file saved at {genderdistpath}")
+print(f"Jsonl gender distribution file saved at {genderdistname}.jsonl")
 
-agedistpath = os.path.join(
+with open(genderdistname + '.csv', 'w', newline='') as csvfile:
+    fieldnames = genderDist[0].keys()
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for d in genderDist:
+        writer.writerow(d)
+print(f"Csv gender distribution file saved at {genderdistname}.csv")
+
+agedistname = os.path.join(
     outfolder,
-    f"france_age_distribution_nuts{nutsyear}.jsonl")
-with open(agedistpath, "w") as f:
+    f"france_age_distribution_nuts{nutsyear}")
+with open(agedistname + ".jsonl", "w") as f:
     f.writelines([json.dumps(l)+'\n' for l in ageDist])
-print(f"Jsonl age distribution file saved at {agedistpath}")
+print(f"Jsonl age distribution file saved at {agedistname}.jsonl")
 
+with open(agedistname + '.csv', 'w', newline='') as csvfile:
+    fieldnames = ageDist[0].keys()
+    writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
+    for d in ageDist:
+        writer.writerow(d)
+print(f"Csv age distribution file saved at {agedistname}.csv")
