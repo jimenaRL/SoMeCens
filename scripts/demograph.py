@@ -32,7 +32,7 @@ SMCDATAPATH = os.path.join(DIRPATH, "somecens", "data")
 COUNTRYDATAPATH = os.path.join(DIRPATH, "data", "${country}")
 GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts2024.yml")
 SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits.yml")
-GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts2024.jsonl")
+GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts2024.csv")
 AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts2024.jsonl")
 USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata2020.csv")
 
@@ -45,8 +45,7 @@ ap.add_argument('--genderdistpath', type=str, default=GENDERDISTPATH)
 ap.add_argument('--agedistpath', type=str, default=AGEDISTPATH)
 ap.add_argument('--subunitspath', type=str, default=SUBUNITSPATH)
 ap.add_argument('--unitspath', type=str, default=GEOUNITSPATH)
-ap.add_argument('--limit', type=int, default=0)
-ap.add_argument('--random', type=bool, default=False)
+ap.add_argument('--debuglimit', type=int, default=0)
 ap.add_argument('--debugcode', type=str, default='')
 
 args = ap.parse_args()
@@ -56,8 +55,7 @@ genderdistpath = Template(args.genderdistpath).safe_substitute(country=country)
 agedistpath = Template(args.agedistpath).safe_substitute(country=country)
 subunitspath = Template(args.subunitspath).safe_substitute(country=country)
 unitspath = Template(args.unitspath).safe_substitute(country=country)
-limit = args.limit
-random = args.random
+debuglimit = args.debuglimit
 debugcode = args.debugcode
 
 params = vars(args)
@@ -88,9 +86,13 @@ with open(subunitspath, "r") as f:
    subUnits = yaml.safe_load(f)
 print(f"Geographical subunits load from {subunitspath}")
 
+# with open(genderdistpath, "r") as f:
+#     genderDistJ = [json.loads(l) for l in f.readlines()]
+# print(f"Jsonl gender distribution load from {genderdistpath}")
+
 with open(genderdistpath, "r") as f:
-    genderDist = [json.loads(l) for l in f.readlines()]
-print(f"Jsonl gender distribution load from {genderdistpath}")
+    genderDist = [r for r in csv.DictReader(f)]
+print(f"Csv file with gender distributions load from {genderdistpath}")
 
 with open(agedistpath, "r") as f:
     ageDist = [json.loads(l) for l in f.readlines()]
@@ -99,8 +101,8 @@ print(f"Jsonl age distribution file load from {agedistpath}")
 with open(usersdatapath, 'r') as f:
     metadata = [r for r in csv.reader(f)]
 print(f"Locations file with {len(metadata)} entries load from {agedistpath}")
-if limit:
-    metadata = metadata[:limit]
+if debuglimit:
+    metadata = metadata[:debuglimit]
 
 # 1. Create demograp object and set:
 #   - age distribution per geographical unit
