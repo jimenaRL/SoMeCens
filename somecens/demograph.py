@@ -204,8 +204,13 @@ class DemoGraph:
                 """Unnable to parse genderDistribution.
                 Please check that all values can be converted to float.""")
         # check that all geoUnits are present in the gender distribution
-        codes = {gd['code'] for gd in genderDistribution}
-        assert codes == {gd['code'] for gd in self.demography}
+        codes_gd = {gd['code'] for gd in genderDistribution}
+        codes_demo =  {gd['code'] for gd in self.demography}
+        if not codes_demo.issubset(codes_gd):
+            import pdb; pdb.set_trace()  # breakpoint 41b34145 //
+            mssg = f"There are missing geoUnits in the gender distribution:\n"
+            mssg += f"{codes_demo - codes_gd}"
+            raise ValueError(mssg)
 
     def setGenderDistributions(
         self,
