@@ -35,6 +35,7 @@ SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits.yml")
 GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts2024.csv")
 AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts2024.jsonl")
 USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata2020.csv")
+DEFAULTSTOPWORDS = "le|la|de|en|au"
 
 # 0. parse arguments and set paths
 ap = ArgumentParser()
@@ -45,6 +46,7 @@ ap.add_argument('--genderdistpath', type=str, default=GENDERDISTPATH)
 ap.add_argument('--agedistpath', type=str, default=AGEDISTPATH)
 ap.add_argument('--subunitspath', type=str, default=SUBUNITSPATH)
 ap.add_argument('--unitspath', type=str, default=GEOUNITSPATH)
+ap.add_argument('--stopwords', type=str, default=DEFAULTSTOPWORDS)
 ap.add_argument('--debuglimit', type=int, default=0)
 ap.add_argument('--debugcode', type=str, default='')
 
@@ -55,6 +57,7 @@ genderdistpath = Template(args.genderdistpath).safe_substitute(country=country)
 agedistpath = Template(args.agedistpath).safe_substitute(country=country)
 subunitspath = Template(args.subunitspath).safe_substitute(country=country)
 unitspath = Template(args.unitspath).safe_substitute(country=country)
+stopwords =  args.stopwords.split("|")
 debuglimit = args.debuglimit
 debugcode = args.debugcode
 
@@ -64,11 +67,13 @@ params.update({
     "genderdistpath" : genderdistpath,
     "agedistpath" : agedistpath,
     "subunitspath" : subunitspath,
-    "unitspath": unitspath
+    "unitspath": unitspath,
+    "stopwords": stopwords,
     })
 print("---------------------------------------------------------")
 print(f"PARAMETERS:\n{yaml.dump(params)}")
 print("---------------------------------------------------------")
+
 
 with open(os.path.join(SMCDATAPATH, "pays_capitales.csv")) as f:
     pays = {d["country"] for d in csv.DictReader(f)}
@@ -78,49 +83,57 @@ with open(os.path.join(SMCDATAPATH, "geocodes_countries_capitals.csv")) as f:
 
 #  1. Load sociodemographic data
 
-with open(unitspath, "r") as f:
+with open(unitspath, "r", encoding = "ISO-8859-1") as f:
     geoUnits = [r for r in csv.DictReader(f)]
-print(f"Geographical units load from {unitspath}")
+print(f"Geographical units loaded from {unitspath}")
 
-with open(subunitspath, "r") as f:
-   subUnits = yaml.safe_load(f)
-print(f"Geographical subunits load from {subunitspath}")
+if subunitspath:
+    with open(subunitspath, "r") as f:
+       subUnits = yaml.safe_load(f)
+    print(f"Geographical subunits loaded from {subunitspath}")
+else:
+    subUnits = {}
 
-# with open(genderdistpath, "r") as f:
-#     genderDistJ = [json.loads(l) for l in f.readlines()]
-# print(f"Jsonl gender distribution load from {genderdistpath}")
+if genderdistpath:
+    with open(genderdistpath, "r") as f:
+        genderDist = [r for r in csv.DictReader(f)]
+    print(f"Csv file with gender distributions loaded from {genderdistpath}")
+else:
+    genderDist = []
 
-with open(genderdistpath, "r") as f:
-    genderDist = [r for r in csv.DictReader(f)]
-print(f"Csv file with gender distributions load from {genderdistpath}")
-
-with open(agedistpath, "r") as f:
-    ageDist = [json.loads(l) for l in f.readlines()]
-print(f"Jsonl age distribution file load from {agedistpath}")
+if agedistpath:
+    with open(agedistpath, "r") as f:
+        ageDist = [json.loads(l) for l in f.readlines()]
+    print(f"Jsonl age distribution file loaded from {agedistpath}")
+else:
+    ageDist = []
 
 with open(usersdatapath, 'r') as f:
-    metadata = [r for r in csv.reader(f)]
-print(f"Locations file with {len(metadata)} entries load from {agedistpath}")
-if debuglimit:
-    metadata = metadata[:debuglimit]
+    if debuglimit:
+        metadata = [r for r,_ in zip(csv.reader(f), range(debuglimit))]
+    else:
+        metadata = [r for r in csv.reader(f)]
+print(f"Locations file with {len(metadata)} entries loaded from {agedistpath}")
 
-# 1. Create demograp object and set:
+# 2. Create demograp object and set:
 #   - age distribution per geographical unit
 #   - gender distributions per geographical unit
 #   - subunits (LAUS)
 
-
 demo = DemoGraph(demography=geoUnits)
-demo.setGenderDistributions(genderDist)
-demo.setAgeDistributions(ageDist)
+if subUnits:
 demo.setSubUnitsNames(subUnits)
+if genderDist:
+    demo.setGenderDistributions(genderDist)
+if ageDist:
+    demo.setAgeDistributions(ageDist)
 
 # show
-demo.showGeoUnits(max_level=0)
+demo.showGeoUnits(max_level=2)
 
 # 2. Match locations users from metadata and add information to demograph
 match_kwargs = {
-    "stopwords": ["le", "la", "de", "en", "au"],
+    "stopwords": stopwords,
     "split_characters": ["-", "/", "|"],
     "search_index": 1,
     "has_headers": True,
@@ -141,7 +154,6 @@ banned_words.remove('France')
 banned_words = banned_words.union({"Québec"})
 locations = demo.getAllSubUnits()
 
-# /!\ MEASURE TIME /!\
 start = time.time()
 users_matched_locations = matchUsersLocations(
     locations=locations,
