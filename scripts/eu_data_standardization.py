@@ -50,6 +50,7 @@ epodbpath = Template(epodbpath).safe_substitute(
     metadatayear=metadatayear)
 
 outfolder = Template(outfolder).safe_substitute(country=country)
+os.makedirs(outfolder, exist_ok=True)
 
 params = vars(args)
 params.update({
