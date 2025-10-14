@@ -95,7 +95,7 @@ country_units = os.path.join(FOLDER, "us_country_geounits_year2023.csv")
 with open(country_units, "w") as f:
     f.writelines([
         "code,label,country_code,level,parent_code\n",
-        "0,Us,US,0,\n"
+        "0,Usa,US,0,\n"
     ])
 
 # 1.4 Concatenate all
