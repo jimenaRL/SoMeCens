@@ -162,8 +162,8 @@ class DemoGraph:
         """
         return self._getDescendants(geoUnit, [])
 
-    def getAllSubUnits(self) -> dict:
-        return {g.code: g.getSubUnits() for g in self.geoUnits}
+    def getAllSubUnits(self, max_level : int = -1) -> dict:
+        return {g.code: g.getSubUnits() for g in self.geoUnits if g.level <= max_level}
 
     def getSubUnits(self, code) -> dict:
         for g in self.geoUnits:
@@ -258,7 +258,7 @@ class DemoGraph:
             geoUnit.setUsersLocations(usersLocations[geoUnit.code])
         else:
             print(
-                f"Didn't find users for gueUnit {geoUnit.code} {geoUnit.label}")
+                f"Didn't find users for geoUnit {geoUnit.code} {geoUnit.label}")
         for child in geoUnit.children:
             geoUnit = self._setUsersLocations(child, usersLocations)
 
