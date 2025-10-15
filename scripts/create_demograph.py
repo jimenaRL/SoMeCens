@@ -15,7 +15,7 @@ from string import Template
 from argparse import ArgumentParser
 
 import emoji
-from random import randint
+from random import randint, shuffle
 
 from somecens import DemoGraph
 from somecens.tools import matchUsersLocations
@@ -75,6 +75,8 @@ print(f"PARAMETERS:\n{yaml.dump(params)}")
 print("---------------------------------------------------------")
 
 
+#  0. Load countries data
+
 with open(os.path.join(SMCDATAPATH, "pays_capitales.csv")) as f:
     pays = {d["country"] for d in csv.DictReader(f)}
 
@@ -129,7 +131,7 @@ if ageDist:
     demo.setAgeDistributions(ageDist)
 
 # show
-demo.showGeoUnits(max_level=2)
+demo.showGeoUnits(max_level=0)
 
 # 2. Match locations users from metadata and add information to demograph
 match_kwargs = {
@@ -137,31 +139,42 @@ match_kwargs = {
     "split_characters": ["-", "/", "|"],
     "search_index": 1,
     "has_headers": True,
-    "verbose": True
 }
 
-with open('somecens/data/flags_unicode_emoji.json', 'r') as f:
-    flags_unicode_emojis = json.load(f)
-with open("somecens/data/franceFlags.txt", 'r') as f:
-    french_flag_emojis = [d['name'] for d in csv.DictReader(f)]
+# with open('somecens/data/flags_unicode_emoji.json', 'r') as f:
+#     flags_unicode_emojis = json.load(f)
+# with open("somecens/data/franceFlags.txt", 'r') as f:
+#     french_flag_emojis = [d['name'] for d in csv.DictReader(f)]
 
-banned_emojis = list(flags_unicode_emojis.values())
-for f in french_flag_emojis:
-    banned_emojis.remove(f)
+# banned_emojis = list(flags_unicode_emojis.values())
+# for f in french_flag_emojis:
+#     banned_emojis.remove(f)
 
 banned_words = countries.union(pays)
-banned_words.remove('France')
-banned_words = banned_words.union({"Québec"})
-locations = demo.getAllSubUnits()
+# TO DO: make file with of aliases and translations per country
+if country == 'france':
+    banned_words.remove('France')
+
+if country == 'us':
+    banned_words.remove('États-Unis')
+    banned_words.remove('United States')
+    banned_words.remove('United States Minor Outlying Islands')
+
+locations = demo.getAllSubUnits(max_level=3)
+# print(f"LOCATIONS ARE:\n{yaml.dump(locations)}")
 
 start = time.time()
 users_matched_locations = matchUsersLocations(
     locations=locations,
     data=metadata,
     banned_words=banned_words,
-    allowed_emojis=french_flag_emojis,
-    banned_emojis=banned_emojis,
+    # allowed_emojis=french_flag_emojis,
+    # banned_emojis=banned_emojis,
+    verbose=True,
     **match_kwargs)
+
+duration = time.time() - start
+print(f"Whole matching {len(metadata)} users locations took {duration} seconds.")
 
 demo.setUsersLocations(users_matched_locations)
 
@@ -171,16 +184,14 @@ if not debugcode:
     debugcode = list(demo.locations.keys())[rndIdx]
 
 print(f"-------- {debugcode} {demo.locations[debugcode]} --------")
+print(f"Localized users sample:")
+for loc, usr in demo.getLocalizedUsers(code=debugcode, descendants=True).items():
+    print(f"    {loc} {demo.getGeoUnit(code=loc).label} {len(usr)} matchs")
+    shuffle(usr)
+    for u in usr[:30]:
+        print("            " + u[0] + " " + f"'{u[1]}'")
 print(f"Subunits:")
 print(demo.getSubUnits(debugcode))
-print(f"Localized users:")
-for loc, usr in demo.getLocalizedUsers(code=debugcode, descendants=True).items():
-    print("    " + loc + " " + demo.getGeoUnit(code=loc).label)
-    for u in usr:
-        print("            " + u[0] + " " + f"'{u[1]}'")
-
-duration = time.time() - start
-print(f"Matching {len(metadata)} users locations took {duration} seconds.")
 
 # 4. Make choropleth with:
 #   - number of matched users in each geographical unit
