@@ -1,5 +1,6 @@
 from __future__ import annotations
 import csv
+import time
 import emoji
 import tempfile
 import concurrent.futures
@@ -13,7 +14,7 @@ def writeCsv(
     rows: Iterable[tuple],
     headers: Iterable[str] | None = None,
     verbose: bool = False
-):
+    ):
     if not isinstance(headers, list):
         raise ValueError(
             f"Headers must be a list. Found {type(headers)} for '{headers}'.")
@@ -30,65 +31,65 @@ def makeRegex(term: str) -> str:
     return f'\\b{term.rstrip().lstrip()}\\b'
 
 
-def searchOccurrences(
-    file: str,
-    regex: str | list(str),
+def reverseSearch(
+    csvfile: str,
     search_col: str,
-    banned_regex: str | list(str) = [],
+    banned_regex_file: str,
+    verbose: bool = False,
+    ) -> Iterable[list]:
+    """
+    Spawn a new process to perform an inverted regex search using xan and
+    return the captured string output. Returns a list containig the rows of
+    the input csv file that didn't match  at the 'search_col' column
+    the terms in the file banned_regex_file.
+    """
+    commands = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex']
+    commands += ["--invert-match", "--patterns", banned_regex_file, csvfile]
+    if verbose:
+        mssg = "Preforming a xan reverse search to remove banned regex, "
+        mssg += f"the command is:\n\t{' '.join(commands)}"
+        print(mssg)
+    p = Popen(commands, stdout=PIPE)
+    return p.communicate()[0].decode()
+
+def searchOccurrences(
+    csvfile: str,
+    regex: list(str),
+    search_col: str = "location",
     allowed_emojis: str | list(str) = [],
     banned_emojis: str | list(str) = [],
-) -> Iterable[list]:
+    verbose: bool = False,
+    ) -> Iterable[list]:
     """
-    Use xan program to search for ocurrences of a regex (or list of regex) at
-    the csv file in path. Returns a list containig the rows of the csv file
-    that match the term at the 'search_col' column.
+    Use xan program to search for ocurrences of a list of regex in a csv file.
+    Returns a list containig the rows of the csv file that matched
+    the term at the 'search_col' column.
     """
 
-    # if needed convert strings to list
-    if isinstance(regex, str):
-        regex = [regex]
+    with tempfile.NamedTemporaryFile() as tmpRegex:
 
-    if isinstance(banned_regex, str):
-        banned_regex = [banned_regex]
+        # save list of regex to a temporary file
+        with open(tmpRegex.name, 'w') as f:
+            f.writelines('\n'.join(regex))
 
-    commands = ['xan', 'search', '-s', search_col, '--ignore-case', '--regex']
-
-    with tempfile.NamedTemporaryFile() as tmpFile:
-
-        # 1/ perform invert search with banned regex
-
-        # write down banned_regex list to a tmp file to be used by xan
-        with tempfile.NamedTemporaryFile() as tmpBannedRegex:
-            with open(tmpBannedRegex.name, 'w') as f:
-                f.writelines('\n'.join(banned_regex))
-
-            # perform invert search with xan
-            invert_search_cmds = commands + ["--invert-match", "--patterns", tmpBannedRegex.name, file]
-            p = Popen(invert_search_cmds, stdout=PIPE)
-            # capture string output
-            output = p.communicate()[0].decode()
-            # and write down output to temp file
-            with open(tmpFile.name, 'w') as f:
-                f.writelines(output)
-
-        # 2/ perform regular search with regex
-
-        # write down regex list to a tmp file to be used by xan
-        with tempfile.NamedTemporaryFile() as tmpRegex:
-            with open(tmpRegex.name, 'w') as f:
-                f.writelines('\n'.join(regex))
-
-            # perform invert search with xan
-            search_cmds = commands + ["--patterns", tmpRegex.name, tmpFile.name]
-            p = Popen(search_cmds, stdout=PIPE)
-            # and capture string output
-            output = p.communicate()[0].decode()
-            # parse output
-            try:
-                matchs = list(csv.reader(output[:-1].split("\n")))
-            except Exception as exc:
-                print(f"!!!!!!!!!!!!!!!!!!!!!!!! SOMETHING WENT WRONG! !!!!!!!!!!!!!!!")
-                print(exc)
+        # spawn a new xan process
+        commands = ['xan', 'search', '-s', search_col, '--ignore-case']
+        commands += ['--regex', "--patterns", tmpRegex.name, csvfile]
+        if verbose:
+            mssg = "Preforming a xan search, "
+            mssg += f"the command is:\n\t{' '.join(commands)}"
+            start = time.time()
+        p = Popen(commands, stdout=PIPE)
+        if verbose:
+            print(f"Search took {time.time() - start} seconds.")
+        #  capture string output
+        output = p.communicate()[0].decode()
+        # parse output
+        try:
+            matchs = list(csv.reader(output[:-1].split("\n")))
+        except Exception as exc:
+            print(f"Something went wrong when parsing subprocess output:")
+            print(exc)
 
     # remove headers
     matchs = matchs[1:]
@@ -96,25 +97,48 @@ def searchOccurrences(
     # remove matchs with banned emojis
     ematchs = []
     removed = []
-    for match in matchs:
-        location = match[1]
-        found_emojis = emoji.distinct_emoji_list(location)
-        found_demojize_emojis = [emoji.demojize(e) for e in found_emojis]
-        if any([e in allowed_emojis for e in found_demojize_emojis]):
-            ematchs.append(match)
-            continue
-        if any([e in banned_emojis for e in found_demojize_emojis]):
-            removed.append(match)
-        else:
-            ematchs.append(match)
+    if banned_emojis:
+        for match in matchs:
+            location = match[1]
+            found_emojis = emoji.distinct_emoji_list(location)
+            found_demojize_emojis = [emoji.demojize(e) for e in found_emojis]
+            if any([e in allowed_emojis for e in found_demojize_emojis]):
+                ematchs.append(match)
+                continue
+            if any([e in banned_emojis for e in found_demojize_emojis]):
+                removed.append(match)
+            else:
+                ematchs.append(match)
 
-    nb_removed = len(matchs) - len(ematchs)
-    # if nb_removed > 0:
-    #     print(f"Removed {nb_removed} matched terms with banned emojis:")
-    #     print(removed)
+        nb_removed = len(matchs) - len(ematchs)
+        matchs = ematchs
 
-    return ematchs
+        if nb_removed > 0 and verbose:
+            print(f"Removed {nb_removed} matched terms with banned emojis:")
+            print(removed)
 
+    return matchs
+
+
+def searchOccurrence(
+    csvfile: str,
+    regex: str,
+    search_col: str,
+    allowed_emojis: str | list(str) = [],
+    banned_emojis: str | list(str) = [],
+    ) -> Iterable[list]:
+    """
+    Use xan program to search for ocurrences of a regex in a csv file.
+    Returns a list containig the rows of the csv file that matched
+    the term at the 'search_col' column.
+    """
+    return searchOccurrences(
+        csvfile=csvfile,
+        regex=[regex],
+        search_col=search_col,
+        allowed_emojis=allowed_emojis,
+        banned_emojis=banned_emojis
+    )
 
 def matchUsersLocations(
     locations: dict,
@@ -127,12 +151,12 @@ def matchUsersLocations(
     banned_emojis: Iterable[str] = [],
     has_headers: bool = True,
     verbose: bool = False
-):
+    ):
     """
     Search for ocurrences of terms in locations groups.
     Uses multithreaded instances of searchMultipleOccurrences method.
 
-    Input 'locations' is a dictionari of the form
+    Input 'locations' is a dictionary of the form
 
         {code: term} or {code: [term_1, ..., term_N]}
 
@@ -152,10 +176,13 @@ def matchUsersLocations(
         msg += f"and split characters {split_characters}."
         print(msg)
 
-    # if needed convert values of dict from string to list
+    # if needed convert dict value's from string to list
     for code, value in locations.items():
         if isinstance(value, str):
             locations[code] = [value]
+
+    # count rows
+    nb_rows = len(data) - 1 if has_headers else len(data)
 
     # create tokenizer
     tokenizer = FingerprintTokenizer(
@@ -165,38 +192,82 @@ def matchUsersLocations(
     normalized = [
         list(d) + [' '.join(tokenizer(d[search_index]))] for d in data]
 
-    # write normalized data to a tmp file to be used by the search method
-    with tempfile.NamedTemporaryFile() as tmp:
-        if has_headers:
-            if isinstance(data[0], tuple):
-                data[0] = list(data[0])
-            headers = data[0] + ["normalized"]
-            data = data[1:]
-        else:
-            headers = [str(j) for j in range(len(data[0]))] + ["normalized"]
-        writeCsv(tmp.name, normalized, headers)
+    banned_regex = [makeRegex(' '.join(tokenizer(b))) for b in banned_words]
 
-        # launch multiple threads searching for terms
-        with concurrent.futures.ThreadPoolExecutor() as executor:
-            futures = [
-                executor.submit(
-                    searchOccurrences,
-                    tmp.name,
-                    [makeRegex(' '.join(tokenizer(loc))) for loc in locations],
-                    "normalized",
-                    [makeRegex(' '.join(tokenizer(b))) for b in banned_words],
-                    allowed_emojis,
-                    banned_emojis)
-                for locations in locations.values()
-            ]
-            # and collect results
-            results = [f.result() for f in futures]
+    # set search column
+    search_col = "normalized"
+    # write down banned_regex list to a tmp file to be used by xan
+    with tempfile.NamedTemporaryFile() as tmpBannedRegex:
+        with open(tmpBannedRegex.name, 'w') as f:
+            f.writelines('\n'.join(banned_regex))
+        print(tmpBannedRegex.name)
 
-    # format results as dict and return
-    results = {loc: res for loc, res in zip(locations.keys(), results)}
+        # write normalized data to a tmp file to be used by the search method
+        with tempfile.NamedTemporaryFile() as tmp:
+            # add or modify headers to take into account the new search column
+            # with normalized tokens from column at search_index
+            if has_headers:
+                if isinstance(data[0], tuple):
+                    data[0] = list(data[0])
+                headers = data[0] + [search_col]
+                normalized = normalized[1:]
+            else:
+                headers = [str(j) for j in range(len(data[0]))] + [search_col]
+            # write tmp file
+            writeCsv(tmp.name, normalized, headers)
+
+            # remove lines with banned words by making a reverse search
+            # and write down captured string output to the tmp file
+            start = time.time()
+            output = reverseSearch(
+                csvfile=tmp.name,
+                search_col=search_col,
+                banned_regex_file=tmpBannedRegex.name,
+                verbose=verbose)
+            if verbose:
+                print(f"Reverse search took {time.time() - start} seconds.")
+            with open(tmp.name, 'w') as f:
+                f.writelines(output)
+
+            # count lines removed
+            if verbose:
+                nb_output_lines = len(output.split('\n')) - 1
+                if has_headers:
+                    nb_output_lines -= 1
+                r = nb_rows - nb_output_lines
+                if r > 0:
+                    print(
+                        f"Removed {r} rows from reverse search with banned words.")
+
+            # launch multiple threads searching for terms
+            if verbose:
+                mssg = "Launching asynchronous pools of threads xan search "
+                mssg += f"for {len(locations)} locations."
+                print(mssg)
+            start = time.time()
+            with concurrent.futures.ThreadPoolExecutor() as executor:
+                futures = [
+                    executor.submit(
+                        searchOccurrences,
+                        tmp.name,
+                        [makeRegex(' '.join(tokenizer(loc))) for loc in locations],
+                        search_col,
+                        allowed_emojis,
+                        banned_emojis,
+                        False)
+                    for locations in locations.values()
+                ]
+                # and collect results
+                results = [f.result() for f in futures]
+            if verbose:
+                print(f"Asynchronous searchs took {time.time() - start} seconds.")
+
+        # format results as dict and return
+        results = {loc: res for loc, res in zip(locations.keys(), results)}
 
     if verbose:
         for loc, res in results.items():
-            print(f"{loc}: {len(res)}")
+            if len(res) > 0:
+                print(f"Found {len(res)} matchs for location {loc}.")
 
     return results
