@@ -1,15 +1,25 @@
-import concurrent
+import concurrent.futures
+from argparse import ArgumentParser
+
 import pandas as pd
 from somecens.nuts.conf import \
     NUTS3AGE20_74, \
     NUTS3AGEunder19, \
     NUTS3AGE75plus, \
-    NUTS3AGECATS
+    NUTS3AGECATS, \
+    COUNTRYCODES
 
-country = 'france'
+
+# 0. parse arguments and set paths
+ap = ArgumentParser()
+ap.add_argument('--country', type=str, required=True)
+ap.add_argument('--year', type=int, default=2024)
+
+args = ap.parse_args()
+country = args.country
+year = args.year
+
 country_code = COUNTRYCODES[country]
-year = 2024
-
 
 def flatten(path, N):
 
@@ -60,7 +70,7 @@ finaldf.rename(columns={
     'F': "female",
     'M': "male",
     'T': "total",
-})
+}, inplace=True)
 
 filepath = f"somecens/nuts/data/nuts_age_flatten_{country}_{year}.csv"
 finaldf.to_csv(filepath, index=False)
