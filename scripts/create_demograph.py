@@ -35,7 +35,8 @@ SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits.yml")
 GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts2024.csv")
 AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts2024.jsonl")
 USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata2020.csv")
-DEFAULTSTOPWORDS = "le|la|de|en|au"
+# use nltk to get stop words ?
+DEFAULTSTOPWORDS = "le|la|de|en|au|à|aux"
 
 # 0. parse arguments and set paths
 ap = ArgumentParser()
@@ -131,7 +132,7 @@ if ageDist:
     demo.setAgeDistributions(ageDist)
 
 # show
-demo.showGeoUnits(max_level=0)
+demo.showGeoUnits(max_level=3)
 
 # 2. Match locations users from metadata and add information to demograph
 match_kwargs = {
@@ -159,6 +160,10 @@ if country == 'us':
     banned_words.remove('États-Unis')
     banned_words.remove('United States')
     banned_words.remove('United States Minor Outlying Islands')
+
+if country == 'netherlands':
+    banned_words.remove("Pays-Bas")
+    banned_words.remove("The Netherlands")
 
 locations = demo.getAllSubUnits(max_level=3)
 # print(f"LOCATIONS ARE:\n{yaml.dump(locations)}")
