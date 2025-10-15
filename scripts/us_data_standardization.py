@@ -19,8 +19,9 @@ FOLDER = os.path.join(DIRPATH, "data/us")
 DEFAULTYEAR = 5
 DATAPATH = os.path.join(FOLDER, "cc-est2023-alldata.csv")
 GEOUNITSPATH = os.path.join(FOLDER, f"us_geoUnits_year2023.csv")
-MDYEAR = 2025
-EPODBPATH = os.path.join(FOLDER, f"us_{MDYEAR}_pseudonymized_alldata.db")
+MDYEAR = 2023
+#EPODBPATH = os.path.join(FOLDER, f"us_{MDYEAR}_pseudonymized_alldata.db")
+EPODBPATH = "/mnt/hdd2/epodata/production/v0/pseudonymized_alldata/us_2023_pseudonymized_alldata_20250416.db"
 METADATAPATH = os.path.join(FOLDER, f"us_metadata{MDYEAR}.csv")
 
 # YEARDICT = {
@@ -175,13 +176,13 @@ os.system(f"xan head {genderDist} | xan v")
 # 3. Load metadata using auxiliar methods to request epo databases,
 # then export as csv
 
-# columns = ['pseudo_id', 'location', 'screen_name']
-# metadata = getMetadata(EPODBPATH, columns=columns, not_null_column="location")
+columns = ['pseudo_id', 'location', 'screen_name']
+metadata = getMetadata(EPODBPATH, columns=columns, not_null_column="location")
 
-# metadatapath = os.path.join(FOLDER, f"us_metadata{MDYEAR}.csv")
-# with open(metadatapath, 'w') as f:
-#     writer = csv.writer(f)
-#     writer.writerow(columns)
-#     writer.writerows(metadata)
-# print(f"Csv metadata file saved at {METADATAPATH}")
+metadatapath = os.path.join(FOLDER, f"us_metadata{MDYEAR}.csv")
+with open(metadatapath, 'w') as f:
+    writer = csv.writer(f)
+    writer.writerow(columns)
+    writer.writerows(metadata)
+print(f"Csv metadata file saved at {METADATAPATH}")
 
