@@ -145,7 +145,7 @@ def matchUsersLocations(
     data: Iterable[list[str]],
     stopwords: list[str],
     split_characters: list[str],
-    search_index: int,
+    search_index: int | Iterable[int],
     banned_words: Iterable[str] = [],
     allowed_emojis: Iterable[str] = [],
     banned_emojis: Iterable[str] = [],
@@ -176,6 +176,10 @@ def matchUsersLocations(
         msg += f"and split characters {split_characters}."
         print(msg)
 
+    # if needed convert search index to a list of int
+    if isinstance(search_index, int):
+            search_index = [search_index]
+
     # if needed convert dict value's from string to list
     for code, value in locations.items():
         if isinstance(value, str):
@@ -190,7 +194,7 @@ def matchUsersLocations(
 
     # for each tuple in data, normalize string at index using the tokenizer
     normalized = [
-        list(d) + [' '.join(tokenizer(d[search_index]))] for d in data]
+        list(d) + [' '.join([item for sublist in [tokenizer(d[i]) for i in search_index] for item in sublist])] for d in data]
 
     banned_regex = [makeRegex(' '.join(tokenizer(b))) for b in banned_words]
 
@@ -200,7 +204,6 @@ def matchUsersLocations(
     with tempfile.NamedTemporaryFile() as tmpBannedRegex:
         with open(tmpBannedRegex.name, 'w') as f:
             f.writelines('\n'.join(banned_regex))
-        print(tmpBannedRegex.name)
 
         # write normalized data to a tmp file to be used by the search method
         with tempfile.NamedTemporaryFile() as tmp:
