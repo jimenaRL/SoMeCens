@@ -1,0 +1,267 @@
+code,label,total,age,male,female
+LT,Lithuania,119444,LT5,61177,58267
+LT0,Lietuva,119444,LT5,61177,58267
+LT01,Sostinės regionas,41322,LT5,21096,20226
+LT011,Vilniaus apskritis,41322,LT5,21096,20226
+LT02,Vidurio ir vakarų Lietuvos regionas,78122,LT5,40081,38041
+LT021,Alytaus apskritis,4149,LT5,2155,1994
+LT022,Kauno apskritis,25203,LT5,13021,12182
+LT023,Klaipėdos apskritis,15140,LT5,7761,7379
+LT024,Marijampolės apskritis,4840,LT5,2484,2356
+LT025,Panevėžio apskritis,7067,LT5,3644,3423
+LT026,Šiaulių apskritis,9746,LT5,4950,4796
+LT027,Tauragės apskritis,3227,LT5,1573,1654
+LT028,Telšių apskritis,5050,LT5,2591,2459
+LT029,Utenos apskritis,3700,LT5,1902,1798
+LT,Lithuania,149106,5-9,76659,72447
+LT0,Lietuva,149106,5-9,76659,72447
+LT01,Sostinės regionas,50486,5-9,26153,24333
+LT011,Vilniaus apskritis,50486,5-9,26153,24333
+LT02,Vidurio ir vakarų Lietuvos regionas,98620,5-9,50506,48114
+LT021,Alytaus apskritis,5765,5-9,2914,2851
+LT022,Kauno apskritis,30360,5-9,15606,14754
+LT023,Klaipėdos apskritis,18826,5-9,9747,9079
+LT024,Marijampolės apskritis,6331,5-9,3214,3117
+LT025,Panevėžio apskritis,9147,5-9,4656,4491
+LT026,Šiaulių apskritis,12702,5-9,6473,6229
+LT027,Tauragės apskritis,4249,5-9,2149,2100
+LT028,Telšių apskritis,6365,5-9,3209,3156
+LT029,Utenos apskritis,4875,5-9,2538,2337
+LT,Lithuania,150333,10-14,76897,73436
+LT0,Lietuva,150333,10-14,76897,73436
+LT01,Sostinės regionas,48979,10-14,24963,24016
+LT011,Vilniaus apskritis,48979,10-14,24963,24016
+LT02,Vidurio ir vakarų Lietuvos regionas,101354,10-14,51934,49420
+LT021,Alytaus apskritis,6126,10-14,3165,2961
+LT022,Kauno apskritis,30741,10-14,15661,15080
+LT023,Klaipėdos apskritis,18978,10-14,9668,9310
+LT024,Marijampolės apskritis,6778,10-14,3546,3232
+LT025,Panevėžio apskritis,9529,10-14,4863,4666
+LT026,Šiaulių apskritis,12804,10-14,6585,6219
+LT027,Tauragės apskritis,4368,10-14,2290,2078
+LT028,Telšių apskritis,6929,10-14,3558,3371
+LT029,Utenos apskritis,5101,10-14,2598,2503
+LT,Lithuania,138595,15-19,70825,67770
+LT0,Lietuva,138595,15-19,70825,67770
+LT01,Sostinės regionas,41862,15-19,21330,20532
+LT011,Vilniaus apskritis,41862,15-19,21330,20532
+LT02,Vidurio ir vakarų Lietuvos regionas,96733,15-19,49495,47238
+LT021,Alytaus apskritis,5949,15-19,3020,2929
+LT022,Kauno apskritis,27757,15-19,14192,13565
+LT023,Klaipėdos apskritis,16867,15-19,8621,8246
+LT024,Marijampolės apskritis,6841,15-19,3560,3281
+LT025,Panevėžio apskritis,9899,15-19,5028,4871
+LT026,Šiaulių apskritis,12604,15-19,6344,6260
+LT027,Tauragės apskritis,4502,15-19,2340,2162
+LT028,Telšių apskritis,6914,15-19,3563,3351
+LT029,Utenos apskritis,5400,15-19,2827,2573
+LT,Lithuania,136341,20-24,70525,65816
+LT0,Lietuva,136341,20-24,70525,65816
+LT01,Sostinės regionas,38435,20-24,19738,18697
+LT011,Vilniaus apskritis,38435,20-24,19738,18697
+LT02,Vidurio ir vakarų Lietuvos regionas,97906,20-24,50787,47119
+LT021,Alytaus apskritis,6714,20-24,3438,3276
+LT022,Kauno apskritis,28202,20-24,14521,13681
+LT023,Klaipėdos apskritis,15036,20-24,7740,7296
+LT024,Marijampolės apskritis,7352,20-24,3788,3564
+LT025,Panevėžio apskritis,10421,20-24,5442,4979
+LT026,Šiaulių apskritis,12618,20-24,6658,5960
+LT027,Tauragės apskritis,4916,20-24,2583,2333
+LT028,Telšių apskritis,6881,20-24,3594,3287
+LT029,Utenos apskritis,5766,20-24,3023,2743
+LT,Lithuania,159361,25-29,83838,75523
+LT0,Lietuva,159361,25-29,83838,75523
+LT01,Sostinės regionas,47948,25-29,24868,23080
+LT011,Vilniaus apskritis,47948,25-29,24868,23080
+LT02,Vidurio ir vakarų Lietuvos regionas,111413,25-29,58970,52443
+LT021,Alytaus apskritis,7152,25-29,3860,3292
+LT022,Kauno apskritis,34759,25-29,17963,16796
+LT023,Klaipėdos apskritis,18026,25-29,9327,8699
+LT024,Marijampolės apskritis,7590,25-29,4076,3514
+LT025,Panevėžio apskritis,10864,25-29,5635,5229
+LT026,Šiaulių apskritis,14310,25-29,8016,6294
+LT027,Tauragės apskritis,5092,25-29,2783,2309
+LT028,Telšių apskritis,7157,25-29,3748,3409
+LT029,Utenos apskritis,6463,25-29,3562,2901
+LT,Lithuania,:,30-34,:,:
+LT0,Lietuva,206322,30-34,109004,97318
+LT01,Sostinės regionas,70006,30-34,36037,33969
+LT011,Vilniaus apskritis,70006,30-34,36037,33969
+LT02,Vidurio ir vakarų Lietuvos regionas,136316,30-34,72967,63349
+LT021,Alytaus apskritis,8231,30-34,4362,3869
+LT022,Kauno apskritis,42582,30-34,22275,20307
+LT023,Klaipėdos apskritis,24325,30-34,12618,11707
+LT024,Marijampolės apskritis,8529,30-34,4637,3892
+LT025,Panevėžio apskritis,12553,30-34,6592,5961
+LT026,Šiaulių apskritis,17925,30-34,10169,7756
+LT027,Tauragės apskritis,5907,30-34,3317,2590
+LT028,Telšių apskritis,8408,30-34,4467,3941
+LT029,Utenos apskritis,7856,30-34,4530,3326
+LT,Lithuania,218861,35-39,115731,103130
+LT0,Lietuva,218861,35-39,115731,103130
+LT01,Sostinės regionas,77864,35-39,40492,37372
+LT011,Vilniaus apskritis,77864,35-39,40492,37372
+LT02,Vidurio ir vakarų Lietuvos regionas,140997,35-39,75239,65758
+LT021,Alytaus apskritis,8065,35-39,4312,3753
+LT022,Kauno apskritis,44696,35-39,23245,21451
+LT023,Klaipėdos apskritis,26194,35-39,13605,12589
+LT024,Marijampolės apskritis,8572,35-39,4584,3988
+LT025,Panevėžio apskritis,12406,35-39,6401,6005
+LT026,Šiaulių apskritis,18919,35-39,10858,8061
+LT027,Tauragės apskritis,5757,35-39,3189,2568
+LT028,Telšių apskritis,8357,35-39,4477,3880
+LT029,Utenos apskritis,8031,35-39,4568,3463
+LT,Lithuania,196012,40-44,102330,93682
+LT0,Lietuva,196012,40-44,102330,93682
+LT01,Sostinės regionas,69289,40-44,35692,33597
+LT011,Vilniaus apskritis,69289,40-44,35692,33597
+LT02,Vidurio ir vakarų Lietuvos regionas,126723,40-44,66638,60085
+LT021,Alytaus apskritis,7734,40-44,3966,3768
+LT022,Kauno apskritis,39577,40-44,20593,18984
+LT023,Klaipėdos apskritis,23736,40-44,12437,11299
+LT024,Marijampolės apskritis,8039,40-44,4215,3824
+LT025,Panevėžio apskritis,11087,40-44,5561,5526
+LT026,Šiaulių apskritis,16664,40-44,9265,7399
+LT027,Tauragės apskritis,5101,40-44,2697,2404
+LT028,Telšių apskritis,7518,40-44,3907,3611
+LT029,Utenos apskritis,7267,40-44,3997,3270
+LT,Lithuania,:,45-49,:,:
+LT0,Lietuva,192158,45-49,96235,95923
+LT01,Sostinės regionas,61399,45-49,30751,30648
+LT011,Vilniaus apskritis,61399,45-49,30751,30648
+LT02,Vidurio ir vakarų Lietuvos regionas,130759,45-49,65484,65275
+LT021,Alytaus apskritis,8567,45-49,4223,4344
+LT022,Kauno apskritis,38092,45-49,18922,19170
+LT023,Klaipėdos apskritis,22658,45-49,11448,11210
+LT024,Marijampolės apskritis,8617,45-49,4305,4312
+LT025,Panevėžio apskritis,13348,45-49,6461,6887
+LT026,Šiaulių apskritis,17238,45-49,8907,8331
+LT027,Tauragės apskritis,5777,45-49,2952,2825
+LT028,Telšių apskritis,8434,45-49,4130,4304
+LT029,Utenos apskritis,8028,45-49,4136,3892
+LT,Lithuania,205320,50-54,99459,105861
+LT0,Lietuva,205320,50-54,99459,105861
+LT01,Sostinės regionas,57942,50-54,28099,29843
+LT011,Vilniaus apskritis,57942,50-54,28099,29843
+LT02,Vidurio ir vakarų Lietuvos regionas,147378,50-54,71360,76018
+LT021,Alytaus apskritis,10327,50-54,4965,5362
+LT022,Kauno apskritis,40019,50-54,19331,20688
+LT023,Klaipėdos apskritis,23604,50-54,11424,12180
+LT024,Marijampolės apskritis,10290,50-54,5033,5257
+LT025,Panevėžio apskritis,16254,50-54,7668,8586
+LT026,Šiaulių apskritis,20040,50-54,9870,10170
+LT027,Tauragės apskritis,7000,50-54,3400,3600
+LT028,Telšių apskritis,10201,50-54,4868,5333
+LT029,Utenos apskritis,9643,50-54,4801,4842
+LT,Lithuania,206240,55-59,96583,109657
+LT0,Lietuva,206240,55-59,96583,109657
+LT01,Sostinės regionas,53538,55-59,24787,28751
+LT011,Vilniaus apskritis,53538,55-59,24787,28751
+LT02,Vidurio ir vakarų Lietuvos regionas,152702,55-59,71796,80906
+LT021,Alytaus apskritis,11261,55-59,5356,5905
+LT022,Kauno apskritis,39956,55-59,18522,21434
+LT023,Klaipėdos apskritis,23398,55-59,11045,12353
+LT024,Marijampolės apskritis,10727,55-59,5117,5610
+LT025,Panevėžio apskritis,18020,55-59,8281,9739
+LT026,Šiaulių apskritis,21063,55-59,10068,10995
+LT027,Tauragės apskritis,7262,55-59,3407,3855
+LT028,Telšių apskritis,10275,55-59,4849,5426
+LT029,Utenos apskritis,10740,55-59,5151,5589
+LT,Lithuania,220814,60-64,98858,121956
+LT0,Lietuva,220814,60-64,98858,121956
+LT01,Sostinės regionas,57469,60-64,24839,32630
+LT011,Vilniaus apskritis,57469,60-64,24839,32630
+LT02,Vidurio ir vakarų Lietuvos regionas,163345,60-64,74019,89326
+LT021,Alytaus apskritis,12007,60-64,5557,6450
+LT022,Kauno apskritis,42812,60-64,18699,24113
+LT023,Klaipėdos apskritis,25609,60-64,11617,13992
+LT024,Marijampolės apskritis,11308,60-64,5314,5994
+LT025,Panevėžio apskritis,18835,60-64,8544,10291
+LT026,Šiaulių apskritis,22218,60-64,10054,12164
+LT027,Tauragės apskritis,7646,60-64,3633,4013
+LT028,Telšių apskritis,10797,60-64,4926,5871
+LT029,Utenos apskritis,12113,60-64,5675,6438
+LT,Lithuania,180129,65-69,75526,104603
+LT0,Lietuva,180129,65-69,75526,104603
+LT01,Sostinės regionas,47003,65-69,19043,27960
+LT011,Vilniaus apskritis,47003,65-69,19043,27960
+LT02,Vidurio ir vakarų Lietuvos regionas,133126,65-69,56483,76643
+LT021,Alytaus apskritis,9358,65-69,4005,5353
+LT022,Kauno apskritis,35798,65-69,14804,20994
+LT023,Klaipėdos apskritis,21647,65-69,9137,12510
+LT024,Marijampolės apskritis,9129,65-69,3955,5174
+LT025,Panevėžio apskritis,14556,65-69,6172,8384
+LT026,Šiaulių apskritis,17966,65-69,7735,10231
+LT027,Tauragės apskritis,6092,65-69,2649,3443
+LT028,Telšių apskritis,8861,65-69,3841,5020
+LT029,Utenos apskritis,9719,65-69,4185,5534
+LT,Lithuania,140957,70-74,53345,87612
+LT0,Lietuva,140957,70-74,53345,87612
+LT01,Sostinės regionas,37745,70-74,13776,23969
+LT011,Vilniaus apskritis,37745,70-74,13776,23969
+LT02,Vidurio ir vakarų Lietuvos regionas,103212,70-74,39569,63643
+LT021,Alytaus apskritis,7709,70-74,2967,4742
+LT022,Kauno apskritis,28716,70-74,10664,18052
+LT023,Klaipėdos apskritis,16527,70-74,6452,10075
+LT024,Marijampolės apskritis,6733,70-74,2714,4019
+LT025,Panevėžio apskritis,11248,70-74,4292,6956
+LT026,Šiaulių apskritis,13496,70-74,5129,8367
+LT027,Tauragės apskritis,4675,70-74,1832,2843
+LT028,Telšių apskritis,6671,70-74,2589,4082
+LT029,Utenos apskritis,7437,70-74,2930,4507
+LT,Lithuania,102702,75-79,34621,68081
+LT0,Lietuva,102702,75-79,34621,68081
+LT01,Sostinės regionas,27141,75-79,8850,18291
+LT011,Vilniaus apskritis,27141,75-79,8850,18291
+LT02,Vidurio ir vakarų Lietuvos regionas,75561,75-79,25771,49790
+LT021,Alytaus apskritis,5745,75-79,2043,3702
+LT022,Kauno apskritis,21668,75-79,7302,14366
+LT023,Klaipėdos apskritis,11295,75-79,3904,7391
+LT024,Marijampolės apskritis,4657,75-79,1642,3015
+LT025,Panevėžio apskritis,8705,75-79,2958,5747
+LT026,Šiaulių apskritis,10099,75-79,3358,6741
+LT027,Tauragės apskritis,3413,75-79,1121,2292
+LT028,Telšių apskritis,4768,75-79,1637,3131
+LT029,Utenos apskritis,5211,75-79,1806,3405
+LT,Lithuania,86971,80-84,25719,61252
+LT0,Lietuva,86971,80-84,25719,61252
+LT01,Sostinės regionas,21067,80-84,6374,14693
+LT011,Vilniaus apskritis,21067,80-84,6374,14693
+LT02,Vidurio ir vakarų Lietuvos regionas,65904,80-84,19345,46559
+LT021,Alytaus apskritis,4800,80-84,1397,3403
+LT022,Kauno apskritis,18878,80-84,5603,13275
+LT023,Klaipėdos apskritis,9503,80-84,2902,6601
+LT024,Marijampolės apskritis,4444,80-84,1272,3172
+LT025,Panevėžio apskritis,8045,80-84,2279,5766
+LT026,Šiaulių apskritis,8761,80-84,2506,6255
+LT027,Tauragės apskritis,2948,80-84,848,2100
+LT028,Telšių apskritis,3919,80-84,1156,2763
+LT029,Utenos apskritis,4606,80-84,1382,3224
+LT,Lithuania,52042,85-89,13314,38728
+LT0,Lietuva,52042,85-89,13314,38728
+LT01,Sostinės regionas,12963,85-89,3396,9567
+LT011,Vilniaus apskritis,12963,85-89,3396,9567
+LT02,Vidurio ir vakarų Lietuvos regionas,39079,85-89,9918,29161
+LT021,Alytaus apskritis,3042,85-89,769,2273
+LT022,Kauno apskritis,10540,85-89,2756,7784
+LT023,Klaipėdos apskritis,5942,85-89,1580,4362
+LT024,Marijampolės apskritis,2567,85-89,648,1919
+LT025,Panevėžio apskritis,4836,85-89,1210,3626
+LT026,Šiaulių apskritis,5204,85-89,1223,3981
+LT027,Tauragės apskritis,1764,85-89,414,1350
+LT028,Telšių apskritis,2331,85-89,606,1725
+LT029,Utenos apskritis,2853,85-89,712,2141
+LT,Lithuania,76225,GE85,18573,57652
+LT0,Lietuva,76225,GE85,18573,57652
+LT01,Sostinės regionas,18756,GE85,4710,14046
+LT011,Vilniaus apskritis,18756,GE85,4710,14046
+LT02,Vidurio ir vakarų Lietuvos regionas,57469,GE85,13863,43606
+LT021,Alytaus apskritis,4522,GE85,1081,3441
+LT022,Kauno apskritis,15614,GE85,3808,11806
+LT023,Klaipėdos apskritis,8462,GE85,2147,6315
+LT024,Marijampolės apskritis,3886,GE85,925,2961
+LT025,Panevėžio apskritis,7109,GE85,1711,5398
+LT026,Šiaulių apskritis,7630,GE85,1739,5891
+LT027,Tauragės apskritis,2602,GE85,583,2019
+LT028,Telšių apskritis,3408,GE85,859,2549
+LT029,Utenos apskritis,4236,GE85,1010,3226

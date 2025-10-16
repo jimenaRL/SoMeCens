@@ -1,0 +1,799 @@
+code,label,total,age,male,female
+HR,Croatia,172237,LT5,88204,84033
+HR0,Hrvatska,172237,LT5,88204,84033
+HR02,Panonska Hrvatska,42727,LT5,22004,20723
+HR021,Bjelovarsko-bilogorska županija,4622,LT5,2300,2322
+HR022,Virovitičko-podravska županija,2945,LT5,1489,1456
+HR023,Požeško-slavonska županija,2755,LT5,1406,1349
+HR024,Brodsko-posavska županija,5616,LT5,2873,2743
+HR025,Osječko-baranjska županija,10909,LT5,5664,5245
+HR026,Vukovarsko-srijemska županija,6029,LT5,3212,2817
+HR027,Karlovačka županija,4304,LT5,2187,2117
+HR028,Sisačko-moslavačka županija,5547,LT5,2873,2674
+HR03,Jadranska Hrvatska,56197,LT5,28733,27464
+HR031,Primorsko-goranska županija,9887,LT5,5010,4877
+HR032,Ličko-senjska županija,1804,LT5,924,880
+HR033,Zadarska županija,7529,LT5,3848,3681
+HR034,Šibensko-kninska županija,3896,LT5,1999,1897
+HR035,Splitsko-dalmatinska županija,19623,LT5,10105,9518
+HR036,Istarska županija,7937,LT5,4001,3936
+HR037,Dubrovačko-neretvanska županija,5521,LT5,2846,2675
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,LT5,:,:
+HR041,Grad Zagreb (NUTS 2016),:,LT5,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,LT5,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,LT5,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,LT5,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,LT5,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,LT5,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,LT5,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,LT5,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,LT5,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,LT5,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,LT5,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,LT5,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,LT5,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,LT5,:,:
+HR05,Grad Zagreb,37701,LT5,19326,18375
+HR050,Grad Zagreb,37701,LT5,19326,18375
+HR06,Sjeverna Hrvatska,35612,LT5,18141,17471
+HR061,Međimurska županija,5344,LT5,2751,2593
+HR062,Varaždinska županija,6506,LT5,3277,3229
+HR063,Koprivničko-križevačka županija,4512,LT5,2333,2179
+HR064,Krapinsko-zagorska županija,5135,LT5,2580,2555
+HR065,Zagrebačka županija,14115,LT5,7200,6915
+HR,Croatia,177158,5-9,90824,86334
+HR0,Hrvatska,177158,5-9,90824,86334
+HR02,Panonska Hrvatska,43722,5-9,22439,21283
+HR021,Bjelovarsko-bilogorska županija,4530,5-9,2350,2180
+HR022,Virovitičko-podravska županija,3006,5-9,1539,1467
+HR023,Požeško-slavonska županija,2766,5-9,1424,1342
+HR024,Brodsko-posavska županija,5630,5-9,2937,2693
+HR025,Osječko-baranjska županija,11220,5-9,5750,5470
+HR026,Vukovarsko-srijemska županija,6233,5-9,3165,3068
+HR027,Karlovačka županija,4650,5-9,2382,2268
+HR028,Sisačko-moslavačka županija,5687,5-9,2892,2795
+HR03,Jadranska Hrvatska,58504,5-9,30115,28389
+HR031,Primorsko-goranska županija,10756,5-9,5549,5207
+HR032,Ličko-senjska županija,1868,5-9,973,895
+HR033,Zadarska županija,7571,5-9,3914,3657
+HR034,Šibensko-kninska županija,3906,5-9,2003,1903
+HR035,Splitsko-dalmatinska županija,20146,5-9,10392,9754
+HR036,Istarska županija,8487,5-9,4395,4092
+HR037,Dubrovačko-neretvanska županija,5770,5-9,2889,2881
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,5-9,:,:
+HR041,Grad Zagreb (NUTS 2016),:,5-9,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,5-9,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,5-9,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,5-9,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,5-9,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,5-9,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,5-9,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,5-9,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,5-9,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,5-9,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,5-9,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,5-9,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,5-9,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,5-9,:,:
+HR05,Grad Zagreb,38048,5-9,19485,18563
+HR050,Grad Zagreb,38048,5-9,19485,18563
+HR06,Sjeverna Hrvatska,36884,5-9,18785,18099
+HR061,Međimurska županija,5647,5-9,2903,2744
+HR062,Varaždinska županija,6885,5-9,3491,3394
+HR063,Koprivničko-križevačka županija,4686,5-9,2382,2304
+HR064,Krapinsko-zagorska županija,5285,5-9,2719,2566
+HR065,Zagrebačka županija,14381,5-9,7290,7091
+HR,Croatia,192820,10-14,99181,93639
+HR0,Hrvatska,192820,10-14,99181,93639
+HR02,Panonska Hrvatska,48613,10-14,24978,23635
+HR021,Bjelovarsko-bilogorska županija,4972,10-14,2667,2305
+HR022,Virovitičko-podravska županija,3549,10-14,1855,1694
+HR023,Požeško-slavonska županija,3125,10-14,1622,1503
+HR024,Brodsko-posavska županija,6451,10-14,3328,3123
+HR025,Osječko-baranjska županija,12319,10-14,6252,6067
+HR026,Vukovarsko-srijemska županija,6870,10-14,3552,3318
+HR027,Karlovačka županija,5026,10-14,2510,2516
+HR028,Sisačko-moslavačka županija,6301,10-14,3192,3109
+HR03,Jadranska Hrvatska,64273,10-14,33055,31218
+HR031,Primorsko-goranska županija,11873,10-14,6061,5812
+HR032,Ličko-senjska županija,1959,10-14,992,967
+HR033,Zadarska županija,8378,10-14,4346,4032
+HR034,Šibensko-kninska županija,4388,10-14,2208,2180
+HR035,Splitsko-dalmatinska županija,22274,10-14,11527,10747
+HR036,Istarska županija,9340,10-14,4854,4486
+HR037,Dubrovačko-neretvanska županija,6061,10-14,3067,2994
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,10-14,:,:
+HR041,Grad Zagreb (NUTS 2016),:,10-14,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,10-14,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,10-14,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,10-14,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,10-14,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,10-14,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,10-14,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,10-14,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,10-14,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,10-14,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,10-14,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,10-14,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,10-14,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,10-14,:,:
+HR05,Grad Zagreb,39436,10-14,20285,19151
+HR050,Grad Zagreb,39436,10-14,20285,19151
+HR06,Sjeverna Hrvatska,40498,10-14,20863,19635
+HR061,Međimurska županija,5796,10-14,2998,2798
+HR062,Varaždinska županija,7843,10-14,3984,3859
+HR063,Koprivničko-križevačka županija,5056,10-14,2640,2416
+HR064,Krapinsko-zagorska županija,5782,10-14,2985,2797
+HR065,Zagrebačka županija,16021,10-14,8256,7765
+HR,Croatia,193350,15-19,99859,93491
+HR0,Hrvatska,193350,15-19,99859,93491
+HR02,Panonska Hrvatska,51673,15-19,26599,25074
+HR021,Bjelovarsko-bilogorska županija,5165,15-19,2668,2497
+HR022,Virovitičko-podravska županija,3632,15-19,1862,1770
+HR023,Požeško-slavonska županija,3468,15-19,1797,1671
+HR024,Brodsko-posavska županija,6992,15-19,3707,3285
+HR025,Osječko-baranjska županija,12647,15-19,6497,6150
+HR026,Vukovarsko-srijemska županija,7818,15-19,3993,3825
+HR027,Karlovačka županija,5324,15-19,2721,2603
+HR028,Sisačko-moslavačka županija,6627,15-19,3354,3273
+HR03,Jadranska Hrvatska,63735,15-19,32937,30798
+HR031,Primorsko-goranska županija,11381,15-19,5914,5467
+HR032,Ličko-senjska županija,2018,15-19,1059,959
+HR033,Zadarska županija,8348,15-19,4315,4033
+HR034,Šibensko-kninska županija,4348,15-19,2235,2113
+HR035,Splitsko-dalmatinska županija,22731,15-19,11587,11144
+HR036,Istarska županija,9100,15-19,4805,4295
+HR037,Dubrovačko-neretvanska županija,5809,15-19,3022,2787
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,15-19,:,:
+HR041,Grad Zagreb (NUTS 2016),:,15-19,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,15-19,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,15-19,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,15-19,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,15-19,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,15-19,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,15-19,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,15-19,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,15-19,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,15-19,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,15-19,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,15-19,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,15-19,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,15-19,:,:
+HR05,Grad Zagreb,36391,15-19,18758,17633
+HR050,Grad Zagreb,36391,15-19,18758,17633
+HR06,Sjeverna Hrvatska,41551,15-19,21565,19986
+HR061,Međimurska županija,5662,15-19,2925,2737
+HR062,Varaždinska županija,8445,15-19,4389,4056
+HR063,Koprivničko-križevačka županija,5281,15-19,2827,2454
+HR064,Krapinsko-zagorska županija,5933,15-19,3064,2869
+HR065,Zagrebačka županija,16230,15-19,8360,7870
+HR,Croatia,199717,20-24,104576,95141
+HR0,Hrvatska,199717,20-24,104576,95141
+HR02,Panonska Hrvatska,53509,20-24,28096,25413
+HR021,Bjelovarsko-bilogorska županija,5126,20-24,2652,2474
+HR022,Virovitičko-podravska županija,3605,20-24,1899,1706
+HR023,Požeško-slavonska županija,3452,20-24,1797,1655
+HR024,Brodsko-posavska županija,7468,20-24,4026,3442
+HR025,Osječko-baranjska županija,13611,20-24,6985,6626
+HR026,Vukovarsko-srijemska županija,7930,20-24,4192,3738
+HR027,Karlovačka županija,5377,20-24,2872,2505
+HR028,Sisačko-moslavačka županija,6940,20-24,3673,3267
+HR03,Jadranska Hrvatska,65627,20-24,34128,31499
+HR031,Primorsko-goranska županija,11691,20-24,6034,5657
+HR032,Ličko-senjska županija,2077,20-24,1096,981
+HR033,Zadarska županija,8606,20-24,4449,4157
+HR034,Šibensko-kninska županija,4740,20-24,2525,2215
+HR035,Splitsko-dalmatinska županija,23740,20-24,12179,11561
+HR036,Istarska županija,9003,20-24,4845,4158
+HR037,Dubrovačko-neretvanska županija,5770,20-24,3000,2770
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,20-24,:,:
+HR041,Grad Zagreb (NUTS 2016),:,20-24,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,20-24,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,20-24,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,20-24,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,20-24,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,20-24,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,20-24,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,20-24,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,20-24,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,20-24,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,20-24,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,20-24,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,20-24,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,20-24,:,:
+HR05,Grad Zagreb,37800,20-24,19760,18040
+HR050,Grad Zagreb,37800,20-24,19760,18040
+HR06,Sjeverna Hrvatska,42781,20-24,22592,20189
+HR061,Međimurska županija,5810,20-24,3128,2682
+HR062,Varaždinska županija,8772,20-24,4586,4186
+HR063,Koprivničko-križevačka županija,5350,20-24,2795,2555
+HR064,Krapinsko-zagorska županija,6431,20-24,3360,3071
+HR065,Zagrebačka županija,16418,20-24,8723,7695
+HR,Croatia,226394,25-29,118221,108173
+HR0,Hrvatska,226394,25-29,118221,108173
+HR02,Panonska Hrvatska,55967,25-29,30009,25958
+HR021,Bjelovarsko-bilogorska županija,5634,25-29,3034,2600
+HR022,Virovitičko-podravska županija,3839,25-29,2015,1824
+HR023,Požeško-slavonska županija,3537,25-29,1895,1642
+HR024,Brodsko-posavska županija,7499,25-29,4159,3340
+HR025,Osječko-baranjska županija,14790,25-29,7783,7007
+HR026,Vukovarsko-srijemska županija,7709,25-29,4057,3652
+HR027,Karlovačka županija,5532,25-29,2967,2565
+HR028,Sisačko-moslavačka županija,7427,25-29,4099,3328
+HR03,Jadranska Hrvatska,74049,25-29,38186,35863
+HR031,Primorsko-goranska županija,13453,25-29,7005,6448
+HR032,Ličko-senjska županija,2386,25-29,1261,1125
+HR033,Zadarska županija,9750,25-29,4988,4762
+HR034,Šibensko-kninska županija,5175,25-29,2730,2445
+HR035,Splitsko-dalmatinska županija,26017,25-29,13157,12860
+HR036,Istarska županija,10303,25-29,5341,4962
+HR037,Dubrovačko-neretvanska županija,6965,25-29,3704,3261
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,25-29,:,:
+HR041,Grad Zagreb (NUTS 2016),:,25-29,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,25-29,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,25-29,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,25-29,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,25-29,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,25-29,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,25-29,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,25-29,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,25-29,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,25-29,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,25-29,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,25-29,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,25-29,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,25-29,:,:
+HR05,Grad Zagreb,49761,25-29,25223,24538
+HR050,Grad Zagreb,49761,25-29,25223,24538
+HR06,Sjeverna Hrvatska,46617,25-29,24803,21814
+HR061,Međimurska županija,6018,25-29,3203,2815
+HR062,Varaždinska županija,9514,25-29,5113,4401
+HR063,Koprivničko-križevačka županija,5628,25-29,3020,2608
+HR064,Krapinsko-zagorska županija,7191,25-29,3725,3466
+HR065,Zagrebačka županija,18266,25-29,9742,8524
+HR,Croatia,225010,30-34,116646,108364
+HR0,Hrvatska,225010,30-34,116646,108364
+HR02,Panonska Hrvatska,51089,30-34,27170,23919
+HR021,Bjelovarsko-bilogorska županija,5034,30-34,2672,2362
+HR022,Virovitičko-podravska županija,3459,30-34,1860,1599
+HR023,Požeško-slavonska županija,3013,30-34,1573,1440
+HR024,Brodsko-posavska županija,6454,30-34,3516,2938
+HR025,Osječko-baranjska županija,13926,30-34,7291,6635
+HR026,Vukovarsko-srijemska županija,6781,30-34,3603,3178
+HR027,Karlovačka županija,5787,30-34,3035,2752
+HR028,Sisačko-moslavačka županija,6635,30-34,3620,3015
+HR03,Jadranska Hrvatska,74993,30-34,38441,36552
+HR031,Primorsko-goranska županija,14501,30-34,7329,7172
+HR032,Ličko-senjska županija,2297,30-34,1140,1157
+HR033,Zadarska županija,9300,30-34,4777,4523
+HR034,Šibensko-kninska županija,4812,30-34,2507,2305
+HR035,Splitsko-dalmatinska županija,25839,30-34,13262,12577
+HR036,Istarska županija,11434,30-34,5927,5507
+HR037,Dubrovačko-neretvanska županija,6810,30-34,3499,3311
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,30-34,:,:
+HR041,Grad Zagreb (NUTS 2016),:,30-34,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,30-34,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,30-34,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,30-34,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,30-34,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,30-34,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,30-34,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,30-34,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,30-34,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,30-34,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,30-34,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,30-34,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,30-34,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,30-34,:,:
+HR05,Grad Zagreb,53191,30-34,26619,26572
+HR050,Grad Zagreb,53191,30-34,26619,26572
+HR06,Sjeverna Hrvatska,45737,30-34,24416,21321
+HR061,Međimurska županija,5956,30-34,3147,2809
+HR062,Varaždinska županija,9182,30-34,5025,4157
+HR063,Koprivničko-križevačka županija,5409,30-34,2924,2485
+HR064,Krapinsko-zagorska županija,7087,30-34,3762,3325
+HR065,Zagrebačka županija,18103,30-34,9558,8545
+HR,Croatia,250806,35-39,128659,122147
+HR0,Hrvatska,250806,35-39,128659,122147
+HR02,Panonska Hrvatska,58676,35-39,30614,28062
+HR021,Bjelovarsko-bilogorska županija,5707,35-39,2960,2747
+HR022,Virovitičko-podravska županija,4010,35-39,2053,1957
+HR023,Požeško-slavonska županija,3389,35-39,1729,1660
+HR024,Brodsko-posavska županija,7390,35-39,3893,3497
+HR025,Osječko-baranjska županija,15729,35-39,8180,7549
+HR026,Vukovarsko-srijemska županija,7937,35-39,4138,3799
+HR027,Karlovačka županija,6808,35-39,3591,3217
+HR028,Sisačko-moslavačka županija,7706,35-39,4070,3636
+HR03,Jadranska Hrvatska,83998,35-39,42633,41365
+HR031,Primorsko-goranska županija,17174,35-39,8668,8506
+HR032,Ličko-senjska županija,2494,35-39,1282,1212
+HR033,Zadarska županija,9936,35-39,5044,4892
+HR034,Šibensko-kninska županija,5427,35-39,2763,2664
+HR035,Splitsko-dalmatinska županija,27603,35-39,13972,13631
+HR036,Istarska županija,13826,35-39,7071,6755
+HR037,Dubrovačko-neretvanska županija,7538,35-39,3833,3705
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,35-39,:,:
+HR041,Grad Zagreb (NUTS 2016),:,35-39,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,35-39,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,35-39,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,35-39,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,35-39,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,35-39,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,35-39,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,35-39,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,35-39,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,35-39,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,35-39,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,35-39,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,35-39,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,35-39,:,:
+HR05,Grad Zagreb,56513,35-39,28355,28158
+HR050,Grad Zagreb,56513,35-39,28355,28158
+HR06,Sjeverna Hrvatska,51619,35-39,27057,24562
+HR061,Međimurska županija,6847,35-39,3561,3286
+HR062,Varaždinska županija,10731,35-39,5718,5013
+HR063,Koprivničko-križevačka županija,6094,35-39,3198,2896
+HR064,Krapinsko-zagorska županija,7723,35-39,4012,3711
+HR065,Zagrebačka županija,20224,35-39,10568,9656
+HR,Croatia,269540,40-44,137188,132352
+HR0,Hrvatska,269540,40-44,137188,132352
+HR02,Panonska Hrvatska,62721,40-44,32369,30352
+HR021,Bjelovarsko-bilogorska županija,6158,40-44,3223,2935
+HR022,Virovitičko-podravska županija,4405,40-44,2291,2114
+HR023,Požeško-slavonska županija,3724,40-44,1879,1845
+HR024,Brodsko-posavska županija,7527,40-44,4001,3526
+HR025,Osječko-baranjska županija,16465,40-44,8326,8139
+HR026,Vukovarsko-srijemska županija,8306,40-44,4194,4112
+HR027,Karlovačka županija,7578,40-44,3961,3617
+HR028,Sisačko-moslavačka županija,8558,40-44,4494,4064
+HR03,Jadranska Hrvatska,90163,40-44,45675,44488
+HR031,Primorsko-goranska županija,19497,40-44,9938,9559
+HR032,Ličko-senjska županija,2643,40-44,1324,1319
+HR033,Zadarska županija,10913,40-44,5459,5454
+HR034,Šibensko-kninska županija,5876,40-44,3046,2830
+HR035,Splitsko-dalmatinska županija,28490,40-44,14334,14156
+HR036,Istarska županija,14959,40-44,7605,7354
+HR037,Dubrovačko-neretvanska županija,7785,40-44,3969,3816
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,40-44,:,:
+HR041,Grad Zagreb (NUTS 2016),:,40-44,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,40-44,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,40-44,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,40-44,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,40-44,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,40-44,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,40-44,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,40-44,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,40-44,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,40-44,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,40-44,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,40-44,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,40-44,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,40-44,:,:
+HR05,Grad Zagreb,60702,40-44,29999,30703
+HR050,Grad Zagreb,60702,40-44,29999,30703
+HR06,Sjeverna Hrvatska,55954,40-44,29145,26809
+HR061,Međimurska županija,7269,40-44,3739,3530
+HR062,Varaždinska županija,11682,40-44,6100,5582
+HR063,Koprivničko-križevačka županija,6629,40-44,3448,3181
+HR064,Krapinsko-zagorska županija,8080,40-44,4216,3864
+HR065,Zagrebačka županija,22294,40-44,11642,10652
+HR,Croatia,262867,45-49,132250,130617
+HR0,Hrvatska,262867,45-49,132250,130617
+HR02,Panonska Hrvatska,63210,45-49,31927,31283
+HR021,Bjelovarsko-bilogorska županija,6370,45-49,3280,3090
+HR022,Virovitičko-podravska županija,4305,45-49,2112,2193
+HR023,Požeško-slavonska županija,3822,45-49,1887,1935
+HR024,Brodsko-posavska županija,7785,45-49,3897,3888
+HR025,Osječko-baranjska županija,15939,45-49,7898,8041
+HR026,Vukovarsko-srijemska županija,8602,45-49,4383,4219
+HR027,Karlovačka županija,7450,45-49,3820,3630
+HR028,Sisačko-moslavačka županija,8937,45-49,4650,4287
+HR03,Jadranska Hrvatska,89019,45-49,44871,44148
+HR031,Primorsko-goranska županija,19117,45-49,9636,9481
+HR032,Ličko-senjska županija,2697,45-49,1369,1328
+HR033,Zadarska županija,10794,45-49,5287,5507
+HR034,Šibensko-kninska županija,5939,45-49,3070,2869
+HR035,Splitsko-dalmatinska županija,28441,45-49,14165,14276
+HR036,Istarska županija,14365,45-49,7360,7005
+HR037,Dubrovačko-neretvanska županija,7666,45-49,3984,3682
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,45-49,:,:
+HR041,Grad Zagreb (NUTS 2016),:,45-49,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,45-49,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,45-49,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,45-49,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,45-49,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,45-49,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,45-49,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,45-49,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,45-49,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,45-49,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,45-49,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,45-49,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,45-49,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,45-49,:,:
+HR05,Grad Zagreb,55977,45-49,27339,28638
+HR050,Grad Zagreb,55977,45-49,27339,28638
+HR06,Sjeverna Hrvatska,54661,45-49,28113,26548
+HR061,Međimurska županija,6971,45-49,3581,3390
+HR062,Varaždinska županija,11023,45-49,5763,5260
+HR063,Koprivničko-križevačka županija,6548,45-49,3390,3158
+HR064,Krapinsko-zagorska županija,8115,45-49,4116,3999
+HR065,Zagrebačka županija,22004,45-49,11263,10741
+HR,Croatia,253935,50-54,126249,127686
+HR0,Hrvatska,253935,50-54,126249,127686
+HR02,Panonska Hrvatska,64930,50-54,32737,32193
+HR021,Bjelovarsko-bilogorska županija,6453,50-54,3221,3232
+HR022,Virovitičko-podravska županija,4330,50-54,2121,2209
+HR023,Požeško-slavonska županija,4025,50-54,2042,1983
+HR024,Brodsko-posavska županija,8328,50-54,4309,4019
+HR025,Osječko-baranjska županija,16421,50-54,8041,8380
+HR026,Vukovarsko-srijemska županija,9012,50-54,4599,4413
+HR027,Karlovačka županija,7222,50-54,3722,3500
+HR028,Sisačko-moslavačka županija,9139,50-54,4682,4457
+HR03,Jadranska Hrvatska,84875,50-54,42222,42653
+HR031,Primorsko-goranska županija,17630,50-54,8681,8949
+HR032,Ličko-senjska županija,2888,50-54,1530,1358
+HR033,Zadarska županija,10336,50-54,5100,5236
+HR034,Šibensko-kninska županija,5939,50-54,3027,2912
+HR035,Splitsko-dalmatinska županija,27867,50-54,13868,13999
+HR036,Istarska županija,12971,50-54,6415,6556
+HR037,Dubrovačko-neretvanska županija,7244,50-54,3601,3643
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,50-54,:,:
+HR041,Grad Zagreb (NUTS 2016),:,50-54,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,50-54,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,50-54,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,50-54,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,50-54,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,50-54,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,50-54,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,50-54,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,50-54,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,50-54,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,50-54,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,50-54,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,50-54,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,50-54,:,:
+HR05,Grad Zagreb,51123,50-54,24534,26589
+HR050,Grad Zagreb,51123,50-54,24534,26589
+HR06,Sjeverna Hrvatska,53007,50-54,26756,26251
+HR061,Međimurska županija,6464,50-54,3186,3278
+HR062,Varaždinska županija,10897,50-54,5532,5365
+HR063,Koprivničko-križevačka županija,6737,50-54,3331,3406
+HR064,Krapinsko-zagorska županija,8377,50-54,4307,4070
+HR065,Zagrebačka županija,20532,50-54,10400,10132
+HR,Croatia,270581,55-59,130617,139964
+HR0,Hrvatska,270581,55-59,130617,139964
+HR02,Panonska Hrvatska,75236,55-59,36894,38342
+HR021,Bjelovarsko-bilogorska županija,7254,55-59,3569,3685
+HR022,Virovitičko-podravska županija,5423,55-59,2667,2756
+HR023,Požeško-slavonska županija,4634,55-59,2316,2318
+HR024,Brodsko-posavska županija,9586,55-59,4681,4905
+HR025,Osječko-baranjska županija,19302,55-59,9300,10002
+HR026,Vukovarsko-srijemska županija,10489,55-59,5137,5352
+HR027,Karlovačka županija,8304,55-59,4113,4191
+HR028,Sisačko-moslavačka županija,10244,55-59,5111,5133
+HR03,Jadranska Hrvatska,90170,55-59,43468,46702
+HR031,Primorsko-goranska županija,18143,55-59,8517,9626
+HR032,Ličko-senjska županija,3242,55-59,1683,1559
+HR033,Zadarska županija,11045,55-59,5408,5637
+HR034,Šibensko-kninska županija,6781,55-59,3331,3450
+HR035,Splitsko-dalmatinska županija,28894,55-59,13991,14903
+HR036,Istarska županija,14334,55-59,6800,7534
+HR037,Dubrovačko-neretvanska županija,7731,55-59,3738,3993
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,55-59,:,:
+HR041,Grad Zagreb (NUTS 2016),:,55-59,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,55-59,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,55-59,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,55-59,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,55-59,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,55-59,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,55-59,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,55-59,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,55-59,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,55-59,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,55-59,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,55-59,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,55-59,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,55-59,:,:
+HR05,Grad Zagreb,48939,55-59,22808,26131
+HR050,Grad Zagreb,48939,55-59,22808,26131
+HR06,Sjeverna Hrvatska,56236,55-59,27447,28789
+HR061,Međimurska županija,7195,55-59,3496,3699
+HR062,Varaždinska županija,11726,55-59,5770,5956
+HR063,Koprivničko-križevačka županija,7460,55-59,3651,3809
+HR064,Krapinsko-zagorska županija,9308,55-59,4605,4703
+HR065,Zagrebačka županija,20547,55-59,9925,10622
+HR,Croatia,278552,60-64,131233,147319
+HR0,Hrvatska,278552,60-64,131233,147319
+HR02,Panonska Hrvatska,80115,60-64,38388,41727
+HR021,Bjelovarsko-bilogorska županija,7866,60-64,3747,4119
+HR022,Virovitičko-podravska županija,5729,60-64,2746,2983
+HR023,Požeško-slavonska županija,4835,60-64,2345,2490
+HR024,Brodsko-posavska županija,10296,60-64,5010,5286
+HR025,Osječko-baranjska županija,20334,60-64,9638,10696
+HR026,Vukovarsko-srijemska županija,11237,60-64,5434,5803
+HR027,Karlovačka županija,8922,60-64,4220,4702
+HR028,Sisačko-moslavačka županija,10896,60-64,5248,5648
+HR03,Jadranska Hrvatska,94804,60-64,44974,49830
+HR031,Primorsko-goranska županija,19881,60-64,9238,10643
+HR032,Ličko-senjska županija,3342,60-64,1694,1648
+HR033,Zadarska županija,11035,60-64,5333,5702
+HR034,Šibensko-kninska županija,7387,60-64,3575,3812
+HR035,Splitsko-dalmatinska županija,29620,60-64,14062,15558
+HR036,Istarska županija,15643,60-64,7349,8294
+HR037,Dubrovačko-neretvanska županija,7896,60-64,3723,4173
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,60-64,:,:
+HR041,Grad Zagreb (NUTS 2016),:,60-64,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,60-64,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,60-64,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,60-64,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,60-64,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,60-64,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,60-64,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,60-64,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,60-64,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,60-64,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,60-64,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,60-64,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,60-64,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,60-64,:,:
+HR05,Grad Zagreb,46767,60-64,20709,26058
+HR050,Grad Zagreb,46767,60-64,20709,26058
+HR06,Sjeverna Hrvatska,56866,60-64,27162,29704
+HR061,Međimurska županija,7483,60-64,3552,3931
+HR062,Varaždinska županija,11778,60-64,5645,6133
+HR063,Koprivničko-križevačka županija,7714,60-64,3712,4002
+HR064,Krapinsko-zagorska županija,9182,60-64,4524,4658
+HR065,Zagrebačka županija,20709,60-64,9729,10980
+HR,Croatia,278105,65-69,128572,149533
+HR0,Hrvatska,278105,65-69,128572,149533
+HR02,Panonska Hrvatska,79042,65-69,37162,41880
+HR021,Bjelovarsko-bilogorska županija,7956,65-69,3760,4196
+HR022,Virovitičko-podravska županija,5422,65-69,2532,2890
+HR023,Požeško-slavonska županija,4911,65-69,2319,2592
+HR024,Brodsko-posavska županija,9881,65-69,4712,5169
+HR025,Osječko-baranjska županija,19881,65-69,9268,10613
+HR026,Vukovarsko-srijemska županija,10882,65-69,5024,5858
+HR027,Karlovačka županija,9066,65-69,4332,4734
+HR028,Sisačko-moslavačka županija,11043,65-69,5215,5828
+HR03,Jadranska Hrvatska,97088,65-69,45689,51399
+HR031,Primorsko-goranska županija,20931,65-69,9582,11349
+HR032,Ličko-senjska županija,3390,65-69,1720,1670
+HR033,Zadarska županija,11753,65-69,5701,6052
+HR034,Šibensko-kninska županija,7924,65-69,3935,3989
+HR035,Splitsko-dalmatinska županija,29768,65-69,13842,15926
+HR036,Istarska županija,15350,65-69,7166,8184
+HR037,Dubrovačko-neretvanska županija,7972,65-69,3743,4229
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,65-69,:,:
+HR041,Grad Zagreb (NUTS 2016),:,65-69,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,65-69,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,65-69,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,65-69,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,65-69,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,65-69,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,65-69,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,65-69,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,65-69,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,65-69,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,65-69,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,65-69,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,65-69,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,65-69,:,:
+HR05,Grad Zagreb,46725,65-69,19844,26881
+HR050,Grad Zagreb,46725,65-69,19844,26881
+HR06,Sjeverna Hrvatska,55250,65-69,25877,29373
+HR061,Međimurska županija,7383,65-69,3580,3803
+HR062,Varaždinska županija,11002,65-69,5202,5800
+HR063,Koprivničko-križevačka županija,7371,65-69,3507,3864
+HR064,Krapinsko-zagorska županija,8334,65-69,3966,4368
+HR065,Zagrebačka županija,21160,65-69,9622,11538
+HR,Croatia,238892,70-74,105625,133267
+HR0,Hrvatska,238892,70-74,105625,133267
+HR02,Panonska Hrvatska,63856,70-74,28410,35446
+HR021,Bjelovarsko-bilogorska županija,6651,70-74,2997,3654
+HR022,Virovitičko-podravska županija,4288,70-74,1939,2349
+HR023,Požeško-slavonska županija,3914,70-74,1771,2143
+HR024,Brodsko-posavska županija,7832,70-74,3510,4322
+HR025,Osječko-baranjska županija,15465,70-74,6844,8621
+HR026,Vukovarsko-srijemska županija,8971,70-74,3883,5088
+HR027,Karlovačka županija,7210,70-74,3273,3937
+HR028,Sisačko-moslavačka županija,9525,70-74,4193,5332
+HR03,Jadranska Hrvatska,86845,70-74,39624,47221
+HR031,Primorsko-goranska županija,19674,70-74,8713,10961
+HR032,Ličko-senjska županija,2742,70-74,1279,1463
+HR033,Zadarska županija,10817,70-74,5175,5642
+HR034,Šibensko-kninska županija,7090,70-74,3375,3715
+HR035,Splitsko-dalmatinska županija,25821,70-74,11642,14179
+HR036,Istarska županija,13485,70-74,6152,7333
+HR037,Dubrovačko-neretvanska županija,7216,70-74,3288,3928
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,70-74,:,:
+HR041,Grad Zagreb (NUTS 2016),:,70-74,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,70-74,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,70-74,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,70-74,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,70-74,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,70-74,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,70-74,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,70-74,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,70-74,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,70-74,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,70-74,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,70-74,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,70-74,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,70-74,:,:
+HR05,Grad Zagreb,42033,70-74,17146,24887
+HR050,Grad Zagreb,42033,70-74,17146,24887
+HR06,Sjeverna Hrvatska,46158,70-74,20445,25713
+HR061,Međimurska županija,6197,70-74,2864,3333
+HR062,Varaždinska županija,8926,70-74,3904,5022
+HR063,Koprivničko-križevačka županija,6124,70-74,2721,3403
+HR064,Krapinsko-zagorska županija,6772,70-74,2997,3775
+HR065,Zagrebačka županija,18139,70-74,7959,10180
+HR,Croatia,159852,75-79,65262,94590
+HR0,Hrvatska,159852,75-79,65262,94590
+HR02,Panonska Hrvatska,41219,75-79,16363,24856
+HR021,Bjelovarsko-bilogorska županija,4116,75-79,1654,2462
+HR022,Virovitičko-podravska županija,2675,75-79,1035,1640
+HR023,Požeško-slavonska županija,2521,75-79,994,1527
+HR024,Brodsko-posavska županija,5248,75-79,2098,3150
+HR025,Osječko-baranjska županija,10125,75-79,3908,6217
+HR026,Vukovarsko-srijemska županija,5880,75-79,2298,3582
+HR027,Karlovačka županija,4583,75-79,1898,2685
+HR028,Sisačko-moslavačka županija,6071,75-79,2478,3593
+HR03,Jadranska Hrvatska,58304,75-79,25371,32933
+HR031,Primorsko-goranska županija,12677,75-79,5428,7249
+HR032,Ličko-senjska županija,1865,75-79,773,1092
+HR033,Zadarska županija,7622,75-79,3435,4187
+HR034,Šibensko-kninska županija,4912,75-79,2253,2659
+HR035,Splitsko-dalmatinska županija,17903,75-79,7590,10313
+HR036,Istarska županija,8345,75-79,3726,4619
+HR037,Dubrovačko-neretvanska županija,4980,75-79,2166,2814
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,75-79,:,:
+HR041,Grad Zagreb (NUTS 2016),:,75-79,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,75-79,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,75-79,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,75-79,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,75-79,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,75-79,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,75-79,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,75-79,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,75-79,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,75-79,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,75-79,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,75-79,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,75-79,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,75-79,:,:
+HR05,Grad Zagreb,29663,75-79,11017,18646
+HR050,Grad Zagreb,29663,75-79,11017,18646
+HR06,Sjeverna Hrvatska,30666,75-79,12511,18155
+HR061,Međimurska županija,3821,75-79,1599,2222
+HR062,Varaždinska županija,6099,75-79,2465,3634
+HR063,Koprivničko-križevačka županija,3980,75-79,1571,2409
+HR064,Krapinsko-zagorska županija,4557,75-79,1818,2739
+HR065,Zagrebačka županija,12209,75-79,5058,7151
+HR,Croatia,118257,80-84,43416,74841
+HR0,Hrvatska,118257,80-84,43416,74841
+HR02,Panonska Hrvatska,30852,80-84,10624,20228
+HR021,Bjelovarsko-bilogorska županija,2997,80-84,992,2005
+HR022,Virovitičko-podravska županija,1996,80-84,657,1339
+HR023,Požeško-slavonska županija,2011,80-84,664,1347
+HR024,Brodsko-posavska županija,3979,80-84,1381,2598
+HR025,Osječko-baranjska županija,7436,80-84,2621,4815
+HR026,Vukovarsko-srijemska županija,4284,80-84,1459,2825
+HR027,Karlovačka županija,3619,80-84,1233,2386
+HR028,Sisačko-moslavačka županija,4530,80-84,1617,2913
+HR03,Jadranska Hrvatska,41888,80-84,16525,25363
+HR031,Primorsko-goranska županija,9015,80-84,3467,5548
+HR032,Ličko-senjska županija,1651,80-84,636,1015
+HR033,Zadarska županija,5333,80-84,2226,3107
+HR034,Šibensko-kninska županija,3742,80-84,1546,2196
+HR035,Splitsko-dalmatinska županija,12082,80-84,4664,7418
+HR036,Istarska županija,6559,80-84,2532,4027
+HR037,Dubrovačko-neretvanska županija,3506,80-84,1454,2052
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,80-84,:,:
+HR041,Grad Zagreb (NUTS 2016),:,80-84,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,80-84,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,80-84,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,80-84,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,80-84,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,80-84,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,80-84,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,80-84,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,80-84,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,80-84,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,80-84,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,80-84,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,80-84,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,80-84,:,:
+HR05,Grad Zagreb,23445,80-84,8507,14938
+HR050,Grad Zagreb,23445,80-84,8507,14938
+HR06,Sjeverna Hrvatska,22072,80-84,7760,14312
+HR061,Međimurska županija,2930,80-84,1035,1895
+HR062,Varaždinska županija,4598,80-84,1589,3009
+HR063,Koprivničko-križevačka županija,2939,80-84,969,1970
+HR064,Krapinsko-zagorska županija,3271,80-84,1047,2224
+HR065,Zagrebačka županija,8334,80-84,3120,5214
+HR,Croatia,68384,85-89,22083,46301
+HR0,Hrvatska,68384,85-89,22083,46301
+HR02,Panonska Hrvatska,17595,85-89,5225,12370
+HR021,Bjelovarsko-bilogorska županija,1728,85-89,514,1214
+HR022,Virovitičko-podravska županija,1034,85-89,284,750
+HR023,Požeško-slavonska županija,1118,85-89,344,774
+HR024,Brodsko-posavska županija,2264,85-89,663,1601
+HR025,Osječko-baranjska županija,4015,85-89,1173,2842
+HR026,Vukovarsko-srijemska županija,2438,85-89,724,1714
+HR027,Karlovačka županija,2414,85-89,730,1684
+HR028,Sisačko-moslavačka županija,2584,85-89,793,1791
+HR03,Jadranska Hrvatska,25668,85-89,9009,16659
+HR031,Primorsko-goranska županija,5442,85-89,1944,3498
+HR032,Ličko-senjska županija,1067,85-89,379,688
+HR033,Zadarska županija,3088,85-89,1108,1980
+HR034,Šibensko-kninska županija,2417,85-89,857,1560
+HR035,Splitsko-dalmatinska županija,7517,85-89,2625,4892
+HR036,Istarska županija,3916,85-89,1324,2592
+HR037,Dubrovačko-neretvanska županija,2221,85-89,772,1449
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,85-89,:,:
+HR041,Grad Zagreb (NUTS 2016),:,85-89,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,85-89,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,85-89,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,85-89,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,85-89,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,85-89,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,85-89,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,85-89,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,85-89,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,85-89,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,85-89,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,85-89,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,85-89,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,85-89,:,:
+HR05,Grad Zagreb,12931,85-89,4405,8526
+HR050,Grad Zagreb,12931,85-89,4405,8526
+HR06,Sjeverna Hrvatska,12190,85-89,3444,8746
+HR061,Međimurska županija,1623,85-89,383,1240
+HR062,Varaždinska županija,2455,85-89,655,1800
+HR063,Koprivničko-križevačka županija,1546,85-89,441,1105
+HR064,Krapinsko-zagorska županija,1966,85-89,475,1491
+HR065,Zagrebačka županija,4600,85-89,1490,3110
+HR,Croatia,93894,GE85,28828,65066
+HR0,Hrvatska,93894,GE85,28828,65066
+HR02,Panonska Hrvatska,23479,GE85,6667,16812
+HR021,Bjelovarsko-bilogorska županija,2383,GE85,669,1714
+HR022,Virovitičko-podravska županija,1417,GE85,382,1035
+HR023,Požeško-slavonska županija,1424,GE85,422,1002
+HR024,Brodsko-posavska županija,3057,GE85,866,2191
+HR025,Osječko-baranjska županija,5275,GE85,1455,3820
+HR026,Vukovarsko-srijemska županija,3237,GE85,920,2317
+HR027,Karlovačka županija,3315,GE85,958,2357
+HR028,Sisačko-moslavačka županija,3371,GE85,995,2376
+HR03,Jadranska Hrvatska,35781,GE85,11908,23873
+HR031,Primorsko-goranska županija,7605,GE85,2576,5029
+HR032,Ličko-senjska županija,1464,GE85,487,977
+HR033,Zadarska županija,4155,GE85,1434,2721
+HR034,Šibensko-kninska županija,3309,GE85,1133,2176
+HR035,Splitsko-dalmatinska županija,10402,GE85,3448,6954
+HR036,Istarska županija,5590,GE85,1761,3829
+HR037,Dubrovačko-neretvanska županija,3256,GE85,1069,2187
+HR04,Kontinentalna Hrvatska (NUTS 2016),:,GE85,:,:
+HR041,Grad Zagreb (NUTS 2016),:,GE85,:,:
+HR042,Zagrebacka zupanija (NUTS 2016),:,GE85,:,:
+HR043,Krapinsko-zagorska zupanija (NUTS 2016),:,GE85,:,:
+HR044,Varazdinska zupanija (NUTS 2016),:,GE85,:,:
+HR045,Koprivnicko-krizevacka zupanija (NUTS 2016),:,GE85,:,:
+HR046,Medimurska zupanija (NUTS 2016),:,GE85,:,:
+HR047,Bjelovarsko-bilogorska zupanija (NUTS 2016),:,GE85,:,:
+HR048,Viroviticko-podravska zupanija (NUTS 2016),:,GE85,:,:
+HR049,Pozesko-slavonska zupanija (NUTS 2016),:,GE85,:,:
+HR04A,Brodsko-posavska zupanija (NUTS 2016),:,GE85,:,:
+HR04B,Osjecko-baranjska zupanija (NUTS 2016),:,GE85,:,:
+HR04C,Vukovarsko-srijemska zupanija (NUTS 2016),:,GE85,:,:
+HR04D,Karlovacka zupanija (NUTS 2016),:,GE85,:,:
+HR04E,Sisacko-moslavacka zupanija (NUTS 2016),:,GE85,:,:
+HR05,Grad Zagreb,17907,GE85,5860,12047
+HR050,Grad Zagreb,17907,GE85,5860,12047
+HR06,Sjeverna Hrvatska,16727,GE85,4393,12334
+HR061,Međimurska županija,2217,GE85,503,1714
+HR062,Varaždinska županija,3343,GE85,829,2514
+HR063,Koprivničko-križevačka županija,2081,GE85,550,1531
+HR064,Krapinsko-zagorska županija,2671,GE85,606,2065
+HR065,Zagrebačka županija,6415,GE85,1905,4510
