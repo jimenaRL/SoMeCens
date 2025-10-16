@@ -90,6 +90,9 @@ class DemoGraph:
             if d['level'] == '0':
                 return d['label'], d['code']
 
+    def getDeepestLevel(self) -> int:
+        return max(map(int, set([d['level'] for d in self.demography])))
+
     def findLabelFromCode(self, code: str) -> str:
         if code not in self.code2label:
             raise ValueError(f"Code '{code}' is not present in demography.")
@@ -310,22 +313,22 @@ class DemoGraph:
                     self.geoUnits.append(geoUnit)
                     self.code2label[d['code']] = d['label']
 
-    def exportLocalizationsMatches(self, level: int, path: str) -> None:
+    def exportLocalizationsMatches(self, level: int, path: str, descendants: bool = True) -> None:
         headers = ['code', 'nb_matchs']
         data = []
         for geoUnit in self.geoUnits:
             if geoUnit.level == level:
                 data.append([
                     geoUnit.code,
-                    sum(map(len, self.getLocalizedUsers(geoUnit.code).values()))
+                    sum(map(len, self.getLocalizedUsers(geoUnit.code,descendants).values()))
                 ])
         with open(path, 'w') as f:
             writer = csv.writer(f)
-            # writer.writerow(headers)
+            writer.writerow(headers)
             writer.writerows(data)
         print(f"File saved as {path}")
 
-    def exportLocalizationsMatchesPerc(self, level: int, path: str) -> None:
+    def exportLocalizationsMatchesPerc(self, level: int, path: str, descendants: bool = True) -> None:
         headers = ['code', 'nb_matchs']
         data = []
         for geoUnit in self.geoUnits:
@@ -333,14 +336,15 @@ class DemoGraph:
                 total = float(geoUnit.genderDistribution['total'])
                 matched = sum(map(
                     len,
-                    self.getLocalizedUsers(geoUnit.code).values()
+                    self.getLocalizedUsers(geoUnit.code, descendants).values()
                 ))
                 data.append([
                     geoUnit.code,
                     100 * matched / total
                 ])
+
         with open(path, 'w') as f:
             writer = csv.writer(f)
-            # writer.writerow(headers)
+            writer.writerow(headers)
             writer.writerows(data)
         print(f"File saved as {path}")
