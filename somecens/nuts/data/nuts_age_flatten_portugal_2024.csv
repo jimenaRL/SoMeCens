@@ -1,0 +1,1065 @@
+code,label,total,age,male,female
+PT,Portugal,429772,LT5,221121,208651
+PT1,Continente,409843,LT5,210827,199016
+PT11,Norte,136517,LT5,70395,66122
+PT111,Alto Minho,7780,LT5,3964,3816
+PT112,Cávado,17150,LT5,8969,8181
+PT119,Ave,16173,LT5,8366,7807
+PT11A,Área Metropolitana do Porto,69619,LT5,35793,33826
+PT11B,Alto Tâmega e Barroso,2113,LT5,1075,1038
+PT11C,Tâmega e Sousa,15039,LT5,7836,7203
+PT11D,Douro,5499,LT5,2738,2761
+PT11E,Terras de Trás-os-Montes,3144,LT5,1654,1490
+PT15,Algarve,21487,LT5,10917,10570
+PT150,Algarve,21487,LT5,10917,10570
+PT16,Centro (PT) (NUTS 2021),:,LT5,:,:
+PT16B,Oeste (NUTS 2021),:,LT5,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,LT5,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,LT5,:,:
+PT16F,Região de Leiria (NUTS 2021),:,LT5,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,LT5,:,:
+PT16H,Beira Baixa (NUTS 2021),:,LT5,:,:
+PT16I,Médio Tejo (NUTS 2021),:,LT5,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,LT5,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,LT5,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,LT5,:,:
+PT18,Alentejo (NUTS 2021),:,LT5,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,LT5,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,LT5,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,LT5,:,:
+PT186,Alto Alentejo (NUTS 2021),:,LT5,:,:
+PT187,Alentejo Central (NUTS 2021),:,LT5,:,:
+PT19,Centro (PT),59890,LT5,30874,29016
+PT191,Região de Aveiro,15137,LT5,7788,7349
+PT192,Região de Coimbra,15433,LT5,7920,7513
+PT193,Região de Leiria,11476,LT5,5922,5554
+PT194,Viseu Dão Lafões,8583,LT5,4467,4116
+PT195,Beira Baixa,3111,LT5,1637,1474
+PT196,Beiras e Serra da Estrela,6150,LT5,3140,3010
+PT1A,Grande Lisboa,102308,LT5,52547,49761
+PT1A0,Grande Lisboa,102308,LT5,52547,49761
+PT1B,Península de Setúbal,38424,LT5,19682,18742
+PT1B0,Península de Setúbal,38424,LT5,19682,18742
+PT1C,Alentejo,18276,LT5,9391,8885
+PT1C1,Alentejo Litoral,3958,LT5,2053,1905
+PT1C2,Baixo Alentejo,4841,LT5,2494,2347
+PT1C3,Alto Alentejo,3615,LT5,1819,1796
+PT1C4,Alentejo Central,5862,LT5,3025,2837
+PT1D,Oeste e Vale do Tejo,32941,LT5,17021,15920
+PT1D1,Oeste,15807,LT5,8156,7651
+PT1D2,Médio Tejo,7382,LT5,3870,3512
+PT1D3,Lezíria do Tejo,9752,LT5,4995,4757
+PT2,Região Autónoma dos Açores,10606,LT5,5475,5131
+PT20,Região Autónoma dos Açores,10606,LT5,5475,5131
+PT200,Região Autónoma dos Açores,10606,LT5,5475,5131
+PT3,Região Autónoma da Madeira,9323,LT5,4819,4504
+PT30,Região Autónoma da Madeira,9323,LT5,4819,4504
+PT300,Região Autónoma da Madeira,9323,LT5,4819,4504
+PT,Portugal,448180,5-9,229621,218559
+PT1,Continente,426705,5-9,218647,208058
+PT11,Norte,145931,5-9,74798,71133
+PT111,Alto Minho,8495,5-9,4395,4100
+PT112,Cávado,18311,5-9,9388,8923
+PT119,Ave,16893,5-9,8684,8209
+PT11A,Área Metropolitana do Porto,73744,5-9,37702,36042
+PT11B,Alto Tâmega e Barroso,2556,5-9,1325,1231
+PT11C,Tâmega e Sousa,16394,5-9,8458,7936
+PT11D,Douro,6177,5-9,3136,3041
+PT11E,Terras de Trás-os-Montes,3361,5-9,1710,1651
+PT15,Algarve,21975,5-9,11205,10770
+PT150,Algarve,21975,5-9,11205,10770
+PT16,Centro (PT) (NUTS 2021),:,5-9,:,:
+PT16B,Oeste (NUTS 2021),:,5-9,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,5-9,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,5-9,:,:
+PT16F,Região de Leiria (NUTS 2021),:,5-9,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,5-9,:,:
+PT16H,Beira Baixa (NUTS 2021),:,5-9,:,:
+PT16I,Médio Tejo (NUTS 2021),:,5-9,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,5-9,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,5-9,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,5-9,:,:
+PT18,Alentejo (NUTS 2021),:,5-9,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,5-9,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,5-9,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,5-9,:,:
+PT186,Alto Alentejo (NUTS 2021),:,5-9,:,:
+PT187,Alentejo Central (NUTS 2021),:,5-9,:,:
+PT19,Centro (PT),65132,5-9,33559,31573
+PT191,Região de Aveiro,16061,5-9,8380,7681
+PT192,Região de Coimbra,16980,5-9,8779,8201
+PT193,Região de Leiria,12176,5-9,6188,5988
+PT194,Viseu Dão Lafões,9626,5-9,4922,4704
+PT195,Beira Baixa,3479,5-9,1808,1671
+PT196,Beiras e Serra da Estrela,6810,5-9,3482,3328
+PT1A,Grande Lisboa,100222,5-9,51418,48804
+PT1A0,Grande Lisboa,100222,5-9,51418,48804
+PT1B,Península de Setúbal,38977,5-9,19885,19092
+PT1B0,Península de Setúbal,38977,5-9,19885,19092
+PT1C,Alentejo,18990,5-9,9783,9207
+PT1C1,Alentejo Litoral,3816,5-9,1977,1839
+PT1C2,Baixo Alentejo,4852,5-9,2514,2338
+PT1C3,Alto Alentejo,4113,5-9,2077,2036
+PT1C4,Alentejo Central,6209,5-9,3215,2994
+PT1D,Oeste e Vale do Tejo,35478,5-9,17999,17479
+PT1D1,Oeste,16708,5-9,8479,8229
+PT1D2,Médio Tejo,8227,5-9,4200,4027
+PT1D3,Lezíria do Tejo,10543,5-9,5320,5223
+PT2,Região Autónoma dos Açores,11144,5-9,5748,5396
+PT20,Região Autónoma dos Açores,11144,5-9,5748,5396
+PT200,Região Autónoma dos Açores,11144,5-9,5748,5396
+PT3,Região Autónoma da Madeira,10331,5-9,5226,5105
+PT30,Região Autónoma da Madeira,10331,5-9,5226,5105
+PT300,Região Autónoma da Madeira,10331,5-9,5226,5105
+PT,Portugal,485816,10-14,247542,238274
+PT1,Continente,461514,10-14,235193,226321
+PT11,Norte,160179,10-14,81498,78681
+PT111,Alto Minho,9510,10-14,4797,4713
+PT112,Cávado,20096,10-14,10254,9842
+PT119,Ave,18172,10-14,9433,8739
+PT11A,Área Metropolitana do Porto,80327,10-14,40749,39578
+PT11B,Alto Tâmega e Barroso,2790,10-14,1430,1360
+PT11C,Tâmega e Sousa,18528,10-14,9416,9112
+PT11D,Douro,7075,10-14,3561,3514
+PT11E,Terras de Trás-os-Montes,3681,10-14,1858,1823
+PT15,Algarve,23030,10-14,11832,11198
+PT150,Algarve,23030,10-14,11832,11198
+PT16,Centro (PT) (NUTS 2021),:,10-14,:,:
+PT16B,Oeste (NUTS 2021),:,10-14,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,10-14,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,10-14,:,:
+PT16F,Região de Leiria (NUTS 2021),:,10-14,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,10-14,:,:
+PT16H,Beira Baixa (NUTS 2021),:,10-14,:,:
+PT16I,Médio Tejo (NUTS 2021),:,10-14,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,10-14,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,10-14,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,10-14,:,:
+PT18,Alentejo (NUTS 2021),:,10-14,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,10-14,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,10-14,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,10-14,:,:
+PT186,Alto Alentejo (NUTS 2021),:,10-14,:,:
+PT187,Alentejo Central (NUTS 2021),:,10-14,:,:
+PT19,Centro (PT),70343,10-14,36002,34341
+PT191,Região de Aveiro,17059,10-14,8687,8372
+PT192,Região de Coimbra,18232,10-14,9344,8888
+PT193,Região de Leiria,13069,10-14,6777,6292
+PT194,Viseu Dão Lafões,10784,10-14,5523,5261
+PT195,Beira Baixa,3749,10-14,1881,1868
+PT196,Beiras e Serra da Estrela,7450,10-14,3790,3660
+PT1A,Grande Lisboa,105912,10-14,53874,52038
+PT1A0,Grande Lisboa,105912,10-14,53874,52038
+PT1B,Península de Setúbal,42686,10-14,21741,20945
+PT1B0,Península de Setúbal,42686,10-14,21741,20945
+PT1C,Alentejo,20788,10-14,10607,10181
+PT1C1,Alentejo Litoral,4335,10-14,2171,2164
+PT1C2,Baixo Alentejo,5221,10-14,2688,2533
+PT1C3,Alto Alentejo,4508,10-14,2274,2234
+PT1C4,Alentejo Central,6724,10-14,3474,3250
+PT1D,Oeste e Vale do Tejo,38576,10-14,19639,18937
+PT1D1,Oeste,18102,10-14,9182,8920
+PT1D2,Médio Tejo,9118,10-14,4706,4412
+PT1D3,Lezíria do Tejo,11356,10-14,5751,5605
+PT2,Região Autónoma dos Açores,12676,10-14,6450,6226
+PT20,Região Autónoma dos Açores,12676,10-14,6450,6226
+PT200,Região Autónoma dos Açores,12676,10-14,6450,6226
+PT3,Região Autónoma da Madeira,11626,10-14,5899,5727
+PT30,Região Autónoma da Madeira,11626,10-14,5899,5727
+PT300,Região Autónoma da Madeira,11626,10-14,5899,5727
+PT,Portugal,528106,15-19,269206,258900
+PT1,Continente,500691,15-19,255151,245540
+PT11,Norte,178201,15-19,90963,87238
+PT111,Alto Minho,10657,15-19,5447,5210
+PT112,Cávado,22334,15-19,11485,10849
+PT119,Ave,20665,15-19,10625,10040
+PT11A,Área Metropolitana do Porto,87334,15-19,44381,42953
+PT11B,Alto Tâmega e Barroso,3252,15-19,1628,1624
+PT11C,Tâmega e Sousa,21820,15-19,11165,10655
+PT11D,Douro,8048,15-19,4127,3921
+PT11E,Terras de Trás-os-Montes,4091,15-19,2105,1986
+PT15,Algarve,24393,15-19,12506,11887
+PT150,Algarve,24393,15-19,12506,11887
+PT16,Centro (PT) (NUTS 2021),:,15-19,:,:
+PT16B,Oeste (NUTS 2021),:,15-19,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,15-19,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,15-19,:,:
+PT16F,Região de Leiria (NUTS 2021),:,15-19,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,15-19,:,:
+PT16H,Beira Baixa (NUTS 2021),:,15-19,:,:
+PT16I,Médio Tejo (NUTS 2021),:,15-19,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,15-19,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,15-19,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,15-19,:,:
+PT18,Alentejo (NUTS 2021),:,15-19,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,15-19,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,15-19,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,15-19,:,:
+PT186,Alto Alentejo (NUTS 2021),:,15-19,:,:
+PT187,Alentejo Central (NUTS 2021),:,15-19,:,:
+PT19,Centro (PT),77655,15-19,39467,38188
+PT191,Região de Aveiro,18280,15-19,9289,8991
+PT192,Região de Coimbra,19931,15-19,10247,9684
+PT193,Região de Leiria,14526,15-19,7367,7159
+PT194,Viseu Dão Lafões,12148,15-19,6099,6049
+PT195,Beira Baixa,4121,15-19,2103,2018
+PT196,Beiras e Serra da Estrela,8649,15-19,4362,4287
+PT1A,Grande Lisboa,110228,15-19,55992,54236
+PT1A0,Grande Lisboa,110228,15-19,55992,54236
+PT1B,Península de Setúbal,45149,15-19,23157,21992
+PT1B0,Península de Setúbal,45149,15-19,23157,21992
+PT1C,Alentejo,22057,15-19,11201,10856
+PT1C1,Alentejo Litoral,4429,15-19,2264,2165
+PT1C2,Baixo Alentejo,5503,15-19,2689,2814
+PT1C3,Alto Alentejo,4848,15-19,2492,2356
+PT1C4,Alentejo Central,7277,15-19,3756,3521
+PT1D,Oeste e Vale do Tejo,43008,15-19,21865,21143
+PT1D1,Oeste,19771,15-19,10083,9688
+PT1D2,Médio Tejo,10423,15-19,5321,5102
+PT1D3,Lezíria do Tejo,12814,15-19,6461,6353
+PT2,Região Autónoma dos Açores,13587,15-19,6932,6655
+PT20,Região Autónoma dos Açores,13587,15-19,6932,6655
+PT200,Região Autónoma dos Açores,13587,15-19,6932,6655
+PT3,Região Autónoma da Madeira,13828,15-19,7123,6705
+PT30,Região Autónoma da Madeira,13828,15-19,7123,6705
+PT300,Região Autónoma da Madeira,13828,15-19,7123,6705
+PT,Portugal,570651,20-24,290561,280090
+PT1,Continente,540934,20-24,275434,265500
+PT11,Norte,201765,20-24,102920,98845
+PT111,Alto Minho,11617,20-24,5958,5659
+PT112,Cávado,25025,20-24,12755,12270
+PT119,Ave,23700,20-24,12205,11495
+PT11A,Área Metropolitana do Porto,98029,20-24,49815,48214
+PT11B,Alto Tâmega e Barroso,3687,20-24,1854,1833
+PT11C,Tâmega e Sousa,25165,20-24,12949,12216
+PT11D,Douro,9480,20-24,4850,4630
+PT11E,Terras de Trás-os-Montes,5062,20-24,2534,2528
+PT15,Algarve,23905,20-24,12303,11602
+PT150,Algarve,23905,20-24,12303,11602
+PT16,Centro (PT) (NUTS 2021),:,20-24,:,:
+PT16B,Oeste (NUTS 2021),:,20-24,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,20-24,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,20-24,:,:
+PT16F,Região de Leiria (NUTS 2021),:,20-24,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,20-24,:,:
+PT16H,Beira Baixa (NUTS 2021),:,20-24,:,:
+PT16I,Médio Tejo (NUTS 2021),:,20-24,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,20-24,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,20-24,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,20-24,:,:
+PT18,Alentejo (NUTS 2021),:,20-24,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,20-24,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,20-24,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,20-24,:,:
+PT186,Alto Alentejo (NUTS 2021),:,20-24,:,:
+PT187,Alentejo Central (NUTS 2021),:,20-24,:,:
+PT19,Centro (PT),86107,20-24,43836,42271
+PT191,Região de Aveiro,20495,20-24,10233,10262
+PT192,Região de Coimbra,21945,20-24,11132,10813
+PT193,Região de Leiria,15823,20-24,8111,7712
+PT194,Viseu Dão Lafões,13497,20-24,6946,6551
+PT195,Beira Baixa,4561,20-24,2390,2171
+PT196,Beiras e Serra da Estrela,9786,20-24,5024,4762
+PT1A,Grande Lisboa,114512,20-24,57742,56770
+PT1A0,Grande Lisboa,114512,20-24,57742,56770
+PT1B,Península de Setúbal,45407,20-24,22836,22571
+PT1B0,Península de Setúbal,45407,20-24,22836,22571
+PT1C,Alentejo,23494,20-24,12279,11215
+PT1C1,Alentejo Litoral,4600,20-24,2524,2076
+PT1C2,Baixo Alentejo,5939,20-24,3109,2830
+PT1C3,Alto Alentejo,5203,20-24,2645,2558
+PT1C4,Alentejo Central,7752,20-24,4001,3751
+PT1D,Oeste e Vale do Tejo,45744,20-24,23518,22226
+PT1D1,Oeste,21103,20-24,10784,10319
+PT1D2,Médio Tejo,11252,20-24,5777,5475
+PT1D3,Lezíria do Tejo,13389,20-24,6957,6432
+PT2,Região Autónoma dos Açores,14567,20-24,7442,7125
+PT20,Região Autónoma dos Açores,14567,20-24,7442,7125
+PT200,Região Autónoma dos Açores,14567,20-24,7442,7125
+PT3,Região Autónoma da Madeira,15150,20-24,7685,7465
+PT30,Região Autónoma da Madeira,15150,20-24,7685,7465
+PT300,Região Autónoma da Madeira,15150,20-24,7685,7465
+PT,Portugal,570426,25-29,291928,278498
+PT1,Continente,542306,25-29,277660,264646
+PT11,Norte,202560,25-29,103923,98637
+PT111,Alto Minho,11488,25-29,6056,5432
+PT112,Cávado,25065,25-29,12818,12247
+PT119,Ave,23934,25-29,12462,11472
+PT11A,Área Metropolitana do Porto,100117,25-29,50963,49154
+PT11B,Alto Tâmega e Barroso,3361,25-29,1730,1631
+PT11C,Tâmega e Sousa,24598,25-29,12624,11974
+PT11D,Douro,8833,25-29,4640,4193
+PT11E,Terras de Trás-os-Montes,5164,25-29,2630,2534
+PT15,Algarve,24071,25-29,12492,11579
+PT150,Algarve,24071,25-29,12492,11579
+PT16,Centro (PT) (NUTS 2021),:,25-29,:,:
+PT16B,Oeste (NUTS 2021),:,25-29,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,25-29,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,25-29,:,:
+PT16F,Região de Leiria (NUTS 2021),:,25-29,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,25-29,:,:
+PT16H,Beira Baixa (NUTS 2021),:,25-29,:,:
+PT16I,Médio Tejo (NUTS 2021),:,25-29,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,25-29,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,25-29,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,25-29,:,:
+PT18,Alentejo (NUTS 2021),:,25-29,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,25-29,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,25-29,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,25-29,:,:
+PT186,Alto Alentejo (NUTS 2021),:,25-29,:,:
+PT187,Alentejo Central (NUTS 2021),:,25-29,:,:
+PT19,Centro (PT),85698,25-29,43991,41707
+PT191,Região de Aveiro,21187,25-29,10853,10334
+PT192,Região de Coimbra,22304,25-29,11354,10950
+PT193,Região de Leiria,15678,25-29,8100,7578
+PT194,Viseu Dão Lafões,12759,25-29,6523,6236
+PT195,Beira Baixa,4429,25-29,2308,2121
+PT196,Beiras e Serra da Estrela,9341,25-29,4853,4488
+PT1A,Grande Lisboa,119161,25-29,60048,59113
+PT1A0,Grande Lisboa,119161,25-29,60048,59113
+PT1B,Península de Setúbal,43592,25-29,21829,21763
+PT1B0,Península de Setúbal,43592,25-29,21829,21763
+PT1C,Alentejo,23022,25-29,12483,10539
+PT1C1,Alentejo Litoral,5408,25-29,3308,2100
+PT1C2,Baixo Alentejo,5531,25-29,2987,2544
+PT1C3,Alto Alentejo,4726,25-29,2400,2326
+PT1C4,Alentejo Central,7357,25-29,3788,3569
+PT1D,Oeste e Vale do Tejo,44202,25-29,22894,21308
+PT1D1,Oeste,21027,25-29,10860,10167
+PT1D2,Médio Tejo,10609,25-29,5504,5105
+PT1D3,Lezíria do Tejo,12566,25-29,6530,6036
+PT2,Região Autónoma dos Açores,14504,25-29,7300,7204
+PT20,Região Autónoma dos Açores,14504,25-29,7300,7204
+PT200,Região Autónoma dos Açores,14504,25-29,7300,7204
+PT3,Região Autónoma da Madeira,13616,25-29,6968,6648
+PT30,Região Autónoma da Madeira,13616,25-29,6968,6648
+PT300,Região Autónoma da Madeira,13616,25-29,6968,6648
+PT,Portugal,595831,30-34,300061,295770
+PT1,Continente,567380,30-34,285859,281521
+PT11,Norte,206153,30-34,103845,102308
+PT111,Alto Minho,11515,30-34,5848,5667
+PT112,Cávado,25276,30-34,12762,12514
+PT119,Ave,23717,30-34,12064,11653
+PT11A,Área Metropolitana do Porto,105886,30-34,52981,52905
+PT11B,Alto Tâmega e Barroso,3376,30-34,1711,1665
+PT11C,Tâmega e Sousa,23248,30-34,11845,11403
+PT11D,Douro,8360,30-34,4214,4146
+PT11E,Terras de Trás-os-Montes,4775,30-34,2420,2355
+PT15,Algarve,26464,30-34,13352,13112
+PT150,Algarve,26464,30-34,13352,13112
+PT16,Centro (PT) (NUTS 2021),:,30-34,:,:
+PT16B,Oeste (NUTS 2021),:,30-34,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,30-34,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,30-34,:,:
+PT16F,Região de Leiria (NUTS 2021),:,30-34,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,30-34,:,:
+PT16H,Beira Baixa (NUTS 2021),:,30-34,:,:
+PT16I,Médio Tejo (NUTS 2021),:,30-34,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,30-34,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,30-34,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,30-34,:,:
+PT18,Alentejo (NUTS 2021),:,30-34,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,30-34,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,30-34,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,30-34,:,:
+PT186,Alto Alentejo (NUTS 2021),:,30-34,:,:
+PT187,Alentejo Central (NUTS 2021),:,30-34,:,:
+PT19,Centro (PT),85518,30-34,43844,41674
+PT191,Região de Aveiro,21561,30-34,10961,10600
+PT192,Região de Coimbra,22187,30-34,11418,10769
+PT193,Região de Leiria,16054,30-34,8275,7779
+PT194,Viseu Dão Lafões,12143,30-34,6086,6057
+PT195,Beira Baixa,4496,30-34,2328,2168
+PT196,Beiras e Serra da Estrela,9077,30-34,4776,4301
+PT1A,Grande Lisboa,134952,30-34,66516,68436
+PT1A0,Grande Lisboa,134952,30-34,66516,68436
+PT1B,Península de Setúbal,46516,30-34,22804,23712
+PT1B0,Península de Setúbal,46516,30-34,22804,23712
+PT1C,Alentejo,23905,30-34,12930,10975
+PT1C1,Alentejo Litoral,6147,30-34,3678,2469
+PT1C2,Baixo Alentejo,5707,30-34,3084,2623
+PT1C3,Alto Alentejo,4578,30-34,2333,2245
+PT1C4,Alentejo Central,7473,30-34,3835,3638
+PT1D,Oeste e Vale do Tejo,43872,30-34,22568,21304
+PT1D1,Oeste,21131,30-34,10846,10285
+PT1D2,Médio Tejo,10281,30-34,5283,4998
+PT1D3,Lezíria do Tejo,12460,30-34,6439,6021
+PT2,Região Autónoma dos Açores,15081,30-34,7493,7588
+PT20,Região Autónoma dos Açores,15081,30-34,7493,7588
+PT200,Região Autónoma dos Açores,15081,30-34,7493,7588
+PT3,Região Autónoma da Madeira,13370,30-34,6709,6661
+PT30,Região Autónoma da Madeira,13370,30-34,6709,6661
+PT300,Região Autónoma da Madeira,13370,30-34,6709,6661
+PT,Portugal,625728,35-39,308975,316753
+PT1,Continente,593623,35-39,293054,300569
+PT11,Norte,214071,35-39,105433,108638
+PT111,Alto Minho,12544,35-39,6291,6253
+PT112,Cávado,26652,35-39,13156,13496
+PT119,Ave,24618,35-39,12227,12391
+PT11A,Área Metropolitana do Porto,108673,35-39,53382,55291
+PT11B,Alto Tâmega e Barroso,3758,35-39,1851,1907
+PT11C,Tâmega e Sousa,23795,35-39,11699,12096
+PT11D,Douro,9000,35-39,4356,4644
+PT11E,Terras de Trás-os-Montes,5031,35-39,2471,2560
+PT15,Algarve,29281,35-39,14564,14717
+PT150,Algarve,29281,35-39,14564,14717
+PT16,Centro (PT) (NUTS 2021),:,35-39,:,:
+PT16B,Oeste (NUTS 2021),:,35-39,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,35-39,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,35-39,:,:
+PT16F,Região de Leiria (NUTS 2021),:,35-39,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,35-39,:,:
+PT16H,Beira Baixa (NUTS 2021),:,35-39,:,:
+PT16I,Médio Tejo (NUTS 2021),:,35-39,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,35-39,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,35-39,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,35-39,:,:
+PT18,Alentejo (NUTS 2021),:,35-39,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,35-39,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,35-39,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,35-39,:,:
+PT186,Alto Alentejo (NUTS 2021),:,35-39,:,:
+PT187,Alentejo Central (NUTS 2021),:,35-39,:,:
+PT19,Centro (PT),91614,35-39,45504,46110
+PT191,Região de Aveiro,22932,35-39,11489,11443
+PT192,Região de Coimbra,23556,35-39,11592,11964
+PT193,Região de Leiria,16478,35-39,8183,8295
+PT194,Viseu Dão Lafões,13480,35-39,6619,6861
+PT195,Beira Baixa,4943,35-39,2448,2495
+PT196,Beiras e Serra da Estrela,10225,35-39,5173,5052
+PT1A,Grande Lisboa,135176,35-39,66113,69063
+PT1A0,Grande Lisboa,135176,35-39,66113,69063
+PT1B,Península de Setúbal,49664,35-39,23840,25824
+PT1B0,Península de Setúbal,49664,35-39,23840,25824
+PT1C,Alentejo,26378,35-39,13886,12492
+PT1C1,Alentejo Litoral,6717,35-39,3892,2825
+PT1C2,Baixo Alentejo,6186,35-39,3261,2925
+PT1C3,Alto Alentejo,5140,35-39,2552,2588
+PT1C4,Alentejo Central,8335,35-39,4181,4154
+PT1D,Oeste e Vale do Tejo,47439,35-39,23714,23725
+PT1D1,Oeste,22405,35-39,11138,11267
+PT1D2,Médio Tejo,11188,35-39,5525,5663
+PT1D3,Lezíria do Tejo,13846,35-39,7051,6795
+PT2,Região Autónoma dos Açores,16767,35-39,8348,8419
+PT20,Região Autónoma dos Açores,16767,35-39,8348,8419
+PT200,Região Autónoma dos Açores,16767,35-39,8348,8419
+PT3,Região Autónoma da Madeira,15338,35-39,7573,7765
+PT30,Região Autónoma da Madeira,15338,35-39,7573,7765
+PT300,Região Autónoma da Madeira,15338,35-39,7573,7765
+PT,Portugal,725913,40-44,352038,373875
+PT1,Continente,688896,40-44,333867,355029
+PT11,Norte,247623,40-44,119767,127856
+PT111,Alto Minho,15180,40-44,7334,7846
+PT112,Cávado,30688,40-44,14766,15922
+PT119,Ave,28701,40-44,13894,14807
+PT11A,Área Metropolitana do Porto,123671,40-44,59803,63868
+PT11B,Alto Tâmega e Barroso,4480,40-44,2197,2283
+PT11C,Tâmega e Sousa,27329,40-44,13232,14097
+PT11D,Douro,11340,40-44,5458,5882
+PT11E,Terras de Trás-os-Montes,6234,40-44,3083,3151
+PT15,Algarve,34053,40-44,16391,17662
+PT150,Algarve,34053,40-44,16391,17662
+PT16,Centro (PT) (NUTS 2021),:,40-44,:,:
+PT16B,Oeste (NUTS 2021),:,40-44,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,40-44,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,40-44,:,:
+PT16F,Região de Leiria (NUTS 2021),:,40-44,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,40-44,:,:
+PT16H,Beira Baixa (NUTS 2021),:,40-44,:,:
+PT16I,Médio Tejo (NUTS 2021),:,40-44,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,40-44,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,40-44,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,40-44,:,:
+PT18,Alentejo (NUTS 2021),:,40-44,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,40-44,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,40-44,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,40-44,:,:
+PT186,Alto Alentejo (NUTS 2021),:,40-44,:,:
+PT187,Alentejo Central (NUTS 2021),:,40-44,:,:
+PT19,Centro (PT),110879,40-44,54120,56759
+PT191,Região de Aveiro,26723,40-44,13043,13680
+PT192,Região de Coimbra,29286,40-44,14220,15066
+PT193,Região de Leiria,19970,40-44,9652,10318
+PT194,Viseu Dão Lafões,16729,40-44,8145,8584
+PT195,Beira Baixa,5916,40-44,2937,2979
+PT196,Beiras e Serra da Estrela,12255,40-44,6123,6132
+PT1A,Grande Lisboa,149411,40-44,71453,77958
+PT1A0,Grande Lisboa,149411,40-44,71453,77958
+PT1B,Península de Setúbal,58649,40-44,28220,30429
+PT1B0,Península de Setúbal,58649,40-44,28220,30429
+PT1C,Alentejo,31243,40-44,15850,15393
+PT1C1,Alentejo Litoral,7545,40-44,4090,3455
+PT1C2,Baixo Alentejo,7428,40-44,3764,3664
+PT1C3,Alto Alentejo,6350,40-44,3078,3272
+PT1C4,Alentejo Central,9920,40-44,4918,5002
+PT1D,Oeste e Vale do Tejo,57038,40-44,28066,28972
+PT1D1,Oeste,27032,40-44,13304,13728
+PT1D2,Médio Tejo,13318,40-44,6550,6768
+PT1D3,Lezíria do Tejo,16688,40-44,8212,8476
+PT2,Região Autónoma dos Açores,18966,40-44,9405,9561
+PT20,Região Autónoma dos Açores,18966,40-44,9405,9561
+PT200,Região Autónoma dos Açores,18966,40-44,9405,9561
+PT3,Região Autónoma da Madeira,18051,40-44,8766,9285
+PT30,Região Autónoma da Madeira,18051,40-44,8766,9285
+PT300,Região Autónoma da Madeira,18051,40-44,8766,9285
+PT,Portugal,820461,45-49,394465,425996
+PT1,Continente,779433,45-49,374267,405166
+PT11,Norte,281199,45-49,135186,146013
+PT111,Alto Minho,17096,45-49,8236,8860
+PT112,Cávado,34582,45-49,16449,18133
+PT119,Ave,33069,45-49,15959,17110
+PT11A,Área Metropolitana do Porto,139618,45-49,66840,72778
+PT11B,Alto Tâmega e Barroso,5290,45-49,2626,2664
+PT11C,Tâmega e Sousa,31732,45-49,15356,16376
+PT11D,Douro,12817,45-49,6276,6541
+PT11E,Terras de Trás-os-Montes,6995,45-49,3444,3551
+PT15,Algarve,37688,45-49,18240,19448
+PT150,Algarve,37688,45-49,18240,19448
+PT16,Centro (PT) (NUTS 2021),:,45-49,:,:
+PT16B,Oeste (NUTS 2021),:,45-49,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,45-49,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,45-49,:,:
+PT16F,Região de Leiria (NUTS 2021),:,45-49,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,45-49,:,:
+PT16H,Beira Baixa (NUTS 2021),:,45-49,:,:
+PT16I,Médio Tejo (NUTS 2021),:,45-49,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,45-49,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,45-49,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,45-49,:,:
+PT18,Alentejo (NUTS 2021),:,45-49,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,45-49,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,45-49,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,45-49,:,:
+PT186,Alto Alentejo (NUTS 2021),:,45-49,:,:
+PT187,Alentejo Central (NUTS 2021),:,45-49,:,:
+PT19,Centro (PT),124116,45-49,59834,64282
+PT191,Região de Aveiro,29348,45-49,14161,15187
+PT192,Região de Coimbra,33320,45-49,15959,17361
+PT193,Região de Leiria,22164,45-49,10706,11458
+PT194,Viseu Dão Lafões,18860,45-49,9099,9761
+PT195,Beira Baixa,6607,45-49,3205,3402
+PT196,Beiras e Serra da Estrela,13817,45-49,6704,7113
+PT1A,Grande Lisboa,168277,45-49,79309,88968
+PT1A0,Grande Lisboa,168277,45-49,79309,88968
+PT1B,Península de Setúbal,69017,45-49,32937,36080
+PT1B0,Península de Setúbal,69017,45-49,32937,36080
+PT1C,Alentejo,34964,45-49,17479,17485
+PT1C1,Alentejo Litoral,7776,45-49,4108,3668
+PT1C2,Baixo Alentejo,8165,45-49,4176,3989
+PT1C3,Alto Alentejo,7379,45-49,3565,3814
+PT1C4,Alentejo Central,11644,45-49,5630,6014
+PT1D,Oeste e Vale do Tejo,64172,45-49,31282,32890
+PT1D1,Oeste,30000,45-49,14606,15394
+PT1D2,Médio Tejo,15068,45-49,7342,7726
+PT1D3,Lezíria do Tejo,19104,45-49,9334,9770
+PT2,Região Autónoma dos Açores,19908,45-49,9799,10109
+PT20,Região Autónoma dos Açores,19908,45-49,9799,10109
+PT200,Região Autónoma dos Açores,19908,45-49,9799,10109
+PT3,Região Autónoma da Madeira,21120,45-49,10399,10721
+PT30,Região Autónoma da Madeira,21120,45-49,10399,10721
+PT300,Região Autónoma da Madeira,21120,45-49,10399,10721
+PT,Portugal,782582,50-54,373346,409236
+PT1,Continente,744634,50-54,354850,389784
+PT11,Norte,279210,50-54,132907,146303
+PT111,Alto Minho,16678,50-54,8087,8591
+PT112,Cávado,33510,50-54,15867,17643
+PT119,Ave,33357,50-54,16013,17344
+PT11A,Área Metropolitana do Porto,137174,50-54,64590,72584
+PT11B,Alto Tâmega e Barroso,5312,50-54,2696,2616
+PT11C,Tâmega e Sousa,32913,50-54,15727,17186
+PT11D,Douro,13215,50-54,6437,6778
+PT11E,Terras de Trás-os-Montes,7051,50-54,3490,3561
+PT15,Algarve,35093,50-54,16778,18315
+PT150,Algarve,35093,50-54,16778,18315
+PT16,Centro (PT) (NUTS 2021),:,50-54,:,:
+PT16B,Oeste (NUTS 2021),:,50-54,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,50-54,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,50-54,:,:
+PT16F,Região de Leiria (NUTS 2021),:,50-54,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,50-54,:,:
+PT16H,Beira Baixa (NUTS 2021),:,50-54,:,:
+PT16I,Médio Tejo (NUTS 2021),:,50-54,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,50-54,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,50-54,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,50-54,:,:
+PT18,Alentejo (NUTS 2021),:,50-54,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,50-54,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,50-54,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,50-54,:,:
+PT186,Alto Alentejo (NUTS 2021),:,50-54,:,:
+PT187,Alentejo Central (NUTS 2021),:,50-54,:,:
+PT19,Centro (PT),120778,50-54,58121,62657
+PT191,Região de Aveiro,28702,50-54,13834,14868
+PT192,Região de Coimbra,32284,50-54,15421,16863
+PT193,Região de Leiria,21428,50-54,10276,11152
+PT194,Viseu Dão Lafões,17631,50-54,8436,9195
+PT195,Beira Baixa,6714,50-54,3257,3457
+PT196,Beiras e Serra da Estrela,14019,50-54,6897,7122
+PT1A,Grande Lisboa,154014,50-54,71845,82169
+PT1A0,Grande Lisboa,154014,50-54,71845,82169
+PT1B,Península de Setúbal,60594,50-54,28902,31692
+PT1B0,Península de Setúbal,60594,50-54,28902,31692
+PT1C,Alentejo,33020,50-54,16422,16598
+PT1C1,Alentejo Litoral,6515,50-54,3448,3067
+PT1C2,Baixo Alentejo,8048,50-54,4019,4029
+PT1C3,Alto Alentejo,7368,50-54,3626,3742
+PT1C4,Alentejo Central,11089,50-54,5329,5760
+PT1D,Oeste e Vale do Tejo,61925,50-54,29875,32050
+PT1D1,Oeste,28460,50-54,13647,14813
+PT1D2,Médio Tejo,15220,50-54,7240,7980
+PT1D3,Lezíria do Tejo,18245,50-54,8988,9257
+PT2,Região Autónoma dos Açores,17640,50-54,8749,8891
+PT20,Região Autónoma dos Açores,17640,50-54,8749,8891
+PT200,Região Autónoma dos Açores,17640,50-54,8749,8891
+PT3,Região Autónoma da Madeira,20308,50-54,9747,10561
+PT30,Região Autónoma da Madeira,20308,50-54,9747,10561
+PT300,Região Autónoma da Madeira,20308,50-54,9747,10561
+PT,Portugal,754885,55-59,354591,400294
+PT1,Continente,716872,55-59,336337,380535
+PT11,Norte,276761,55-59,130012,146749
+PT111,Alto Minho,16585,55-59,7642,8943
+PT112,Cávado,31593,55-59,14874,16719
+PT119,Ave,33312,55-59,15935,17377
+PT11A,Área Metropolitana do Porto,134380,55-59,62344,72036
+PT11B,Alto Tâmega e Barroso,6164,55-59,2923,3241
+PT11C,Tâmega e Sousa,33100,55-59,15836,17264
+PT11D,Douro,14164,55-59,6799,7365
+PT11E,Terras de Trás-os-Montes,7463,55-59,3659,3804
+PT15,Algarve,33173,55-59,15589,17584
+PT150,Algarve,33173,55-59,15589,17584
+PT16,Centro (PT) (NUTS 2021),:,55-59,:,:
+PT16B,Oeste (NUTS 2021),:,55-59,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,55-59,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,55-59,:,:
+PT16F,Região de Leiria (NUTS 2021),:,55-59,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,55-59,:,:
+PT16H,Beira Baixa (NUTS 2021),:,55-59,:,:
+PT16I,Médio Tejo (NUTS 2021),:,55-59,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,55-59,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,55-59,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,55-59,:,:
+PT18,Alentejo (NUTS 2021),:,55-59,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,55-59,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,55-59,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,55-59,:,:
+PT186,Alto Alentejo (NUTS 2021),:,55-59,:,:
+PT187,Alentejo Central (NUTS 2021),:,55-59,:,:
+PT19,Centro (PT),120856,55-59,57303,63553
+PT191,Região de Aveiro,27650,55-59,13048,14602
+PT192,Região de Coimbra,32223,55-59,15128,17095
+PT193,Região de Leiria,21131,55-59,10163,10968
+PT194,Viseu Dão Lafões,17702,55-59,8311,9391
+PT195,Beira Baixa,6988,55-59,3389,3599
+PT196,Beiras e Serra da Estrela,15162,55-59,7264,7898
+PT1A,Grande Lisboa,139209,55-59,63636,75573
+PT1A0,Grande Lisboa,139209,55-59,63636,75573
+PT1B,Península de Setúbal,53684,55-59,24824,28860
+PT1B0,Península de Setúbal,53684,55-59,24824,28860
+PT1C,Alentejo,33266,55-59,16304,16962
+PT1C1,Alentejo Litoral,6278,55-59,3096,3182
+PT1C2,Baixo Alentejo,8426,55-59,4234,4192
+PT1C3,Alto Alentejo,7455,55-59,3577,3878
+PT1C4,Alentejo Central,11107,55-59,5397,5710
+PT1D,Oeste e Vale do Tejo,59923,55-59,28669,31254
+PT1D1,Oeste,26968,55-59,12935,14033
+PT1D2,Médio Tejo,15903,55-59,7620,8283
+PT1D3,Lezíria do Tejo,17052,55-59,8114,8938
+PT2,Região Autónoma dos Açores,17079,55-59,8395,8684
+PT20,Região Autónoma dos Açores,17079,55-59,8395,8684
+PT200,Região Autónoma dos Açores,17079,55-59,8395,8684
+PT3,Região Autónoma da Madeira,20934,55-59,9859,11075
+PT30,Região Autónoma da Madeira,20934,55-59,9859,11075
+PT300,Região Autónoma da Madeira,20934,55-59,9859,11075
+PT,Portugal,736800,60-64,344026,392774
+PT1,Continente,700423,60-64,327012,373411
+PT11,Norte,270052,60-64,126856,143196
+PT111,Alto Minho,17268,60-64,8016,9252
+PT112,Cávado,29936,60-64,14208,15728
+PT119,Ave,31276,60-64,14913,16363
+PT11A,Área Metropolitana do Porto,129366,60-64,59817,69549
+PT11B,Alto Tâmega e Barroso,7133,60-64,3410,3723
+PT11C,Tâmega e Sousa,31244,60-64,15009,16235
+PT11D,Douro,15391,60-64,7432,7959
+PT11E,Terras de Trás-os-Montes,8438,60-64,4051,4387
+PT15,Algarve,32740,60-64,15376,17364
+PT150,Algarve,32740,60-64,15376,17364
+PT16,Centro (PT) (NUTS 2021),:,60-64,:,:
+PT16B,Oeste (NUTS 2021),:,60-64,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,60-64,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,60-64,:,:
+PT16F,Região de Leiria (NUTS 2021),:,60-64,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,60-64,:,:
+PT16H,Beira Baixa (NUTS 2021),:,60-64,:,:
+PT16I,Médio Tejo (NUTS 2021),:,60-64,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,60-64,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,60-64,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,60-64,:,:
+PT18,Alentejo (NUTS 2021),:,60-64,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,60-64,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,60-64,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,60-64,:,:
+PT186,Alto Alentejo (NUTS 2021),:,60-64,:,:
+PT187,Alentejo Central (NUTS 2021),:,60-64,:,:
+PT19,Centro (PT),123463,60-64,58177,65286
+PT191,Região de Aveiro,26971,60-64,12754,14217
+PT192,Região de Coimbra,32881,60-64,15381,17500
+PT193,Região de Leiria,20909,60-64,9894,11015
+PT194,Viseu Dão Lafões,18397,60-64,8462,9935
+PT195,Beira Baixa,7598,60-64,3709,3889
+PT196,Beiras e Serra da Estrela,16707,60-64,7977,8730
+PT1A,Grande Lisboa,128711,60-64,58272,70439
+PT1A0,Grande Lisboa,128711,60-64,58272,70439
+PT1B,Península de Setúbal,51502,60-64,23341,28161
+PT1B0,Península de Setúbal,51502,60-64,23341,28161
+PT1C,Alentejo,34757,60-64,16907,17850
+PT1C1,Alentejo Litoral,7152,60-64,3480,3672
+PT1C2,Baixo Alentejo,8494,60-64,4214,4280
+PT1C3,Alto Alentejo,7902,60-64,3810,4092
+PT1C4,Alentejo Central,11209,60-64,5403,5806
+PT1D,Oeste e Vale do Tejo,59198,60-64,28083,31115
+PT1D1,Oeste,26032,60-64,12319,13713
+PT1D2,Médio Tejo,16316,60-64,7809,8507
+PT1D3,Lezíria do Tejo,16850,60-64,7955,8895
+PT2,Região Autónoma dos Açores,16402,60-64,7963,8439
+PT20,Região Autónoma dos Açores,16402,60-64,7963,8439
+PT200,Região Autónoma dos Açores,16402,60-64,7963,8439
+PT3,Região Autónoma da Madeira,19975,60-64,9051,10924
+PT30,Região Autónoma da Madeira,19975,60-64,9051,10924
+PT300,Região Autónoma da Madeira,19975,60-64,9051,10924
+PT,Portugal,685297,65-69,316994,368303
+PT1,Continente,655507,65-69,303383,352124
+PT11,Norte,247452,65-69,115031,132421
+PT111,Alto Minho,17147,65-69,7955,9192
+PT112,Cávado,26261,65-69,12340,13921
+PT119,Ave,29098,65-69,13700,15398
+PT11A,Área Metropolitana do Porto,117650,65-69,53821,63829
+PT11B,Alto Tâmega e Barroso,7481,65-69,3653,3828
+PT11C,Tâmega e Sousa,26215,65-69,12270,13945
+PT11D,Douro,14570,65-69,6958,7612
+PT11E,Terras de Trás-os-Montes,9030,65-69,4334,4696
+PT15,Algarve,31893,65-69,15288,16605
+PT150,Algarve,31893,65-69,15288,16605
+PT16,Centro (PT) (NUTS 2021),:,65-69,:,:
+PT16B,Oeste (NUTS 2021),:,65-69,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,65-69,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,65-69,:,:
+PT16F,Região de Leiria (NUTS 2021),:,65-69,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,65-69,:,:
+PT16H,Beira Baixa (NUTS 2021),:,65-69,:,:
+PT16I,Médio Tejo (NUTS 2021),:,65-69,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,65-69,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,65-69,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,65-69,:,:
+PT18,Alentejo (NUTS 2021),:,65-69,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,65-69,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,65-69,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,65-69,:,:
+PT186,Alto Alentejo (NUTS 2021),:,65-69,:,:
+PT187,Alentejo Central (NUTS 2021),:,65-69,:,:
+PT19,Centro (PT),119709,65-69,56681,63028
+PT191,Região de Aveiro,25092,65-69,11627,13465
+PT192,Região de Coimbra,31401,65-69,14674,16727
+PT193,Região de Leiria,19737,65-69,9466,10271
+PT194,Viseu Dão Lafões,18625,65-69,8796,9829
+PT195,Beira Baixa,7640,65-69,3747,3893
+PT196,Beiras e Serra da Estrela,17214,65-69,8371,8843
+PT1A,Grande Lisboa,118150,65-69,52128,66022
+PT1A0,Grande Lisboa,118150,65-69,52128,66022
+PT1B,Península de Setúbal,49938,65-69,22370,27568
+PT1B0,Península de Setúbal,49938,65-69,22370,27568
+PT1C,Alentejo,32791,65-69,15758,17033
+PT1C1,Alentejo Litoral,7104,65-69,3467,3637
+PT1C2,Baixo Alentejo,8103,65-69,3926,4177
+PT1C3,Alto Alentejo,7341,65-69,3512,3829
+PT1C4,Alentejo Central,10243,65-69,4853,5390
+PT1D,Oeste e Vale do Tejo,55574,65-69,26127,29447
+PT1D1,Oeste,24422,65-69,11513,12909
+PT1D2,Médio Tejo,15409,65-69,7289,8120
+PT1D3,Lezíria do Tejo,15743,65-69,7325,8418
+PT2,Região Autónoma dos Açores,13468,65-69,6413,7055
+PT20,Região Autónoma dos Açores,13468,65-69,6413,7055
+PT200,Região Autónoma dos Açores,13468,65-69,6413,7055
+PT3,Região Autónoma da Madeira,16322,65-69,7198,9124
+PT30,Região Autónoma da Madeira,16322,65-69,7198,9124
+PT300,Região Autónoma da Madeira,16322,65-69,7198,9124
+PT,Portugal,619143,70-74,282121,337022
+PT1,Continente,594627,70-74,271149,323478
+PT11,Norte,215885,70-74,99284,116601
+PT111,Alto Minho,15813,70-74,7194,8619
+PT112,Cávado,22436,70-74,10432,12004
+PT119,Ave,23944,70-74,11182,12762
+PT11A,Área Metropolitana do Porto,104392,70-74,47150,57242
+PT11B,Alto Tâmega e Barroso,7077,70-74,3374,3703
+PT11C,Tâmega e Sousa,20969,70-74,9826,11143
+PT11D,Douro,12811,70-74,6134,6677
+PT11E,Terras de Trás-os-Montes,8443,70-74,3992,4451
+PT15,Algarve,29234,70-74,14080,15154
+PT150,Algarve,29234,70-74,14080,15154
+PT16,Centro (PT) (NUTS 2021),:,70-74,:,:
+PT16B,Oeste (NUTS 2021),:,70-74,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,70-74,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,70-74,:,:
+PT16F,Região de Leiria (NUTS 2021),:,70-74,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,70-74,:,:
+PT16H,Beira Baixa (NUTS 2021),:,70-74,:,:
+PT16I,Médio Tejo (NUTS 2021),:,70-74,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,70-74,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,70-74,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,70-74,:,:
+PT18,Alentejo (NUTS 2021),:,70-74,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,70-74,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,70-74,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,70-74,:,:
+PT186,Alto Alentejo (NUTS 2021),:,70-74,:,:
+PT187,Alentejo Central (NUTS 2021),:,70-74,:,:
+PT19,Centro (PT),110348,70-74,51243,59105
+PT191,Região de Aveiro,22482,70-74,10396,12086
+PT192,Região de Coimbra,29689,70-74,13534,16155
+PT193,Região de Leiria,17822,70-74,8301,9521
+PT194,Viseu Dão Lafões,17294,70-74,8026,9268
+PT195,Beira Baixa,7343,70-74,3546,3797
+PT196,Beiras e Serra da Estrela,15718,70-74,7440,8278
+PT1A,Grande Lisboa,111543,70-74,48014,63529
+PT1A0,Grande Lisboa,111543,70-74,48014,63529
+PT1B,Península de Setúbal,46856,70-74,20848,26008
+PT1B0,Península de Setúbal,46856,70-74,20848,26008
+PT1C,Alentejo,29470,70-74,13856,15614
+PT1C1,Alentejo Litoral,6096,70-74,3030,3066
+PT1C2,Baixo Alentejo,7294,70-74,3446,3848
+PT1C3,Alto Alentejo,6696,70-74,3071,3625
+PT1C4,Alentejo Central,9384,70-74,4309,5075
+PT1D,Oeste e Vale do Tejo,51291,70-74,23824,27467
+PT1D1,Oeste,22798,70-74,10748,12050
+PT1D2,Médio Tejo,13838,70-74,6378,7460
+PT1D3,Lezíria do Tejo,14655,70-74,6698,7957
+PT2,Região Autónoma dos Açores,11003,70-74,5153,5850
+PT20,Região Autónoma dos Açores,11003,70-74,5153,5850
+PT200,Região Autónoma dos Açores,11003,70-74,5153,5850
+PT3,Região Autónoma da Madeira,13513,70-74,5819,7694
+PT30,Região Autónoma da Madeira,13513,70-74,5819,7694
+PT300,Região Autónoma da Madeira,13513,70-74,5819,7694
+PT,Portugal,516919,75-79,225565,291354
+PT1,Continente,498889,75-79,218283,280606
+PT11,Norte,172871,75-79,76123,96748
+PT111,Alto Minho,13965,75-79,6046,7919
+PT112,Cávado,17332,75-79,7765,9567
+PT119,Ave,18194,75-79,8026,10168
+PT11A,Área Metropolitana do Porto,83566,75-79,36458,47108
+PT11B,Alto Tâmega e Barroso,6188,75-79,2835,3353
+PT11C,Tâmega e Sousa,15826,75-79,7076,8750
+PT11D,Douro,10641,75-79,4649,5992
+PT11E,Terras de Trás-os-Montes,7159,75-79,3268,3891
+PT15,Algarve,23552,75-79,11189,12363
+PT150,Algarve,23552,75-79,11189,12363
+PT16,Centro (PT) (NUTS 2021),:,75-79,:,:
+PT16B,Oeste (NUTS 2021),:,75-79,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,75-79,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,75-79,:,:
+PT16F,Região de Leiria (NUTS 2021),:,75-79,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,75-79,:,:
+PT16H,Beira Baixa (NUTS 2021),:,75-79,:,:
+PT16I,Médio Tejo (NUTS 2021),:,75-79,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,75-79,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,75-79,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,75-79,:,:
+PT18,Alentejo (NUTS 2021),:,75-79,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,75-79,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,75-79,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,75-79,:,:
+PT186,Alto Alentejo (NUTS 2021),:,75-79,:,:
+PT187,Alentejo Central (NUTS 2021),:,75-79,:,:
+PT19,Centro (PT),94863,75-79,41903,52960
+PT191,Região de Aveiro,18465,75-79,8239,10226
+PT192,Região de Coimbra,25468,75-79,11160,14308
+PT193,Região de Leiria,15454,75-79,6840,8614
+PT194,Viseu Dão Lafões,15263,75-79,6771,8492
+PT195,Beira Baixa,6462,75-79,2926,3536
+PT196,Beiras e Serra da Estrela,13751,75-79,5967,7784
+PT1A,Grande Lisboa,97433,75-79,40741,56692
+PT1A0,Grande Lisboa,97433,75-79,40741,56692
+PT1B,Península de Setúbal,40951,75-79,17955,22996
+PT1B0,Península de Setúbal,40951,75-79,17955,22996
+PT1C,Alentejo,25323,75-79,11052,14271
+PT1C1,Alentejo Litoral,5219,75-79,2373,2846
+PT1C2,Baixo Alentejo,6178,75-79,2703,3475
+PT1C3,Alto Alentejo,6069,75-79,2668,3401
+PT1C4,Alentejo Central,7857,75-79,3308,4549
+PT1D,Oeste e Vale do Tejo,43896,75-79,19320,24576
+PT1D1,Oeste,19172,75-79,8594,10578
+PT1D2,Médio Tejo,11940,75-79,5118,6822
+PT1D3,Lezíria do Tejo,12784,75-79,5608,7176
+PT2,Região Autónoma dos Açores,7893,75-79,3299,4594
+PT20,Região Autónoma dos Açores,7893,75-79,3299,4594
+PT200,Região Autónoma dos Açores,7893,75-79,3299,4594
+PT3,Região Autónoma da Madeira,10137,75-79,3983,6154
+PT30,Região Autónoma da Madeira,10137,75-79,3983,6154
+PT300,Região Autónoma da Madeira,10137,75-79,3983,6154
+PT,Portugal,363850,80-84,150497,213353
+PT1,Continente,351771,80-84,146145,205626
+PT11,Norte,116546,80-84,48402,68144
+PT111,Alto Minho,10030,80-84,4106,5924
+PT112,Cávado,11358,80-84,4740,6618
+PT119,Ave,11623,80-84,4873,6750
+PT11A,Área Metropolitana do Porto,54695,80-84,22719,31976
+PT11B,Alto Tâmega e Barroso,4514,80-84,1849,2665
+PT11C,Tâmega e Sousa,10548,80-84,4299,6249
+PT11D,Douro,8012,80-84,3254,4758
+PT11E,Terras de Trás-os-Montes,5766,80-84,2562,3204
+PT15,Algarve,16024,80-84,7099,8925
+PT150,Algarve,16024,80-84,7099,8925
+PT16,Centro (PT) (NUTS 2021),:,80-84,:,:
+PT16B,Oeste (NUTS 2021),:,80-84,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,80-84,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,80-84,:,:
+PT16F,Região de Leiria (NUTS 2021),:,80-84,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,80-84,:,:
+PT16H,Beira Baixa (NUTS 2021),:,80-84,:,:
+PT16I,Médio Tejo (NUTS 2021),:,80-84,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,80-84,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,80-84,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,80-84,:,:
+PT18,Alentejo (NUTS 2021),:,80-84,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,80-84,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,80-84,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,80-84,:,:
+PT186,Alto Alentejo (NUTS 2021),:,80-84,:,:
+PT187,Alentejo Central (NUTS 2021),:,80-84,:,:
+PT19,Centro (PT),70900,80-84,29623,41277
+PT191,Região de Aveiro,13084,80-84,5577,7507
+PT192,Região de Coimbra,19124,80-84,7860,11264
+PT193,Região de Leiria,11507,80-84,4899,6608
+PT194,Viseu Dão Lafões,11320,80-84,4736,6584
+PT195,Beira Baixa,5193,80-84,2108,3085
+PT196,Beiras e Serra da Estrela,10672,80-84,4443,6229
+PT1A,Grande Lisboa,68122,80-84,27688,40434
+PT1A0,Grande Lisboa,68122,80-84,27688,40434
+PT1B,Península de Setúbal,27488,80-84,11736,15752
+PT1B0,Península de Setúbal,27488,80-84,11736,15752
+PT1C,Alentejo,19411,80-84,7808,11603
+PT1C1,Alentejo Litoral,3905,80-84,1650,2255
+PT1C2,Baixo Alentejo,4584,80-84,1799,2785
+PT1C3,Alto Alentejo,4648,80-84,1824,2824
+PT1C4,Alentejo Central,6274,80-84,2535,3739
+PT1D,Oeste e Vale do Tejo,33280,80-84,13789,19491
+PT1D1,Oeste,13901,80-84,5923,7978
+PT1D2,Médio Tejo,9585,80-84,3854,5731
+PT1D3,Lezíria do Tejo,9794,80-84,4012,5782
+PT2,Região Autónoma dos Açores,4945,80-84,1911,3034
+PT20,Região Autónoma dos Açores,4945,80-84,1911,3034
+PT200,Região Autónoma dos Açores,4945,80-84,1911,3034
+PT3,Região Autónoma da Madeira,7134,80-84,2441,4693
+PT30,Região Autónoma da Madeira,7134,80-84,2441,4693
+PT300,Região Autónoma da Madeira,7134,80-84,2441,4693
+PT,Portugal,245247,85-89,91225,154022
+PT1,Continente,237715,85-89,88984,148731
+PT11,Norte,79093,85-89,29850,49243
+PT111,Alto Minho,7040,85-89,2564,4476
+PT112,Cávado,7844,85-89,3019,4825
+PT119,Ave,8021,85-89,2978,5043
+PT11A,Área Metropolitana do Porto,35826,85-89,13370,22456
+PT11B,Alto Tâmega e Barroso,3271,85-89,1318,1953
+PT11C,Tâmega e Sousa,7295,85-89,2798,4497
+PT11D,Douro,5597,85-89,2097,3500
+PT11E,Terras de Trás-os-Montes,4199,85-89,1706,2493
+PT15,Algarve,10299,85-89,3995,6304
+PT150,Algarve,10299,85-89,3995,6304
+PT16,Centro (PT) (NUTS 2021),:,85-89,:,:
+PT16B,Oeste (NUTS 2021),:,85-89,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,85-89,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,85-89,:,:
+PT16F,Região de Leiria (NUTS 2021),:,85-89,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,85-89,:,:
+PT16H,Beira Baixa (NUTS 2021),:,85-89,:,:
+PT16I,Médio Tejo (NUTS 2021),:,85-89,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,85-89,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,85-89,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,85-89,:,:
+PT18,Alentejo (NUTS 2021),:,85-89,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,85-89,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,85-89,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,85-89,:,:
+PT186,Alto Alentejo (NUTS 2021),:,85-89,:,:
+PT187,Alentejo Central (NUTS 2021),:,85-89,:,:
+PT19,Centro (PT),49691,85-89,18734,30957
+PT191,Região de Aveiro,8806,85-89,3402,5404
+PT192,Região de Coimbra,13211,85-89,4963,8248
+PT193,Região de Leiria,7646,85-89,2971,4675
+PT194,Viseu Dão Lafões,7725,85-89,2919,4806
+PT195,Beira Baixa,4146,85-89,1500,2646
+PT196,Beiras e Serra da Estrela,8157,85-89,2979,5178
+PT1A,Grande Lisboa,44267,85-89,15947,28320
+PT1A0,Grande Lisboa,44267,85-89,15947,28320
+PT1B,Península de Setúbal,16866,85-89,6455,10411
+PT1B0,Península de Setúbal,16866,85-89,6455,10411
+PT1C,Alentejo,15044,85-89,5608,9436
+PT1C1,Alentejo Litoral,2873,85-89,1114,1759
+PT1C2,Baixo Alentejo,3421,85-89,1192,2229
+PT1C3,Alto Alentejo,3759,85-89,1409,2350
+PT1C4,Alentejo Central,4991,85-89,1893,3098
+PT1D,Oeste e Vale do Tejo,22455,85-89,8395,14060
+PT1D1,Oeste,8873,85-89,3479,5394
+PT1D2,Médio Tejo,7039,85-89,2504,4535
+PT1D3,Lezíria do Tejo,6543,85-89,2412,4131
+PT2,Região Autónoma dos Açores,3182,85-89,996,2186
+PT20,Região Autónoma dos Açores,3182,85-89,996,2186
+PT200,Região Autónoma dos Açores,3182,85-89,996,2186
+PT3,Região Autónoma da Madeira,4350,85-89,1245,3105
+PT30,Região Autónoma da Madeira,4350,85-89,1245,3105
+PT300,Região Autónoma da Madeira,4350,85-89,1245,3105
+PT,Portugal,379366,GE85,130910,248456
+PT1,Continente,368031,GE85,127818,240213
+PT11,Norte,120885,GE85,42504,78381
+PT111,Alto Minho,10847,GE85,3684,7163
+PT112,Cávado,12228,GE85,4368,7860
+PT119,Ave,12018,GE85,4230,7788
+PT11A,Área Metropolitana do Porto,54423,GE85,19024,35399
+PT11B,Alto Tâmega e Barroso,5137,GE85,1849,3288
+PT11C,Tâmega e Sousa,10885,GE85,3885,7000
+PT11D,Douro,8762,GE85,2987,5775
+PT11E,Terras de Trás-os-Montes,6585,GE85,2477,4108
+PT15,Algarve,16066,GE85,5842,10224
+PT150,Algarve,16066,GE85,5842,10224
+PT16,Centro (PT) (NUTS 2021),:,GE85,:,:
+PT16B,Oeste (NUTS 2021),:,GE85,:,:
+PT16D,Região de Aveiro (NUTS 2021),:,GE85,:,:
+PT16E,Região de Coimbra (NUTS 2021),:,GE85,:,:
+PT16F,Região de Leiria (NUTS 2021),:,GE85,:,:
+PT16G,Viseu Dão Lafões (NUTS 2021),:,GE85,:,:
+PT16H,Beira Baixa (NUTS 2021),:,GE85,:,:
+PT16I,Médio Tejo (NUTS 2021),:,GE85,:,:
+PT16J,Beiras e Serra da Estrela (NUTS 2021),:,GE85,:,:
+PT17,Área Metropolitana de Lisboa (NUTS 2021),:,GE85,:,:
+PT170,Área Metropolitana de Lisboa (NUTS 2021),:,GE85,:,:
+PT18,Alentejo (NUTS 2021),:,GE85,:,:
+PT181,Alentejo Litoral (NUTS 2021),:,GE85,:,:
+PT184,Baixo Alentejo (NUTS 2021),:,GE85,:,:
+PT185,Lezíria do Tejo (NUTS 2021),:,GE85,:,:
+PT186,Alto Alentejo (NUTS 2021),:,GE85,:,:
+PT187,Alentejo Central (NUTS 2021),:,GE85,:,:
+PT19,Centro (PT),77766,GE85,27105,50661
+PT191,Região de Aveiro,13460,GE85,4857,8603
+PT192,Região de Coimbra,20738,GE85,7082,13656
+PT193,Região de Leiria,11820,GE85,4317,7503
+PT194,Viseu Dão Lafões,11969,GE85,4186,7783
+PT195,Beira Baixa,6686,GE85,2290,4396
+PT196,Beiras e Serra da Estrela,13093,GE85,4373,8720
+PT1A,Grande Lisboa,69237,GE85,22997,46240
+PT1A0,Grande Lisboa,69237,GE85,22997,46240
+PT1B,Península de Setúbal,25505,GE85,9076,16429
+PT1B0,Península de Setúbal,25505,GE85,9076,16429
+PT1C,Alentejo,23546,GE85,8367,15179
+PT1C1,Alentejo Litoral,4388,GE85,1634,2754
+PT1C2,Baixo Alentejo,5257,GE85,1686,3571
+PT1C3,Alto Alentejo,6142,GE85,2176,3966
+PT1C4,Alentejo Central,7759,GE85,2871,4888
+PT1D,Oeste e Vale do Tejo,35026,GE85,11927,23099
+PT1D1,Oeste,13557,GE85,4810,8747
+PT1D2,Médio Tejo,11346,GE85,3712,7634
+PT1D3,Lezíria do Tejo,10123,GE85,3405,6718
+PT2,Região Autónoma dos Açores,4789,GE85,1361,3428
+PT20,Região Autónoma dos Açores,4789,GE85,1361,3428
+PT200,Região Autónoma dos Açores,4789,GE85,1361,3428
+PT3,Região Autónoma da Madeira,6546,GE85,1731,4815
+PT30,Região Autónoma da Madeira,6546,GE85,1731,4815
+PT300,Região Autónoma da Madeira,6546,GE85,1731,4815
