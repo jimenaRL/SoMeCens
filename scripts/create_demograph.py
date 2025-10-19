@@ -11,6 +11,8 @@ import csv
 import yaml
 import json
 import time
+from datetime import datetime
+
 from string import Template
 from argparse import ArgumentParser
 
@@ -34,9 +36,10 @@ GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts2024.csv")
 SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits.yml")
 GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts2024.csv")
 AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts2024.jsonl")
-USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata2020.csv")
-# use nltk to get stop words ?
-DEFAULTSTOPWORDS = "le|la|de|en|au|à|aux"
+USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata2023.csv")
+# Create dict of relevant stop words per languages of country
+DEFAULTSTOPWORDS = ""
+EXPORTSFOLDER = os.path.join(DIRPATH, "results", "${date}", "${country}")
 
 # 0. parse arguments and set paths
 ap = ArgumentParser()
@@ -50,6 +53,7 @@ ap.add_argument('--unitspath', type=str, default=GEOUNITSPATH)
 ap.add_argument('--stopwords', type=str, default=DEFAULTSTOPWORDS)
 ap.add_argument('--debuglimit', type=int, default=0)
 ap.add_argument('--debugcode', type=str, default='')
+ap.add_argument('--exportsfolder', type=str, default=EXPORTSFOLDER)
 
 args = ap.parse_args()
 country = args.country
@@ -61,6 +65,10 @@ unitspath = Template(args.unitspath).safe_substitute(country=country)
 stopwords =  args.stopwords.split("|")
 debuglimit = args.debuglimit
 debugcode = args.debugcode
+exportsfolder = Template(args.exportsfolder).safe_substitute(
+    country=country, date=datetime.today().strftime('%Y%m%d'))
+os.makedirs(exportsfolder, exist_ok=True)
+
 
 params = vars(args)
 params.update({
@@ -132,13 +140,14 @@ if ageDist:
     demo.setAgeDistributions(ageDist)
 
 # show
-demo.showGeoUnits(max_level=3)
+demo.showGeoUnits(max_level=0)
+
 
 # 2. Match locations users from metadata and add information to demograph
 match_kwargs = {
     "stopwords": stopwords,
     "split_characters": ["-", "/", "|"],
-    "search_index": 1,
+    "search_index": [1],
     "has_headers": True,
 }
 
@@ -165,6 +174,21 @@ if country == 'netherlands':
     banned_words.remove("Pays-Bas")
     banned_words.remove("The Netherlands")
 
+if country == 'luxembourg':
+    banned_words.remove("Luxembourg")
+
+if country == 'spain':
+    banned_words.remove("Spain")
+    banned_words.remove("Espagne")
+
+if country == 'germany':
+    banned_words.remove("Germany")
+    banned_words.remove("Allemagne")
+
+if country == 'italy':
+    banned_words.remove("Italy")
+    banned_words.remove("Italie")
+
 locations = demo.getAllSubUnits(max_level=3)
 # print(f"LOCATIONS ARE:\n{yaml.dump(locations)}")
 
@@ -181,22 +205,87 @@ users_matched_locations = matchUsersLocations(
 duration = time.time() - start
 print(f"Whole matching {len(metadata)} users locations took {duration} seconds.")
 
+# 3. load matched data Demograph object and make relevants exports
 demo.setUsersLocations(users_matched_locations)
 
-# show
+# 4. show
 if not debugcode:
     rndIdx = randint(0, len(demo.locations))
     debugcode = list(demo.locations.keys())[rndIdx]
 
+debuglabel = demo.getGeoUnit(code=debugcode).label
+
 print(f"-------- {debugcode} {demo.locations[debugcode]} --------")
+print(f"Descendants:")
+print([gg.label for gg in demo.getDescendants(demo.getGeoUnit(debugcode))])
 print(f"Localized users sample:")
-for loc, usr in demo.getLocalizedUsers(code=debugcode, descendants=True).items():
-    print(f"    {loc} {demo.getGeoUnit(code=loc).label} {len(usr)} matchs")
-    shuffle(usr)
-    for u in usr[:30]:
-        print("            " + u[0] + " " + f"'{u[1]}'")
-print(f"Subunits:")
-print(demo.getSubUnits(debugcode))
+users_dict = demo.getLocalizedUsers(code=debugcode, descendants=True)
+for descendant, users in users_dict.items():
+    print(f"\t{descendant} {debuglabel} ")
+    print(f"\t\tMatchs number: {len(users)}")
+    print(f"\t\tSubunits: {','.join(demo.getSubUnits(descendant))}")
+    shuffle(users)
+    for u in users[:5]:
+        print(f"\t\t\t{u[0]} {u[1]}")
+
+# 5. make exports
+
+# export matchs stats for eu api cloropleths
+for level in range(demo.getDeepestLevel() + 1) :
+    path = os.path.join(exportsfolder, f'nb_matchs_{country}_nuts_{level}.csv')
+    demo.exportLocalizationsMatches(level, path, descendants=True, add_headers=False)
+    os.system(f"xan head {path} | xan v")
+    path = os.path.join(exportsfolder, f'nb_matchs_perc_{country}_nuts_{level}.csv')
+    demo.exportLocalizationsMatchesPerc(level, path)
+    os.system(f"xan head {path} | xan v")
+
+
+# export excel for debugging
+import pandas as pd
+excelfile = os.path.join(exportsfolder, f'localized_users_{country}.xlsx')
+with pd.ExcelWriter(excelfile) as writer:
+
+    # export matchs per unit
+    data = []
+    statsHeaders = [
+        'level',
+        'code',
+        'label',
+        'unit population',
+        'matched users',
+        'total matched users (with descendant)',
+        'total matched users percent (with descendant)',
+        'subunits'
+    ]
+
+    for g in demo.geoUnits:
+        stats = demo.getGeoUnitLocalizationsStats(g.code)
+        subunits = demo.getSubUnits(g.code)
+        stats.append(' | '.join(subunits))
+        data.append(stats)
+
+    df = pd.DataFrame(data=data, columns=statsHeaders)
+    df.to_excel(writer, index=False, sheet_name=f"statistics")
+
+    # export users matchs
+    columns = ["pseudo_id", "location", "screen_name", "normalized_location"]
+    for g in demo.geoUnits:
+        users = demo.getLocalizedUsers(code=g.code, descendants=False)[g.code]
+        predata = [
+            ["Level", g.level, "", ""],
+            ["Code", g.code, "", ""],
+            ["Label", g.label, "", ""],
+            ["Subunits", ' | '.join(demo.getSubUnits(g.code)), "", ""],
+            ["", "", "", ""],
+        ]
+        predata.append(columns)
+        df = pd.DataFrame(data=predata+users)
+        df = df.drop(df.columns[2], axis=1)
+        df.to_excel(writer, index=False, sheet_name=f"{g.code}")
+
+print(f"Mathch file save at {excelfile}")
+os.system(f"open {excelfile}")
+
 
 # 4. Make choropleth with:
 #   - number of matched users in each geographical unit
