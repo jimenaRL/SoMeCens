@@ -313,7 +313,13 @@ class DemoGraph:
                     self.geoUnits.append(geoUnit)
                     self.code2label[d['code']] = d['label']
 
-    def exportLocalizationsMatches(self, level: int, path: str, descendants: bool = True) -> None:
+    def exportLocalizationsMatches(
+        self,
+        level: int,
+        path: str,
+        descendants: bool = True,
+        add_headers: bool = False
+    ) -> None:
         headers = ['code', 'nb_matchs']
         data = []
         for geoUnit in self.geoUnits:
@@ -324,12 +330,19 @@ class DemoGraph:
                 ])
         with open(path, 'w') as f:
             writer = csv.writer(f)
-            writer.writerow(headers)
+            if add_headers:
+                writer.writerow(headers)
             writer.writerows(data)
         print(f"File saved as {path}")
 
-    def exportLocalizationsMatchesPerc(self, level: int, path: str, descendants: bool = True) -> None:
-        headers = ['code', 'nb_matchs']
+    def exportLocalizationsMatchesPerc(
+        self,
+        level: int,
+        path: str,
+        descendants: bool = True,
+        add_headers: bool = False
+    ) -> None:
+        headers = ['code', 'nb_matchs_perc']
         data = []
         for geoUnit in self.geoUnits:
             if geoUnit.level == level:
@@ -345,6 +358,29 @@ class DemoGraph:
 
         with open(path, 'w') as f:
             writer = csv.writer(f)
-            writer.writerow(headers)
+            if add_headers:
+                writer.writerow(headers)
             writer.writerows(data)
         print(f"File saved as {path}")
+
+    def getGeoUnitLocalizationsStats(self, code: str) -> Iterable:
+        for geoUnit in self.geoUnits:
+            if geoUnit.code == code:
+                total = float(geoUnit.genderDistribution['total'])
+                unit_matched = sum(map(
+                    len,
+                    self.getLocalizedUsers(geoUnit.code, descendants=False).values()
+                ))
+                descendant_matched = sum(map(
+                    len,
+                    self.getLocalizedUsers(geoUnit.code, descendants=True).values()
+                ))
+                return [
+                    geoUnit.level,
+                    geoUnit.code,
+                    geoUnit.label,
+                    total,
+                    unit_matched,
+                    descendant_matched,
+                    100 * descendant_matched / total,
+                ]
