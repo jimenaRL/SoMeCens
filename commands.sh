@@ -1,3 +1,26 @@
+python scripts/create_demograph.py --country=czechia && \
+python scripts/create_demograph.py --country=denmark && \
+python scripts/create_demograph.py --country=estonia && \
+python scripts/create_demograph.py --country=ireland && \
+python scripts/create_demograph.py --country=greece && \
+python scripts/create_demograph.py --country=cyprus && \
+python scripts/create_demograph.py --country=latvia && \
+python scripts/create_demograph.py --country=lithuania && \
+python scripts/create_demograph.py --country=hungary && \
+python scripts/create_demograph.py --country=malta && \
+python scripts/create_demograph.py --country=portugal && \
+python scripts/create_demograph.py --country=romania && \
+python scripts/create_demograph.py --country=slovenia && \
+python scripts/create_demograph.py --country=slovakia && \
+python scripts/create_demograph.py --country=finland --stopwords="suomi" && \
+python scripts/create_demograph.py --country=sweden --stopwords="sverige|norrland" && \
+python scripts/create_demograph.py --country=austria --stopwords="in|aus" && \
+python scripts/create_demograph.py --country=poland --stopwords="makroregion"
+
+python scripts/create_demograph.py \
+    --country=belgium \
+    --stopwords="the|aan|de|en|op|van|le|la|les|las|de|des|à|au|aux|prov|arr|region"
+
 python scripts/create_demograph.py \
     --country=netherlands \
     --stopwords="the|aan|de|en|op|van" \
@@ -14,11 +37,12 @@ python scripts/create_demograph.py \
 
 python scripts/create_demograph.py \
     --country=italy \
-    --stopwords="di"
+    --stopwords="di" \
+    --debugcode=ITI31
 
 python scripts/create_demograph.py \
     --country=germany \
-    --stopwords="in|aus"
+    --stopwords="in|aus|am|der|stadtkreis|landeshauptstadt|landkreis|keisfreie|stadt|hansestadt"
 
 python scripts/create_demograph.py \
     --country="United States" \
@@ -28,7 +52,7 @@ python scripts/create_demograph.py \
     --agedistpath= \
     --usersdatapath=/home/jimena/work/dev/SoMeCens/data/us/us_metadata2023.csv \
     --debugcode=56039 \
-    --stopwords='of|the|County'
+    --stopwords='of|the|county|district'
 
 
 python scripts/create_demograph.py \
