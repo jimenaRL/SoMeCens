@@ -19,6 +19,8 @@ from argparse import ArgumentParser
 import emoji
 from random import randint, shuffle
 
+import numpy as np
+
 from somecens import DemoGraph
 from somecens.tools import matchUsersLocations
 from somecens.epo.tools import getMetadata
@@ -53,6 +55,7 @@ ap.add_argument('--unitspath', type=str, default=GEOUNITSPATH)
 ap.add_argument('--stopwords', type=str, default=DEFAULTSTOPWORDS)
 ap.add_argument('--debuglimit', type=int, default=0)
 ap.add_argument('--debugcode', type=str, default='')
+ap.add_argument('--nbuserdump', type=int, default=1000)
 ap.add_argument('--exportsfolder', type=str, default=EXPORTSFOLDER)
 
 args = ap.parse_args()
@@ -65,8 +68,9 @@ unitspath = Template(args.unitspath).safe_substitute(country=country)
 stopwords =  args.stopwords.split("|")
 debuglimit = args.debuglimit
 debugcode = args.debugcode
+nbuserdump = args.nbuserdump
 exportsfolder = Template(args.exportsfolder).safe_substitute(
-    country=country, date=datetime.today().strftime('%Y%m%d'))
+    country=country.replace(' ', ''), date=datetime.today().strftime('%Y%m%d'))
 os.makedirs(exportsfolder, exist_ok=True)
 
 
@@ -94,7 +98,11 @@ with open(os.path.join(SMCDATAPATH, "geocodes_countries_capitals.csv")) as f:
 
 #  1. Load sociodemographic data
 
-with open(unitspath, "r", encoding = "ISO-8859-1") as f:
+if country == 'United States':
+    encoding = "ISO-8859-1"
+else:
+    encoding = "utf-8"
+with open(unitspath, "r", encoding=encoding) as f:
     geoUnits = [r for r in csv.DictReader(f)]
 print(f"Geographical units loaded from {unitspath}")
 
@@ -146,7 +154,7 @@ demo.showGeoUnits(max_level=0)
 # 2. Match locations users from metadata and add information to demograph
 match_kwargs = {
     "stopwords": stopwords,
-    "split_characters": ["-", "/", "|"],
+    "split_characters": ["-", "/", "|", ".", "'"],
     "search_index": [1],
     "has_headers": True,
 }
@@ -189,6 +197,81 @@ if country == 'italy':
     banned_words.remove("Italy")
     banned_words.remove("Italie")
 
+if country == 'austria':
+    banned_words.remove("Austria")
+
+if country == 'czechia':
+    banned_words.remove("Czechia")
+    banned_words.remove("République tchèque")
+
+if country == 'denmark':
+    banned_words.remove("Denmark")
+    banned_words.remove("Danemark")
+
+if country == 'estonia':
+    banned_words.remove("Estonia")
+    banned_words.remove("Estonie")
+
+if country == 'ireland':
+    banned_words.remove("Ireland")
+    banned_words.remove("Irlande")
+
+if country == 'greece':
+    banned_words.remove("Greece")
+    banned_words.remove("Grèce")
+
+if country == 'croatia':
+    banned_words.remove("Croatia")
+    banned_words.remove("Croatie")
+
+if country == 'cyprus':
+    banned_words.remove("Cyprus")
+    banned_words.remove("Chypre")
+
+if country == 'latvia':
+    banned_words.remove("Latvia")
+    banned_words.remove("Lettonie")
+
+if country == 'lithuania':
+    banned_words.remove("Lithuania")
+    banned_words.remove("Lituanie")
+
+if country == 'hungary':
+    banned_words.remove("Hungary")
+    banned_words.remove("Hongrie")
+
+if country == 'malta':
+    banned_words.remove("Malta")
+    banned_words.remove("Malte")
+
+if country == 'poland':
+    banned_words.remove("Poland")
+    banned_words.remove("Pologne")
+
+if country == 'portugal':
+    banned_words.remove("Portugal")
+
+if country == 'romania':
+    banned_words.remove("Romania")
+    banned_words.remove("Roumanie")
+
+if country == 'slovenia':
+    banned_words.remove("Slovenia")
+    banned_words.remove("Slovénie")
+
+if country == 'slovakia':
+    banned_words.remove("Slovakia")
+    banned_words.remove("Slovaquie")
+
+if country == 'finland':
+    banned_words.remove("Finland")
+    banned_words.remove("Finlande")
+
+if country == 'sweden':
+    banned_words.remove("Sweden")
+    banned_words.remove("Suède")
+
+
 locations = demo.getAllSubUnits(max_level=3)
 # print(f"LOCATIONS ARE:\n{yaml.dump(locations)}")
 
@@ -209,40 +292,40 @@ print(f"Whole matching {len(metadata)} users locations took {duration} seconds."
 demo.setUsersLocations(users_matched_locations)
 
 # 4. show
-if not debugcode:
-    rndIdx = randint(0, len(demo.locations))
-    debugcode = list(demo.locations.keys())[rndIdx]
+# if not debugcode:
+#     rndIdx = randint(0, len(demo.locations))
+#     debugcode = list(demo.locations.keys())[rndIdx]
 
-debuglabel = demo.getGeoUnit(code=debugcode).label
+# debuglabel = demo.getGeoUnit(code=debugcode).label
 
-print(f"-------- {debugcode} {demo.locations[debugcode]} --------")
-print(f"Descendants:")
-print([gg.label for gg in demo.getDescendants(demo.getGeoUnit(debugcode))])
-print(f"Localized users sample:")
-users_dict = demo.getLocalizedUsers(code=debugcode, descendants=True)
-for descendant, users in users_dict.items():
-    print(f"\t{descendant} {debuglabel} ")
-    print(f"\t\tMatchs number: {len(users)}")
-    print(f"\t\tSubunits: {','.join(demo.getSubUnits(descendant))}")
-    shuffle(users)
-    for u in users[:5]:
-        print(f"\t\t\t{u[0]} {u[1]}")
+# print(f"-------- {debugcode} {demo.locations[debugcode]} --------")
+# print(f"Descendants:")
+# print([gg.label for gg in demo.getDescendants(demo.getGeoUnit(debugcode))])
+# print(f"Localized users sample:")
+# users_dict = demo.getLocalizedUsers(code=debugcode, descendants=True)
+# for descendant, users in users_dict.items():
+#     print(f"\t{descendant} {debuglabel} ")
+#     print(f"\t\tMatchs number: {len(users)}")
+#     print(f"\t\tSubunits: {','.join(demo.getSubUnits(descendant))}")
+#     shuffle(users)
+#     for u in users[:5]:
+#         print(f"\t\t\t{u[0]} {u[1]}")
 
 # 5. make exports
 
 # export matchs stats for eu api cloropleths
 for level in range(demo.getDeepestLevel() + 1) :
-    path = os.path.join(exportsfolder, f'nb_matchs_{country}_nuts_{level}.csv')
+    path = os.path.join(exportsfolder, f'nb_matchs_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatches(level, path, descendants=True, add_headers=False)
     os.system(f"xan head {path} | xan v")
-    path = os.path.join(exportsfolder, f'nb_matchs_perc_{country}_nuts_{level}.csv')
+    path = os.path.join(exportsfolder, f'nb_matchs_perc_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatchesPerc(level, path)
     os.system(f"xan head {path} | xan v")
 
 
 # export excel for debugging
 import pandas as pd
-excelfile = os.path.join(exportsfolder, f'localized_users_{country}.xlsx')
+excelfile = os.path.join(exportsfolder, f'localized_users_{country.replace(' ', '')}.xlsx')
 with pd.ExcelWriter(excelfile) as writer:
 
     # export matchs per unit
@@ -264,23 +347,42 @@ with pd.ExcelWriter(excelfile) as writer:
         stats.append(' | '.join(subunits))
         data.append(stats)
 
-    df = pd.DataFrame(data=data, columns=statsHeaders)
+    predata = [["NUTS level", "mean matched %", "median matched %", "mean pop.", "median pop.", "", "", ""]]
+    for l in range(demo.getDeepestLevel() + 1):
+        mean_perc = np.mean([d[6] for d in data if d[0]==l])
+        median_perc = np.median([d[6] for d in data if d[0]==l])
+        mean_pop = np.mean([d[3] for d in data if d[0]==l])
+        median_pop = np.median([d[3] for d in data if d[0]==l])
+        predata.append([str(l), f"{mean_perc:.2f}", f"{median_perc:.2f}", f"{mean_pop:.0f}", f"{median_pop:.0f}", "", "", ""])
+    predata.append(["", "", "", "", "", "", "", ""])
+    predata.append(["", "", "", "", "", "", "", ""])
+
+    predata.append(statsHeaders)
+
+    df = pd.DataFrame(data=predata+data)
     df.to_excel(writer, index=False, sheet_name=f"statistics")
 
     # export users matchs
     columns = ["pseudo_id", "location", "screen_name", "normalized_location"]
     for g in demo.geoUnits:
         users = demo.getLocalizedUsers(code=g.code, descendants=False)[g.code]
+        stats = demo.getGeoUnitLocalizationsStats(g.code)
+
         predata = [
             ["Level", g.level, "", ""],
             ["Code", g.code, "", ""],
             ["Label", g.label, "", ""],
+            ["Population", stats[3], "", ""],
+            ["Matchs", stats[4], "", ""],
             ["Subunits", ' | '.join(demo.getSubUnits(g.code)), "", ""],
             ["", "", "", ""],
         ]
         predata.append(columns)
         df = pd.DataFrame(data=predata+users)
         df = df.drop(df.columns[2], axis=1)
+        df = df.iloc[:nbuserdump]
+        df = df.map(
+                lambda x: x.encode('unicode_escape').decode('utf-8') if isinstance(x, str) else x)
         df.to_excel(writer, index=False, sheet_name=f"{g.code}")
 
 print(f"Mathch file save at {excelfile}")
@@ -291,5 +393,5 @@ os.system(f"open {excelfile}")
 #   - number of matched users in each geographical unit
 #   - proportion of matched users per geographical unit
 
-
-# CHECK https://python-graph-gallery.com/choropleth-map-plotly-python/
+# For EU use https://gisco-services.ec.europa.eu/image/
+# For USA see script in the same folder
