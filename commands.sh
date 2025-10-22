@@ -15,35 +15,32 @@ python scripts/create_demograph.py --country=slovakia && \
 python scripts/create_demograph.py --country=finland --stopwords="suomi" && \
 python scripts/create_demograph.py --country=sweden --stopwords="sverige|norrland" && \
 python scripts/create_demograph.py --country=austria --stopwords="in|aus" && \
-python scripts/create_demograph.py --country=poland --stopwords="makroregion"
-
+python scripts/create_demograph.py --country=poland --stopwords="makroregion" && \
 python scripts/create_demograph.py \
     --country=belgium \
-    --stopwords="the|aan|de|en|op|van|le|la|les|las|de|des|à|au|aux|prov|arr|region"
-
+    --stopwords="the|aan|de|en|op|van|le|la|les|las|de|des|à|au|aux|prov.|arr.|region" && \
+python scripts/create_demograph.py \
+    --country=luxembourg \
+    --stopwords="le|la|les|las|de|des|à|au|aux|sur" \
+    --debugcode=LU000 && \
 python scripts/create_demograph.py \
     --country=netherlands \
-    --stopwords="the|aan|de|en|op|van" \
-    --debugcode=NL350
-
+    --stopwords="the|aan|de|en|op|van|agglomeratie" \
+    --debugcode=NL350 && \
 python scripts/create_demograph.py \
     --country=france \
     --stopwords="le|la|les|las|de|des|à|au|aux" \
-    --debugcode=FRK21
-
+    --debugcode=FRK21 && \
 python scripts/create_demograph.py \
     --country=spain \
-    --stopwords="el|la|lo|les|las|los|de|en"
-
+    --stopwords="el|la|lo|les|las|los|de|del|en|frontera" && \
 python scripts/create_demograph.py \
     --country=italy \
-    --stopwords="di" \
-    --debugcode=ITI31
-
+    --stopwords="di|dei|del|dell|all|della|nel|nellâ|in|Provincia Autonoma" \
+    --debugcode=ITI31 && \
 python scripts/create_demograph.py \
     --country=germany \
     --stopwords="in|aus|am|der|stadtkreis|landeshauptstadt|landkreis|keisfreie|stadt|hansestadt"
-
 python scripts/create_demograph.py \
     --country="United States" \
     --unitspath=data/us/us_geounits_year2023.csv \
@@ -53,12 +50,3 @@ python scripts/create_demograph.py \
     --usersdatapath=/home/jimena/work/dev/SoMeCens/data/us/us_metadata2023.csv \
     --debugcode=56039 \
     --stopwords='of|the|county|district'
-
-
-python scripts/create_demograph.py \
-    --country=luxembourg \
-    --stopwords="la|sur" \
-    --debugcode=LU000
-
-python scripts/create_demograph.py \
-    --country=romania
