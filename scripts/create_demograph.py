@@ -41,7 +41,7 @@ AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts202
 USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata2023.csv")
 # Create dict of relevant stop words per languages of country
 DEFAULTSTOPWORDS = ""
-EXPORTSFOLDER = os.path.join(DIRPATH, "results", "${date}", "${country}")
+EXPORTSFOLDER = os.path.join(DIRPATH, "results", "${date}")
 
 # 0. parse arguments and set paths
 ap = ArgumentParser()
@@ -69,10 +69,10 @@ stopwords =  args.stopwords.split("|")
 debuglimit = args.debuglimit
 debugcode = args.debugcode
 nbuserdump = args.nbuserdump
-exportsfolder = Template(args.exportsfolder).safe_substitute(
-    country=country.replace(' ', ''), date=datetime.today().strftime('%Y%m%d'))
+exportsfolder = Template(args.exportsfolder).safe_substitute(date=datetime.today().strftime('%Y%m%d'))
+exportsfoldercountry = os.path.join(exportsfolder, country)
 os.makedirs(exportsfolder, exist_ok=True)
-
+os.makedirs(exportsfoldercountry, exist_ok=True)
 
 params = vars(args)
 params.update({
@@ -313,15 +313,14 @@ demo.setUsersLocations(users_matched_locations)
 
 # 5. make exports
 
-# export matchs stats for eu api cloropleths
+# export matchs stats for eu  cloropleths
 for level in range(demo.getDeepestLevel() + 1) :
-    path = os.path.join(exportsfolder, f'nb_matchs_{country.replace(' ', '')}_nuts_{level}.csv')
+    path = os.path.join(exportsfoldercountry, f'nb_matchs_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatches(level, path, descendants=True, add_headers=False)
     os.system(f"xan head {path} | xan v")
-    path = os.path.join(exportsfolder, f'nb_matchs_perc_{country.replace(' ', '')}_nuts_{level}.csv')
+    path = os.path.join(exportsfoldercountry, f'nb_matchs_perc_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatchesPerc(level, path)
     os.system(f"xan head {path} | xan v")
-
 
 # export excel for debugging
 import pandas as pd
@@ -386,7 +385,7 @@ with pd.ExcelWriter(excelfile) as writer:
         df.to_excel(writer, index=False, sheet_name=f"{g.code}")
 
 print(f"Mathch file save at {excelfile}")
-os.system(f"open {excelfile}")
+# os.system(f"open {excelfile}")
 
 
 # 4. Make choropleth with:
