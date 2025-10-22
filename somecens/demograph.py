@@ -364,23 +364,32 @@ class DemoGraph:
         print(f"File saved as {path}")
 
     def getGeoUnitLocalizationsStats(self, code: str) -> Iterable:
-        for geoUnit in self.geoUnits:
-            if geoUnit.code == code:
-                total = float(geoUnit.genderDistribution['total'])
-                unit_matched = sum(map(
+        for g in self.geoUnits:
+            if g.code == code:
+
+                total = float(g.genderDistribution['total'])
+
+                nb_unit_matched = sum(map(
                     len,
-                    self.getLocalizedUsers(geoUnit.code, descendants=False).values()
+                    self.getLocalizedUsers(g.code, descendants=False).values()
                 ))
-                descendant_matched = sum(map(
-                    len,
-                    self.getLocalizedUsers(geoUnit.code, descendants=True).values()
-                ))
+
+                # use a set to avoid duplicated users
+                descendant_unique_matched = set()
+                descendant_matched = self.getLocalizedUsers(
+                    g.code,
+                    descendants=True)
+                for user_list in descendant_matched.values():
+                    # update set with matched users pseudo_ids
+                    descendant_unique_matched.update({u[0] for u in user_list})
+                nb_descendant_matched = len(descendant_unique_matched)
+
                 return [
-                    geoUnit.level,
-                    geoUnit.code,
-                    geoUnit.label,
+                    g.level,
+                    g.code,
+                    g.label,
                     total,
-                    unit_matched,
-                    descendant_matched,
-                    100 * descendant_matched / total,
+                    nb_unit_matched,
+                    nb_descendant_matched,
+                    100 * nb_descendant_matched / total,
                 ]
