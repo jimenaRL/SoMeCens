@@ -1,6 +1,7 @@
 somecens.sublime-project
 pytest.ini
 
+.ipynb_checkpoints/
 .python-version
 *.pyc
 *.db
