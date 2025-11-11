@@ -11,6 +11,7 @@ import csv
 import yaml
 import json
 import time
+import pandas as pd
 from datetime import datetime
 
 from string import Template
@@ -150,7 +151,6 @@ if ageDist:
 # show
 demo.showGeoUnits(max_level=0)
 
-
 # 2. Match locations users from metadata and add information to demograph
 match_kwargs = {
     "stopwords": stopwords,
@@ -170,6 +170,10 @@ match_kwargs = {
 
 banned_words = countries.union(pays)
 # TO DO: make file with of aliases and translations per country
+if country == 'belgium':
+    banned_words.remove('Belgium')
+    banned_words.remove('Belgique')
+
 if country == 'france':
     banned_words.remove('France')
 
@@ -282,7 +286,7 @@ users_matched_locations = matchUsersLocations(
     banned_words=banned_words,
     # allowed_emojis=french_flag_emojis,
     # banned_emojis=banned_emojis,
-    verbose=True,
+    verbose=False,
     **match_kwargs)
 
 duration = time.time() - start
@@ -292,17 +296,18 @@ print(f"Whole matching {len(metadata)} users locations took {duration} seconds."
 demo.setUsersLocations(users_matched_locations)
 
 # 4. show
-# if not debugcode:
-#     rndIdx = randint(0, len(demo.locations))
-#     debugcode = list(demo.locations.keys())[rndIdx]
+if not debugcode:
+    rndIdx = randint(0, len(demo.locations))
+    debugcode = list(demo.locations.keys())[rndIdx]
 
-# debuglabel = demo.getGeoUnit(code=debugcode).label
+debuglabel = demo.getGeoUnit(code=debugcode).label
 
-# print(f"-------- {debugcode} {demo.locations[debugcode]} --------")
-# print(f"Descendants:")
-# print([gg.label for gg in demo.getDescendants(demo.getGeoUnit(debugcode))])
-# print(f"Localized users sample:")
-# users_dict = demo.getLocalizedUsers(code=debugcode, descendants=True)
+print(f"-------- {debugcode} {demo.locations[debugcode]} --------")
+print(f"Descendants:")
+print([gg.label for gg in demo.getDescendants(demo.getGeoUnit(debugcode))])
+print(f"Localized users sample:")
+users_dict = demo.getLocalizedUsers(code=debugcode, descendants=True)
+
 # for descendant, users in users_dict.items():
 #     print(f"\t{descendant} {debuglabel} ")
 #     print(f"\t\tMatchs number: {len(users)}")
@@ -311,19 +316,27 @@ demo.setUsersLocations(users_matched_locations)
 #     for u in users[:5]:
 #         print(f"\t\t\t{u[0]} {u[1]}")
 
+
 # 5. make exports
 
-# export matchs stats for eu  cloropleths
+# 5.O export flatten units
+path = os.path.join(exportsfoldercountry, f'units.csv')
+demo.exportUnits(path)
+
+# 5.1 export localized users
+path = os.path.join(exportsfoldercountry, f'localized_users.csv')
+localizedUsers = demo.exportLocalizedUsers(path)
+
+# 5.2 export matchs stats for eu  cloropleths
 for level in range(demo.getDeepestLevel() + 1) :
     path = os.path.join(exportsfoldercountry, f'nb_matchs_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatches(level, path, descendants=True, add_headers=False)
-    os.system(f"xan head {path} | xan v")
+    # os.system(f"xan head {path} | xan v")
     path = os.path.join(exportsfoldercountry, f'nb_matchs_perc_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatchesPerc(level, path)
-    os.system(f"xan head {path} | xan v")
+    # os.system(f"xan head {path} | xan v")
 
-# export excel for debugging
-import pandas as pd
+# 5.3 export excel for debugging
 excelfile = os.path.join(exportsfolder, f'localized_users_{country.replace(' ', '')}.xlsx')
 with pd.ExcelWriter(excelfile) as writer:
 
