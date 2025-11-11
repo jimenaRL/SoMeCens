@@ -14,6 +14,7 @@ from typing import Any
 from functools import reduce
 
 import csv
+import pandas as pd
 
 from somecens import GeoUnit
 from somecens.nuts.conf import NUTS3AGECATS
@@ -165,6 +166,16 @@ class DemoGraph:
         """
         return self._getDescendants(geoUnit, [])
 
+    def getParentCode(self, geoUnit) -> Type[GeoUnit]:
+        """ Return the parent of a geoUnit.
+        """
+        if geoUnit.level == 0:
+            return ""
+        for geo in self.geoUnits:
+            if geoUnit.code in [child.code for child in geo.getChilds()]:
+                return geo.code
+        raise ValueError(f"Didn't find any parent for geoUnit {geoUnit}")
+
     def getAllSubUnits(self, max_level : int = -1) -> dict:
         return {g.code: g.getSubUnits() for g in self.geoUnits if g.level <= max_level}
 
@@ -286,7 +297,7 @@ class DemoGraph:
                 geoUnit = self._setSubUnitsNames(child, subUnitsNames)
 
     def buildGeoTree(self) -> None:
-        max_level = max(map(int, set([d['level'] for d in self.demography])))
+        max_level = self.getDeepestLevel()
         level = 0
         for d in self.demography:
             # we already check that there is only one level 0
@@ -312,6 +323,92 @@ class DemoGraph:
                     self.locations[d['code']] = d['label']
                     self.geoUnits.append(geoUnit)
                     self.code2label[d['code']] = d['label']
+
+
+    def exportUnits(self, path: str | None = None) -> Iterable:
+
+        max_level = self.getDeepestLevel()
+        columns = ["level", "code", "parent_code", "label", "subunits"]
+        columns += [c for c in self.genderCategories]
+        data = []
+        for geo in self.geoUnits:
+            geoData = [
+                geo.level,
+                geo.code,
+                self.getParentCode(geo),
+                geo.label,
+                " | ".join(geo.subUnitsNames)
+            ]
+            geoData += [geo.genderDistribution[c] for c in self.genderCategories]
+            data.append(geoData)
+
+        if path:
+            with open(path, 'w') as f:
+                writer = csv.writer(f)
+                writer.writerow(columns)
+                writer.writerows(data)
+            print(f"File saved as {path}")
+
+        return data
+
+
+    def exportLocalizedUsers(self, path: str | None = None) -> Iterable:
+
+        max_level = self.getDeepestLevel()
+        columns = ["pseudo_id", "location", "screen_name", "normalized_location"]
+
+        # get matched user per unit and store by unit level
+        frames = {level: [] for level in range(max_level+1)}
+        for geo in self.geoUnits:
+            frames[geo.level].append(
+                pd.DataFrame(geo.getLocalizedUsers(), columns=columns, dtype=str) \
+                    .assign(code=geo.code) \
+                    .assign(label=geo.label) \
+                    .rename(columns={"code": f"level_{geo.level}_code"}))
+
+        # concat matched users from same unit level and aggregate by unit name
+        for level in frames:
+            frames[level] = pd.concat(frames[level]) \
+                .groupby(columns)[f'level_{level}_code'] \
+                .apply(lambda x: ' | '.join(x)) \
+                .reset_index()
+
+        # merge all
+        if max_level < 1:
+            return frames[0]
+
+        localizedUsers = frames[0].merge(frames[1], how='outer', on=columns)
+        for level in range(2, max_level+1):
+            localizedUsers = localizedUsers.merge(frames[level], how='outer', on=columns)
+        localizedUsers = localizedUsers.fillna("")
+
+        def getLabels(text):
+            if not text:
+                return text
+            return ' | '.join([self.code2label[t] for t in text.split(' | ')])
+
+        for level in range(0, max_level+1):
+            localizedUsers = localizedUsers \
+                .assign(label=localizedUsers[f'level_{level}_code'].apply(getLabels)) \
+                .rename(columns={"label": f'level_{level}_label'})
+
+        # order columns
+        for level in range(0, max_level+1):
+            columns.append(f'level_{level}_code')
+            columns.append(f'level_{level}_label')
+        localizedUsers = localizedUsers[columns]
+
+        # save
+        data = localizedUsers.values.tolist()
+        if path:
+            with open(path, 'w') as f:
+                writer = csv.writer(f)
+                writer.writerow(columns)
+                writer.writerows(data)
+            print(f"File saved as {path}")
+
+
+        return data
 
     def exportLocalizationsMatches(
         self,
