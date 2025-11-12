@@ -325,13 +325,20 @@ class DemoGraph:
                     self.code2label[d['code']] = d['label']
 
 
-    def exportUnits(self, path: str | None = None) -> Iterable:
+    def exportUnitsReport(self, path: str | None = None) -> Iterable:
 
         max_level = self.getDeepestLevel()
         columns = ["level", "code", "parent_code", "label", "subunits"]
         columns += [c for c in self.genderCategories]
+        columns += ['unit_nb_matchs', 'unit_percent_matched', 'descendants_nb_matchs', 'descendants_percent_matched']
+
         data = []
         for geo in self.geoUnits:
+
+            unit_matched = sum(map(len, self.getLocalizedUsers(code=geo.code, descendants=False).values()))
+            desc_matched = sum(map(len, self.getLocalizedUsers(code=geo.code, descendants=True).values()))
+            total = float(geo.genderDistribution['total'])
+
             geoData = [
                 geo.level,
                 geo.code,
@@ -340,6 +347,8 @@ class DemoGraph:
                 " | ".join(geo.subUnitsNames)
             ]
             geoData += [geo.genderDistribution[c] for c in self.genderCategories]
+            geoData += [unit_matched, 100 * unit_matched / total, desc_matched, 100 * desc_matched / total]
+
             data.append(geoData)
 
         if path:
@@ -349,7 +358,7 @@ class DemoGraph:
                 writer.writerows(data)
             print(f"File saved as {path}")
 
-        return data
+        return data, columns
 
 
     def exportLocalizedUsers(self, path: str | None = None) -> Iterable:
@@ -408,7 +417,7 @@ class DemoGraph:
             print(f"File saved as {path}")
 
 
-        return data
+        return data, columns
 
     def exportLocalizationsMatches(
         self,

@@ -1,0 +1,9 @@
+belgium:
+   BE10: &BE10
+      - bruxelles
+      - brussel
+      - brussels
+      - bruselas
+      - brüssel
+   BE100: *BE10
+

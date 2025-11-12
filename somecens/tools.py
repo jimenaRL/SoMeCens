@@ -8,7 +8,7 @@ from subprocess import Popen, PIPE
 
 from fog.tokenizers import FingerprintTokenizer
 
-from somecens.conf import PAYS, COUNTRIES, COUNTRYALIASES
+from somecens.conf import PAYS, COUNTRIES, UNITALIASES, COUNTRYALIASES
 
 def getTokenizer(
     stopwords: Iterable[str] = [],
@@ -58,7 +58,11 @@ def getOtherCountriesNames(country: str) -> Iterable[str]:
 
     return other_countries
 
-def getAliases(country: str) -> Iterable[str]:
+def getUnitsAliases(country: str) -> Iterable[str]:
+    return UNITALIASES[country]
+
+
+def getCountryAliases(country: str) -> Iterable[str]:
     country = tokenize(country)
     country_aliases = [tokenizeList(aliases) for aliases in COUNTRYALIASES]
 
@@ -320,12 +324,12 @@ def matchUsersLocations(
                     executor.submit(
                         searchOccurrences,
                         tmp.name,
-                        [makeRegex(' '.join(tokenizer(loc))) for loc in locations],
+                        [makeRegex(' '.join(tokenizer(loc))) for loc in locations_values],
                         search_col,
                         allowed_emojis,
                         banned_emojis,
                         False)
-                    for locations in locations.values()
+                    for locations_values in locations.values()
                 ]
                 # and collect results
                 results = [f.result() for f in futures]

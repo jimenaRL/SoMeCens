@@ -12,5 +12,8 @@ with open(os.path.join(DATAFOLDERPATH, "pays_capitales.csv")) as f:
 with open(os.path.join(DATAFOLDERPATH, "geocodes_countries_capitals.csv")) as f:
     COUNTRIES = {d["Country"] for d in csv.DictReader(f)}
 
-with open(os.path.join(DATAFOLDERPATH, "country_aliases.yml")) as f:
+with open(os.path.join(DATAFOLDERPATH, "countries_aliases.yml")) as f:
     COUNTRYALIASES = yaml.safe_load(f)
+
+with open(os.path.join(DATAFOLDERPATH, "units_aliases.yml")) as f:
+    UNITALIASES = yaml.safe_load(f)

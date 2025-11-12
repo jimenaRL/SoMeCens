@@ -24,7 +24,8 @@ import numpy as np
 
 from somecens import DemoGraph
 from somecens.tools import \
-    getAliases, \
+    getUnitsAliases, \
+    getCountryAliases, \
     getOtherCountriesNames, \
     matchUsersLocations
 from somecens.epo.tools import getMetadata
@@ -147,17 +148,14 @@ demo.showGeoUnits(max_level=0)
 
 # 2. Match locations users from metadata and add information to demograph
 other_countries = getOtherCountriesNames(country)
-banned_words = other_countries
+banned_words = other_countries - {"luxembourg"}
 
-print("nederland" in banned_words)
-
-import pdb; pdb.set_trace()  # breakpoint b659d0a8 //
-
-aliases = {'BE': getAliases(country)}
+aliases = {demo.countryCode: getCountryAliases(country)}
+aliases.update(getUnitsAliases(country))
 
 match_kwargs = {
     "stopwords": stopwords,
-    "split_characters": ["-", "/", "|", ".", "'"],
+    "split_characters": ["-", "/", "|", ".", "'", "(", ")"],
     "search_index": [1],
     "has_headers": True,
 }
@@ -195,84 +193,34 @@ debuglabel = demo.getGeoUnit(code=debugcode).label
 
 # 4.O export flatten units
 path = os.path.join(exportsfoldercountry, f'units.csv')
-demo.exportUnits(path)
+unitReport, unitsColumns = demo.exportUnitsReport(path)
+os.system(f"xan v {path}")
 
-# 4.1 export localized users
-path = os.path.join(exportsfoldercountry, f'localized_users.csv')
-localizedUsers = demo.exportLocalizedUsers(path)
-
-# 4.2 export matchs stats for eu  cloropleths
+# 4.1 export matchs stats for eu  cloropleths
 for level in range(demo.getDeepestLevel() + 1) :
     path = os.path.join(exportsfoldercountry, f'nb_matchs_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatches(level, path, descendants=True, add_headers=False)
-    os.system(f"xan head {path} | xan v")
     path = os.path.join(exportsfoldercountry, f'nb_matchs_perc_{country.replace(' ', '')}_nuts_{level}.csv')
-    demo.exportLocalizationsMatchesPerc(level, path)
-    os.system(f"xan head {path} | xan v")
+    demo.exportLocalizationsMatchesPerc(level, path, descendants=True, add_headers=False)
 
-# 4.3 export excel for debugging
-excelfile = os.path.join(exportsfolder, f'localized_users_{country.replace(' ', '')}.xlsx')
+# 4.2 export localized users
+path = os.path.join(exportsfoldercountry, f'localized_users.csv')
+localizedUsers, localizedUsersColumns = demo.exportLocalizedUsers(path)
+
+excelfile = os.path.join(exportsfoldercountry, f'units_users_reports_{country}.xlsx')
 with pd.ExcelWriter(excelfile) as writer:
 
-    # export matchs per unit
-    data = []
-    statsHeaders = [
-        'level',
-        'code',
-        'label',
-        'unit population',
-        'matched users',
-        'total matched users (with descendant)',
-        'total matched users percent (with descendant)',
-        'subunits'
-    ]
+    unitsColumns = [" ".join(c.split("_")) for c in unitsColumns]
+    pd.DataFrame(data=unitReport, columns=unitsColumns) \
+        .to_excel(writer, index=False, sheet_name=f"units stats")
 
-    for g in demo.geoUnits:
-        stats = demo.getGeoUnitLocalizationsStats(g.code)
-        subunits = demo.getSubUnits(g.code)
-        stats.append(' | '.join(subunits))
-        data.append(stats)
+    localizedUsersColumns = [" ".join(c.split("_")) for c in localizedUsersColumns]
+    pd.DataFrame(data=localizedUsers, columns=localizedUsersColumns) \
+        .to_excel(writer, index=False, sheet_name=f"localized users")
 
-    predata = [["NUTS level", "mean matched %", "median matched %", "mean pop.", "median pop.", "", "", ""]]
-    for l in range(demo.getDeepestLevel() + 1):
-        mean_perc = np.mean([d[6] for d in data if d[0]==l])
-        median_perc = np.median([d[6] for d in data if d[0]==l])
-        mean_pop = np.mean([d[3] for d in data if d[0]==l])
-        median_pop = np.median([d[3] for d in data if d[0]==l])
-        predata.append([str(l), f"{mean_perc:.2f}", f"{median_perc:.2f}", f"{mean_pop:.0f}", f"{median_pop:.0f}", "", "", ""])
-    predata.append(["", "", "", "", "", "", "", ""])
-    predata.append(["", "", "", "", "", "", "", ""])
+print(f"Excel report wrote at {excelfile}")
 
-    predata.append(statsHeaders)
 
-    df = pd.DataFrame(data=predata+data)
-    df.to_excel(writer, index=False, sheet_name=f"statistics")
-
-    # export users matchs
-    columns = ["pseudo_id", "location", "screen_name", "normalized_location"]
-    for g in demo.geoUnits:
-        users = demo.getLocalizedUsers(code=g.code, descendants=False)[g.code]
-        stats = demo.getGeoUnitLocalizationsStats(g.code)
-
-        predata = [
-            ["Level", g.level, "", ""],
-            ["Code", g.code, "", ""],
-            ["Label", g.label, "", ""],
-            ["Population", stats[3], "", ""],
-            ["Matchs", stats[4], "", ""],
-            ["Subunits", ' | '.join(demo.getSubUnits(g.code)), "", ""],
-            ["", "", "", ""],
-        ]
-        predata.append(columns)
-        df = pd.DataFrame(data=predata+users)
-        df = df.drop(df.columns[2], axis=1)
-        df = df.iloc[:nbuserdump]
-        df = df.map(
-                lambda x: x.encode('unicode_escape').decode('utf-8') if isinstance(x, str) else x)
-        df.to_excel(writer, index=False, sheet_name=f"{g.code}")
-
-print(f"Mathch file save at {excelfile}")
-# os.system(f"open {excelfile}")
 
 
 # 4. Make choropleth with:
