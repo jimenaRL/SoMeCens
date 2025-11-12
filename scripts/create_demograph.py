@@ -23,7 +23,10 @@ from random import randint, shuffle
 import numpy as np
 
 from somecens import DemoGraph
-from somecens.tools import matchUsersLocations
+from somecens.tools import \
+    getAliases, \
+    getOtherCountriesNames, \
+    matchUsersLocations
 from somecens.epo.tools import getMetadata
 from somecens.nuts.tools import \
     getLaus, \
@@ -32,7 +35,6 @@ from somecens.nuts.tools import \
     getNutsGenderDistributions
 
 DIRPATH = os.environ['SOMECENSDIR'] if 'SOMECENSDIR' in os.environ else '.'
-SMCDATAPATH = os.path.join(DIRPATH, "somecens", "data")
 
 COUNTRYDATAPATH = os.path.join(DIRPATH, "data", "${country}")
 GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts2024.csv")
@@ -89,14 +91,6 @@ print(f"PARAMETERS:\n{yaml.dump(params)}")
 print("---------------------------------------------------------")
 
 
-#  0. Load countries data
-
-with open(os.path.join(SMCDATAPATH, "pays_capitales.csv")) as f:
-    pays = {d["country"] for d in csv.DictReader(f)}
-
-with open(os.path.join(SMCDATAPATH, "geocodes_countries_capitals.csv")) as f:
-    countries = {d["Country"] for d in csv.DictReader(f)}
-
 #  1. Load sociodemographic data
 
 if country == 'United States':
@@ -152,6 +146,15 @@ if ageDist:
 demo.showGeoUnits(max_level=0)
 
 # 2. Match locations users from metadata and add information to demograph
+other_countries = getOtherCountriesNames(country)
+banned_words = other_countries
+
+print("nederland" in banned_words)
+
+import pdb; pdb.set_trace()  # breakpoint b659d0a8 //
+
+aliases = {'BE': getAliases(country)}
+
 match_kwargs = {
     "stopwords": stopwords,
     "split_characters": ["-", "/", "|", ".", "'"],
@@ -159,184 +162,55 @@ match_kwargs = {
     "has_headers": True,
 }
 
-# with open('somecens/data/flags_unicode_emoji.json', 'r') as f:
-#     flags_unicode_emojis = json.load(f)
-# with open("somecens/data/franceFlags.txt", 'r') as f:
-#     french_flag_emojis = [d['name'] for d in csv.DictReader(f)]
-
-# banned_emojis = list(flags_unicode_emojis.values())
-# for f in french_flag_emojis:
-#     banned_emojis.remove(f)
-
-banned_words = countries.union(pays)
-# TO DO: make file with of aliases and translations per country
-if country == 'belgium':
-    banned_words.remove('Belgium')
-    banned_words.remove('Belgique')
-
-if country == 'france':
-    banned_words.remove('France')
-
-if country == 'us':
-    banned_words.remove('États-Unis')
-    banned_words.remove('United States')
-    banned_words.remove('United States Minor Outlying Islands')
-
-if country == 'netherlands':
-    banned_words.remove("Pays-Bas")
-    banned_words.remove("The Netherlands")
-
-if country == 'luxembourg':
-    banned_words.remove("Luxembourg")
-
-if country == 'spain':
-    banned_words.remove("Spain")
-    banned_words.remove("Espagne")
-
-if country == 'germany':
-    banned_words.remove("Germany")
-    banned_words.remove("Allemagne")
-
-if country == 'italy':
-    banned_words.remove("Italy")
-    banned_words.remove("Italie")
-
-if country == 'austria':
-    banned_words.remove("Austria")
-
-if country == 'czechia':
-    banned_words.remove("Czechia")
-    banned_words.remove("République tchèque")
-
-if country == 'denmark':
-    banned_words.remove("Denmark")
-    banned_words.remove("Danemark")
-
-if country == 'estonia':
-    banned_words.remove("Estonia")
-    banned_words.remove("Estonie")
-
-if country == 'ireland':
-    banned_words.remove("Ireland")
-    banned_words.remove("Irlande")
-
-if country == 'greece':
-    banned_words.remove("Greece")
-    banned_words.remove("Grèce")
-
-if country == 'croatia':
-    banned_words.remove("Croatia")
-    banned_words.remove("Croatie")
-
-if country == 'cyprus':
-    banned_words.remove("Cyprus")
-    banned_words.remove("Chypre")
-
-if country == 'latvia':
-    banned_words.remove("Latvia")
-    banned_words.remove("Lettonie")
-
-if country == 'lithuania':
-    banned_words.remove("Lithuania")
-    banned_words.remove("Lituanie")
-
-if country == 'hungary':
-    banned_words.remove("Hungary")
-    banned_words.remove("Hongrie")
-
-if country == 'malta':
-    banned_words.remove("Malta")
-    banned_words.remove("Malte")
-
-if country == 'poland':
-    banned_words.remove("Poland")
-    banned_words.remove("Pologne")
-
-if country == 'portugal':
-    banned_words.remove("Portugal")
-
-if country == 'romania':
-    banned_words.remove("Romania")
-    banned_words.remove("Roumanie")
-
-if country == 'slovenia':
-    banned_words.remove("Slovenia")
-    banned_words.remove("Slovénie")
-
-if country == 'slovakia':
-    banned_words.remove("Slovakia")
-    banned_words.remove("Slovaquie")
-
-if country == 'finland':
-    banned_words.remove("Finland")
-    banned_words.remove("Finlande")
-
-if country == 'sweden':
-    banned_words.remove("Sweden")
-    banned_words.remove("Suède")
-
-
 locations = demo.getAllSubUnits(max_level=3)
-# print(f"LOCATIONS ARE:\n{yaml.dump(locations)}")
 
 start = time.time()
 users_matched_locations = matchUsersLocations(
     locations=locations,
     data=metadata,
+    aliases=aliases,
     banned_words=banned_words,
-    # allowed_emojis=french_flag_emojis,
-    # banned_emojis=banned_emojis,
     verbose=False,
     **match_kwargs)
 
 duration = time.time() - start
 print(f"Whole matching {len(metadata)} users locations took {duration} seconds.")
 
-# 3. load matched data Demograph object and make relevants exports
 demo.setUsersLocations(users_matched_locations)
 
-# 4. show
+# 3. show
 if not debugcode:
     rndIdx = randint(0, len(demo.locations))
     debugcode = list(demo.locations.keys())[rndIdx]
 
 debuglabel = demo.getGeoUnit(code=debugcode).label
 
-print(f"-------- {debugcode} {demo.locations[debugcode]} --------")
-print(f"Descendants:")
-print([gg.label for gg in demo.getDescendants(demo.getGeoUnit(debugcode))])
-print(f"Localized users sample:")
-users_dict = demo.getLocalizedUsers(code=debugcode, descendants=True)
+# print(f"-------- {debugcode} {demo.locations[debugcode]} --------")
+# print(f"Descendants:")
+# print([gg.label for gg in demo.getDescendants(demo.getGeoUnit(debugcode))])
+# print(f"Localized users sample:")
+# users_dict = demo.getLocalizedUsers(code=debugcode, descendants=True)
 
-# for descendant, users in users_dict.items():
-#     print(f"\t{descendant} {debuglabel} ")
-#     print(f"\t\tMatchs number: {len(users)}")
-#     print(f"\t\tSubunits: {','.join(demo.getSubUnits(descendant))}")
-#     shuffle(users)
-#     for u in users[:5]:
-#         print(f"\t\t\t{u[0]} {u[1]}")
+# 4. make exports
 
-
-# 5. make exports
-
-# 5.O export flatten units
+# 4.O export flatten units
 path = os.path.join(exportsfoldercountry, f'units.csv')
 demo.exportUnits(path)
 
-# 5.1 export localized users
+# 4.1 export localized users
 path = os.path.join(exportsfoldercountry, f'localized_users.csv')
 localizedUsers = demo.exportLocalizedUsers(path)
 
-# 5.2 export matchs stats for eu  cloropleths
+# 4.2 export matchs stats for eu  cloropleths
 for level in range(demo.getDeepestLevel() + 1) :
     path = os.path.join(exportsfoldercountry, f'nb_matchs_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatches(level, path, descendants=True, add_headers=False)
-    # os.system(f"xan head {path} | xan v")
+    os.system(f"xan head {path} | xan v")
     path = os.path.join(exportsfoldercountry, f'nb_matchs_perc_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatchesPerc(level, path)
-    # os.system(f"xan head {path} | xan v")
+    os.system(f"xan head {path} | xan v")
 
-# 5.3 export excel for debugging
+# 4.3 export excel for debugging
 excelfile = os.path.join(exportsfolder, f'localized_users_{country.replace(' ', '')}.xlsx')
 with pd.ExcelWriter(excelfile) as writer:
 
