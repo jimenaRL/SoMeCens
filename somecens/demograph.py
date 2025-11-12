@@ -14,15 +14,16 @@ from typing import Any
 from functools import reduce
 
 import csv
+import pandas as pd
 
 from somecens import GeoUnit
 from somecens.nuts.conf import NUTS3AGECATS
 
-DEFAULTAGECATS = set(NUTS3AGECATS)
+DEFAULTAGECATS = NUTS3AGECATS
 DEFAULTGENDERCATS = {
-    'male',
-    'female',
     'total',
+    'female',
+    'male',
 }
 
 
@@ -36,7 +37,9 @@ class DemoGraph:
     def __init__(
             self,
             demography: Iterable[Dict],
-            genderCats: Iterable[str] | None = DEFAULTGENDERCATS) -> None:
+            genderCats: Iterable[str] | None = DEFAULTGENDERCATS,
+            ageCats: Iterable[str] | None = DEFAULTAGECATS,
+            ) -> None:
         """
         demography: iterable of dicts of the form
                 {
@@ -62,7 +65,7 @@ class DemoGraph:
         self.buildGeoTree()
 
         self.genderCategories = genderCats
-        # self.ageDistribution = age_categories
+        self.ageCategories = ageCats
 
         print(f"Created {self}")
 
@@ -164,6 +167,16 @@ class DemoGraph:
         """ Return a list of containing all descents of the input geoUnit.
         """
         return self._getDescendants(geoUnit, [])
+
+    def getParentCode(self, geoUnit) -> Type[GeoUnit]:
+        """ Return the parent of a geoUnit.
+        """
+        if geoUnit.level == 0:
+            return ""
+        for geo in self.geoUnits:
+            if geoUnit.code in [child.code for child in geo.getChilds()]:
+                return geo.code
+        raise ValueError(f"Didn't find any parent for geoUnit {geoUnit}")
 
     def getAllSubUnits(self, max_level : int = -1) -> dict:
         return {g.code: g.getSubUnits() for g in self.geoUnits if g.level <= max_level}
@@ -286,7 +299,7 @@ class DemoGraph:
                 geoUnit = self._setSubUnitsNames(child, subUnitsNames)
 
     def buildGeoTree(self) -> None:
-        max_level = max(map(int, set([d['level'] for d in self.demography])))
+        max_level = self.getDeepestLevel()
         level = 0
         for d in self.demography:
             # we already check that there is only one level 0
@@ -312,6 +325,103 @@ class DemoGraph:
                     self.locations[d['code']] = d['label']
                     self.geoUnits.append(geoUnit)
                     self.code2label[d['code']] = d['label']
+
+
+    def exportUnitsReport(self, path: str | None = None) -> Iterable:
+
+        max_level = self.getDeepestLevel()
+        columns = ["level", "code", "parent_code", "label", "subunits"]
+        columns += ['unit_nb_matchs', 'unit_percent_matched', 'descendants_nb_matchs', 'descendants_percent_matched']
+        columns += [c for c in self.genderCategories]
+        columns += [c for c in self.ageCategories]
+
+        data = []
+        for geo in self.geoUnits:
+
+            unit_matched = sum(map(len, self.getLocalizedUsers(code=geo.code, descendants=False).values()))
+            desc_matched = sum(map(len, self.getLocalizedUsers(code=geo.code, descendants=True).values()))
+            total = float(geo.genderDistribution['total'])
+
+            geoData = [
+                geo.level,
+                geo.code,
+                self.getParentCode(geo),
+                geo.label,
+                " | ".join(geo.subUnitsNames)
+            ]
+            geoData += [unit_matched, 100 * unit_matched / total, desc_matched, 100 * desc_matched / total]
+            geoData += [geo.genderDistribution[c] for c in self.genderCategories]
+            geoData += [geo.ageDistribution[c] for c in self.ageCategories]
+
+            data.append(geoData)
+
+        if path:
+            with open(path, 'w') as f:
+                writer = csv.writer(f)
+                writer.writerow(columns)
+                writer.writerows(data)
+            print(f"File saved as {path}")
+
+        return data, columns
+
+
+    def exportLocalizedUsers(self, path: str | None = None) -> Iterable:
+
+        max_level = self.getDeepestLevel()
+        columns = ["pseudo_id", "location", "screen_name", "normalized_location"]
+
+        # get matched user per unit and store by unit level
+        frames = {level: [] for level in range(max_level+1)}
+        for geo in self.geoUnits:
+            frames[geo.level].append(
+                pd.DataFrame(geo.getLocalizedUsers(), columns=columns, dtype=str) \
+                    .assign(code=geo.code) \
+                    .assign(label=geo.label) \
+                    .rename(columns={"code": f"level_{geo.level}_code"}))
+
+        # concat matched users from same unit level and aggregate by unit name
+        for level in frames:
+            frames[level] = pd.concat(frames[level]) \
+                .groupby(columns)[f'level_{level}_code'] \
+                .apply(lambda x: ' | '.join(x)) \
+                .reset_index()
+
+        # merge all
+        if max_level < 1:
+            return frames[0]
+
+        localizedUsers = frames[0].merge(frames[1], how='outer', on=columns)
+        for level in range(2, max_level+1):
+            localizedUsers = localizedUsers.merge(frames[level], how='outer', on=columns)
+        localizedUsers = localizedUsers.fillna("")
+
+        def getLabels(text):
+            if not text:
+                return text
+            return ' | '.join([self.code2label[t] for t in text.split(' | ')])
+
+        for level in range(0, max_level+1):
+            localizedUsers = localizedUsers \
+                .assign(label=localizedUsers[f'level_{level}_code'].apply(getLabels)) \
+                .rename(columns={"label": f'level_{level}_label'})
+
+        # order columns
+        for level in range(0, max_level+1):
+            columns.append(f'level_{level}_code')
+            columns.append(f'level_{level}_label')
+        localizedUsers = localizedUsers[columns]
+
+        # save
+        data = localizedUsers.values.tolist()
+        if path:
+            with open(path, 'w') as f:
+                writer = csv.writer(f)
+                writer.writerow(columns)
+                writer.writerows(data)
+            print(f"File saved as {path}")
+
+
+        return data, columns
 
     def exportLocalizationsMatches(
         self,

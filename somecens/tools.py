@@ -8,6 +8,70 @@ from subprocess import Popen, PIPE
 
 from fog.tokenizers import FingerprintTokenizer
 
+from somecens.conf import PAYS, COUNTRIES, UNITALIASES, COUNTRYALIASES
+
+def getTokenizer(
+    stopwords: Iterable[str] = [],
+    split: list[str] = [],
+    sort: bool = False
+)-> Iterable[str]:
+    if not split:
+        return FingerprintTokenizer(stopwords=stopwords, sort=sort)
+    else:
+        return FingerprintTokenizer(stopwords=stopwords, split=split, sort=sort)
+
+def tokenize(
+    string: str,
+    stopwords: Iterable[str] = [],
+    split: list[str] = [],
+    sort: bool = False
+)-> Iterable[str]:
+    tok = getTokenizer(stopwords=stopwords, split=split, sort=sort)
+    return ' '.join(tok(string))
+
+def tokenizeList(
+    strings: Iterable[str],
+    stopwords: Iterable[str] = [],
+    split: list[str] = [],
+    sort: bool = False
+)-> Iterable[str]:
+    tok = getTokenizer(stopwords=stopwords, split=split, sort=sort)
+    return [' '.join(tok(s)) for s in strings]
+
+
+def getOtherCountriesNames(country: str) -> Iterable[str]:
+
+    countries = set(tokenizeList(COUNTRIES.union(PAYS)))
+    country_aliases = [tokenizeList(aliases) for aliases in COUNTRYALIASES]
+
+    for aliases_groups in country_aliases:
+        if country in aliases_groups:
+            country_aliases.remove(aliases_groups)
+            this_country_aliases = set(aliases_groups)
+
+    other_countries = countries - this_country_aliases
+
+    # add aliases
+    for aliases_groups in country_aliases:
+        assert not this_country_aliases & set(aliases_groups)
+        other_countries = other_countries.union(set(aliases_groups))
+
+    return other_countries
+
+def getUnitsAliases(country: str) -> Iterable[str]:
+    return UNITALIASES[country]
+
+
+def getCountryAliases(country: str) -> Iterable[str]:
+    country = tokenize(country)
+    country_aliases = [tokenizeList(aliases) for aliases in COUNTRYALIASES]
+
+    for aliases_groups in country_aliases:
+        if country in aliases_groups:
+            return aliases_groups
+
+    print(f"Didn't find aliases fro country {country}")
+    return [country]
 
 def writeCsv(
     file: str,
@@ -147,6 +211,7 @@ def matchUsersLocations(
     split_characters: list[str],
     search_index: int | Iterable[int],
     banned_words: Iterable[str] = [],
+    aliases: Dict = {},
     allowed_emojis: Iterable[str] = [],
     banned_emojis: Iterable[str] = [],
     has_headers: bool = True,
@@ -197,6 +262,12 @@ def matchUsersLocations(
         list(d) + [' '.join([item for sublist in [tokenizer(d[i]) for i in search_index] for item in sublist])] for d in data]
 
     banned_regex = [makeRegex(' '.join(tokenizer(b))) for b in banned_words]
+
+    # add aliases
+    for code, locs in locations.items():
+        for alias_code, alias in aliases.items():
+            if code == alias_code:
+                locs.extend(alias)
 
     # set search column
     search_col = "normalized"
@@ -253,12 +324,12 @@ def matchUsersLocations(
                     executor.submit(
                         searchOccurrences,
                         tmp.name,
-                        [makeRegex(' '.join(tokenizer(loc))) for loc in locations],
+                        [makeRegex(' '.join(tokenizer(loc))) for loc in locations_values],
                         search_col,
                         allowed_emojis,
                         banned_emojis,
                         False)
-                    for locations in locations.values()
+                    for locations_values in locations.values()
                 ]
                 # and collect results
                 results = [f.result() for f in futures]

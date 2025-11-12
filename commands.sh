@@ -16,9 +16,12 @@ python scripts/create_demograph.py --country=finland --stopwords="suomi" && \
 python scripts/create_demograph.py --country=sweden --stopwords="sverige|norrland" && \
 python scripts/create_demograph.py --country=austria --stopwords="in|aus" && \
 python scripts/create_demograph.py --country=poland --stopwords="makroregion" && \
+
 python scripts/create_demograph.py \
     --country=belgium \
-    --stopwords="the|aan|de|en|op|van|le|la|les|las|de|des|à|au|aux|prov.|arr.|region" && \
+    --stopwords="BE,the|aan|de|en|op|van|le|la|les|las|de|des|à|au|aux|prov|stad|arr|region|vlaams" && \
+
+
 python scripts/create_demograph.py \
     --country=luxembourg \
     --stopwords="le|la|les|las|de|des|à|au|aux|sur" \
