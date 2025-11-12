@@ -28,12 +28,6 @@ from somecens.tools import \
     getCountryAliases, \
     getOtherCountriesNames, \
     matchUsersLocations
-from somecens.epo.tools import getMetadata
-from somecens.nuts.tools import \
-    getLaus, \
-    getUnits, \
-    getNutsAgeDistributions, \
-    getNutsGenderDistributions
 
 DIRPATH = os.environ['SOMECENSDIR'] if 'SOMECENSDIR' in os.environ else '.'
 
@@ -183,12 +177,6 @@ if not debugcode:
 
 debuglabel = demo.getGeoUnit(code=debugcode).label
 
-# print(f"-------- {debugcode} {demo.locations[debugcode]} --------")
-# print(f"Descendants:")
-# print([gg.label for gg in demo.getDescendants(demo.getGeoUnit(debugcode))])
-# print(f"Localized users sample:")
-# users_dict = demo.getLocalizedUsers(code=debugcode, descendants=True)
-
 # 4. make exports
 
 # 4.O export flatten units
@@ -221,11 +209,9 @@ with pd.ExcelWriter(excelfile) as writer:
 print(f"Excel report wrote at {excelfile}")
 
 
-
-
 # 4. Make choropleth with:
 #   - number of matched users in each geographical unit
 #   - proportion of matched users per geographical unit
 
 # For EU use https://gisco-services.ec.europa.eu/image/
-# For USA see script in the same folder
+# For USA see the us_cloropleth.py script in this same folder
