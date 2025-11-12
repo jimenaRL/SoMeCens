@@ -199,11 +199,12 @@ def getNutsAgeDistributions(country: str, year: int = 2024):
             'code': code,
             'year': year,
             'age_distributions': {
-                d['age']: {
-                    'total': d['total'],
-                    'female': d['female'],
-                    'male': d['male']
-                }
+                # d['age']: {
+                #     'total': d['total'],
+                #     'female': d['female'],
+                #     'male': d['male']
+                # }
+                    d['age']: d['total']
                 for d in data if d['code'] == code}
         })
     return ageDist

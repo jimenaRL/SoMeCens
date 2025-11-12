@@ -19,11 +19,11 @@ import pandas as pd
 from somecens import GeoUnit
 from somecens.nuts.conf import NUTS3AGECATS
 
-DEFAULTAGECATS = set(NUTS3AGECATS)
+DEFAULTAGECATS = NUTS3AGECATS
 DEFAULTGENDERCATS = {
-    'male',
-    'female',
     'total',
+    'female',
+    'male',
 }
 
 
@@ -37,7 +37,9 @@ class DemoGraph:
     def __init__(
             self,
             demography: Iterable[Dict],
-            genderCats: Iterable[str] | None = DEFAULTGENDERCATS) -> None:
+            genderCats: Iterable[str] | None = DEFAULTGENDERCATS,
+            ageCats: Iterable[str] | None = DEFAULTAGECATS,
+            ) -> None:
         """
         demography: iterable of dicts of the form
                 {
@@ -63,7 +65,7 @@ class DemoGraph:
         self.buildGeoTree()
 
         self.genderCategories = genderCats
-        # self.ageDistribution = age_categories
+        self.ageCategories = ageCats
 
         print(f"Created {self}")
 
@@ -329,8 +331,9 @@ class DemoGraph:
 
         max_level = self.getDeepestLevel()
         columns = ["level", "code", "parent_code", "label", "subunits"]
-        columns += [c for c in self.genderCategories]
         columns += ['unit_nb_matchs', 'unit_percent_matched', 'descendants_nb_matchs', 'descendants_percent_matched']
+        columns += [c for c in self.genderCategories]
+        columns += [c for c in self.ageCategories]
 
         data = []
         for geo in self.geoUnits:
@@ -346,8 +349,9 @@ class DemoGraph:
                 geo.label,
                 " | ".join(geo.subUnitsNames)
             ]
-            geoData += [geo.genderDistribution[c] for c in self.genderCategories]
             geoData += [unit_matched, 100 * unit_matched / total, desc_matched, 100 * desc_matched / total]
+            geoData += [geo.genderDistribution[c] for c in self.genderCategories]
+            geoData += [geo.ageDistribution[c] for c in self.ageCategories]
 
             data.append(geoData)
 
