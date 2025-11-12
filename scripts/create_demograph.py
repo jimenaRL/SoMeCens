@@ -170,13 +170,6 @@ print(f"Whole matching {len(metadata)} users locations took {duration} seconds."
 
 demo.setUsersLocations(users_matched_locations)
 
-# 3. show
-if not debugcode:
-    rndIdx = randint(0, len(demo.locations))
-    debugcode = list(demo.locations.keys())[rndIdx]
-
-debuglabel = demo.getGeoUnit(code=debugcode).label
-
 # 4. make exports
 
 # 4.O export flatten units
@@ -195,7 +188,7 @@ for level in range(demo.getDeepestLevel() + 1) :
 path = os.path.join(exportsfoldercountry, f'localized_users.csv')
 localizedUsers, localizedUsersColumns = demo.exportLocalizedUsers(path)
 
-excelfile = os.path.join(exportsfoldercountry, f'units_users_reports_{country}.xlsx')
+excelfile = os.path.join(exportsfoldercountry, f'{country}_units_users_reports.xlsx')
 with pd.ExcelWriter(excelfile) as writer:
 
     unitsColumns = [" ".join(c.split("_")) for c in unitsColumns]
@@ -203,11 +196,17 @@ with pd.ExcelWriter(excelfile) as writer:
         .to_excel(writer, index=False, sheet_name=f"units stats")
 
     localizedUsersColumns = [" ".join(c.split("_")) for c in localizedUsersColumns]
-    pd.DataFrame(data=localizedUsers, columns=localizedUsersColumns) \
-        .to_excel(writer, index=False, sheet_name=f"localized users")
+    df = pd.DataFrame(data=localizedUsers, columns=localizedUsersColumns)
+    try:
+        df.to_excel(writer, index=False, sheet_name=f"localized users")
+    except:
+        df['location'] = df['location'].apply(lambda x: x.encode('unicode_escape').decode('utf-8') if isinstance(x, str) else x)
+        df.to_excel(writer, index=False, sheet_name=f"localized users")
 
 print(f"Excel report wrote at {excelfile}")
 
+# from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE
+# ILLEGAL_CHARACTERS_RE.sub(r'', x)
 
 # 4. Make choropleth with:
 #   - number of matched users in each geographical unit

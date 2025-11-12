@@ -59,7 +59,10 @@ def getOtherCountriesNames(country: str) -> Iterable[str]:
     return other_countries
 
 def getUnitsAliases(country: str) -> Iterable[str]:
-    return UNITALIASES[country]
+    if country in UNITALIASES:
+        return UNITALIASES[country]
+    else:
+        return {}
 
 
 def getCountryAliases(country: str) -> Iterable[str]:

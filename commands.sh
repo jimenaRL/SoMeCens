@@ -23,24 +23,21 @@ python scripts/create_demograph.py \
 
 
 python scripts/create_demograph.py \
+    --country=france \
+    --stopwords="le|la|les|las|de|des|à|au|aux" && \
+
+python scripts/create_demograph.py \
     --country=luxembourg \
-    --stopwords="le|la|les|las|de|des|à|au|aux|sur" \
-    --debugcode=LU000 && \
+    --stopwords="le|la|les|las|de|des|à|au|aux|sur" && \
 python scripts/create_demograph.py \
     --country=netherlands \
-    --stopwords="the|aan|de|en|op|van|agglomeratie" \
-    --debugcode=NL350 && \
-python scripts/create_demograph.py \
-    --country=france \
-    --stopwords="le|la|les|las|de|des|à|au|aux" \
-    --debugcode=FRK21 && \
+    --stopwords="the|aan|de|en|op|van|agglomeratie" && \
 python scripts/create_demograph.py \
     --country=spain \
     --stopwords="el|la|lo|les|las|los|de|del|en|frontera" && \
 python scripts/create_demograph.py \
     --country=italy \
-    --stopwords="di|dei|del|dell|all|della|nel|nellâ|in|Provincia Autonoma" \
-    --debugcode=ITI31 && \
+    --stopwords="di|dei|del|dell|all|della|nel|nellâ|in|Provincia Autonoma" && \
 python scripts/create_demograph.py \
     --country=germany \
     --stopwords="in|aus|am|der|stadtkreis|landeshauptstadt|landkreis|keisfreie|stadt|hansestadt"
@@ -51,5 +48,4 @@ python scripts/create_demograph.py \
     --genderdistpath=data/us/us_genre_distribution_year2023.csv \
     --agedistpath= \
     --usersdatapath=/home/jimena/work/dev/SoMeCens/data/us/us_metadata2023.csv \
-    --debugcode=56039 \
     --stopwords='of|the|county|district'
