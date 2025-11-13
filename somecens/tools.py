@@ -41,13 +41,17 @@ def tokenizeList(
 
 def getOtherCountriesNames(country: str) -> Iterable[str]:
 
+    country = tokenize(country)
     countries = set(tokenizeList(COUNTRIES.union(PAYS)))
     country_aliases = [tokenizeList(aliases) for aliases in COUNTRYALIASES]
 
+    this_country_aliases = None
     for aliases_groups in country_aliases:
         if country in aliases_groups:
             country_aliases.remove(aliases_groups)
             this_country_aliases = set(aliases_groups)
+    if not this_country_aliases:
+        raise ValueError(f"Didn't find any group of aliases for '{country}'.")
 
     other_countries = countries - this_country_aliases
 
