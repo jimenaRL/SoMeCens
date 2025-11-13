@@ -17,6 +17,7 @@ import csv
 import pandas as pd
 
 from somecens import GeoUnit
+from somecens.tools import checkIterable
 from somecens.nuts.conf import NUTS3AGECATS
 
 DEFAULTAGECATS = NUTS3AGECATS
@@ -198,10 +199,50 @@ class DemoGraph:
                 g.getLocalizedUsers() for g in self.getDescendants(geoUnit)}
         return {geoUnit.code: geoUnit.getLocalizedUsers()}
 
+    def checkAgeDistributions(
+        self,
+        ageDistribution: Iterable[Dict],
+        raiseErrors: bool | False
+    ) -> None:
+
+        checkIterable(ageDistribution)
+        # check dicts keys
+        dk = set([
+            set(d.keys()) == self.ageCategories for d in ageDistribution])
+        kt = set([
+            isinstance(k, str) for d in ageDistribution for k in d.keys()])
+        assert kt == {True}
+        # check that dicts's values are convertible to float
+        for d in ageDistribution:
+            for key in self.ageCategories:
+                try:
+                    float(d['age_distributions'][key])
+                except Exception as e:
+                    m = f"Unnable to parse ageDistribution for unit code {d['code']}. "
+                    if raiseErrors:
+                        m1 = "Please check that all values can be converted to float."
+                        raise ValueError(m+m1)
+                    else:
+                        m2 = f"Converting value for {key} to -1.0."
+                        print(m+m2)
+                        d['age_distributions'][key] = -1.0
+
+        # check that all geoUnits are present in the gender distribution
+        codes_gd = {gd['code'] for gd in ageDistribution}
+        codes_demo =  {gd['code'] for gd in self.demography}
+        if not codes_demo.issubset(codes_gd):
+            mssg = f"There are missing geoUnits in the gender distribution:\n"
+            mssg += f"{codes_demo - codes_gd}"
+            raise ValueError(mssg)
+
+
     def checkGenderDistributions(
         self,
         genderDistribution: Iterable[Dict]
     ) -> None:
+
+        checkIterable(genderDistribution)
+
         # check dicts keys
         dk = set([
             set(d.keys()) == self.genderCategories for d in genderDistribution])
@@ -213,7 +254,7 @@ class DemoGraph:
         try:
             [
                 float(d[k])
-                for d in genderDistribution for k in ['male', 'female', 'total']
+                for d in genderDistribution for k in self.genderCategories
             ]
         except Exception as e:
             raise ValueError(
@@ -245,8 +286,12 @@ class DemoGraph:
         for child in geoUnit.children:
             geoUnit = self._setGenderDistributions(child, genderDistribution)
 
-    def setAgeDistributions(self, ageDistribution: Iterable[Dict]) -> None:
-        # self.checkAgeDistributions(ageDistribution)
+    def setAgeDistributions(
+            self,
+            ageDistribution: Iterable[Dict],
+            raiseErrors: bool = False
+    ) -> None:
+        self.checkAgeDistributions(ageDistribution, raiseErrors)
         self._setAgeDistributions(self.rootGeoUnit, ageDistribution)
         return
 
