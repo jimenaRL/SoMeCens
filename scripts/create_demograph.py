@@ -210,6 +210,7 @@ with pd.ExcelWriter(excelfile) as writer:
 
     localizedUsersColumns = [" ".join(c.split("_")) for c in localizedUsersColumns]
     df = pd.DataFrame(data=localizedUsers, columns=localizedUsersColumns)
+    df = df.sample(n=min(len(df), 1000000), random_state=84)
     try:
         df.to_excel(writer, index=False, sheet_name=f"localized users")
     except:
