@@ -18,14 +18,12 @@ import pandas as pd
 
 from somecens import GeoUnit
 from somecens.tools import checkIterable
-from somecens.nuts.conf import NUTS3AGECATS
+
+from somecens.nuts.conf import NUTS3AGECATS, NUTS3GENDERCATS
 
 DEFAULTAGECATS = NUTS3AGECATS
-DEFAULTGENDERCATS = {
-    'total',
-    'female',
-    'male',
-}
+DEFAULTGENDERCATS = NUTS3GENDERCATS
+
 
 
 class DemoGraph:
@@ -63,11 +61,9 @@ class DemoGraph:
         self.geoUnits = []
         self.rootGeoUnit = None
         self.code2label = {}
-        self.buildGeoTree()
-
         self.genderCategories = genderCats
         self.ageCategories = ageCats
-
+        self.buildGeoTree()
         print(f"Created {self}")
 
     def __str__(self) -> str:
@@ -206,35 +202,61 @@ class DemoGraph:
     ) -> None:
 
         checkIterable(ageDistribution)
+
         # check dicts keys
-        dk = set([
-            set(d.keys()) == self.ageCategories for d in ageDistribution])
         kt = set([
             isinstance(k, str) for d in ageDistribution for k in d.keys()])
         assert kt == {True}
+
+        for d in ageDistribution:
+            if not {'age_distributions', 'code', 'year'} == set(d.keys()) and raiseErrors:
+                raise ValueError()
+            missing_keys = set(self.ageCategories) - set(d["age_distributions"].keys())
+            if  missing_keys:
+                m = f"There are missing age age_distributions keys at:\n\t{d}"
+                if raiseErrors:
+                    raise ValueError(m)
+                else:
+                    m2 = f"Converting missing values to -1.0."
+                    d['age_distributions'].update({k: -1.0 for k in missing_keys})
         # check that dicts's values are convertible to float
         for d in ageDistribution:
             for key in self.ageCategories:
+                val = d['age_distributions'][key]
                 try:
-                    float(d['age_distributions'][key])
+                    float(val)
                 except Exception as e:
-                    m = f"Unnable to parse ageDistribution for unit code {d['code']}. "
+                    m = f"Unnable to convert ageDistribution value '{val}' to float for key {key} of {d['code']} age distribution. "
                     if raiseErrors:
                         m1 = "Please check that all values can be converted to float."
                         raise ValueError(m+m1)
                     else:
-                        m2 = f"Converting value for {key} to -1.0."
+                        m2 = f"Converting value to -1.0."
                         print(m+m2)
                         d['age_distributions'][key] = -1.0
 
         # check that all geoUnits are present in the gender distribution
         codes_gd = {gd['code'] for gd in ageDistribution}
         codes_demo =  {gd['code'] for gd in self.demography}
+        missing_codes = codes_demo - codes_gd
         if not codes_demo.issubset(codes_gd):
             mssg = f"There are missing geoUnits in the gender distribution:\n"
-            mssg += f"{codes_demo - codes_gd}"
-            raise ValueError(mssg)
-
+            mssg += f"{missing_codes}"
+            if raiseErrors:
+                raise ValueError(mssg)
+            else:
+                filling = [
+                    {
+                        'code': code,
+                        # hot fix
+                        'year': ageDistribution[0]['year'],
+                        'age_distributions': {k: -1.0 for k in self.ageCategories}
+                    }
+                    for code in missing_codes
+                ]
+                print(mssg + f"\nAdding {filling}.")
+                ageDistribution.extend(filling)
+        return ageDistribution
 
     def checkGenderDistributions(
         self,
@@ -291,7 +313,7 @@ class DemoGraph:
             ageDistribution: Iterable[Dict],
             raiseErrors: bool = False
     ) -> None:
-        self.checkAgeDistributions(ageDistribution, raiseErrors)
+        ageDistribution = self.checkAgeDistributions(ageDistribution, raiseErrors)
         self._setAgeDistributions(self.rootGeoUnit, ageDistribution)
         return
 
@@ -352,10 +374,14 @@ class DemoGraph:
                 self.rootGeoUnit = GeoUnit(
                     label=d['label'],
                     level=int(d['level']),
-                    code=d['code'])
+                    code=d['code'],
+                    gender_categories=self.genderCategories,
+                    age_categories=self.ageCategories
+                )
                 self.locations[d['code']] = d['label']
                 self.geoUnits.append(self.rootGeoUnit)
                 self.code2label[d['code']] = d['label']
+
 
         while level < max_level:
             level += 1
@@ -365,7 +391,10 @@ class DemoGraph:
                     geoUnit = GeoUnit(
                         label=d['label'],
                         level=int(d['level']),
-                        code=d['code'])
+                        code=d['code'],
+                        gender_categories=self.genderCategories,
+                        age_categories=self.ageCategories
+                    )
                     parent.addChild(geoUnit)
                     self.locations[d['code']] = d['label']
                     self.geoUnits.append(geoUnit)

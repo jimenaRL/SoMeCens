@@ -10,7 +10,7 @@ import csv
 import copy
 import tempfile
 # import yaml
-# import json
+import json
 
 from somecens.epo.tools import getMetadata
 
@@ -32,27 +32,27 @@ METADATAPATH = os.path.join(FOLDER, f"us_metadata{MDYEAR}.csv")
 #     5: "7/1/2023",
 # }
 
-# AGEDICT : {
-#     0: "Total",
-#     1: "Age 0 to 4 years",
-#     2: "Age 5 to 9 years",
-#     3: "Age 10 to 14 years",
-#     4: "Age 15 to 19 years",
-#     5: "Age 20 to 24 years",
-#     6: "Age 25 to 29 years",
-#     7: "Age 30 to 34 years",
-#     8: "Age 35 to 39 years",
-#     9: "Age 40 to 44 years",
-#     10: "Age 45 to 49 years",
-#     11: "Age 50 to 54 years",
-#     12: "Age 55 to 59 years",
-#     13: "Age 60 to 64 years",
-#     14: "Age 65 to 69 years",
-#     15: "Age 70 to 74 years",
-#     16: "Age 75 to 79 years",
-#     17: "Age 80 to 84 years",
-#     18: "Age 85 years or older",
-# }
+AGEDICT = {
+    0: "Total",
+    1: "Age 0 to 4 years",
+    2: "Age 5 to 9 years",
+    3: "Age 10 to 14 years",
+    4: "Age 15 to 19 years",
+    5: "Age 20 to 24 years",
+    6: "Age 25 to 29 years",
+    7: "Age 30 to 34 years",
+    8: "Age 35 to 39 years",
+    9: "Age 40 to 44 years",
+    10: "Age 45 to 49 years",
+    11: "Age 50 to 54 years",
+    12: "Age 55 to 59 years",
+    13: "Age 60 to 64 years",
+    14: "Age 65 to 69 years",
+    15: "Age 70 to 74 years",
+    16: "Age 75 to 79 years",
+    17: "Age 80 to 84 years",
+    18: "Age 85 years or older",
+}
 
 
 parent_cmd = f"""
@@ -63,7 +63,7 @@ parent_cmd = f"""
 # 1. Parse data to get geoUnits (states and counties)
 
 # 1.1 Counties
-county_units = os.path.join(FOLDER, "us_counties_geounits_year2023.csv")
+county_units = os.path.join(FOLDER, f"us_counties_geounits_year{MDYEAR}.csv")
 cmd = parent_cmd + f"""
     xan select STATE,COUNTY,CTYNAME | \
     xan rename parent_code,code,label | \
@@ -77,7 +77,7 @@ cmd = parent_cmd + f"""
 os.system(cmd)
 
 # 1.2 States
-state_units = os.path.join(FOLDER, "us_states_geounits_year2023.csv")
+state_units = os.path.join(FOLDER, f"us_states_geounits_year{MDYEAR}.csv")
 
 cmd = parent_cmd + f"""
     xan select STATE,STNAME | \
@@ -92,7 +92,7 @@ cmd = parent_cmd + f"""
 os.system(cmd)
 
 # 1.3 Country
-country_units = os.path.join(FOLDER, "us_country_geounits_year2023.csv")
+country_units = os.path.join(FOLDER, f"us_country_geounits_year{MDYEAR}.csv")
 with open(country_units, "w") as f:
     f.writelines([
         "code,label,country_code,level,parent_code\n",
@@ -100,7 +100,7 @@ with open(country_units, "w") as f:
     ])
 
 # 1.4 Concatenate all
-units = os.path.join(FOLDER, "us_geounits_year2023.csv")
+units = os.path.join(FOLDER, f"us_geounits_year{MDYEAR}.csv")
 with tempfile.NamedTemporaryFile() as t1:
     os.system(f"xan cat rows {country_units} {state_units} > {t1.name}")
     os.system(f"xan cat rows {t1.name} {county_units} | xan sort -s code > {units}")
@@ -109,6 +109,82 @@ os.system(f"xan head {units} | xan v")
 
 
 # 2. Parse data to get gender and age distributions
+
+# 2.0 Age distributions
+
+# 2.0.1 Counties
+county_ageDist = os.path.join(FOLDER, f"us_counties_ageDists_year{MDYEAR}.csv")
+age_parent_cmd  = f"""
+    xan filter \"col('YEAR') eq 5\" {DATAPATH} | \
+"""
+cmd = age_parent_cmd + f"""
+    xan select STATE,COUNTY,AGEGRP,TOT_POP | \
+    xan map --overwrite 'STATE ++ COUNTY as code' | \
+    xan rename total,age,code -s TOT_POP,AGEGRP,code | \
+    xan select total,age,code | \
+    xan map '\"{MDYEAR}\" as year' \
+    > {county_ageDist}
+"""
+print(f"[RUNNING] {cmd}")
+os.system(cmd)
+print(f"Csv file with us counties age distributions units saved at {county_ageDist}")
+os.system(f"xan head {county_ageDist} | xan v")
+
+# 2.0.1 States
+state_ageDist = os.path.join(FOLDER, f"us_states_ageDists_year{MDYEAR}.csv")
+age_parent_cmd  = f"""
+    xan filter \"col('YEAR') eq 5\" {DATAPATH} | \
+"""
+cmd = age_parent_cmd + f""" xan select STATE,COUNTY,AGEGRP,TOT_POP | \
+    xan groupby STATE,AGEGRP 'sum(TOT_POP)' | \
+    xan rename total,age,code | \
+    xan select total,age,code | \
+    xan map '\"{MDYEAR}\" as year' \
+    > {state_ageDist}
+"""
+print(f"[RUNNING] {cmd}")
+os.system(cmd)
+print(f"Csv file with us state gender distributions units saved at {state_ageDist}")
+os.system(f"xan head {state_ageDist} | xan v")
+
+# 2.0.2 Country
+country_ageDist = os.path.join(FOLDER, f"us_country_ageDists_year{MDYEAR}.csv")
+cmd = f"xan groupby age,year 'sum(code)' {state_ageDist}"
+cmd += " | xan map '\"0\" as code'"
+cmd += " | xan rename age,year,total,code"
+cmd += " | xan select total,age,code,year"
+cmd += f" > {country_ageDist}"
+print(f"[RUNNING] {cmd}")
+os.system(cmd)
+print(f"Csv file with us country gender distributions units saved at {country_ageDist}")
+os.system(f"xan head {country_ageDist} | xan v")
+
+# 2.0.3 All
+ageDist = os.path.join(FOLDER, f"us_age_distribution_year{MDYEAR}.csv")
+cmd = f"xan cat rows {country_ageDist} {state_ageDist} {county_ageDist} > {ageDist}"
+print(f"[RUNNING] {cmd}")
+os.system(cmd)
+print(f"US gender distribution csv file saved at {ageDist}")
+os.system(f"xan head {ageDist} | xan v")
+
+ageDistLines = os.path.join(FOLDER, f"us_age_distribution_year{MDYEAR}.jsonl")
+
+with open(ageDist, 'r') as f:
+    lines = [d for d in csv.DictReader(f)]
+
+codes = set([l['code'] for l in lines])
+ageDist = []
+for code in codes:
+    ageDist.append({
+        'code': code,
+        'year': MDYEAR,
+        'age_distributions': {
+                d['age']: d['total']
+            for d in lines if d['code'] == code}
+    })
+with open(ageDistLines, "w") as f:
+    f.writelines([json.dumps(l)+'\n' for l in ageDist])
+print(f"Jsonl age distribution file saved at {ageDistLines}")
 
 # 2.1 Gender distributions
 
@@ -170,8 +246,6 @@ os.system(cmd)
 print(f"US gender distribution csv file saved at {genderDist}")
 os.system(f"xan head {genderDist} | xan v")
 
-
-# 2.2 Age distributions [TO DO]
 
 # 3. Load metadata using auxiliar methods to request epo databases,
 # then export as csv

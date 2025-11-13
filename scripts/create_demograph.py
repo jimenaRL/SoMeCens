@@ -22,6 +22,9 @@ from random import randint, shuffle
 
 import numpy as np
 
+from somecens.us.conf import USAGECATS, USGENDERCATS
+from somecens.nuts.conf import NUTS3AGECATS, NUTS3GENDERCATS
+
 from somecens import DemoGraph
 from somecens.tools import \
     getUnitsAliases, \
@@ -85,13 +88,20 @@ print("---------------------------------------------------------")
 print(f"PARAMETERS:\n{yaml.dump(params)}")
 print("---------------------------------------------------------")
 
+#  0. Set options
+if country == 'us':
+    encoding = "ISO-8859-1"
+    gendercategories = NUTS3GENDERCATS
+    agecategories = USAGECATS
+elif country == 'chile':
+    encoding = "utf-8"
+    raise NotImplementedError()
+else:  # nuts countrye
+    gendercategories = NUTS3GENDERCATS
+    agecategories = NUTS3AGECATS
+    encoding = "utf-8"
 
 #  1. Load sociodemographic data
-
-if country == 'United States':
-    encoding = "ISO-8859-1"
-else:
-    encoding = "utf-8"
 with open(unitspath, "r", encoding=encoding) as f:
     geoUnits = [r for r in csv.DictReader(f)]
 print(f"Geographical units loaded from {unitspath}")
@@ -129,13 +139,16 @@ print(f"Locations file with {len(metadata)} entries loaded from {agedistpath}")
 #   - gender distributions per geographical unit
 #   - subunits (LAUS)
 
-demo = DemoGraph(demography=geoUnits)
+demo = DemoGraph(
+    demography=geoUnits,
+    ageCats=agecategories,
+    genderCats=gendercategories)
 if subUnits:
     demo.setSubUnitsNames(subUnits)
 if genderDist:
     demo.setGenderDistributions(genderDist)
 if ageDist:
-    demo.setAgeDistributions(ageDist)
+    demo.setAgeDistributions(ageDist, raiseErrors=False)
 
 # show
 demo.showGeoUnits(max_level=0)
