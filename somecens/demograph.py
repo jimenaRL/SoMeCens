@@ -31,7 +31,7 @@ class DemoGraph:
     """
 
     demoKeys = {'country_code', 'label', 'level', 'code', 'parent_code'}
-    genderCategories = DEFAULTGENDERCATS
+    ageDistributionsKeys = {'age_distributions', 'code'}
 
     def __init__(
             self,
@@ -198,6 +198,7 @@ class DemoGraph:
     def checkAgeDistributions(
         self,
         ageDistribution: Iterable[Dict],
+        verbose: bool | False,
         raiseErrors: bool | False
     ) -> None:
 
@@ -208,9 +209,13 @@ class DemoGraph:
             isinstance(k, str) for d in ageDistribution for k in d.keys()])
         assert kt == {True}
 
+        keys = self.ageDistributionsKeys
         for d in ageDistribution:
-            if not {'age_distributions', 'code', 'year'} == set(d.keys()) and raiseErrors:
-                raise ValueError()
+            if not keys.issubset(set(d.keys())):
+                e = f"Expecting dict with keys {keys} but found {set(d.keys())}"
+                e += f" for age distribution of geoUnit with code {d['code']}:"
+                e += f"\n\t{d}"
+                raise ValueError(e)
             missing_keys = set(self.ageCategories) - set(d["age_distributions"].keys())
             if  missing_keys:
                 m = f"There are missing age age_distributions keys at:\n\t{d}"
@@ -231,8 +236,9 @@ class DemoGraph:
                         m1 = "Please check that all values can be converted to float."
                         raise ValueError(m+m1)
                     else:
-                        m2 = f"Converting value to -1.0."
-                        print(m+m2)
+                        if verbose:
+                            m2 = f"Converting value to -1.0."
+                            print(m+m2)
                         d['age_distributions'][key] = -1.0
 
         # check that all geoUnits are present in the gender distribution
@@ -311,9 +317,10 @@ class DemoGraph:
     def setAgeDistributions(
             self,
             ageDistribution: Iterable[Dict],
-            raiseErrors: bool = False
+            verbose: bool = False,
+            raiseErrors: bool = False,
     ) -> None:
-        ageDistribution = self.checkAgeDistributions(ageDistribution, raiseErrors)
+        ageDistribution = self.checkAgeDistributions(ageDistribution, verbose, raiseErrors)
         self._setAgeDistributions(self.rootGeoUnit, ageDistribution)
         return
 

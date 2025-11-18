@@ -96,10 +96,6 @@ print(f"Yaml file with {country} geographical geounits saved at {subunitspath}")
 genderdistname = os.path.join(
     outfolder,
     f"{country}_gender_distribution_nuts{nutsyear}")
-with open(genderdistname + '.jsonl', "w") as f:
-    f.writelines([json.dumps(l)+'\n' for l in genderDist])
-print(f"Jsonl gender distribution file saved at {genderdistname}.jsonl")
-
 with open(genderdistname + '.csv', 'w', newline='') as csvfile:
     fieldnames = genderDist[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -111,10 +107,6 @@ print(f"Csv gender distribution file saved at {genderdistname}.csv")
 agedistname = os.path.join(
     outfolder,
     f"{country}_age_distribution_nuts{nutsyear}")
-with open(agedistname + ".jsonl", "w") as f:
-    f.writelines([json.dumps(l)+'\n' for l in ageDist])
-print(f"Jsonl age distribution file saved at {agedistname}.jsonl")
-
 with open(agedistname + '.csv', 'w', newline='') as csvfile:
     fieldnames = ageDist[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)

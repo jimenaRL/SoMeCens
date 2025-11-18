@@ -27,6 +27,7 @@ from somecens.nuts.conf import NUTS3AGECATS, NUTS3GENDERCATS
 
 from somecens import DemoGraph
 from somecens.tools import \
+    parseFlatAgeDistributions, \
     getUnitsAliases, \
     getCountryAliases, \
     getOtherCountriesNames, \
@@ -38,7 +39,7 @@ COUNTRYDATAPATH = os.path.join(DIRPATH, "data", "${country}")
 GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts2024.csv")
 SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits.yml")
 GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts2024.csv")
-AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts2024.jsonl")
+AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts2024.csv")
 USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata2023.csv")
 # Create dict of relevant stop words per languages of country
 DEFAULTSTOPWORDS = ""
@@ -122,10 +123,12 @@ else:
 
 if agedistpath:
     with open(agedistpath, "r") as f:
-        ageDist = [json.loads(l) for l in f.readlines()]
-    print(f"Jsonl age distribution file loaded from {agedistpath}")
+        ageDist = [r for r in csv.DictReader(f)]
+    print(f"Csv age distribution file loaded from {agedistpath}")
 else:
     ageDist = []
+
+ageDist = parseFlatAgeDistributions(ageDist)
 
 with open(usersdatapath, 'r') as f:
     if debuglimit:
@@ -148,7 +151,7 @@ if subUnits:
 if genderDist:
     demo.setGenderDistributions(genderDist)
 if ageDist:
-    demo.setAgeDistributions(ageDist, raiseErrors=False)
+    demo.setAgeDistributions(ageDist, raiseErrors=False, verbose=True)
 
 # show
 demo.showGeoUnits(max_level=0)
@@ -192,8 +195,6 @@ os.system(f"xan v {path}")
 
 # 4.1 export matchs stats for eu  cloropleths
 for level in range(demo.getDeepestLevel() + 1) :
-    path = os.path.join(exportsfoldercountry, f'nb_matchs_{country.replace(' ', '')}_nuts_{level}.csv')
-    demo.exportLocalizationsMatches(level, path, descendants=True, add_headers=False)
     path = os.path.join(exportsfoldercountry, f'nb_matchs_perc_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatchesPerc(level, path, descendants=True, add_headers=False)
 
@@ -210,7 +211,7 @@ with pd.ExcelWriter(excelfile) as writer:
 
     localizedUsersColumns = [" ".join(c.split("_")) for c in localizedUsersColumns]
     df = pd.DataFrame(data=localizedUsers, columns=localizedUsersColumns)
-    df = df.sample(n=min(len(df), 1000000), random_state=84)
+    df = df.sample(n=min(len(df), 10000), random_state=84)
     try:
         df.to_excel(writer, index=False, sheet_name=f"localized users")
     except:
