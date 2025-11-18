@@ -5,10 +5,16 @@ import emoji
 import tempfile
 import concurrent.futures
 from subprocess import Popen, PIPE
+from collections.abc import Iterable
 
 from fog.tokenizers import FingerprintTokenizer
 
 from somecens.conf import PAYS, COUNTRIES, UNITALIASES, COUNTRYALIASES
+
+def checkIterable(something) -> None:
+    if not isinstance(something, Iterable):
+        raise ValueError(
+            f"Object must be an iterable, found {type(something)}")
 
 def getTokenizer(
     stopwords: Iterable[str] = [],

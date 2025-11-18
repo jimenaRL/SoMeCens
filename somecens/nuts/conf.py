@@ -66,6 +66,7 @@ NUTS3AGECATS = [
     "GE85",
 ]
 
+NUTS3GENDERCATS = ["female", "male", "total"]
 
 with open(CODES, "r") as fh:
     CODESCOUNTRY = yaml.load(fh, Loader=yaml.SafeLoader)

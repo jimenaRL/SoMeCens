@@ -13,15 +13,10 @@ from __future__ import annotations
 from typing import Type
 from typing import Any
 
-from somecens.nuts.conf import NUTS3AGECATS
+from somecens.nuts.conf import NUTS3AGECATS, NUTS3GENDERCATS
 
-DEFAULTAGECATS = set(NUTS3AGECATS)
-DEFAULTGENDERCATS = {
-    'male',
-    'female',
-    'total',
-}
-
+DEFAULTAGECATS = NUTS3AGECATS
+DEFAULTGENDERCATS = NUTS3GENDERCATS
 
 class GeoUnit:
     """ Class implementing a tree structure of administrative geographics units.
@@ -108,11 +103,11 @@ class GeoUnit:
 
     def setAgeDistribution(self, ageDistribution: dict) -> None:
         ageDistribution = ageDistribution['age_distributions']
-        assert self.ageCategories.issubset(set(ageDistribution.keys()))
+        assert set(self.ageCategories).issubset(set(ageDistribution.keys()))
         self.ageDistribution = ageDistribution
 
     def setGenderDistribution(self, genderDistribution: dict) -> None:
-        assert self.genderCategories.issubset(set(genderDistribution.keys()))
+        assert set(self.genderCategories).issubset(set(genderDistribution.keys()))
         gd = {k: genderDistribution[k] for k in self.genderCategories}
         self.genderDistribution = gd
 
