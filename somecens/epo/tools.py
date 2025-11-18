@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import os
+import tempfile
 import sqlite3
+import pandas as pd
 from glob import glob
 from string import Template
 
@@ -22,7 +24,8 @@ def getLastRelease(pathPattern: str, db: str, country: str, year: int) -> str:
 def getMetadata(
     dbpath: str,
     not_null_column: str | None = None,
-    columns: Iterable[str] | None = None
+    columns: Iterable[str] | None = None,
+    ids_dbpath: str | None = None
 ) -> list(tuple):
 
     if not os.path.exists(dbpath):
@@ -46,4 +49,18 @@ def getMetadata(
     if not_null_column:
         msg += f" and {not_null_column} NOT NULL"
     print(msg)
-    return res
+
+    if ids_dbpath:
+        with sqlite3.connect(ids_dbpath) as con:
+            cur = con.cursor()
+            cur.execute("SELECT twitter_id,pseudo_id from lut")
+            ids = cur.fetchall()
+
+    l1 = len(res)
+    res = pd.DataFrame(data=res, columns=columns, dtype=str) \
+        .merge(
+            pd.DataFrame(data=ids, columns=["twitter_id","pseudo_id"], dtype=str),
+            on="pseudo_id")
+    assert l1 == len(res)
+
+    return res.drop(columns=["pseudo_id"])[['twitter_id', 'location', 'screen_name']].to_numpy()

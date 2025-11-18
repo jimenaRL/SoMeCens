@@ -26,6 +26,10 @@ DEFAULTEPODBPATH = os.path.join(
     DATAPATH,
     "${country}",
     "${country}_${metadatayear}_pseudonymized_alldata.db")
+DEFAULTIDSDBPATH = os.path.join(
+    DATAPATH,
+    "${country}",
+    "${country}_${metadatayear}_lut.db")
 DEFAULTOUTFOLDER = os.path.join(DATAPATH, "${country}")
 DEFAULTNUTSYEAR = 2024
 
@@ -34,6 +38,7 @@ ap = ArgumentParser()
 ap.add_argument('--country', type=str, required=True)
 ap.add_argument('--metadatayear', type=int, required=False)
 ap.add_argument('--epodbpath', type=str, default=DEFAULTEPODBPATH)
+ap.add_argument('--idsdbpath', type=str, default=DEFAULTIDSDBPATH)
 ap.add_argument('--nutsyear', type=int, default=DEFAULTNUTSYEAR)
 ap.add_argument('--outfolder', type=str, default=DEFAULTOUTFOLDER)
 
@@ -42,6 +47,7 @@ country = args.country
 metadatayear = args.metadatayear
 nutsyear = args.nutsyear
 epodbpath = args.epodbpath
+idsdbpath = args.idsdbpath
 outfolder = args.outfolder
 nutsyear = args.nutsyear
 
@@ -63,7 +69,7 @@ print("---------------------------------------------------------")
 
 # load metadata using auxiliar methods to request epo databases
 columns = ['pseudo_id', 'location', 'screen_name']
-metadata = getMetadata(epodbpath, columns=columns, not_null_column="location")
+metadata = getMetadata(epodbpath, columns=columns, not_null_column="location", ids_dbpath=idsdbpath)
 
 # load distributions and subunits using auxiliar methods to parse NUTS data
 geoUnits = getUnits(country=country,  year=nutsyear)
@@ -75,7 +81,7 @@ ageDist = getNutsAgeDistributions(country=country, year=nutsyear)
 metadatapath = os.path.join(outfolder, f"{country}_metadata{metadatayear}.csv")
 with open(metadatapath, 'w') as f:
     writer = csv.writer(f)
-    writer.writerow(columns)
+    writer.writerow(['twitter_id', 'location', 'screen_name'])
     writer.writerows(metadata)
 print(f"Csv metadata file saved at {metadatapath}")
 
