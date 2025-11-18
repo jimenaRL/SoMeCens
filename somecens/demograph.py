@@ -408,6 +408,13 @@ class DemoGraph:
                     self.code2label[d['code']] = d['label']
 
 
+    def getUniqueUsersMatched(self, code: str, descendants: bool = True) -> set:
+        return {
+            match[0]
+            for matched in self.getLocalizedUsers(code, descendants).values()
+            for match in matched
+        }
+
     def exportUnitsReport(self, path: str | None = None) -> Iterable:
 
         max_level = self.getDeepestLevel()
@@ -418,9 +425,9 @@ class DemoGraph:
 
         data = []
         for geo in self.geoUnits:
+            unit_matched = len(self.getUniqueUsersMatched(geo.code, descendants=False))
+            desc_matched = len(self.getUniqueUsersMatched(geo.code, descendants=True))
 
-            unit_matched = sum(map(len, self.getLocalizedUsers(code=geo.code, descendants=False).values()))
-            desc_matched = sum(map(len, self.getLocalizedUsers(code=geo.code, descendants=True).values()))
             total = float(geo.genderDistribution['total'])
 
             geoData = [
@@ -504,7 +511,7 @@ class DemoGraph:
 
         return data, columns
 
-    def exportLocalizationsMatches(
+    def exportLocalizationsMatchesNb(
         self,
         level: int,
         path: str,
@@ -515,10 +522,8 @@ class DemoGraph:
         data = []
         for geoUnit in self.geoUnits:
             if geoUnit.level == level:
-                data.append([
-                    geoUnit.code,
-                    sum(map(len, self.getLocalizedUsers(geoUnit.code,descendants).values()))
-                ])
+                nb_unique_matched = len(self.getUniqueUsersMatched(geo.code, descendants=descendants))
+                data.append([geoUnit.code, nb_unique_matched])
         with open(path, 'w') as f:
             writer = csv.writer(f)
             if add_headers:
@@ -538,13 +543,11 @@ class DemoGraph:
         for geoUnit in self.geoUnits:
             if geoUnit.level == level:
                 total = float(geoUnit.genderDistribution['total'])
-                matched = sum(map(
-                    len,
-                    self.getLocalizedUsers(geoUnit.code, descendants).values()
-                ))
+                # get unique twitter_ids (at index 0)
+                nb_unique_matched = len(self.getUniqueUsersMatched(geoUnit.code, descendants=descendants))
                 data.append([
                     geoUnit.code,
-                    100 * matched / total
+                    100 * nb_unique_matched / total
                 ])
 
         with open(path, 'w') as f:
@@ -554,33 +557,33 @@ class DemoGraph:
             writer.writerows(data)
         print(f"File saved as {path}")
 
-    def getGeoUnitLocalizationsStats(self, code: str) -> Iterable:
-        for g in self.geoUnits:
-            if g.code == code:
+    # def getGeoUnitLocalizationsStats(self, code: str) -> Iterable:
+    #     for g in self.geoUnits:
+    #         if g.code == code:
 
-                total = float(g.genderDistribution['total'])
+    #             total = float(g.genderDistribution['total'])
 
-                nb_unit_matched = sum(map(
-                    len,
-                    self.getLocalizedUsers(g.code, descendants=False).values()
-                ))
+    #             nb_unit_matched = sum(map(
+    #                 len,
+    #                 self.getLocalizedUsers(g.code, descendants=False).values()
+    #             ))
 
-                # use a set to avoid duplicated users
-                descendant_unique_matched = set()
-                descendant_matched = self.getLocalizedUsers(
-                    g.code,
-                    descendants=True)
-                for user_list in descendant_matched.values():
-                    # update set with matched users pseudo_ids
-                    descendant_unique_matched.update({u[0] for u in user_list})
-                nb_descendant_matched = len(descendant_unique_matched)
+    #             # use a set to avoid duplicated users
+    #             descendant_unique_matched = set()
+    #             descendant_matched = self.getLocalizedUsers(
+    #                 g.code,
+    #                 descendants=True)
+    #             for user_list in descendant_matched.values():
+    #                 # update set with matched users pseudo_ids
+    #                 descendant_unique_matched.update({u[0] for u in user_list})
+    #             nb_descendant_matched = len(descendant_unique_matched)
 
-                return [
-                    g.level,
-                    g.code,
-                    g.label,
-                    total,
-                    nb_unit_matched,
-                    nb_descendant_matched,
-                    100 * nb_descendant_matched / total,
-                ]
+    #             return [
+    #                 g.level,
+    #                 g.code,
+    #                 g.label,
+    #                 total,
+    #                 nb_unit_matched,
+    #                 nb_descendant_matched,
+    #                 100 * nb_descendant_matched / total,
+    #             ]

@@ -193,10 +193,11 @@ path = os.path.join(exportsfoldercountry, f'units.csv')
 unitReport, unitsColumns = demo.exportUnitsReport(path)
 os.system(f"xan v {path}")
 
-# 4.1 export matchs stats for eu  cloropleths
+# 4.1 export matchs stats per level for cloropleths visualizations
 for level in range(demo.getDeepestLevel() + 1) :
     path = os.path.join(exportsfoldercountry, f'nb_matchs_perc_{country.replace(' ', '')}_nuts_{level}.csv')
     demo.exportLocalizationsMatchesPerc(level, path, descendants=True, add_headers=False)
+    os.system(f"xan v --no-headers {path}")
 
 # 4.2 export localized users
 path = os.path.join(exportsfoldercountry, f'localized_users.csv')
@@ -220,8 +221,6 @@ with pd.ExcelWriter(excelfile) as writer:
 
 print(f"Excel report wrote at {excelfile}")
 
-# from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE
-# ILLEGAL_CHARACTERS_RE.sub(r'', x)
 
 # 4. Make choropleth with:
 #   - number of matched users in each geographical unit
