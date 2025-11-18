@@ -255,12 +255,12 @@ class DemoGraph:
                     {
                         'code': code,
                         # hot fix
-                        'year': ageDistribution[0]['year'],
                         'age_distributions': {k: -1.0 for k in self.ageCategories}
                     }
                     for code in missing_codes
                 ]
-                print(mssg + f"\nAdding {filling}.")
+                if verbose:
+                    print(mssg + f"\nAdding {filling}.")
                 ageDistribution.extend(filling)
         return ageDistribution
 
