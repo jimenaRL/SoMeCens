@@ -201,7 +201,11 @@ for level in range(demo.getDeepestLevel() + 1) :
 
 # 4.2 export localized users
 path = os.path.join(exportsfoldercountry, f'localized_users.csv')
-localizedUsers, localizedUsersColumns = demo.exportLocalizedUsers(path)
+full_path = os.path.join(exportsfoldercountry, f'localized_users_full.csv')
+localizedUsers, localizedUsersColumns = demo.exportLocalizedUsers(path, full_path=full_path)
+os.system(f"xan v {path}")
+os.system(f"xan v {full_path}")
+exit()
 
 excelfile = os.path.join(exportsfoldercountry, f'{country}_units_users_reports.xlsx')
 with pd.ExcelWriter(excelfile) as writer:

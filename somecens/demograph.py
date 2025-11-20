@@ -13,6 +13,7 @@ from typing import Type
 from typing import Any
 from functools import reduce
 
+import os
 import csv
 import pandas as pd
 
@@ -92,6 +93,9 @@ class DemoGraph:
 
     def getDeepestLevel(self) -> int:
         return max(map(int, set([d['level'] for d in self.demography])))
+
+    def getLevelCodes(self, level: int) -> int:
+        return [d['code'] for d in self.demography if int(d['level']) == level]
 
     def findLabelFromCode(self, code: str) -> str:
         if code not in self.code2label:
@@ -453,7 +457,7 @@ class DemoGraph:
         return data, columns
 
 
-    def exportLocalizedUsers(self, path: str | None = None) -> Iterable:
+    def exportLocalizedUsers(self, path: str | None = None, full_path: str | None = None) -> Iterable:
 
         max_level = self.getDeepestLevel()
         columns = ["pseudo_id", "location", "screen_name", "normalized_location"]
@@ -506,10 +510,43 @@ class DemoGraph:
                 writer = csv.writer(f)
                 writer.writerow(columns)
                 writer.writerows(data)
-            print(f"File saved as {path}")
+            print(f"Localized users file saved as {path}")
 
+            if full_path:
+                drop_columns = [f"level_{l}_label" for l in range(0, max_level + 1)]
+                df = localizedUsers
+                df.drop(columns=drop_columns, inplace=True)
+                for l in reversed(range(1, max_level + 1)):
+                    level_codes = self.getLevelCodes(l)
 
-        return data, columns
+                    for code in level_codes:
+                        idx = df[df[f"level_{l}_code"] == code].index
+                        prev_level = df.loc[idx, f"level_{l - 1}_code"]
+                        parent_code = self.getParentCode(self.getGeoUnit(code))
+                        def fn(v):
+                            v = set(v.split(" | ")) - {""}
+                            return " | ".join(list(set(v).union({parent_code})))
+                        prev_level = prev_level.apply(fn)
+                        df.loc[idx, f"level_{l - 1}_code"] = prev_level
+
+                    # trait multiple codes per level
+                    gn = lambda code : self.getParentCode(self.getGeoUnit(code))
+                    idx = df[df[f"level_{l}_code"].apply(lambda v: " | " in v)].index
+                    this_level = df.loc[idx, f"level_{l}_code"]
+                    this_level_parents = this_level.apply(lambda v: " | ".join(list(map(gn, v.split(" | ")))))
+                    prev_level = df.loc[idx, f"level_{l - 1}_code"]
+                    df.loc[idx, f"level_{l - 1}_code"] = prev_level + " | " + this_level_parents
+                    hn = lambda v: " | ".join(set(v.split(" | ")) - {""})
+                    df.loc[idx, f"level_{l - 1}_code"] = df.loc[idx, f"level_{l - 1}_code"].apply(hn)
+
+                with open(full_path, 'w') as f:
+                    writer = csv.writer(f)
+                    writer.writerow(df.columns)
+                    writer.writerows(df.values.tolist())
+                print(f"Localized users file saved as {path}")
+
+        return  data, columns
+
 
     def exportLocalizationsMatchesNb(
         self,
@@ -556,34 +593,3 @@ class DemoGraph:
                 writer.writerow(headers)
             writer.writerows(data)
         print(f"File saved as {path}")
-
-    # def getGeoUnitLocalizationsStats(self, code: str) -> Iterable:
-    #     for g in self.geoUnits:
-    #         if g.code == code:
-
-    #             total = float(g.genderDistribution['total'])
-
-    #             nb_unit_matched = sum(map(
-    #                 len,
-    #                 self.getLocalizedUsers(g.code, descendants=False).values()
-    #             ))
-
-    #             # use a set to avoid duplicated users
-    #             descendant_unique_matched = set()
-    #             descendant_matched = self.getLocalizedUsers(
-    #                 g.code,
-    #                 descendants=True)
-    #             for user_list in descendant_matched.values():
-    #                 # update set with matched users pseudo_ids
-    #                 descendant_unique_matched.update({u[0] for u in user_list})
-    #             nb_descendant_matched = len(descendant_unique_matched)
-
-    #             return [
-    #                 g.level,
-    #                 g.code,
-    #                 g.label,
-    #                 total,
-    #                 nb_unit_matched,
-    #                 nb_descendant_matched,
-    #                 100 * nb_descendant_matched / total,
-    #             ]
