@@ -22,6 +22,7 @@ from random import randint, shuffle
 
 import numpy as np
 
+from somecens.chile.conf import CHILEAGECATS, CHILEGENDERCATS
 from somecens.us.conf import USAGECATS, USGENDERCATS
 from somecens.nuts.conf import NUTS3AGECATS, NUTS3GENDERCATS
 
@@ -92,12 +93,13 @@ print("---------------------------------------------------------")
 #  0. Set options
 if country == 'us':
     encoding = "ISO-8859-1"
-    gendercategories = NUTS3GENDERCATS
+    gendercategories = USGENDERCATS
     agecategories = USAGECATS
 elif country == 'chile':
     encoding = "utf-8"
-    raise NotImplementedError()
-else:  # nuts countrye
+    gendercategories = CHILEGENDERCATS
+    agecategories = CHILEAGECATS
+else: # nuts countries
     gendercategories = NUTS3GENDERCATS
     agecategories = NUTS3AGECATS
     encoding = "utf-8"
