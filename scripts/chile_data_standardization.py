@@ -16,11 +16,11 @@ FOLDER = os.path.join(DIRPATH, "data/chile")
 COMUNASDATAPATH = os.path.join(FOLDER, "D1_Poblacion-censada-por-sexo-y-edad-en-grupos-quinquenales.xlsx-4.csv")
 REGIONDATAPATH = os.path.join(FOLDER, "D1_Poblacion-censada-por-sexo-y-edad-en-grupos-quinquenales.xlsx-3.csv")
 DATAYEAR = 2024
-GEOUNITSPATH = os.path.join(FOLDER, f"chile_geoUnits.csv")
+GEOUNITSPATH = os.path.join(FOLDER, f"chile_geoUnits_census_{DATAYEAR}.csv")
 MDYEAR = 2023
 EPODBPATH = os.path.join(FOLDER, f"chile_{MDYEAR}_pseudonymized_alldata.db")
 # EPODBPATH = "/mnt/hdd2/epodata/production/v0/pseudonymized_alldata/us_2023_pseudonymized_alldata_20250416.db"
-METACOMUNASDATAPATH = os.path.join(FOLDER, f"chile_metadata{MDYEAR}.csv")
+METACOMUNASDATAPATH = os.path.join(FOLDER, f"chile_metadata_{MDYEAR}.csv")
 
 # 1. Parse data to get geoUnits (states and counties)
 
@@ -32,6 +32,7 @@ cmd = f"""
     xan dedup | \
     xan map '0 as country_code' | \
     xan map '3 as level' | \
+    xan select label,code,country_code,level,parent_code | \
     xan search --invert-match País > {comunas_units}
 """
 os.system(cmd)
@@ -45,6 +46,7 @@ cmd = f"""
     xan dedup | \
     xan map '0 as country_code' | \
     xan map '2 as level' | \
+    xan select label,code,country_code,level,parent_code | \
     xan search --invert-match País > {provincias_units}
 """
 os.system(cmd)
@@ -59,6 +61,7 @@ cmd = f"""
     xan map '0 as parent_code' | \
     xan map '0 as country_code' | \
     xan map '1 as level' | \
+    xan select label,code,country_code,level,parent_code | \
     xan search --invert-match País > {regions_units}
 """
 os.system(cmd)
@@ -80,6 +83,8 @@ with tempfile.NamedTemporaryFile() as t:
     os.system(f"xan cat rows --paths {t.name} > {units}")
 print(f"Csv file with us geographical units saved at {units}")
 os.system(f"xan v {units}")
+
+exit()
 
 # 2. Parse data to get gender and age distributions
 
@@ -235,8 +240,7 @@ os.system(f"xan v {genderDist}")
 columns = ['pseudo_id', 'location', 'screen_name']
 metadata = getMetadata(EPODBPATH, columns=columns, not_null_column="location")
 
-metadatapath = os.path.join(FOLDER, f"chile_metadata{MDYEAR}.csv")
-with open(metadatapath, 'w') as f:
+with open(METACOMUNASDATAPATH, 'w') as f:
     writer = csv.writer(f)
     writer.writerow(columns)
     writer.writerows(metadata)
