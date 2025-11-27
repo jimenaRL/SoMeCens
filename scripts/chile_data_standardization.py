@@ -20,31 +20,7 @@ GEOUNITSPATH = os.path.join(FOLDER, f"chile_geoUnits.csv")
 MDYEAR = 2023
 EPODBPATH = os.path.join(FOLDER, f"chile_{MDYEAR}_pseudonymized_alldata.db")
 # EPODBPATH = "/mnt/hdd2/epodata/production/v0/pseudonymized_alldata/us_2023_pseudonymized_alldata_20250416.db"
-METACOMUNASDATAPATH = os.path.join(FOLDER, f"us_metadata{MDYEAR}.csv")
-
-GRUPOSEDAD = [
-    'Total País',
-    '0 a 4',
-    '5 a 9',
-    '10 a 14',
-    '15 a 19',
-    '20 a 24',
-    '25 a 29',
-    '30 a 34',
-    '35 a 39',
-    '40 a 44',
-    '45 a 49',
-    '50 a 54',
-    '55 a 59',
-    '60 a 64',
-    '65 a 69',
-    '70 a 74',
-    '75 a 79',
-    '80 a 84',
-    '85 o más',
-    'Total Comuna',
-    ''
-]
+METACOMUNASDATAPATH = os.path.join(FOLDER, f"chile_metadata{MDYEAR}.csv")
 
 # 1. Parse data to get geoUnits (states and counties)
 
@@ -123,15 +99,14 @@ os.system(f"xan v {age_3_path}")
 age_2_path = os.path.join(FOLDER, f"chile_provincias_ageDists_census_{DATAYEAR}.csv")
 cmd1 = f"""
     xan groupby parent_code,age 'sum(total)' {age_3_path} | \
-    xan rename code,age,total > /tmp/tmp.csv"
+    xan rename code,age,total > /tmp/tmp.csv
 """
 cmd2 = f"""
-    xan join --left code tmp.csv code {provincias_units} | \
+    xan join --left code /tmp/tmp.csv code {provincias_units} | \
     xan select label,code,parent_code,age,total > {age_2_path}
 """
 os.system(cmd1)
 os.system(cmd2)
-os.system(f"rm /tmp/tmp.csv")
 os.system(f"xan v {age_2_path}")
 
 age_1_path = os.path.join(FOLDER, f"chile_regiones_ageDists_census_{DATAYEAR}.csv")
@@ -165,68 +140,94 @@ cmd = f"xan cat rows {age_0_path} {age_1_path} {age_2_path} {age_3_path} > {ageD
 os.system(cmd)
 os.system(f"xan v {ageDist}")
 
-exit()
 
 # 2.1 Gender distributions
 
-# 2.1.1 Counties
-county_genderDist = os.path.join(FOLDER, "us_counties_genreDists_year2023.csv")
-cmd = parent_cmd + f"""
-    xan select STATE,COUNTY,TOT_POP,TOT_MALE,TOT_FEMALE | \
-    xan map --overwrite 'STATE ++ COUNTY as code' | \
-    xan rename total,male,female,code -s TOT_POP,TOT_MALE,TOT_FEMALE,code | \
-    xan select total,male,female,code | \
-    xan map '\"2023\" as year' \
-    > {county_genderDist}
+gender_3_path = os.path.join(FOLDER, f"chile_comunas_genderDists_census_{DATAYEAR}.csv")
+cmd =  f"""
+    xan search --invert-match País {COMUNASDATAPATH} | \
+    xan filter "col('Grupos de edad') eq 'Total Comuna'" | \
+    xan select Comuna,'Código comuna','Código provincia','Población censada',Hombres,Mujeres | \
+    xan rename label,code,parent_code,total,male,female | \
+    xan map "replace(total, ' ', '') as total_as_number" | \
+    xan map "replace(male, ' ', '') as male_as_number" | \
+    xan map "replace(female, ' ', '') as female_as_number" | \
+    xan select  label,code,parent_code,total_as_number,male_as_number,female_as_number | \
+    xan rename  label,code,parent_code,total,male,female | \
+    xan search "Total Comuna" --replace "Total" > {gender_3_path}
+"""
+os.system(cmd)
+os.system(f"xan v {gender_3_path}")
+
+gender_2_path = os.path.join(FOLDER, f"chile_provincias_genderDists_census_{DATAYEAR}.csv")
+cmdt = f"""
+    xan groupby parent_code 'sum(total)' {gender_3_path} | \
+    xan rename code,total > /tmp/tmp_total.csv
+"""
+cmdm = f"""
+    xan groupby parent_code 'sum(male)' {gender_3_path} | \
+    xan rename code,male > /tmp/tmp_male.csv
+"""
+cmdf = f"""
+    xan groupby parent_code 'sum(female)' {gender_3_path} | \
+    xan rename code,female > /tmp/tmp_female.csv
+"""
+cmd1 = "xan join code /tmp/tmp_male.csv code /tmp/tmp_total.csv > /tmp/tmp_totalmale.csv "
+cmd2 = "xan join code /tmp/tmp_totalmale.csv code /tmp/tmp_female.csv > /tmp/tmp.csv "
+
+cmd = f"""
+    xan join code /tmp/tmp.csv code {provincias_units} | \
+    xan select label,code,parent_code,total,male,female > {gender_2_path}
 """
 
+os.system(cmdt)
+os.system(cmdm)
+os.system(cmdf)
+os.system(cmd1)
+os.system(cmd2)
 os.system(cmd)
-print(f"Csv file with us counties gender distributions units saved at {county_genderDist}")
-os.system(f"xan head {county_genderDist} | xan v")
 
-# 2.1.2 States
-state_genderDist = os.path.join(FOLDER, "us_states_genreDists_year2023.csv")
-with tempfile.NamedTemporaryFile() as t:
-        with tempfile.NamedTemporaryFile() as tT:
-            with tempfile.NamedTemporaryFile() as tM:
-                with tempfile.NamedTemporaryFile() as tF:
-                    for file, CAT in zip([tT.name, tM.name, tF.name], ['TOT_POP', 'TOT_MALE', 'TOT_FEMALE']):
-                        cmd = parent_cmd + f"""
-                            xan select STATE,TOT_POP,TOT_MALE,TOT_FEMALE | \
-                            xan groupby STATE 'sum({CAT})' \
-                            > {file}
-                        """
-                        os.system(cmd)
-                    os.system(f"xan join STATE {tT.name} STATE {tM.name} > {t.name}")
-                    os.system(f"xan join STATE {t.name} STATE {tF.name} > {state_genderDist}")
-                    cmd = f"xan select STATE,'sum(TOT_POP)','sum(TOT_MALE)','sum(TOT_FEMALE)' {state_genderDist} "
-                    cmd += " | xan rename code,total,male,female "
-                    cmd += " | xan map '\"2023\" as year'"
-                    cmd += " | xan select total,male,female,code,year"
-                    cmd += f" > {t.name}"
-                    os.system(cmd)
-                    os.system(f"mv {t.name} {state_genderDist}")
-print(f"Csv file with us state gender distributions units saved at {state_genderDist}")
-os.system(f"xan head {state_genderDist} | xan v")
+os.system(f"xan v {gender_2_path}")
 
-# 2.1.3 Country
-country_genderDist = os.path.join(FOLDER, "us_country_genreDists_year2023.csv")
-cmd = f"xan agg --along-cols total,male,female 'sum(_)' {state_genderDist}"
-cmd += " | xan map '\"2023\" as year'"
-cmd += " | xan map '\"0\" as code'"
-cmd += " | xan select total,male,female,code,year"
-cmd += f" > {country_genderDist}"
+
+gender_1_path = os.path.join(FOLDER, f"chile_regiones_genderDists_census_{DATAYEAR}.csv")
+cmd =  f"""
+    xan search --invert-match País {REGIONDATAPATH} | \
+    xan filter "col('Grupos de edad') eq 'Total Región'" | \
+    xan select Región,'Código región','Población censada',Hombres,Mujeres | \
+    xan rename label,code,total,male,female | \
+    xan map '0 as parent_code' | \
+    xan map "replace(total, ' ', '') as total_as_number" | \
+    xan map "replace(male, ' ', '') as male_as_number" | \
+    xan map "replace(female, ' ', '') as female_as_number" | \
+    xan select  label,code,parent_code,total_as_number,male_as_number,female_as_number | \
+    xan rename  label,code,parent_code,total,male,female > {gender_1_path}
+"""
 os.system(cmd)
-print(f"Csv file with us country gender distributions units saved at {country_genderDist}")
-os.system(f"xan head {country_genderDist} | xan v")
+os.system(f"xan v {gender_1_path}")
 
-# 2.1.3 All
-genderDist = os.path.join(FOLDER, "us_genre_distribution_year2023.csv")
-cmd = f"xan cat rows {country_genderDist} {state_genderDist} {county_genderDist} > {genderDist}"
+
+
+gender_0_path = os.path.join(FOLDER, f"chile_pais_genderDists_census_{DATAYEAR}.csv")
+cmdt = f"xan agg --along-cols total 'sum(_)' {gender_1_path} > /tmp/chiletotal.csv"
+cmdm = f"xan agg --along-cols male 'sum(_)' {gender_1_path} > /tmp/chilemale.csv"
+cmdf = f"xan agg --along-cols female 'sum(_)' {gender_1_path} > /tmp/chilefemale.csv"
+cmd = f"""
+    xan cat columns /tmp/chilefemale.csv /tmp/chilemale.csv /tmp/chiletotal.csv | \
+    xan map '\"\" as parent_code' | \
+    xan map '0 as code' | \
+    xan map '0 as level' | \
+    xan map '\"Chile\" as label' | \
+    xan select label,code,parent_code,total,male,female  > {gender_0_path}
+"""
 os.system(cmd)
-print(f"US gender distribution csv file saved at {genderDist}")
-os.system(f"xan head {genderDist} | xan v")
+os.system(f"xan v {gender_0_path}")
 
+
+genderDist = os.path.join(FOLDER, f"chile_gender_distribution_census_{DATAYEAR}.csv")
+cmd = f"xan cat rows {gender_0_path} {gender_1_path} {gender_2_path} {gender_3_path} > {genderDist}"
+os.system(cmd)
+os.system(f"xan v {genderDist}")
 
 # 3. Load metadata using auxiliar methods to request epo databases,
 # then export as csv
@@ -234,10 +235,11 @@ os.system(f"xan head {genderDist} | xan v")
 columns = ['pseudo_id', 'location', 'screen_name']
 metadata = getMetadata(EPODBPATH, columns=columns, not_null_column="location")
 
-metadatapath = os.path.join(FOLDER, f"us_metadata{MDYEAR}.csv")
+metadatapath = os.path.join(FOLDER, f"chile_metadata{MDYEAR}.csv")
 with open(metadatapath, 'w') as f:
     writer = csv.writer(f)
     writer.writerow(columns)
     writer.writerows(metadata)
 print(f"Csv metadata file saved at {METACOMUNASDATAPATH}")
 
+os.system(f"xan v {METACOMUNASDATAPATH}")
