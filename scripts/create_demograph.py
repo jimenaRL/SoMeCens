@@ -38,10 +38,10 @@ DIRPATH = os.environ['SOMECENSDIR'] if 'SOMECENSDIR' in os.environ else '.'
 
 COUNTRYDATAPATH = os.path.join(DIRPATH, "data", "${country}")
 GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts_2024.csv")
-SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits.yml")
+SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits_nuts_2024.yml")
 GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts_2024.csv")
 AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts_2024.csv")
-USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata_${metadatayear}.csv")
+USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata_epo_${metadatayear}.csv")
 # Create dict of relevant stop words per languages of country
 DEFAULTSTOPWORDS = ""
 EXPORTSFOLDER = os.path.join(DIRPATH, "results", "${date}")
@@ -65,7 +65,7 @@ ap.add_argument('--ignoreErrors', action="store_false")
 args = ap.parse_args()
 country = args.country
 metadatayear = args.metadatayear
-usersdatapath = Template(args.usersdatapath).safe_substitute(country=country)
+usersdatapath = Template(args.usersdatapath).safe_substitute(country=country, metadatayear=metadatayear)
 genderdistpath = Template(args.genderdistpath).safe_substitute(country=country)
 agedistpath = Template(args.agedistpath).safe_substitute(country=country)
 subunitspath = Template(args.subunitspath).safe_substitute(country=country)
