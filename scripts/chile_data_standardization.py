@@ -8,6 +8,7 @@
 import os
 import csv
 import tempfile
+from string import Template
 
 from somecens.epo.tools import getMetadata
 
