@@ -5,14 +5,6 @@ python scripts/create_demograph.py    --country="chile" \
     --agedistpath=data/chile/chile_age_distribution_census_2024.csv \
     --usersdatapath=data/chile/chile_metadata_2023.csv \
     --stopwords='el|la|lo|les|las|los|de|del|en' && \
-python scripts/create_demograph.py    --country="us" \
-    --unitspath=data/us/us_geounits_year2023.csv \
-    --subunitspath= \
-    --genderdistpath=data/us/us_genre_distribution_year2023.csv \
-    --agedistpath=data/us/us_age_distribution_year2023.csv \
-    --usersdatapath=data/us/us_metadata2023.csv \
-    --stopwords='of|the|county|district' \
-    --ignoreErrors && \
 python scripts/create_demograph.py --country=czechia && \
 python scripts/create_demograph.py --country=denmark && \
 python scripts/create_demograph.py --country=estonia && \
@@ -59,3 +51,12 @@ python scripts/create_demograph.py \
 python scripts/create_demograph.py \
     --country=france \
     --stopwords="le|la|les|las|de|des|à|au|aux"
+
+python scripts/create_demograph.py    --country="us" \
+    --unitspath=data/us/us_geounits_year2023.csv \
+    --subunitspath= \
+    --genderdistpath=data/us/us_genre_distribution_year2023.csv \
+    --agedistpath=data/us/us_age_distribution_year2023.csv \
+    --usersdatapath=data/us/us_metadata2023.csv \
+    --stopwords='of|the|county|district' \
+    --ignoreErrors && \
