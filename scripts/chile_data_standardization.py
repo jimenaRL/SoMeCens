@@ -96,6 +96,7 @@ with tempfile.NamedTemporaryFile() as t:
 print(f"Csv file with us geographical units saved at {units}")
 os.system(f"xan v {units}")
 
+os.system(f"rm {country_units} {regions_units} {provincias_units} {comunas_units}")
 
 # 2. Parse data to get gender and age distributions
 
@@ -158,6 +159,8 @@ ageDist = os.path.join(FOLDER, f"chile_age_distribution_census_{DATAYEAR}.csv")
 cmd = f"xan cat rows {age_0_path} {age_1_path} {age_2_path} {age_3_path} > {ageDist}"
 os.system(cmd)
 os.system(f"xan v {ageDist}")
+
+os.system(f"rm {age_0_path} {age_1_path} {age_2_path} {age_3_path}")
 
 
 # 2.1 Gender distributions
@@ -249,6 +252,8 @@ genderDist = os.path.join(FOLDER, f"chile_gender_distribution_census_{DATAYEAR}.
 cmd = f"xan cat rows {gender_0_path} {gender_1_path} {gender_2_path} {gender_3_path} > {genderDist}"
 os.system(cmd)
 os.system(f"xan v {genderDist}")
+
+os.system(f"rm {gender_0_path} {gender_1_path} {gender_2_path} {gender_3_path}")
 
 # 3. Load metadata using auxiliar methods to request epo databases,
 # then export as csv
