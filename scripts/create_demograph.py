@@ -47,7 +47,7 @@ DEFAULTSTOPWORDS = ""
 EXPORTSFOLDER = os.path.join(DIRPATH, "results", "${date}", "${country}")
 MYEARS = [2020, 2023, 2025]
 EXPORTGEOUNITSPATH = os.path.join(EXPORTSFOLDER, f'units_nuts_2024.csv')
-EXPORTSTATSPATH = os.path.join(EXPORTSFOLDER, 'nb_matchs_perc_${country}_nuts_2024_${level}.csv')
+EXPORTSTATSPATH = os.path.join(EXPORTSFOLDER, 'nb_matchs_perc_${country}_epo_${metadatayear}_nuts_2024_${level}.csv')
 EXPORTUSERSPATH = os.path.join(EXPORTSFOLDER, 'localized_users_epo_${metadatayear}_nuts_2024.csv')
 EXPORTFULLUSERSPATH = os.path.join(EXPORTSFOLDER, 'localized_users_full_epo_${metadatayear}_nuts_2024.csv')
 EXPORTEXCELPATH = os.path.join(EXPORTSFOLDER, '${country}_units_users_reports_epo_${metadatayear}_nuts_2024.xlsx')
@@ -86,11 +86,12 @@ unitspath = Template(args.unitspath).safe_substitute(country=country)
 stopwords =  args.stopwords.split("|")
 nbuserdump = args.nbuserdump
 ignoreErrors = args.ignoreErrors
-statsexportpath = Template(args.statsexportpath).safe_substitute(country=country, date=date)
-unitsexportpath = Template(args.unitsexportpath).safe_substitute(country=country, date=date)
-usersexportpath = Template(args.usersexportpath).safe_substitute(country=country, date=date)
-fullusersexportpath = Template(args.fullusersexportpath).safe_substitute(country=country, date=date)
-excelexportpath = oTemplate(args.excelexportpath).safe_substitute(country=country, date=date)
+exportsfolder = Template(args.exportsfolder).safe_substitute(country=country, date=date)
+statsexportpath = Template(args.statsexportpath).safe_substitute(country=country, date=date, metadatayear=metadatayear)
+unitsexportpath = Template(args.unitsexportpath).safe_substitute(country=country, date=date, metadatayear=metadatayear)
+usersexportpath = Template(args.usersexportpath).safe_substitute(country=country, date=date, metadatayear=metadatayear)
+fullusersexportpath = Template(args.fullusersexportpath).safe_substitute(country=country, date=date, metadatayear=metadatayear)
+excelexportpath = Template(args.excelexportpath).safe_substitute(country=country, date=date, metadatayear=metadatayear)
 
 os.makedirs(exportsfolder, exist_ok=True)
 
@@ -207,8 +208,8 @@ demo.setUsersLocations(users_matched_locations)
 # 4. make exports
 
 # 4.O export flatten units
-unitReport, unitsColumns = demo.exportUnitsReport(unitssavepath)
-os.system(f"xan v {unitssavepath}")
+unitReport, unitsColumns = demo.exportUnitsReport(unitsexportpath)
+os.system(f"xan v {unitsexportpath}")
 
 # 4.1 export matchs stats per level for cloropleths visualizations
 for level in range(demo.getDeepestLevel() + 1) :
