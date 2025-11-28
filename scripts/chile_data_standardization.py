@@ -18,8 +18,13 @@ REGIONDATAPATH = os.path.join(FOLDER, "D1_Poblacion-censada-por-sexo-y-edad-en-g
 DATAYEAR = 2024
 GEOUNITSPATH = os.path.join(FOLDER, f"chile_geoUnits_census_{DATAYEAR}.csv")
 MDYEAR = 2023
-EPODBPATH = os.path.join(FOLDER, f"chile_{MDYEAR}_pseudonymized_alldata.db")
-# EPODBPATH = "/mnt/hdd2/epodata/production/v0/pseudonymized_alldata/us_2023_pseudonymized_alldata_20250416.db"
+
+if "SERVER" in os.environ:
+    if os.environ["SERVER"] == "EPO":
+        EPODBPATH = "/mnt/hdd2/epodata/stage/20250929/pseudonymized_alldata/chile_2023_pseudonymized_alldata.db"
+        IDSDBPATH = "/mnt/hdd2/epodata/stage/20250929/lut/chile_2023_lut.db"
+else:
+    EPODBPATH = os.path.join(FOLDER, f"chile_{MDYEAR}_pseudonymized_alldata.db")
 METACOMUNASDATAPATH = os.path.join(FOLDER, f"chile_metadata_{MDYEAR}.csv")
 
 # 1. Parse data to get geoUnits (states and counties)
@@ -248,12 +253,15 @@ os.system(f"xan v {genderDist}")
 # 3. Load metadata using auxiliar methods to request epo databases,
 # then export as csv
 
-columns = ['pseudo_id', 'location', 'screen_name']
-metadata = getMetadata(EPODBPATH, columns=columns, not_null_column="location")
+metadata = getMetadata(
+    EPODBPATH,
+    columns=['pseudo_id', 'location', 'screen_name'],
+    not_null_column="location",
+    ids_dbpath=IDSDBPATH)
 
 with open(METACOMUNASDATAPATH, 'w') as f:
     writer = csv.writer(f)
-    writer.writerow(columns)
+    writer.writerow(['twitter_id', 'location', 'screen_name'])
     writer.writerows(metadata)
 print(f"Csv metadata file saved at {METACOMUNASDATAPATH}")
 
