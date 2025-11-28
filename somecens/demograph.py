@@ -460,7 +460,7 @@ class DemoGraph:
     def exportLocalizedUsers(self, path: str | None = None, full_path: str | None = None) -> Iterable:
 
         max_level = self.getDeepestLevel()
-        columns = ["pseudo_id", "location", "screen_name", "normalized_location"]
+        columns = ["twitter_id", "location", "screen_name", "normalized_location"]
 
         # get matched user per unit and store by unit level
         frames = {level: [] for level in range(max_level+1)}

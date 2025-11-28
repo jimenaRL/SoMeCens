@@ -37,41 +37,40 @@ from somecens.tools import \
 DIRPATH = os.environ['SOMECENSDIR'] if 'SOMECENSDIR' in os.environ else '.'
 
 COUNTRYDATAPATH = os.path.join(DIRPATH, "data", "${country}")
-GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts2024.csv")
+GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts_2024.csv")
 SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits.yml")
-GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts2024.csv")
-AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts2024.csv")
-USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata2023.csv")
+GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts_2024.csv")
+AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts_2024.csv")
+USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata_${metadatayear}.csv")
 # Create dict of relevant stop words per languages of country
 DEFAULTSTOPWORDS = ""
 EXPORTSFOLDER = os.path.join(DIRPATH, "results", "${date}")
+MYEARS = [2020, 2023, 2025]
 
 # 0. parse arguments and set paths
 ap = ArgumentParser()
 
 ap.add_argument('--country', type=str, required=True)
+ap.add_argument('--metadatayear', type=int, required=True, choices=MYEARS)
 ap.add_argument('--usersdatapath', type=str, default=USERSPATH)
 ap.add_argument('--genderdistpath', type=str, default=GENDERDISTPATH)
 ap.add_argument('--agedistpath', type=str, default=AGEDISTPATH)
 ap.add_argument('--subunitspath', type=str, default=SUBUNITSPATH)
 ap.add_argument('--unitspath', type=str, default=GEOUNITSPATH)
 ap.add_argument('--stopwords', type=str, default=DEFAULTSTOPWORDS)
-ap.add_argument('--debuglimit', type=int, default=0)
-ap.add_argument('--debugcode', type=str, default='')
 ap.add_argument('--nbuserdump', type=int, default=1000)
 ap.add_argument('--exportsfolder', type=str, default=EXPORTSFOLDER)
 ap.add_argument('--ignoreErrors', action="store_false")
 
 args = ap.parse_args()
 country = args.country
+metadatayear = args.metadatayear
 usersdatapath = Template(args.usersdatapath).safe_substitute(country=country)
 genderdistpath = Template(args.genderdistpath).safe_substitute(country=country)
 agedistpath = Template(args.agedistpath).safe_substitute(country=country)
 subunitspath = Template(args.subunitspath).safe_substitute(country=country)
 unitspath = Template(args.unitspath).safe_substitute(country=country)
 stopwords =  args.stopwords.split("|")
-debuglimit = args.debuglimit
-debugcode = args.debugcode
 nbuserdump = args.nbuserdump
 ignoreErrors = args.ignoreErrors
 exportsfolder = Template(args.exportsfolder).safe_substitute(date=datetime.today().strftime('%Y%m%d'))
@@ -135,16 +134,15 @@ else:
 ageDist = parseFlatAgeDistributions(ageDist)
 
 with open(usersdatapath, 'r') as f:
-    if debuglimit:
-        metadata = [r for r,_ in zip(csv.reader(f), range(debuglimit))]
-    else:
-        metadata = [r for r in csv.reader(f)]
+    metadata = [r for r in csv.reader(f)]
 print(f"Locations file with {len(metadata)} entries loaded from {agedistpath}")
 
 # 2. Create demograp object and set:
 #   - age distribution per geographical unit
 #   - gender distributions per geographical unit
 #   - subunits (LAUS)
+
+raiseErrors = not ignoreErrors
 
 demo = DemoGraph(
     demography=geoUnits,
@@ -155,7 +153,7 @@ if subUnits:
 if genderDist:
     demo.setGenderDistributions(genderDist)
 if ageDist:
-    demo.setAgeDistributions(ageDist, raiseErrors=~ignoreErrors, verbose=True)
+    demo.setAgeDistributions(ageDist, raiseErrors=raiseErrors, verbose=True)
 
 # show
 demo.showGeoUnits(max_level=0)
