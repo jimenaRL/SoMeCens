@@ -21,22 +21,23 @@ from somecens.nuts.tools import \
     getNutsGenderDistributions
 
 DIRPATH = os.environ['SOMECENSDIR'] if 'SOMECENSDIR' in os.environ else '.'
-DATAPATH = os.path.join(DIRPATH, "data")
+DATAPATH = "/mnt/hdd2/epodata/stage/20250929"
 DEFAULTEPODBPATH = os.path.join(
     DATAPATH,
-    "${country}",
+    "pseudonymized_alldata",
     "${country}_${metadatayear}_pseudonymized_alldata.db")
 DEFAULTIDSDBPATH = os.path.join(
     DATAPATH,
-    "${country}",
+    "lut",
     "${country}_${metadatayear}_lut.db")
-DEFAULTOUTFOLDER = os.path.join(DATAPATH, "${country}")
+DEFAULTOUTFOLDER =  os.path.join(DIRPATH, "data", "${country}")
 DEFAULTNUTSYEAR = 2024
+MYEARS = [2020, 2023, 2025]
 
 # parse arguments and set paths
 ap = ArgumentParser()
 ap.add_argument('--country', type=str, required=True)
-ap.add_argument('--metadatayear', type=int, required=False)
+ap.add_argument('--metadatayear', type=int, required=True, choices=MYEARS)
 ap.add_argument('--epodbpath', type=str, default=DEFAULTEPODBPATH)
 ap.add_argument('--idsdbpath', type=str, default=DEFAULTIDSDBPATH)
 ap.add_argument('--nutsyear', type=int, default=DEFAULTNUTSYEAR)
@@ -52,6 +53,10 @@ outfolder = args.outfolder
 nutsyear = args.nutsyear
 
 epodbpath = Template(epodbpath).safe_substitute(
+    country=country,
+    metadatayear=metadatayear)
+
+idsdbpath = Template(idsdbpath).safe_substitute(
     country=country,
     metadatayear=metadatayear)
 
@@ -78,14 +83,14 @@ genderDist = getNutsGenderDistributions(country=country, year=nutsyear)
 ageDist = getNutsAgeDistributions(country=country, year=nutsyear)
 
 # exports
-metadatapath = os.path.join(outfolder, f"{country}_metadata{metadatayear}.csv")
+metadatapath = os.path.join(outfolder, f"{country}_metadata_epo_{metadatayear}.csv")
 with open(metadatapath, 'w') as f:
     writer = csv.writer(f)
     writer.writerow(['twitter_id', 'location', 'screen_name'])
     writer.writerows(metadata)
 print(f"Csv metadata file saved at {metadatapath}")
 
-unitspath = os.path.join(outfolder, f"{country}_geoUnits_nuts{nutsyear}.csv")
+unitspath = os.path.join(outfolder, f"{country}_geoUnits_nuts_{nutsyear}.csv")
 columns = geoUnits[0].keys()
 unitsdata = [g.values() for g in geoUnits]
 with open(unitspath, "w") as f:
@@ -94,14 +99,14 @@ with open(unitspath, "w") as f:
     writer.writerows(unitsdata)
 print(f"Csv file with {country} geographical units saved at {unitspath}")
 
-subunitspath = os.path.join(outfolder, f"{country}_subUnits.yml")
+subunitspath = os.path.join(outfolder, f"{country}_subUnits_nuts_{nutsyear}.yml")
 with open(subunitspath, "w") as f:
    yaml.dump(subUnits, f)
 print(f"Yaml file with {country} geographical geounits saved at {subunitspath}")
 
 genderdistname = os.path.join(
     outfolder,
-    f"{country}_gender_distribution_nuts{nutsyear}")
+    f"{country}_gender_distribution_nuts_{nutsyear}")
 with open(genderdistname + '.csv', 'w', newline='') as csvfile:
     fieldnames = genderDist[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
@@ -112,7 +117,7 @@ print(f"Csv gender distribution file saved at {genderdistname}.csv")
 
 agedistname = os.path.join(
     outfolder,
-    f"{country}_age_distribution_nuts{nutsyear}")
+    f"{country}_age_distribution_nuts_{nutsyear}")
 with open(agedistname + '.csv', 'w', newline='') as csvfile:
     fieldnames = ageDist[0].keys()
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
