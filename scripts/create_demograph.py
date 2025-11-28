@@ -47,10 +47,10 @@ DEFAULTSTOPWORDS = ""
 EXPORTSFOLDER = os.path.join(DIRPATH, "results", "${date}", "${country}")
 MYEARS = [2020, 2023, 2025]
 EXPORTGEOUNITSPATH = os.path.join(EXPORTSFOLDER, f'units_nuts_2024.csv')
-EXPORTSTATSPATH = os.path.join(EXPORTSFOLDER, 'nb_matchs_perc_${country}_epo_${metadatayear}_nuts_2024_${level}.csv')
-EXPORTUSERSPATH = os.path.join(EXPORTSFOLDER, 'localized_users_epo_${metadatayear}_nuts_2024.csv')
-EXPORTFULLUSERSPATH = os.path.join(EXPORTSFOLDER, 'localized_users_full_epo_${metadatayear}_nuts_2024.csv')
-EXPORTEXCELPATH = os.path.join(EXPORTSFOLDER, '${country}_units_users_reports_epo_${metadatayear}_nuts_2024.xlsx')
+EXPORTSTATSPATH = os.path.join(EXPORTSFOLDER, 'nb_matchs_perc_${country}_nuts_2024_epo_${metadatayear}_level_${level}.csv')
+EXPORTUSERSPATH = os.path.join(EXPORTSFOLDER, 'localized_users_nuts_2024_epo_${metadatayear}.csv')
+EXPORTFULLUSERSPATH = os.path.join(EXPORTSFOLDER, 'localized_users_full_nuts_2024_epo_${metadatayear}.csv')
+EXPORTEXCELPATH = os.path.join(EXPORTSFOLDER, '${country}_units_users_reports_nuts_2024_epo_${metadatayear}.xlsx')
 
 
 # 0. parse arguments and set paths
