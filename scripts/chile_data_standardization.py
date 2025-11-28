@@ -1,13 +1,13 @@
 # =============================================================================
 # Script to standardize Chle data to Geodemograph inputs
+#
+# Original data obtained from https://censo2024.ine.gob.cl/estadisticas/
+# "Fuente: Censo de Población y Vivienda 2024 - Instituto Nacional de Estadísticas.
 # =============================================================================
 
 import os
 import csv
-import copy
 import tempfile
-# import yaml
-import json
 
 from somecens.epo.tools import getMetadata
 
@@ -32,11 +32,14 @@ cmd = f"""
     xan dedup | \
     xan map '0 as country_code' | \
     xan map '3 as level' | \
-    xan select label,code,country_code,level,parent_code | \
+    xan map 'concat(\"p\", parent_code) as pparent_code' | \
+    xan select label,code,country_code,level,pparent_code | \
+    xan rename label,code,country_code,level,parent_code | \
     xan search --invert-match País > {comunas_units}
 """
 os.system(cmd)
 os.system(f"xan v {comunas_units}")
+
 
 # Level 2: provincias
 provincias_units = os.path.join(FOLDER, f"chile_provincias_geounits_census_{DATAYEAR}.csv")
@@ -44,13 +47,17 @@ cmd = f"""
     xan select Provincia,'Código provincia','Código región' {COMUNASDATAPATH} | \
     xan rename label,code,parent_code | \
     xan dedup | \
+    xan map 'concat(\"p\", code) as pcode' | \
+    xan map '2 as level' | \
     xan map '0 as country_code' | \
     xan map '2 as level' | \
-    xan select label,code,country_code,level,parent_code | \
+    xan select label,pcode,country_code,level,parent_code | \
+    xan rename label,code,country_code,level,parent_code | \
     xan search --invert-match País > {provincias_units}
 """
 os.system(cmd)
 os.system(f"xan v {provincias_units}")
+
 
 # Level 1: regions
 regions_units = os.path.join(FOLDER, f"chile_regions_geounits_census_{DATAYEAR}.csv")
@@ -84,7 +91,6 @@ with tempfile.NamedTemporaryFile() as t:
 print(f"Csv file with us geographical units saved at {units}")
 os.system(f"xan v {units}")
 
-exit()
 
 # 2. Parse data to get gender and age distributions
 
@@ -94,12 +100,14 @@ cmd =  f"""
     xan select Comuna,'Código comuna','Código provincia','Grupos de edad','Población censada' | \
     xan rename label,code,parent_code,age,total | \
     xan map "replace(total, ' ', '') as total_as_number" | \
-    xan select  label,code,parent_code,age,total_as_number | \
+    xan map 'concat(\"p\", parent_code) as pparent_code' | \
+    xan select  label,code,pparent_code,age,total_as_number | \
     xan rename  label,code,parent_code,age,total | \
     xan search "Total Comuna" --replace "Total" > {age_3_path}
 """
 os.system(cmd)
 os.system(f"xan v {age_3_path}")
+
 
 age_2_path = os.path.join(FOLDER, f"chile_provincias_ageDists_census_{DATAYEAR}.csv")
 cmd1 = f"""
@@ -113,6 +121,7 @@ cmd2 = f"""
 os.system(cmd1)
 os.system(cmd2)
 os.system(f"xan v {age_2_path}")
+
 
 age_1_path = os.path.join(FOLDER, f"chile_regiones_ageDists_census_{DATAYEAR}.csv")
 cmd =  f"""
@@ -157,7 +166,8 @@ cmd =  f"""
     xan map "replace(total, ' ', '') as total_as_number" | \
     xan map "replace(male, ' ', '') as male_as_number" | \
     xan map "replace(female, ' ', '') as female_as_number" | \
-    xan select  label,code,parent_code,total_as_number,male_as_number,female_as_number | \
+    xan map 'concat(\"p\", parent_code) as pparent_code' | \
+    xan select  label,code,pparent_code,total_as_number,male_as_number,female_as_number | \
     xan rename  label,code,parent_code,total,male,female | \
     xan search "Total Comuna" --replace "Total" > {gender_3_path}
 """
@@ -211,8 +221,6 @@ cmd =  f"""
 os.system(cmd)
 os.system(f"xan v {gender_1_path}")
 
-
-
 gender_0_path = os.path.join(FOLDER, f"chile_pais_genderDists_census_{DATAYEAR}.csv")
 cmdt = f"xan agg --along-cols total 'sum(_)' {gender_1_path} > /tmp/chiletotal.csv"
 cmdm = f"xan agg --along-cols male 'sum(_)' {gender_1_path} > /tmp/chilemale.csv"
@@ -225,6 +233,9 @@ cmd = f"""
     xan map '\"Chile\" as label' | \
     xan select label,code,parent_code,total,male,female  > {gender_0_path}
 """
+os.system(cmdt)
+os.system(cmdm)
+os.system(cmdf)
 os.system(cmd)
 os.system(f"xan v {gender_0_path}")
 
