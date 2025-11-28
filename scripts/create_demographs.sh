@@ -11,7 +11,8 @@ python scripts/create_demograph.py    --country="us" \
     --genderdistpath=data/us/us_genre_distribution_year2023.csv \
     --agedistpath=data/us/us_age_distribution_year2023.csv \
     --usersdatapath=data/us/us_metadata2023.csv \
-    --stopwords='of|the|county|district' && \
+    --stopwords='of|the|county|district' \
+    --ignoreErrors && \
 python scripts/create_demograph.py --country=czechia && \
 python scripts/create_demograph.py --country=denmark && \
 python scripts/create_demograph.py --country=estonia && \

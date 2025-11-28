@@ -60,6 +60,7 @@ ap.add_argument('--debuglimit', type=int, default=0)
 ap.add_argument('--debugcode', type=str, default='')
 ap.add_argument('--nbuserdump', type=int, default=1000)
 ap.add_argument('--exportsfolder', type=str, default=EXPORTSFOLDER)
+ap.add_argument('--ignoreErrors', action="store_false")
 
 args = ap.parse_args()
 country = args.country
@@ -72,6 +73,7 @@ stopwords =  args.stopwords.split("|")
 debuglimit = args.debuglimit
 debugcode = args.debugcode
 nbuserdump = args.nbuserdump
+ignoreErrors = args.ignoreErrors
 exportsfolder = Template(args.exportsfolder).safe_substitute(date=datetime.today().strftime('%Y%m%d'))
 exportsfoldercountry = os.path.join(exportsfolder, country)
 os.makedirs(exportsfolder, exist_ok=True)
@@ -153,7 +155,7 @@ if subUnits:
 if genderDist:
     demo.setGenderDistributions(genderDist)
 if ageDist:
-    demo.setAgeDistributions(ageDist, raiseErrors=False, verbose=True)
+    demo.setAgeDistributions(ageDist, raiseErrors=~ignoreErrors, verbose=True)
 
 # show
 demo.showGeoUnits(max_level=0)
@@ -207,7 +209,6 @@ full_path = os.path.join(exportsfoldercountry, f'localized_users_full.csv')
 localizedUsers, localizedUsersColumns = demo.exportLocalizedUsers(path, full_path=full_path)
 os.system(f"xan v {path}")
 os.system(f"xan v {full_path}")
-exit()
 
 excelfile = os.path.join(exportsfoldercountry, f'{country}_units_users_reports.xlsx')
 with pd.ExcelWriter(excelfile) as writer:
