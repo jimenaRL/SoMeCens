@@ -103,6 +103,12 @@ params.update({
     "subunitspath" : subunitspath,
     "unitspath": unitspath,
     "stopwords": stopwords,
+    "exportsfolder": exportsfolder,
+    "statsexportpath": statsexportpath,
+    "unitsexportpath": unitsexportpath,
+    "usersexportpath": usersexportpath,
+    "fullusersexportpath": fullusersexportpath,
+    "excelexportpath": excelexportpath,
     })
 print("---------------------------------------------------------")
 print(f"PARAMETERS:\n{yaml.dump(params)}")
