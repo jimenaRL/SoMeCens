@@ -15,22 +15,18 @@ DIRPATH = os.environ['SOMECENSDIR'] if 'SOMECENSDIR' in os.environ else '.'
 FOLDER = os.path.join(DIRPATH, "data/chile")
 COMUNASDATAPATH = os.path.join(FOLDER, "D1_Poblacion-censada-por-sexo-y-edad-en-grupos-quinquenales.xlsx-4.csv")
 REGIONDATAPATH = os.path.join(FOLDER, "D1_Poblacion-censada-por-sexo-y-edad-en-grupos-quinquenales.xlsx-3.csv")
-DATAYEAR = 2024
-GEOUNITSPATH = os.path.join(FOLDER, f"chile_geoUnits_census_{DATAYEAR}.csv")
-MDYEAR = 2023
+CENSUSYEAR = 2024
+GEOUNITSPATH = os.path.join(FOLDER, f"chile_geoUnits_census_{CENSUSYEAR}.csv")
+EPODATAYEARS = [2020, 2023, 2025]
 
-if "SERVER" in os.environ:
-    if os.environ["SERVER"] == "EPO":
-        EPODBPATH = "/mnt/hdd2/epodata/stage/20250929/pseudonymized_alldata/chile_2023_pseudonymized_alldata.db"
-        IDSDBPATH = "/mnt/hdd2/epodata/stage/20250929/lut/chile_2023_lut.db"
-else:
-    EPODBPATH = os.path.join(FOLDER, f"chile_{MDYEAR}_pseudonymized_alldata.db")
-METACOMUNASDATAPATH = os.path.join(FOLDER, f"chile_metadata_{MDYEAR}.csv")
+EPODBPATH = "/mnt/hdd2/epodata/stage/20250929/pseudonymized_alldata/chile_${epodatayear}_pseudonymized_alldata.db"
+IDSDBPATH = "/mnt/hdd2/epodata/stage/20250929/lut/chile_${epodatayear}_lut.db"
+METACOMUNASDATAPATH = os.path.join(FOLDER, "chile_metadata_${epodatayear}.csv")
 
 # 1. Parse data to get geoUnits (states and counties)
 
 # Level 3: comunas
-comunas_units = os.path.join(FOLDER, f"chile_comunas_geounits_census_{DATAYEAR}.csv")
+comunas_units = os.path.join(FOLDER, f"chile_comunas_geounits_census_{CENSUSYEAR}.csv")
 cmd = f"""
     xan select Comuna,'Código comuna','Código provincia' {COMUNASDATAPATH} | \
     xan rename label,code,parent_code | \
@@ -47,7 +43,7 @@ os.system(f"xan v {comunas_units}")
 
 
 # Level 2: provincias
-provincias_units = os.path.join(FOLDER, f"chile_provincias_geounits_census_{DATAYEAR}.csv")
+provincias_units = os.path.join(FOLDER, f"chile_provincias_geounits_census_{CENSUSYEAR}.csv")
 cmd = f"""
     xan select Provincia,'Código provincia','Código región' {COMUNASDATAPATH} | \
     xan rename label,code,parent_code | \
@@ -65,7 +61,7 @@ os.system(f"xan v {provincias_units}")
 
 
 # Level 1: regions
-regions_units = os.path.join(FOLDER, f"chile_regions_geounits_census_{DATAYEAR}.csv")
+regions_units = os.path.join(FOLDER, f"chile_regions_geounits_census_{CENSUSYEAR}.csv")
 cmd = f"""
     xan select Región,'Código región' {COMUNASDATAPATH} | \
     xan rename label,code | \
@@ -80,7 +76,7 @@ os.system(cmd)
 os.system(f"xan v {regions_units}")
 
 # Level 0: pais
-country_units = os.path.join(FOLDER, f"chile_pais_geounits_census_{DATAYEAR}.csv")
+country_units = os.path.join(FOLDER, f"chile_pais_geounits_census_{CENSUSYEAR}.csv")
 with open(country_units, "w") as f:
     f.writelines([
         "label,code,country_code,level,parent_code\n",
@@ -88,7 +84,7 @@ with open(country_units, "w") as f:
     ])
 
 # 1.4 Concatenate all
-units = os.path.join(FOLDER, f"chile_geounits_census_{DATAYEAR}.csv")
+units = os.path.join(FOLDER, f"chile_geounits_census_{CENSUSYEAR}.csv")
 with tempfile.NamedTemporaryFile() as t:
     with open(t.name, "w") as f:
         f.writelines('\n'.join([country_units, regions_units, provincias_units, comunas_units]))
@@ -100,7 +96,7 @@ os.system(f"rm {country_units} {regions_units} {provincias_units} {comunas_units
 
 # 2. Parse data to get gender and age distributions
 
-age_3_path = os.path.join(FOLDER, f"chile_comunas_ageDists_census_{DATAYEAR}.csv")
+age_3_path = os.path.join(FOLDER, f"chile_comunas_ageDists_census_{CENSUSYEAR}.csv")
 cmd =  f"""
     xan search --invert-match País {COMUNASDATAPATH} | \
     xan select Comuna,'Código comuna','Código provincia','Grupos de edad','Población censada' | \
@@ -115,7 +111,7 @@ os.system(cmd)
 os.system(f"xan v {age_3_path}")
 
 
-age_2_path = os.path.join(FOLDER, f"chile_provincias_ageDists_census_{DATAYEAR}.csv")
+age_2_path = os.path.join(FOLDER, f"chile_provincias_ageDists_census_{CENSUSYEAR}.csv")
 cmd1 = f"""
     xan groupby parent_code,age 'sum(total)' {age_3_path} | \
     xan rename code,age,total > /tmp/tmp.csv
@@ -129,7 +125,7 @@ os.system(cmd2)
 os.system(f"xan v {age_2_path}")
 
 
-age_1_path = os.path.join(FOLDER, f"chile_regiones_ageDists_census_{DATAYEAR}.csv")
+age_1_path = os.path.join(FOLDER, f"chile_regiones_ageDists_census_{CENSUSYEAR}.csv")
 cmd =  f"""
     xan search --invert-match País {REGIONDATAPATH} | \
     xan select Región,'Código región','Grupos de edad','Población censada' | \
@@ -143,7 +139,7 @@ cmd =  f"""
 os.system(cmd)
 os.system(f"xan v {age_1_path}")
 
-age_0_path = os.path.join(FOLDER, f"chile_pais_ageDists_census_{DATAYEAR}.csv")
+age_0_path = os.path.join(FOLDER, f"chile_pais_ageDists_census_{CENSUSYEAR}.csv")
 cmd = f"""
     xan groupby age 'sum(total) as total' {age_1_path} | \
     xan map '\"\" as parent_code' | \
@@ -155,7 +151,7 @@ cmd = f"""
 os.system(cmd)
 os.system(f"xan v {age_0_path}")
 
-ageDist = os.path.join(FOLDER, f"chile_age_distribution_census_{DATAYEAR}.csv")
+ageDist = os.path.join(FOLDER, f"chile_age_distribution_census_{CENSUSYEAR}.csv")
 cmd = f"xan cat rows {age_0_path} {age_1_path} {age_2_path} {age_3_path} > {ageDist}"
 os.system(cmd)
 os.system(f"xan v {ageDist}")
@@ -165,7 +161,7 @@ os.system(f"rm {age_0_path} {age_1_path} {age_2_path} {age_3_path}")
 
 # 2.1 Gender distributions
 
-gender_3_path = os.path.join(FOLDER, f"chile_comunas_genderDists_census_{DATAYEAR}.csv")
+gender_3_path = os.path.join(FOLDER, f"chile_comunas_genderDists_census_{CENSUSYEAR}.csv")
 cmd =  f"""
     xan search --invert-match País {COMUNASDATAPATH} | \
     xan filter "col('Grupos de edad') eq 'Total Comuna'" | \
@@ -182,7 +178,7 @@ cmd =  f"""
 os.system(cmd)
 os.system(f"xan v {gender_3_path}")
 
-gender_2_path = os.path.join(FOLDER, f"chile_provincias_genderDists_census_{DATAYEAR}.csv")
+gender_2_path = os.path.join(FOLDER, f"chile_provincias_genderDists_census_{CENSUSYEAR}.csv")
 cmdt = f"""
     xan groupby parent_code 'sum(total)' {gender_3_path} | \
     xan rename code,total > /tmp/tmp_total.csv
@@ -213,7 +209,7 @@ os.system(cmd)
 os.system(f"xan v {gender_2_path}")
 
 
-gender_1_path = os.path.join(FOLDER, f"chile_regiones_genderDists_census_{DATAYEAR}.csv")
+gender_1_path = os.path.join(FOLDER, f"chile_regiones_genderDists_census_{CENSUSYEAR}.csv")
 cmd =  f"""
     xan search --invert-match País {REGIONDATAPATH} | \
     xan filter "col('Grupos de edad') eq 'Total Región'" | \
@@ -229,7 +225,7 @@ cmd =  f"""
 os.system(cmd)
 os.system(f"xan v {gender_1_path}")
 
-gender_0_path = os.path.join(FOLDER, f"chile_pais_genderDists_census_{DATAYEAR}.csv")
+gender_0_path = os.path.join(FOLDER, f"chile_pais_genderDists_census_{CENSUSYEAR}.csv")
 cmdt = f"xan agg --along-cols total 'sum(_)' {gender_1_path} > /tmp/chiletotal.csv"
 cmdm = f"xan agg --along-cols male 'sum(_)' {gender_1_path} > /tmp/chilemale.csv"
 cmdf = f"xan agg --along-cols female 'sum(_)' {gender_1_path} > /tmp/chilefemale.csv"
@@ -248,7 +244,7 @@ os.system(cmd)
 os.system(f"xan v {gender_0_path}")
 
 
-genderDist = os.path.join(FOLDER, f"chile_gender_distribution_census_{DATAYEAR}.csv")
+genderDist = os.path.join(FOLDER, f"chile_gender_distribution_census_{CENSUSYEAR}.csv")
 cmd = f"xan cat rows {gender_0_path} {gender_1_path} {gender_2_path} {gender_3_path} > {genderDist}"
 os.system(cmd)
 os.system(f"xan v {genderDist}")
@@ -258,16 +254,17 @@ os.system(f"rm {gender_0_path} {gender_1_path} {gender_2_path} {gender_3_path}")
 # 3. Load metadata using auxiliar methods to request epo databases,
 # then export as csv
 
-metadata = getMetadata(
-    EPODBPATH,
-    columns=['pseudo_id', 'location', 'screen_name'],
-    not_null_column="location",
-    ids_dbpath=IDSDBPATH)
+for year in EPODATAYEARS:
+    metadata = getMetadata(
+        dbpath=Template(EPODBPATH).safe_substitute(epodatayear=year),
+        columns=['pseudo_id', 'location', 'screen_name'],
+        not_null_column="location",
+        ids_dbpath=Template(IDSDBPATH).safe_substitute(epodatayear=year))
 
-with open(METACOMUNASDATAPATH, 'w') as f:
-    writer = csv.writer(f)
-    writer.writerow(['twitter_id', 'location', 'screen_name'])
-    writer.writerows(metadata)
-print(f"Csv metadata file saved at {METACOMUNASDATAPATH}")
-
-os.system(f"xan v {METACOMUNASDATAPATH}")
+    path = Template(METACOMUNASDATAPATH).safe_substitute(epodatayear=year)
+    with open(path, 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(['twitter_id', 'location', 'screen_name'])
+        writer.writerows(metadata)
+    print(f"Csv metadata file saved at {path}")
+    os.system(f"xan v {path}")
