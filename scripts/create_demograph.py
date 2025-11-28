@@ -41,7 +41,7 @@ GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts_2024.csv"
 SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits_nuts_2024.yml")
 GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts_2024.csv")
 AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts_2024.csv")
-USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata_${metadatayear}.csv")
+USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata_epo_${metadatayear}.csv")
 # Create dict of relevant stop words per languages of country
 DEFAULTSTOPWORDS = ""
 EXPORTSFOLDER = os.path.join(DIRPATH, "results", "${date}", "${country}")
