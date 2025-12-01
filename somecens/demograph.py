@@ -18,7 +18,7 @@ import csv
 import pandas as pd
 
 from somecens import GeoUnit
-from somecens.tools import checkIterable
+from somecens.tools import checkIterable, parseFlatAgeDistributions
 
 from somecens.nuts.conf import NUTS3AGECATS, NUTS3GENDERCATS
 
@@ -31,7 +31,7 @@ class DemoGraph:
     """ Class to build and manage a GeoUnit tree structure.
     """
 
-    demoKeys = {'country_code', 'label', 'level', 'code', 'parent_code'}
+    demoKeys = {'label', 'level', 'code', 'parent_code'}
     ageDistributionsKeys = {'age_distributions', 'code'}
 
     def __init__(
@@ -43,7 +43,6 @@ class DemoGraph:
         """
         demography: iterable of dicts of the form
                 {
-                    'country_code': 'FR',
                     'code': 'FRJ24',
                     'level': '3',
                     'label': 'Gers',
@@ -117,8 +116,12 @@ class DemoGraph:
         vt = set([isinstance(v, str) for d in demography for v in d.values()])
         assert kt == vt == {True}
         # check dicts keys
-        dk = set([set(d.keys()) == self.demoKeys for d in demography])
-        assert dk == {True}
+        dk = set([self.demoKeys.issubset(set(d.keys())) for d in demography])
+        if not dk == {True}:
+            e = "Wrong keys in input units dictionaries, must be "
+            e += f"{', '.join(self.demoKeys)} but found "
+            e += f"{list(set([', '.join(d.keys()) for d in demography]))[0]}."
+            raise ValueError(e)
         # check that there is only one level 0
         nb_first_levels = sum([1 for d in demography if d['level'] == '0'])
         if nb_first_levels != 1:
@@ -180,6 +183,8 @@ class DemoGraph:
         raise ValueError(f"Didn't find any parent for geoUnit {geoUnit}")
 
     def getAllSubUnits(self, max_level : int = -1) -> dict:
+        if max_level < 0:
+            max_level = self.getDeepestLevel()
         return {g.code: g.getSubUnits() for g in self.geoUnits if g.level <= max_level}
 
     def getSubUnits(self, code) -> dict:
@@ -322,8 +327,11 @@ class DemoGraph:
             self,
             ageDistribution: Iterable[Dict],
             verbose: bool = False,
+            isFlat: bool = False,
             raiseErrors: bool = False,
     ) -> None:
+        if isFlat:
+            ageDistribution = parseFlatAgeDistributions(ageDistribution)
         ageDistribution = self.checkAgeDistributions(ageDistribution, verbose, raiseErrors)
         self._setAgeDistributions(self.rootGeoUnit, ageDistribution)
         return
@@ -543,7 +551,7 @@ class DemoGraph:
                     writer = csv.writer(f)
                     writer.writerow(df.columns)
                     writer.writerows(df.values.tolist())
-                print(f"Localized users file saved as {path}")
+                print(f"Localized users file saved as {full_path}")
 
         return  data, columns
 

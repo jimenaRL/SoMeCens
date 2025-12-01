@@ -28,7 +28,6 @@ from somecens.nuts.conf import NUTS3AGECATS, NUTS3GENDERCATS
 
 from somecens import DemoGraph
 from somecens.tools import \
-    parseFlatAgeDistributions, \
     getUnitsAliases, \
     getCountryAliases, \
     getOtherCountriesNames, \
@@ -154,8 +153,6 @@ if agedistpath:
 else:
     ageDist = []
 
-ageDist = parseFlatAgeDistributions(ageDist)
-
 with open(usersdatapath, 'r') as f:
     metadata = [r for r in csv.reader(f)]
 print(f"Locations file with {len(metadata)} entries loaded from {agedistpath}")
@@ -176,10 +173,11 @@ if subUnits:
 if genderDist:
     demo.setGenderDistributions(genderDist)
 if ageDist:
-    demo.setAgeDistributions(ageDist, raiseErrors=raiseErrors, verbose=True)
+    demo.setAgeDistributions(ageDist, raiseErrors=raiseErrors, isFlat=True, verbose=True)
 
 # show
 demo.showGeoUnits(max_level=0)
+
 
 # 2. Match locations users from metadata and add information to demograph
 other_countries = getOtherCountriesNames(country)

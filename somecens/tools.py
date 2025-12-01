@@ -16,7 +16,8 @@ def checkIterable(something) -> None:
         raise ValueError(
             f"Object must be an iterable, found {type(something)}")
 
-def parseFlatAgeDistributions(ageDist) -> Iterable[Dict]:
+def parseFlatAgeDistributions(ageDist: Iterable[Dict]) -> Iterable[Dict]:
+
     codes = {d['code'] for d in ageDist}
     ages = {d['age'] for d in ageDist}
     out = []
