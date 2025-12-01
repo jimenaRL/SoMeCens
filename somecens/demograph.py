@@ -18,13 +18,15 @@ import csv
 import pandas as pd
 
 from somecens import GeoUnit
-from somecens.tools import checkIterable, parseFlatAgeDistributions
+from somecens.tools import \
+    checkIterable, \
+    matchUsersLocations, \
+    parseFlatAgeDistributions
 
 from somecens.nuts.conf import NUTS3AGECATS, NUTS3GENDERCATS
 
 DEFAULTAGECATS = NUTS3AGECATS
 DEFAULTGENDERCATS = NUTS3GENDERCATS
-
 
 
 class DemoGraph:
@@ -426,6 +428,33 @@ class DemoGraph:
             for matched in self.getLocalizedUsers(code, descendants).values()
             for match in matched
         }
+
+    def matchAndStoreUsersLocations(
+        self,
+        data: Iterable[list[str]],
+        stopwords: list[str],
+        split_characters: list[str],
+        search_index: int | Iterable[int],
+        banned_words: Iterable[str] = [],
+        aliases: Dict = {},
+        has_headers: bool = True,
+        verbose: bool = False
+        ):
+
+        users_matched_locations = matchUsersLocations(
+            locations=self.getAllSubUnits(),
+            data=data,
+            stopwords=stopwords,
+            split_characters=split_characters,
+            search_index=search_index,
+            banned_words=banned_words,
+            aliases=aliases,
+            has_headers=has_headers,
+            verbose=verbose
+            )
+
+        self.setUsersLocations(users_matched_locations)
+
 
     def exportUnitsReport(self, path: str | None = None) -> Iterable:
 

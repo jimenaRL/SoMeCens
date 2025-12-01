@@ -178,7 +178,6 @@ if ageDist:
 # show
 demo.showGeoUnits(max_level=0)
 
-
 # 2. Match locations users from metadata and add information to demograph
 other_countries = getOtherCountriesNames(country)
 banned_words = other_countries - {"luxembourg"}
@@ -193,11 +192,8 @@ match_kwargs = {
     "has_headers": True,
 }
 
-locations = demo.getAllSubUnits(max_level=3)
-
 start = time.time()
-users_matched_locations = matchUsersLocations(
-    locations=locations,
+users_matched_locations = demo.matchAndStoreUsersLocations(
     data=metadata,
     aliases=aliases,
     banned_words=banned_words,
@@ -206,8 +202,6 @@ users_matched_locations = matchUsersLocations(
 
 duration = time.time() - start
 print(f"Whole matching {len(metadata)} users locations took {duration} seconds.")
-
-demo.setUsersLocations(users_matched_locations)
 
 # 4. make exports
 
