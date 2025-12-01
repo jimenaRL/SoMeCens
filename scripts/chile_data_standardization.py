@@ -32,11 +32,10 @@ cmd = f"""
     xan select Comuna,'Código comuna','Código provincia' {COMUNASDATAPATH} | \
     xan rename label,code,parent_code | \
     xan dedup | \
-    xan map '0 as country_code' | \
     xan map '3 as level' | \
     xan map 'concat(\"p\", parent_code) as pparent_code' | \
-    xan select label,code,country_code,level,pparent_code | \
-    xan rename label,code,country_code,level,parent_code | \
+    xan select label,code,level,pparent_code | \
+    xan rename label,code,level,parent_code | \
     xan search --invert-match País > {comunas_units}
 """
 os.system(cmd)
@@ -51,10 +50,9 @@ cmd = f"""
     xan dedup | \
     xan map 'concat(\"p\", code) as pcode' | \
     xan map '2 as level' | \
-    xan map '0 as country_code' | \
     xan map '2 as level' | \
-    xan select label,pcode,country_code,level,parent_code | \
-    xan rename label,code,country_code,level,parent_code | \
+    xan select label,pcode,level,parent_code | \
+    xan rename label,code,level,parent_code | \
     xan search --invert-match País > {provincias_units}
 """
 os.system(cmd)
@@ -68,9 +66,8 @@ cmd = f"""
     xan rename label,code | \
     xan dedup | \
     xan map '0 as parent_code' | \
-    xan map '0 as country_code' | \
     xan map '1 as level' | \
-    xan select label,code,country_code,level,parent_code | \
+    xan select label,code,level,parent_code | \
     xan search --invert-match País > {regions_units}
 """
 os.system(cmd)
@@ -80,8 +77,8 @@ os.system(f"xan v {regions_units}")
 country_units = os.path.join(FOLDER, f"chile_pais_geounits_census_{CENSUSYEAR}.csv")
 with open(country_units, "w") as f:
     f.writelines([
-        "label,code,country_code,level,parent_code\n",
-        "Chile,0,0,0,\n"
+        "label,code,level,parent_code\n",
+        "Chile,0,0,\n"
     ])
 
 # 1.4 Concatenate all
@@ -92,8 +89,6 @@ with tempfile.NamedTemporaryFile() as t:
     os.system(f"xan cat rows --paths {t.name} > {units}")
 print(f"Csv file with us geographical units saved at {units}")
 os.system(f"xan v {units}")
-
-os.system(f"rm {country_units} {regions_units} {provincias_units} {comunas_units}")
 
 # 2. Parse data to get gender and age distributions
 
@@ -252,20 +247,22 @@ os.system(f"xan v {genderDist}")
 
 os.system(f"rm {gender_0_path} {gender_1_path} {gender_2_path} {gender_3_path}")
 
+os.system(f"rm {country_units} {regions_units} {provincias_units} {comunas_units}")
+
 # 3. Load metadata using auxiliar methods to request epo databases,
 # then export as csv
 
-for year in EPODATAYEARS:
-    metadata = getMetadata(
-        dbpath=Template(EPODBPATH).safe_substitute(epodatayear=year),
-        columns=['pseudo_id', 'location', 'screen_name'],
-        not_null_column="location",
-        ids_dbpath=Template(IDSDBPATH).safe_substitute(epodatayear=year))
+# for year in EPODATAYEARS:
+#     metadata = getMetadata(
+#         dbpath=Template(EPODBPATH).safe_substitute(epodatayear=year),
+#         columns=['pseudo_id', 'location', 'screen_name'],
+#         not_null_column="location",
+#         ids_dbpath=Template(IDSDBPATH).safe_substitute(epodatayear=year))
 
-    path = Template(METACOMUNASDATAPATH).safe_substitute(epodatayear=year)
-    with open(path, 'w') as f:
-        writer = csv.writer(f)
-        writer.writerow(['twitter_id', 'location', 'screen_name'])
-        writer.writerows(metadata)
-    print(f"Csv metadata file saved at {path}")
-    os.system(f"xan v {path}")
+#     path = Template(METACOMUNASDATAPATH).safe_substitute(epodatayear=year)
+#     with open(path, 'w') as f:
+#         writer = csv.writer(f)
+#         writer.writerow(['twitter_id', 'location', 'screen_name'])
+#         writer.writerows(metadata)
+#     print(f"Csv metadata file saved at {path}")
+#     os.system(f"xan v {path}")
