@@ -11,7 +11,7 @@
 ## 📊 Currently used with data from 
 | Country | Census |
 | ------------- | ------ |
-| 🇪🇺 EU countries | [2024 NUTS](https://ec.europa.eu/eurostat/web/nuts) |
+| 🇪🇺 EU countries | [NUTS 2024 classification](https://ec.europa.eu/eurostat/web/nuts) |
 | 🇨🇱 Chile | [2024 Census](https://censo2024.ine.gob.cl/estadisticas/) |
 | 🇺🇸 USA | [2023 Annual County Resident Population Estimate](https://www.census.gov/) |
 
