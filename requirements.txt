@@ -4,3 +4,4 @@ importchecker==2.0
 pandas
 openpyxl
 plotly
+kaleido
