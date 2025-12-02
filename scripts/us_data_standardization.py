@@ -122,7 +122,7 @@ cmd = age_parent_cmd + f"""
     xan map --overwrite 'STATE ++ COUNTY as code' | \
     xan rename total,age,code -s TOT_POP,AGEGRP,code | \
     xan select total,age,code | \
-    xan map '\"{MDYEAR}\" as year' \
+    xan map '2023 as year' \
     > {county_ageDist}
 """
 print(f"[RUNNING] {cmd}")
@@ -139,7 +139,7 @@ cmd = age_parent_cmd + f""" xan select STATE,COUNTY,AGEGRP,TOT_POP | \
     xan groupby STATE,AGEGRP 'sum(TOT_POP)' | \
     xan rename total,age,code | \
     xan select total,age,code | \
-    xan map '\"{MDYEAR}\" as year' \
+    xan map '2023 as year' \
     > {state_ageDist}
 """
 print(f"[RUNNING] {cmd}")
