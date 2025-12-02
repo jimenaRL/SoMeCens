@@ -27,7 +27,7 @@ Check the provided [scripts](https://github.com/jimenaRL/SoMeCens/tree/0fddfc2ff
 
 <!-- demo.html -->
 <iframe 
-  src="https://jimenaRL.github.io/SoMeCens/blob/main/choropleth_nb_matchs_perc_chile_comunas.html" 
+  src="https://github.com/jimenaRL/SoMeCens/blob/main/choropleth_nb_matchs_perc_chile_comunas.html" 
   width="100%" 
   height="600px" 
   title="Chile's comunas" 
