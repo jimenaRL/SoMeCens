@@ -41,12 +41,14 @@ for COUNTRY in ${COUNTRIES[@]}; do
         EPODBPATH=/mnt/hdd2/epodata/stage/20250929/pseudonymized_alldata/${COUNTRY}_${YEAR}_pseudonymized_alldata.db
         IDSDBPATH=/mnt/hdd2/epodata/stage/20250929/lut/${COUNTRY}_${YEAR}_lut.db
         if [[ -f "$EPODBPATH" ]]; then
-            python scripts/eu_data_standardization.py \
+            CMD="""
+                python scripts/eu_data_standardization.py \
                 --metadatayear=${YEAR} \
                 --nutsyear=${NUTSYEAR} \
                 --country=${COUNTRY} \
                 --epodbpath=${EPODBPATH}  \
-                --idsdbpath=${IDSDBPATH}
+                --idsdbpath=${IDSDBPATH}"""
+            eval "$CMD"
         else
             echo "---------------------------------------------------------"
             echo "$EPODBPATH database does not exist"
