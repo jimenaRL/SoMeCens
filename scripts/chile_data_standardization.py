@@ -22,7 +22,7 @@ EPODATAYEARS = [2020, 2023, 2025]
 
 EPODBPATH = "/mnt/hdd2/epodata/stage/20250929/pseudonymized_alldata/chile_${epodatayear}_pseudonymized_alldata.db"
 IDSDBPATH = "/mnt/hdd2/epodata/stage/20250929/lut/chile_${epodatayear}_lut.db"
-METACOMUNASDATAPATH = os.path.join(FOLDER, "chile_metadata_${epodatayear}.csv")
+METADATAPATH = os.path.join(FOLDER, "chile_metadata_epo_${epodatayear}.csv")
 
 # 1. Parse data to get geoUnits (states and counties)
 
@@ -259,7 +259,7 @@ for year in EPODATAYEARS:
         not_null_column="location",
         ids_dbpath=Template(IDSDBPATH).safe_substitute(epodatayear=year))
 
-    path = Template(METACOMUNASDATAPATH).safe_substitute(epodatayear=year)
+    path = Template(METADATAPATH).safe_substitute(epodatayear=year)
     with open(path, 'w') as f:
         writer = csv.writer(f)
         writer.writerow(['twitter_id', 'location', 'screen_name'])

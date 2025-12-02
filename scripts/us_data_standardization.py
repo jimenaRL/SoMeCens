@@ -19,11 +19,10 @@ FOLDER = os.path.join(DIRPATH, "data/us")
 DEFAULTYEAR = 5
 DATAPATH = os.path.join(FOLDER, "cc-est2023-alldata.csv")
 GEOUNITSPATH = os.path.join(FOLDER, f"us_geoUnits_year2023.csv")
-MDYEAR = 2023
-EPODBPATH = os.path.join(FOLDER, f"us_{MDYEAR}_pseudonymized_alldata.db")
-EPODBPATH = "/mnt/hdd2/epodata/stage/20250929/pseudonymized_alldata/us_2023_pseudonymized_alldata.db"
-IDSDBPATH = "/mnt/hdd2/epodata/stage/20250929/lut/us_2023_lut.db"
-METADATAPATH = os.path.join(FOLDER, f"us_metadata_{MDYEAR}.csv")
+EPODATAYEARS = [2020, 2023, 2025]
+EPODBPATH = "/mnt/hdd2/epodata/stage/20250929/pseudonymized_alldata/chile_${epodatayear}_pseudonymized_alldata.db"
+IDSDBPATH = "/mnt/hdd2/epodata/stage/20250929/lut/chile_${epodatayear}_lut.db"
+METADATAPATH = os.path.join(FOLDER, "us_metadata_epo_${epodatayear}.csv")
 
 # YEARDICT = {
 #     1: "4/1/2020",
@@ -232,12 +231,17 @@ os.system(f"xan head {genderDist} | xan v")
 # 3. Load metadata using auxiliar methods to request epo databases,
 # then export as csv
 
-columns = ['pseudo_id', 'location', 'screen_name']
-metadata = getMetadata(EPODBPATH, columns=columns, not_null_column="location", ids_dbpath=IDSDBPATH)
+for year in EPODATAYEARS:
+    metadata = getMetadata(
+        dbpath=Template(EPODBPATH).safe_substitute(epodatayear=year),
+        columns=['pseudo_id', 'location', 'screen_name'],
+        not_null_column="location",
+        ids_dbpath=Template(IDSDBPATH).safe_substitute(epodatayear=year))
 
-metadatapath = os.path.join(FOLDER, f"us_metadata_{MDYEAR}.csv")
-with open(metadatapath, 'w') as f:
-    writer = csv.writer(f)
-    writer.writerow(['twitter_id', 'location', 'screen_name'])
-    writer.writerows(metadata)
-print(f"Csv metadata file saved at {METADATAPATH}")
+    path = Template(METADATAPATH).safe_substitute(epodatayear=year)
+    with open(path, 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(['twitter_id', 'location', 'screen_name'])
+        writer.writerows(metadata)
+    print(f"Csv metadata file saved at {path}")
+    os.system(f"xan v {path}")
