@@ -9,8 +9,8 @@ import os
 import csv
 import copy
 import tempfile
-# import yaml
 import json
+from string import Template
 
 from somecens.epo.tools import getMetadata
 
@@ -20,8 +20,8 @@ DEFAULTYEAR = 5
 DATAPATH = os.path.join(FOLDER, "cc-est2023-alldata.csv")
 GEOUNITSPATH = os.path.join(FOLDER, f"us_geoUnits_year2023.csv")
 EPODATAYEARS = [2020, 2023, 2025]
-EPODBPATH = "/mnt/hdd2/epodata/stage/20250929/pseudonymized_alldata/chile_${epodatayear}_pseudonymized_alldata.db"
-IDSDBPATH = "/mnt/hdd2/epodata/stage/20250929/lut/chile_${epodatayear}_lut.db"
+EPODBPATH = "/mnt/hdd2/epodata/stage/20250929/pseudonymized_alldata/us_${epodatayear}_pseudonymized_alldata.db"
+IDSDBPATH = "/mnt/hdd2/epodata/stage/20250929/lut/us_${epodatayear}_lut.db"
 METADATAPATH = os.path.join(FOLDER, "us_metadata_epo_${epodatayear}.csv")
 
 # YEARDICT = {
