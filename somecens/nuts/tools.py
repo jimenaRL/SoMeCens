@@ -194,17 +194,11 @@ def getNutsAgeDistributions(country: str, year: int = 2024):
             d for d in csv.DictReader(csvfile) if d['code'][:2] == country_code]
     codes = {d['code'] for d in data}
     ageDist = []
-    for code in codes:
+    for d in data:
         ageDist.append({
-            'code': code,
+            'code': d['code'],
             'year': year,
-            'age_distributions': {
-                # d['age']: {
-                #     'total': d['total'],
-                #     'female': d['female'],
-                #     'male': d['male']
-                # }
-                    d['age']: d['total']
-                for d in data if d['code'] == code}
+            'age': d['age'],
+            'total': d['total']
         })
     return ageDist

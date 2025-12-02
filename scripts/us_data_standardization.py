@@ -21,7 +21,7 @@ DATAPATH = os.path.join(FOLDER, "cc-est2023-alldata.csv")
 GEOUNITSPATH = os.path.join(FOLDER, f"us_geoUnits_year2023.csv")
 MDYEAR = 2023
 EPODBPATH = os.path.join(FOLDER, f"us_{MDYEAR}_pseudonymized_alldata.db")
-# EPODBPATH = "/mnt/hdd2/epodata/production/v0/pseudonymized_alldata/us_2023_pseudonymized_alldata_20250416.db"
+EPODBPATH = "/mnt/hdd2/epodata/production/v0/pseudonymized_alldata/us_2023_pseudonymized_alldata_20250416.db"
 METADATAPATH = os.path.join(FOLDER, f"us_metadata{MDYEAR}.csv")
 
 # YEARDICT = {
@@ -166,25 +166,6 @@ print(f"[RUNNING] {cmd}")
 os.system(cmd)
 print(f"US gender distribution csv file saved at {ageDist}")
 os.system(f"xan head {ageDist} | xan v")
-
-ageDistLines = os.path.join(FOLDER, f"us_age_distribution_year{MDYEAR}.jsonl")
-
-with open(ageDist, 'r') as f:
-    lines = [d for d in csv.DictReader(f)]
-
-codes = set([l['code'] for l in lines])
-ageDist = []
-for code in codes:
-    ageDist.append({
-        'code': code,
-        'year': MDYEAR,
-        'age_distributions': {
-                d['age']: d['total']
-            for d in lines if d['code'] == code}
-    })
-with open(ageDistLines, "w") as f:
-    f.writelines([json.dumps(l)+'\n' for l in ageDist])
-print(f"Jsonl age distribution file saved at {ageDistLines}")
 
 # 2.1 Gender distributions
 

@@ -22,6 +22,7 @@ from random import randint, shuffle
 
 import numpy as np
 
+from somecens.chile.conf import CHILEAGECATS, CHILEGENDERCATS
 from somecens.us.conf import USAGECATS, USGENDERCATS
 from somecens.nuts.conf import NUTS3AGECATS, NUTS3GENDERCATS
 
@@ -35,45 +36,63 @@ from somecens.tools import \
 DIRPATH = os.environ['SOMECENSDIR'] if 'SOMECENSDIR' in os.environ else '.'
 
 COUNTRYDATAPATH = os.path.join(DIRPATH, "data", "${country}")
-GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts2024.csv")
-SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits.yml")
-GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts2024.csv")
-AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts2024.jsonl")
-USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata2023.csv")
+GEOUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_geoUnits_nuts_2024.csv")
+SUBUNITSPATH = os.path.join(COUNTRYDATAPATH, "${country}_subUnits_nuts_2024.yml")
+GENDERDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_gender_distribution_nuts_2024.csv")
+AGEDISTPATH = os.path.join(COUNTRYDATAPATH, "${country}_age_distribution_nuts_2024.csv")
+USERSPATH = os.path.join(COUNTRYDATAPATH, "${country}_metadata_epo_${metadatayear}.csv")
 # Create dict of relevant stop words per languages of country
 DEFAULTSTOPWORDS = ""
-EXPORTSFOLDER = os.path.join(DIRPATH, "results", "${date}")
+EXPORTSFOLDER = os.path.join(DIRPATH, "results", "${date}", "${country}")
+MYEARS = [2020, 2023, 2025]
+EXPORTGEOUNITSPATH = os.path.join(EXPORTSFOLDER, f'units_nuts_2024.csv')
+EXPORTSTATSPATH = os.path.join(EXPORTSFOLDER, 'nb_matchs_perc_${country}_nuts_2024_epo_${metadatayear}_level_${level}.csv')
+EXPORTUSERSPATH = os.path.join(EXPORTSFOLDER, 'localized_users_nuts_2024_epo_${metadatayear}.csv')
+EXPORTFULLUSERSPATH = os.path.join(EXPORTSFOLDER, 'localized_users_full_nuts_2024_epo_${metadatayear}.csv')
+EXPORTEXCELPATH = os.path.join(EXPORTSFOLDER, '${country}_units_users_reports_nuts_2024_epo_${metadatayear}.xlsx')
+
 
 # 0. parse arguments and set paths
 ap = ArgumentParser()
 
 ap.add_argument('--country', type=str, required=True)
+ap.add_argument('--metadatayear', type=int, required=True, choices=MYEARS)
 ap.add_argument('--usersdatapath', type=str, default=USERSPATH)
 ap.add_argument('--genderdistpath', type=str, default=GENDERDISTPATH)
 ap.add_argument('--agedistpath', type=str, default=AGEDISTPATH)
 ap.add_argument('--subunitspath', type=str, default=SUBUNITSPATH)
 ap.add_argument('--unitspath', type=str, default=GEOUNITSPATH)
 ap.add_argument('--stopwords', type=str, default=DEFAULTSTOPWORDS)
-ap.add_argument('--debuglimit', type=int, default=0)
-ap.add_argument('--debugcode', type=str, default='')
 ap.add_argument('--nbuserdump', type=int, default=1000)
 ap.add_argument('--exportsfolder', type=str, default=EXPORTSFOLDER)
+ap.add_argument('--ignoreErrors', action="store_false")
+ap.add_argument('--unitsexportpath', type=str, default=EXPORTGEOUNITSPATH)
+ap.add_argument('--statsexportpath', type=str, default=EXPORTSTATSPATH)
+ap.add_argument('--usersexportpath', type=str, default=EXPORTUSERSPATH)
+ap.add_argument('--fullusersexportpath', type=str, default=EXPORTFULLUSERSPATH)
+ap.add_argument('--excelexportpath', type=str, default=EXPORTEXCELPATH)
+
+date = datetime.today().strftime('%Y%m%d')
 
 args = ap.parse_args()
 country = args.country
-usersdatapath = Template(args.usersdatapath).safe_substitute(country=country)
+metadatayear = args.metadatayear
+usersdatapath = Template(args.usersdatapath).safe_substitute(country=country, metadatayear=metadatayear)
 genderdistpath = Template(args.genderdistpath).safe_substitute(country=country)
 agedistpath = Template(args.agedistpath).safe_substitute(country=country)
 subunitspath = Template(args.subunitspath).safe_substitute(country=country)
 unitspath = Template(args.unitspath).safe_substitute(country=country)
 stopwords =  args.stopwords.split("|")
-debuglimit = args.debuglimit
-debugcode = args.debugcode
 nbuserdump = args.nbuserdump
-exportsfolder = Template(args.exportsfolder).safe_substitute(date=datetime.today().strftime('%Y%m%d'))
-exportsfoldercountry = os.path.join(exportsfolder, country)
+ignoreErrors = args.ignoreErrors
+exportsfolder = Template(args.exportsfolder).safe_substitute(country=country, date=date)
+statsexportpath = Template(args.statsexportpath).safe_substitute(country=country, date=date, metadatayear=metadatayear)
+unitsexportpath = Template(args.unitsexportpath).safe_substitute(country=country, date=date, metadatayear=metadatayear)
+usersexportpath = Template(args.usersexportpath).safe_substitute(country=country, date=date, metadatayear=metadatayear)
+fullusersexportpath = Template(args.fullusersexportpath).safe_substitute(country=country, date=date, metadatayear=metadatayear)
+excelexportpath = Template(args.excelexportpath).safe_substitute(country=country, date=date, metadatayear=metadatayear)
+
 os.makedirs(exportsfolder, exist_ok=True)
-os.makedirs(exportsfoldercountry, exist_ok=True)
 
 params = vars(args)
 params.update({
@@ -83,6 +102,12 @@ params.update({
     "subunitspath" : subunitspath,
     "unitspath": unitspath,
     "stopwords": stopwords,
+    "exportsfolder": exportsfolder,
+    "statsexportpath": statsexportpath,
+    "unitsexportpath": unitsexportpath,
+    "usersexportpath": usersexportpath,
+    "fullusersexportpath": fullusersexportpath,
+    "excelexportpath": excelexportpath,
     })
 print("---------------------------------------------------------")
 print(f"PARAMETERS:\n{yaml.dump(params)}")
@@ -91,12 +116,13 @@ print("---------------------------------------------------------")
 #  0. Set options
 if country == 'us':
     encoding = "ISO-8859-1"
-    gendercategories = NUTS3GENDERCATS
+    gendercategories = USGENDERCATS
     agecategories = USAGECATS
 elif country == 'chile':
     encoding = "utf-8"
-    raise NotImplementedError()
-else:  # nuts countrye
+    gendercategories = CHILEGENDERCATS
+    agecategories = CHILEAGECATS
+else: # nuts countries
     gendercategories = NUTS3GENDERCATS
     agecategories = NUTS3AGECATS
     encoding = "utf-8"
@@ -122,22 +148,21 @@ else:
 
 if agedistpath:
     with open(agedistpath, "r") as f:
-        ageDist = [json.loads(l) for l in f.readlines()]
-    print(f"Jsonl age distribution file loaded from {agedistpath}")
+        ageDist = [r for r in csv.DictReader(f)]
+    print(f"Csv age distribution file loaded from {agedistpath}")
 else:
     ageDist = []
 
 with open(usersdatapath, 'r') as f:
-    if debuglimit:
-        metadata = [r for r,_ in zip(csv.reader(f), range(debuglimit))]
-    else:
-        metadata = [r for r in csv.reader(f)]
+    metadata = [r for r in csv.reader(f)]
 print(f"Locations file with {len(metadata)} entries loaded from {agedistpath}")
 
 # 2. Create demograp object and set:
 #   - age distribution per geographical unit
 #   - gender distributions per geographical unit
 #   - subunits (LAUS)
+
+raiseErrors = not ignoreErrors
 
 demo = DemoGraph(
     demography=geoUnits,
@@ -148,7 +173,7 @@ if subUnits:
 if genderDist:
     demo.setGenderDistributions(genderDist)
 if ageDist:
-    demo.setAgeDistributions(ageDist, raiseErrors=False)
+    demo.setAgeDistributions(ageDist, raiseErrors=raiseErrors, isFlat=True, verbose=True)
 
 # show
 demo.showGeoUnits(max_level=0)
@@ -167,11 +192,8 @@ match_kwargs = {
     "has_headers": True,
 }
 
-locations = demo.getAllSubUnits(max_level=3)
-
 start = time.time()
-users_matched_locations = matchUsersLocations(
-    locations=locations,
+users_matched_locations = demo.matchAndStoreUsersLocations(
     data=metadata,
     aliases=aliases,
     banned_words=banned_words,
@@ -181,28 +203,26 @@ users_matched_locations = matchUsersLocations(
 duration = time.time() - start
 print(f"Whole matching {len(metadata)} users locations took {duration} seconds.")
 
-demo.setUsersLocations(users_matched_locations)
-
 # 4. make exports
 
 # 4.O export flatten units
-path = os.path.join(exportsfoldercountry, f'units.csv')
-unitReport, unitsColumns = demo.exportUnitsReport(path)
-os.system(f"xan v {path}")
+unitReport, unitsColumns = demo.exportUnitsReport(unitsexportpath)
+os.system(f"xan v {unitsexportpath}")
 
-# 4.1 export matchs stats for eu  cloropleths
+# 4.1 export matchs stats per level for cloropleths visualizations
 for level in range(demo.getDeepestLevel() + 1) :
-    path = os.path.join(exportsfoldercountry, f'nb_matchs_{country.replace(' ', '')}_nuts_{level}.csv')
-    demo.exportLocalizationsMatches(level, path, descendants=True, add_headers=False)
-    path = os.path.join(exportsfoldercountry, f'nb_matchs_perc_{country.replace(' ', '')}_nuts_{level}.csv')
+    path = Template(statsexportpath).safe_substitute(level=level)
     demo.exportLocalizationsMatchesPerc(level, path, descendants=True, add_headers=False)
+    os.system(f"xan v --no-headers {path}")
 
 # 4.2 export localized users
-path = os.path.join(exportsfoldercountry, f'localized_users.csv')
-localizedUsers, localizedUsersColumns = demo.exportLocalizedUsers(path)
+localizedUsers, localizedUsersColumns = demo.exportLocalizedUsers(
+    usersexportpath,
+    full_path=fullusersexportpath)
+os.system(f"xan v {usersexportpath}")
+os.system(f"xan v {fullusersexportpath}")
 
-excelfile = os.path.join(exportsfoldercountry, f'{country}_units_users_reports.xlsx')
-with pd.ExcelWriter(excelfile) as writer:
+with pd.ExcelWriter(excelexportpath) as writer:
 
     unitsColumns = [" ".join(c.split("_")) for c in unitsColumns]
     pd.DataFrame(data=unitReport, columns=unitsColumns) \
@@ -210,17 +230,14 @@ with pd.ExcelWriter(excelfile) as writer:
 
     localizedUsersColumns = [" ".join(c.split("_")) for c in localizedUsersColumns]
     df = pd.DataFrame(data=localizedUsers, columns=localizedUsersColumns)
-    df = df.sample(n=min(len(df), 1000000), random_state=84)
+    df = df.sample(n=min(len(df), 10000), random_state=84)
     try:
         df.to_excel(writer, index=False, sheet_name=f"localized users")
     except:
         df['location'] = df['location'].apply(lambda x: x.encode('unicode_escape').decode('utf-8') if isinstance(x, str) else x)
         df.to_excel(writer, index=False, sheet_name=f"localized users")
 
-print(f"Excel report wrote at {excelfile}")
-
-# from openpyxl.cell.cell import ILLEGAL_CHARACTERS_RE
-# ILLEGAL_CHARACTERS_RE.sub(r'', x)
+print(f"Excel report wrote at {excelexportpath}")
 
 # 4. Make choropleth with:
 #   - number of matched users in each geographical unit

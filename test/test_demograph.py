@@ -35,7 +35,6 @@ with open(os.path.join(DATADIR, "user_locations.yml")) as f:
 
 def test_bad_formatted_input_geounits():
     badUnit = {
-        'country_code': 'XR',
         'code': 'ZRY22',
         'level': '3',
         'label': 'Some label',

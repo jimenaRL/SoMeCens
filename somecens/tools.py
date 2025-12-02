@@ -16,6 +16,18 @@ def checkIterable(something) -> None:
         raise ValueError(
             f"Object must be an iterable, found {type(something)}")
 
+def parseFlatAgeDistributions(ageDist: Iterable[Dict]) -> Iterable[Dict]:
+
+    codes = {d['code'] for d in ageDist}
+    ages = {d['age'] for d in ageDist}
+    out = []
+    for code in codes:
+        out.append({
+            'code': code,
+            'age_distributions': {d['age']: d['total'] for d in ageDist if d['code'] == code}
+            })
+    return out
+
 def getTokenizer(
     stopwords: Iterable[str] = [],
     split: list[str] = [],

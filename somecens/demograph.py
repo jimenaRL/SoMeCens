@@ -13,11 +13,15 @@ from typing import Type
 from typing import Any
 from functools import reduce
 
+import os
 import csv
 import pandas as pd
 
 from somecens import GeoUnit
-from somecens.tools import checkIterable
+from somecens.tools import \
+    checkIterable, \
+    matchUsersLocations, \
+    parseFlatAgeDistributions
 
 from somecens.nuts.conf import NUTS3AGECATS, NUTS3GENDERCATS
 
@@ -25,13 +29,12 @@ DEFAULTAGECATS = NUTS3AGECATS
 DEFAULTGENDERCATS = NUTS3GENDERCATS
 
 
-
 class DemoGraph:
     """ Class to build and manage a GeoUnit tree structure.
     """
 
-    demoKeys = {'country_code', 'label', 'level', 'code', 'parent_code'}
-    genderCategories = DEFAULTGENDERCATS
+    demoKeys = {'label', 'level', 'code', 'parent_code'}
+    ageDistributionsKeys = {'age_distributions', 'code'}
 
     def __init__(
             self,
@@ -42,7 +45,6 @@ class DemoGraph:
         """
         demography: iterable of dicts of the form
                 {
-                    'country_code': 'FR',
                     'code': 'FRJ24',
                     'level': '3',
                     'label': 'Gers',
@@ -93,6 +95,9 @@ class DemoGraph:
     def getDeepestLevel(self) -> int:
         return max(map(int, set([d['level'] for d in self.demography])))
 
+    def getLevelCodes(self, level: int) -> int:
+        return [d['code'] for d in self.demography if int(d['level']) == level]
+
     def findLabelFromCode(self, code: str) -> str:
         if code not in self.code2label:
             raise ValueError(f"Code '{code}' is not present in demography.")
@@ -113,8 +118,12 @@ class DemoGraph:
         vt = set([isinstance(v, str) for d in demography for v in d.values()])
         assert kt == vt == {True}
         # check dicts keys
-        dk = set([set(d.keys()) == self.demoKeys for d in demography])
-        assert dk == {True}
+        dk = set([self.demoKeys.issubset(set(d.keys())) for d in demography])
+        if not dk == {True}:
+            e = "Wrong keys in input units dictionaries, must be "
+            e += f"{', '.join(self.demoKeys)} but found "
+            e += f"{list(set([', '.join(d.keys()) for d in demography]))[0]}."
+            raise ValueError(e)
         # check that there is only one level 0
         nb_first_levels = sum([1 for d in demography if d['level'] == '0'])
         if nb_first_levels != 1:
@@ -176,6 +185,8 @@ class DemoGraph:
         raise ValueError(f"Didn't find any parent for geoUnit {geoUnit}")
 
     def getAllSubUnits(self, max_level : int = -1) -> dict:
+        if max_level < 0:
+            max_level = self.getDeepestLevel()
         return {g.code: g.getSubUnits() for g in self.geoUnits if g.level <= max_level}
 
     def getSubUnits(self, code) -> dict:
@@ -198,6 +209,7 @@ class DemoGraph:
     def checkAgeDistributions(
         self,
         ageDistribution: Iterable[Dict],
+        verbose: bool | False,
         raiseErrors: bool | False
     ) -> None:
 
@@ -208,9 +220,13 @@ class DemoGraph:
             isinstance(k, str) for d in ageDistribution for k in d.keys()])
         assert kt == {True}
 
+        keys = self.ageDistributionsKeys
         for d in ageDistribution:
-            if not {'age_distributions', 'code', 'year'} == set(d.keys()) and raiseErrors:
-                raise ValueError()
+            if not keys.issubset(set(d.keys())):
+                e = f"Expecting dict with keys {keys} but found {set(d.keys())}"
+                e += f" for age distribution of geoUnit with code {d['code']}:"
+                e += f"\n\t{d}"
+                raise ValueError(e)
             missing_keys = set(self.ageCategories) - set(d["age_distributions"].keys())
             if  missing_keys:
                 m = f"There are missing age age_distributions keys at:\n\t{d}"
@@ -231,8 +247,9 @@ class DemoGraph:
                         m1 = "Please check that all values can be converted to float."
                         raise ValueError(m+m1)
                     else:
-                        m2 = f"Converting value to -1.0."
-                        print(m+m2)
+                        if verbose:
+                            m2 = f"Converting value to -1.0."
+                            print(m+m2)
                         d['age_distributions'][key] = -1.0
 
         # check that all geoUnits are present in the gender distribution
@@ -249,12 +266,12 @@ class DemoGraph:
                     {
                         'code': code,
                         # hot fix
-                        'year': ageDistribution[0]['year'],
                         'age_distributions': {k: -1.0 for k in self.ageCategories}
                     }
                     for code in missing_codes
                 ]
-                print(mssg + f"\nAdding {filling}.")
+                if verbose:
+                    print(mssg + f"\nAdding {filling}.")
                 ageDistribution.extend(filling)
         return ageDistribution
 
@@ -311,9 +328,13 @@ class DemoGraph:
     def setAgeDistributions(
             self,
             ageDistribution: Iterable[Dict],
-            raiseErrors: bool = False
+            verbose: bool = False,
+            isFlat: bool = False,
+            raiseErrors: bool = False,
     ) -> None:
-        ageDistribution = self.checkAgeDistributions(ageDistribution, raiseErrors)
+        if isFlat:
+            ageDistribution = parseFlatAgeDistributions(ageDistribution)
+        ageDistribution = self.checkAgeDistributions(ageDistribution, verbose, raiseErrors)
         self._setAgeDistributions(self.rootGeoUnit, ageDistribution)
         return
 
@@ -401,6 +422,40 @@ class DemoGraph:
                     self.code2label[d['code']] = d['label']
 
 
+    def getUniqueUsersMatched(self, code: str, descendants: bool = True) -> set:
+        return {
+            match[0]
+            for matched in self.getLocalizedUsers(code, descendants).values()
+            for match in matched
+        }
+
+    def matchAndStoreUsersLocations(
+        self,
+        data: Iterable[list[str]],
+        stopwords: list[str],
+        split_characters: list[str],
+        search_index: int | Iterable[int],
+        banned_words: Iterable[str] = [],
+        aliases: Dict = {},
+        has_headers: bool = True,
+        verbose: bool = False
+        ):
+
+        users_matched_locations = matchUsersLocations(
+            locations=self.getAllSubUnits(),
+            data=data,
+            stopwords=stopwords,
+            split_characters=split_characters,
+            search_index=search_index,
+            banned_words=banned_words,
+            aliases=aliases,
+            has_headers=has_headers,
+            verbose=verbose
+            )
+
+        self.setUsersLocations(users_matched_locations)
+
+
     def exportUnitsReport(self, path: str | None = None) -> Iterable:
 
         max_level = self.getDeepestLevel()
@@ -411,9 +466,9 @@ class DemoGraph:
 
         data = []
         for geo in self.geoUnits:
+            unit_matched = len(self.getUniqueUsersMatched(geo.code, descendants=False))
+            desc_matched = len(self.getUniqueUsersMatched(geo.code, descendants=True))
 
-            unit_matched = sum(map(len, self.getLocalizedUsers(code=geo.code, descendants=False).values()))
-            desc_matched = sum(map(len, self.getLocalizedUsers(code=geo.code, descendants=True).values()))
             total = float(geo.genderDistribution['total'])
 
             geoData = [
@@ -439,10 +494,10 @@ class DemoGraph:
         return data, columns
 
 
-    def exportLocalizedUsers(self, path: str | None = None) -> Iterable:
+    def exportLocalizedUsers(self, path: str | None = None, full_path: str | None = None) -> Iterable:
 
         max_level = self.getDeepestLevel()
-        columns = ["pseudo_id", "location", "screen_name", "normalized_location"]
+        columns = ["twitter_id", "location", "screen_name", "normalized_location"]
 
         # get matched user per unit and store by unit level
         frames = {level: [] for level in range(max_level+1)}
@@ -492,12 +547,45 @@ class DemoGraph:
                 writer = csv.writer(f)
                 writer.writerow(columns)
                 writer.writerows(data)
-            print(f"File saved as {path}")
+            print(f"Localized users file saved as {path}")
+
+            if full_path:
+                drop_columns = [f"level_{l}_label" for l in range(0, max_level + 1)]
+                df = localizedUsers
+                df.drop(columns=drop_columns, inplace=True)
+                for l in reversed(range(1, max_level + 1)):
+                    level_codes = self.getLevelCodes(l)
+
+                    for code in level_codes:
+                        idx = df[df[f"level_{l}_code"] == code].index
+                        prev_level = df.loc[idx, f"level_{l - 1}_code"]
+                        parent_code = self.getParentCode(self.getGeoUnit(code))
+                        def fn(v):
+                            v = set(v.split(" | ")) - {""}
+                            return " | ".join(list(set(v).union({parent_code})))
+                        prev_level = prev_level.apply(fn)
+                        df.loc[idx, f"level_{l - 1}_code"] = prev_level
+
+                    # trait multiple codes per level
+                    gn = lambda code : self.getParentCode(self.getGeoUnit(code))
+                    idx = df[df[f"level_{l}_code"].apply(lambda v: " | " in v)].index
+                    this_level = df.loc[idx, f"level_{l}_code"]
+                    this_level_parents = this_level.apply(lambda v: " | ".join(list(map(gn, v.split(" | ")))))
+                    prev_level = df.loc[idx, f"level_{l - 1}_code"]
+                    df.loc[idx, f"level_{l - 1}_code"] = prev_level + " | " + this_level_parents
+                    hn = lambda v: " | ".join(set(v.split(" | ")) - {""})
+                    df.loc[idx, f"level_{l - 1}_code"] = df.loc[idx, f"level_{l - 1}_code"].apply(hn)
+
+                with open(full_path, 'w') as f:
+                    writer = csv.writer(f)
+                    writer.writerow(df.columns)
+                    writer.writerows(df.values.tolist())
+                print(f"Localized users file saved as {full_path}")
+
+        return  data, columns
 
 
-        return data, columns
-
-    def exportLocalizationsMatches(
+    def exportLocalizationsMatchesNb(
         self,
         level: int,
         path: str,
@@ -508,10 +596,8 @@ class DemoGraph:
         data = []
         for geoUnit in self.geoUnits:
             if geoUnit.level == level:
-                data.append([
-                    geoUnit.code,
-                    sum(map(len, self.getLocalizedUsers(geoUnit.code,descendants).values()))
-                ])
+                nb_unique_matched = len(self.getUniqueUsersMatched(geo.code, descendants=descendants))
+                data.append([geoUnit.code, nb_unique_matched])
         with open(path, 'w') as f:
             writer = csv.writer(f)
             if add_headers:
@@ -531,13 +617,11 @@ class DemoGraph:
         for geoUnit in self.geoUnits:
             if geoUnit.level == level:
                 total = float(geoUnit.genderDistribution['total'])
-                matched = sum(map(
-                    len,
-                    self.getLocalizedUsers(geoUnit.code, descendants).values()
-                ))
+                # get unique twitter_ids (at index 0)
+                nb_unique_matched = len(self.getUniqueUsersMatched(geoUnit.code, descendants=descendants))
                 data.append([
                     geoUnit.code,
-                    100 * matched / total
+                    100 * nb_unique_matched / total
                 ])
 
         with open(path, 'w') as f:
@@ -546,34 +630,3 @@ class DemoGraph:
                 writer.writerow(headers)
             writer.writerows(data)
         print(f"File saved as {path}")
-
-    def getGeoUnitLocalizationsStats(self, code: str) -> Iterable:
-        for g in self.geoUnits:
-            if g.code == code:
-
-                total = float(g.genderDistribution['total'])
-
-                nb_unit_matched = sum(map(
-                    len,
-                    self.getLocalizedUsers(g.code, descendants=False).values()
-                ))
-
-                # use a set to avoid duplicated users
-                descendant_unique_matched = set()
-                descendant_matched = self.getLocalizedUsers(
-                    g.code,
-                    descendants=True)
-                for user_list in descendant_matched.values():
-                    # update set with matched users pseudo_ids
-                    descendant_unique_matched.update({u[0] for u in user_list})
-                nb_descendant_matched = len(descendant_unique_matched)
-
-                return [
-                    g.level,
-                    g.code,
-                    g.label,
-                    total,
-                    nb_unit_matched,
-                    nb_descendant_matched,
-                    100 * nb_descendant_matched / total,
-                ]

@@ -79,7 +79,7 @@ class GeoUnit:
                     f"{usersIndent}{u}" for u in self.usersLocations[:5]]) \
                 + f'\n{usersIndent}...'
             s += f"\n{indent}nb localized users: {len(self.usersLocations)}"
-            s += f"{indent}localized users examples: {stringUsersLocations}"
+            s += f"\n{indent}localized users examples: {stringUsersLocations}"
 
         sIndent = "    " * (self.level + 1)
         subUnitsNames = f'\n{sIndent}' + f'\n{sIndent}'.join(

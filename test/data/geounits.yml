@@ -1,95 +1,76 @@
 - code: FR
-  country_code: FR
   label: France
   level: '0'
   parent_code: ''
 - code: FR1
-  country_code: FR
   label: Ile-de-France
   level: '1'
   parent_code: FR
 - code: FR10
-  country_code: FR
   label: Ile-de-France
   level: '2'
   parent_code: FR1
 - code: FR101
-  country_code: FR
   label: Paris
   level: '3'
   parent_code: FR10
 - code: FR102
-  country_code: FR
   label: 'Seine-et-Marne'
   level: '3'
   parent_code: FR10
 - code: FR108
-  country_code: FR
   label: "Val-d\u2019Oise"
   level: '3'
   parent_code: FR10
 - code: FRB
-  country_code: FR
   label: "Centre \u2014 Val de Loire"
   level: '1'
   parent_code: FR
 - code: FRC
-  country_code: FR
   label: "Bourgogne-Franche-Comt\u00e9"
   level: '1'
   parent_code: FR
 - code: FRC1
-  country_code: FR
   label: "Bourgogne"
   level: '2'
   parent_code: FRC
 - code: FRC11
-  country_code: FR
   label: "C\u00f4te-d\u2019Or"
   level: '3'
   parent_code: FRC1
 - code: FRJ
-  country_code: FR
   label: "Occitanie"
   level: '1'
   parent_code: FR
 - code: FRJ2
-  country_code: FR
   label: "Midi-Pyr\u00e9n\u00e9es"
   level: '2'
   parent_code: FRJ
 - code: FRJ25
-  country_code: FR
   label: "Lot"
   level: '3'
   parent_code: FRJ2
 - code: FRK
-  country_code: FR
   label: "Auvergne-Rh\u00f4ne-Alpes"
   level: '1'
   parent_code: FR
 - code: FRY
-  country_code: FR
   label: 'Départements d Outre-Mer'
   level: '1'
   parent_code: FR
 - code: FRY1
-  country_code: FR
   label: Guadeloupe
   level: '2'
   parent_code: FRY
 - code: FRY10
-  country_code: FR
   label: Guadeloupe
   level: '3'
   parent_code: FRY1
 - code: FRY2
-  country_code: FR
   label: 'Martinique'
   level: '2'
   parent_code: FRY
 - code: FRY20
-  country_code: FR
   label: 'Martinique'
   level: '3'
   parent_code: FRY2
