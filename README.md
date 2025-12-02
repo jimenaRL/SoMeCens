@@ -25,7 +25,7 @@ Check the provided [scripts](https://github.com/jimenaRL/SoMeCens/tree/0fddfc2ff
 
 ## 📊 Example of Chile 2024 Census comunas coverage with [EPO](http://ramaciotti.org/projects/project-2021-10-EPO/) data
 
-<!-- demo.html -->
+<!-- choropleth_nb_matchs_perc_chile_comunas.html -->
 <iframe 
   src="https://github.com/jimenaRL/jimenarl.github.io/blob/master/choropleth_nb_matchs_perc_chile_comunas.html" 
   width="100%" 
