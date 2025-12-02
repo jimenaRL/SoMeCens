@@ -17,6 +17,6 @@
 
 Check the provided [scripts](https://github.com/jimenaRL/SoMeCens/tree/0fddfc2ff01611bf9f21af2a36b2e648b1e2bbd2/scripts) for data formatting.
 
-## 📊 Europe 2024 NUTS level 3 coverage with EPO data
+## 📊 Europe 2024 NUTS level 3 coverage with [EPO](http://ramaciotti.org/projects/project-2021-10-EPO/) data
 
  ![Percent of users matched by SoMeCens project in NUTS3 Europe geographical units](nb_matchs_perc_nuts_3.png)
