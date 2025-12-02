@@ -22,3 +22,14 @@ Check the provided [scripts](https://github.com/jimenaRL/SoMeCens/tree/0fddfc2ff
  ![Percent of users matched by SoMeCens project in NUTS3 Europe geographical units](nb_matchs_perc_nuts_3.png)
 
  Image made with IMAGE [web-tool](https://gisco-services.ec.europa.eu/image/) from the Geographic Information System of the European Commission ([GISCO](https://ec.europa.eu/eurostat/web/gisco)).
+
+## 📊 Example of Chile 2024 Census comunas coverage with [EPO](http://ramaciotti.org/projects/project-2021-10-EPO/) data
+
+<!-- choropleth_nb_matchs_perc_chile_comunas.html -->
+<iframe 
+  src="https://github.com/jimenaRL/jimenarl.github.io/blob/master/choropleth_nb_matchs_perc_chile_comunas.html" 
+  width="100%" 
+  height="600px" 
+  title="Chile's comunas" 
+  sandbox="allow-scripts"  <!-- Allows the embedded HTML to run scripts -->
+></iframe>
