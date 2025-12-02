@@ -252,17 +252,17 @@ os.system(f"rm {country_units} {regions_units} {provincias_units} {comunas_units
 # 3. Load metadata using auxiliar methods to request epo databases,
 # then export as csv
 
-# for year in EPODATAYEARS:
-#     metadata = getMetadata(
-#         dbpath=Template(EPODBPATH).safe_substitute(epodatayear=year),
-#         columns=['pseudo_id', 'location', 'screen_name'],
-#         not_null_column="location",
-#         ids_dbpath=Template(IDSDBPATH).safe_substitute(epodatayear=year))
+for year in EPODATAYEARS:
+    metadata = getMetadata(
+        dbpath=Template(EPODBPATH).safe_substitute(epodatayear=year),
+        columns=['pseudo_id', 'location', 'screen_name'],
+        not_null_column="location",
+        ids_dbpath=Template(IDSDBPATH).safe_substitute(epodatayear=year))
 
-#     path = Template(METACOMUNASDATAPATH).safe_substitute(epodatayear=year)
-#     with open(path, 'w') as f:
-#         writer = csv.writer(f)
-#         writer.writerow(['twitter_id', 'location', 'screen_name'])
-#         writer.writerows(metadata)
-#     print(f"Csv metadata file saved at {path}")
-#     os.system(f"xan v {path}")
+    path = Template(METACOMUNASDATAPATH).safe_substitute(epodatayear=year)
+    with open(path, 'w') as f:
+        writer = csv.writer(f)
+        writer.writerow(['twitter_id', 'location', 'screen_name'])
+        writer.writerows(metadata)
+    print(f"Csv metadata file saved at {path}")
+    os.system(f"xan v {path}")
