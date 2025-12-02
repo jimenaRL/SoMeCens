@@ -2,7 +2,7 @@
 
 ### SomeCens package could be use to:
 
-- Create a Demograph tree object representing a country and its hierarchical organized geographic units (the country's geographical subdivisions) 🌐
+- Create a Demograph tree object representing a country and its hierarchical organized geographic units 🌐
 - Load sociodemographic (age and gender) information for units 👶👧👵👦🧔👴
 - Localize user in units 📌
 - Create choropleth maps to show sociodemographic and localisation data 🗺️
