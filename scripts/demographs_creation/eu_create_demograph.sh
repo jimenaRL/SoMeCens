@@ -18,22 +18,18 @@ python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demogra
 
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=lithuania --metadatayear=2023 && \
 
-python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=hungary --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=hungary --metadatayear=2023 && \
 
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=malta --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=malta --metadatayear=2023 && \
 
-python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=portugal --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=portugal --metadatayear=2023 && \
 
-python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=romania --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=romania --metadatayear=2023 && \
 
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=slovenia --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=slovenia --metadatayear=2023 && \
 
-python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=slovakia --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=slovakia --metadatayear=2023 && \
 
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=finland --stopwords="suomi" --metadatayear=2020 && \
