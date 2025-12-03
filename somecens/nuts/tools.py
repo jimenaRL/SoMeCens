@@ -14,8 +14,12 @@ from subprocess import Popen, PIPE
 
 import os
 import csv
-from somecens.nuts.conf import *
-
+from somecens.nuts.conf import \
+    FLATTEN2024, \
+    COUNTRYCODES, \
+    LAUtoNUTS3, \
+    NUTS3GENDERFLATTEN2024, \
+    NUTS3AGECATS
 
 def strToInt(string: str) -> int:
     """ Remove the Narrow No-Break Space character (U202F) from a string
