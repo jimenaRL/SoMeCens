@@ -1,10 +1,8 @@
-python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=czechia --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=czechia --metadatayear=2023 && \
 
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=denmark --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=denmark --metadatayear=2023 && \
 
-python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=estonia --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=estonia --metadatayear=2023 && \
 
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=ireland --metadatayear=2020 && \
@@ -13,13 +11,11 @@ python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demogra
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=greece --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=greece --metadatayear=2023 && \
 
-python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=cyprus --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=cyprus --metadatayear=2023 && \
 
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=latvia --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=latvia --metadatayear=2023 && \
 
-python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=lithuania --metadatayear=2020 && \
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=lithuania --metadatayear=2023 && \
 
 python /home/jimena/work/dev/SoMeCens/scripts/demographs_creation/create_demograph.py --country=hungary --metadatayear=2020 && \
