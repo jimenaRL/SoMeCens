@@ -19,9 +19,9 @@ Check the provided [scripts](https://github.com/jimenaRL/SoMeCens/tree/0fddfc2ff
 
 ## Examples
 
-### 📊 Europe 2024 NUTS level 3 coverage with [EPO](http://ramaciotti.org/projects/project-2021-10-EPO/) data
+### 📊 Europe 2024 NUTS level 3 coverage with [EPO](http://ramaciotti.org/projects/project-2021-10-EPO/) 2020 data
 
- ![Percent of users matched by SoMeCens project in NUTS3 Europe geographical units](images/cloropleth/nb_matchs_perc_nuts_3.png)
+ ![Percent of users matched by SoMeCens project in NUTS3 Europe geographical units](images/cloropleth/nb_matchs_perc_nuts_2024_epo_2020_level_3.png)
 
  Image made with IMAGE [web-tool](https://gisco-services.ec.europa.eu/image/) from the Geographic Information System of the European Commission ([GISCO](https://ec.europa.eu/eurostat/web/gisco)).
 
