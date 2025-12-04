@@ -1,30 +1,33 @@
-python scripts/create_demograph.py \
+python scripts/demographs_creation/create_demograph.py \
+    --ignoreErrors  \
     --country="us" \
     --metadatayear=2020 \
-    --unitspath=data/us/us_geounits_year2023.csv \
+    --unitspath=data/us/us_geounits_cc-est_2023.csv \
     --subunitspath= \
-    --genderdistpath=data/us/us_genre_distribution_year2023.csv \
-    --agedistpath=data/us/us_age_distribution_year2023.csv \
-    --usersdatapath=data/us/us_metadata2023.csv \
+    --genderdistpath=data/us/us_genre_distribution_cc-est_2023.csv \
+    --agedistpath=data/us/us_age_distribution_cc-est_2023.csv \
+    --usersdatapath=data/us/us_metadata_epo_2023.csv \
     --stopwords='of|the|county|district' \
     --ignoreErrors && \
-python scripts/create_demograph.py \
+python scripts/demographs_creation/create_demograph.py \
     --country="us" \
+    --ignoreErrors  \
     --metadatayear=2023 \
-    --unitspath=data/us/us_geounits_year2023.csv \
+    --unitspath=data/us/us_geounits_cc-est_2023.csv \
     --subunitspath= \
-    --genderdistpath=data/us/us_genre_distribution_year2023.csv \
-    --agedistpath=data/us/us_age_distribution_year2023.csv \
-    --usersdatapath=data/us/us_metadata2023.csv \
+    --genderdistpath=data/us/us_genre_distribution_cc-est_2023.csv \
+    --agedistpath=data/us/us_age_distribution_cc-est_2023.csv \
+    --usersdatapath=data/us/us_metadata_epo_2023.csv \
     --stopwords='of|the|county|district' \
     --ignoreErrors && \
-python scripts/create_demograph.py \
+python scripts/demographs_creation/create_demograph.py \
     --country="us" \
+    --ignoreErrors \
     --metadatayear=2025 \
-    --unitspath=data/us/us_geounits_year2023.csv \
+    --unitspath=data/us/us_geounits_cc-est_2023.csv \
     --subunitspath= \
-    --genderdistpath=data/us/us_genre_distribution_year2023.csv \
-    --agedistpath=data/us/us_age_distribution_year2023.csv \
-    --usersdatapath=data/us/us_metadata2023.csv \
+    --genderdistpath=data/us/us_genre_distribution_cc-est_2023.csv \
+    --agedistpath=data/us/us_age_distribution_cc-est_2023.csv \
+    --usersdatapath=data/us/us_metadata_epo_2023.csv \
     --stopwords='of|the|county|district' \
     --ignoreErrors
