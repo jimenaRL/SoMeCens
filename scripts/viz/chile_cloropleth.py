@@ -4,33 +4,41 @@
 
 import os
 import json
+from argparse import ArgumentParser
 
 import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
 
+RESULTSFOLDER = "results/20251202/chile"
 
-# level = 3 # "comunas"
-level = 1 # "regiones"
 
-RESULTSFOLDER = "results/20251201/chile"
+ap = ArgumentParser()
+ap.add_argument('--year', type=int, required=True, choices=[2020, 2023, 2025])
+ap.add_argument('--level', type=int, required=True, choices=[1, 3])
+ap.add_argument('--results_folder', type=str, default=RESULTSFOLDER)
+
+args = ap.parse_args()
+year = args.year
+level = args.level
+results_folder = args.results_folder
 
 LEVELDATA = {
     1: {
         "geojsonpath": "/home/jimena/work/dev/Chile-GeoJSON/Regional.geojson",
         "geounitspath": "data/chile/chile_geounits_census_2024.csv",
-        "file": os.path.join(RESULTSFOLDER, "nb_matchs_perc_chile_nuts_2024_epo_2023_level_1.csv"),
-        "htmlpath": os.path.join(RESULTSFOLDER, "choropleth_nb_matchs_perc_chile_regiones.html"),
-        "imagepath": os.path.join(RESULTSFOLDER, "choropleth_nb_matchs_perc_chile_regiones.png"),
+        "file": os.path.join(results_folder, f"nb_matchs_perc_chile_nuts_2024_epo_{year}_level_1.csv"),
+        "htmlpath": os.path.join(results_folder, f"choropleth_nb_matchs_perc_chile_census_2024_epo_{year}_regiones.html"),
+        "imagepath": os.path.join(results_folder, f"choropleth_nb_matchs_perc_chile_census_2024_epo_{year}_regiones.png"),
         "idkey": 'codregion'
 
     },
     3: {
         "geojsonpath": "/home/jimena/work/dev/Chile-GeoJSON/comunas.geojson",
         "geounitspath": "data/chile/chile_geounits_census_2024.csv",
-        "file": os.path.join(RESULTSFOLDER, "nb_matchs_perc_chile_nuts_2024_epo_2023_level_3.csv"),
-        "htmlpath": os.path.join(RESULTSFOLDER, "choropleth_nb_matchs_perc_chile_comunas.html"),
-        "imagepath": os.path.join(RESULTSFOLDER, "choropleth_nb_matchs_perc_chile_comunas.png"),
+        "file": os.path.join(results_folder, f"nb_matchs_perc_chile_nuts_2024_epo_2023_level_3.csv"),
+        "htmlpath": os.path.join(results_folder, f"choropleth_nb_matchs_perc_chile_census_2024_epo_{year}_comunas.html"),
+        "imagepath": os.path.join(results_folder, f"choropleth_nb_matchs_perc_chile_census_2024_epo_{year}_comunas.png"),
         "idkey": 'cod_comuna'
 
     }
@@ -64,7 +72,7 @@ fig = px.choropleth(
     locations='code',
     color='perc',
     color_continuous_scale="Viridis",
-    range_color=(0, 1.5 * df.perc.describe()['mean']),
+    range_color=(0, 6.5),
     scope="south america",
     hover_data="label",
     labels={'perc':'percetage of localized users'},
