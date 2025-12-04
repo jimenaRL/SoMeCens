@@ -1,7 +1,6 @@
 ## 📁 Tables description
 
-Contains the exported tables and figures.
-For each country we have the following tables, where {census} is the name of the census and its year and {metadata} is epo_{year} with the corresponding collection year: 
+Running the script at _scripts/demographs_creation/create_demograph.py_ for each country we can generate following tables, where {census} is the name of the census and its year and {metadata} is epo_{year} with the corresponding collection year: 
 
 1. units_{census}.csv
 
