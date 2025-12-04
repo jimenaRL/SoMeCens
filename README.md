@@ -25,7 +25,7 @@ Check the provided [scripts](https://github.com/jimenaRL/SoMeCens/tree/0fddfc2ff
 
  Image made with IMAGE [web-tool](https://gisco-services.ec.europa.eu/image/) from the Geographic Information System of the European Commission ([GISCO](https://ec.europa.eu/eurostat/web/gisco)).
 
-### 📊 Chile 2024 Census comunas coverage with [EPO](http://ramaciotti.org/projects/project-2021-10-EPO/) data
+### 📊 Chile 2024 Census comunas coverage with [EPO](http://ramaciotti.org/projects/project-2021-10-EPO/) 2023 data
 
  ![Percent of users matched by SoMeCens project in Chile 2024's census at comunas level](images/cloropleth/choropleth_nb_matchs_perc_chile_comunas.png)
 
